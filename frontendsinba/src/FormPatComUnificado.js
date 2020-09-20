@@ -74,7 +74,7 @@ class FormPatComUnificado extends React.Component {
 
                         <div>
                             <label>Cedula Juridica:</label><br></br>
-                            <input type="number" /><br></br>
+                            <input type="text" /><br></br>
                         </div>
 
                         <div>
@@ -186,6 +186,34 @@ class FormPatComUnificado extends React.Component {
                         </div>
 
                     </div>{/*Fin de datos del local renovacion */}
+                    <div>
+                        <h2>Declaracion jurada Solicitud nueva</h2>
+                        <label>Declaro bajo juramento que   </label>
+                        <label>No</label>
+                        <input type="radio" name="tipoSol" />
+                        <label>Si</label>
+                        <input type="radio" name="tipoSol" />
+                        <label>utilizare repertorio musical (ACAM)</label>
+                        <p>Nosotros, los abajo firmantes de calidades antes mencionadas, apercibimos de las penas que se castiga los delitos de falso testimonio y perjurio declaramos bajo fe de juramento que la información anotada anteriormente en lo que corresponde a cada uno, es verdadera (Ley 6683 y Decreto 23485 MP)</p>
+                    </div>{/*Fin declaracion jurada Solicitud*/}
+
+                    <div>
+                        <h2>Declaracion jurada Retiro</h2>
+                        <p>Yo, el abajo firmante, de calidades antes mencionadas, a percibido de las penas con que se castiga los delitos de falso testimonio y perjurio, declaro bajo fe de juramento que la información que he suministrado es verdadera</p>
+                    </div>{/*Fin declaracion jurada Retiro*/}
+
+                    <div>
+                        <label>Firma del solicitante</label><br></br>
+                        <textarea id="w3review" name="w3review" rows="4" cols="50">
+                        </textarea><br></br>
+                        <label>Cedula</label><br></br>
+                        <input type="text" /><br></br>
+                        <label>Firma del dueno</label><br></br>
+                        <textarea id="w3review" name="w3review" rows="4" cols="50">
+                        </textarea><br></br>
+                        <label>Cedula</label><br></br>
+                        <input type="text" /><br></br>
+                    </div>{/*Fin firmas*/}
                 </form>
             </div>
         );
