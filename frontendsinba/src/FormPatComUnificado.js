@@ -306,8 +306,8 @@ class FormPatComUnificado extends React.Component {
 
                     <div>
                         <label>Autorizo a </label>
-                        <input type="text"/>
-                        <label>cedula </label> 
+                        <input type="text" />
+                        <label>cedula </label>
                         <input type="text" /><br></br>
                         <p>Para que presente y retire documentos con respecto a este trámite</p>
                         <div>
@@ -317,9 +317,26 @@ class FormPatComUnificado extends React.Component {
                         </div>
                     </div>{/*Fin autorizacion*/}
 
-                    
+                    <div>
+                        <h2>Departamento de cobros</h2>
+                        <p>Estar al dia con los siguientes departamentos: </p>
+                        <ol>
+                            <li>Bienes inmuebles </li>
+                            <li>Ingenieria </li>
+                            <li>Basura </li>
+                            <li>Acueducto </li>
+                            <li>Cementerio </li>
+                            <li>Limpieza de vias </li>
+                            <li>Funcionario que aprueba </li>
+                        </ol>
+                    </div>{/*Gestiones al dia Nueva, traspaso, traslado*/}
+
+                    <div>
+                        <input type="submit" value="Enviar" />
+                        <input type="reset" value="Limpiar"/>
+                    </div>
                 </form>
-            </div>
+            </div >
         );
     }
 }
