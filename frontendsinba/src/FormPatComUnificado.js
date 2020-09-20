@@ -203,17 +203,121 @@ class FormPatComUnificado extends React.Component {
                     </div>{/*Fin declaracion jurada Retiro*/}
 
                     <div>
-                        <label>Firma del solicitante</label><br></br>
-                        <textarea id="w3review" name="w3review" rows="4" cols="50">
-                        </textarea><br></br>
-                        <label>Cedula</label><br></br>
-                        <input type="text" /><br></br>
-                        <label>Firma del dueno</label><br></br>
-                        <textarea id="w3review" name="w3review" rows="4" cols="50">
-                        </textarea><br></br>
-                        <label>Cedula</label><br></br>
-                        <input type="text" /><br></br>
+                        <div>
+                            <label>Firma del solicitante</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+                        <div>
+                            <label>Cedula solicitante</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+                        <div>
+                            <label>Firma del dueño</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+                        <div>
+                            <label>Cedula del dueño</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
                     </div>{/*Fin firmas*/}
+
+                    <div>
+                        <h2>Datos de la persona a traspasar</h2>
+                        <div>
+                            <label>Nombre de la persona a traspasar</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+                        <div>
+                            <label>Nombre del Negocio</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+                        <div>
+                            <label>Cedula</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+                        <div>
+                            <label>En caso de sociedades: Nombre del representante legal:</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+
+                        <div>
+                            <label>Cédula jurídica o personal:</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+
+                        <div>
+                            <label>Lugar o medio de notificación:</label><br></br>
+                        </div>
+
+                        <div>
+                            <label>Telefono:</label><br></br>
+                            <input type="tel" /><br></br>
+                        </div>
+
+                        <div>
+                            <label>Fax:</label><br></br>
+                            <input type="tel" /> <br></br>
+                        </div>
+
+                        <div>
+                            <label>Dirección:</label><br></br>
+                            <input type="text" /><br></br>
+                        </div>
+                        <div>
+                            <label>Correo electrónico:</label><br></br>
+                            <input type="email" /><br></br>
+                        </div>
+
+                    </div> {/*Datos de la persona a traspasar*/}
+
+                    <div>
+                        <label>Timbre fiscal</label><br></br>
+                        <textarea id="w3review" name="w3review" rows="4" cols="50">
+                        </textarea><br></br>
+                    </div> {/*Timbre traspaso*/}
+                    <div>
+
+                        <div>
+                            <label>Timbre de abogado</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+
+                        <div>
+                            <label>Firmas autenticadas por notario Publico</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+
+                        <div>
+                            <label>Firma</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+
+                        <div>
+                            <label>Sello</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+                    </div>{/*Timbre y firma solicitud nueva*/}
+
+                    <div>
+                        <label>Autorizo a </label>
+                        <input type="text"/>
+                        <label>cedula </label> 
+                        <input type="text" /><br></br>
+                        <p>Para que presente y retire documentos con respecto a este trámite</p>
+                        <div>
+                            <label>Firma de la persona autorizada</label><br></br>
+                            <textarea id="w3review" name="w3review" rows="4" cols="50">
+                            </textarea><br></br>
+                        </div>
+                    </div>{/*Fin autorizacion*/}
+
+                    
                 </form>
             </div>
         );
