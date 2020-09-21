@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 //import {Button} from "react-bootstrap";
+//import enviarDatos from "./apiFetch";
 
 class FormPatComUnificado extends Component {
 	constructor(props) {
@@ -61,10 +62,10 @@ class FormPatComUnificado extends Component {
 						<span>{JSON.stringify(this.state)}</span>
 					</div>
 					<div>
-						<button class="btn btn-primary" type="submit" value="Enviar">
+						<button className="btn btn-primary" type="submit" value="Enviar">
 							Enviar
 						</button>
-						<button class="btn btn-secondary" type="reset" value="Limpiar">
+						<button className="btn btn-secondary" type="reset" value="Limpiar">
 							Limpiar
 						</button>
 					</div>
