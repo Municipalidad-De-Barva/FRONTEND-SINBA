@@ -61,8 +61,12 @@ class FormPatComUnificado extends Component {
 						<span>{JSON.stringify(this.state)}</span>
 					</div>
 					<div>
-						<input type="submit" value="Enviar" />
-						<input type="reset" value="Limpiar" />
+						<button class="btn btn-primary" type="submit" value="Enviar">
+							Enviar
+						</button>
+						<button class="btn btn-secondary" type="reset" value="Limpiar">
+							Limpiar
+						</button>
 					</div>
 					<div>
 						<h1>Formulario Patente Comercial Unificado</h1>
