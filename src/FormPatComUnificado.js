@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 
-class FormPatComUnificado extends React.Component {
+class FormPatComUnificado extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      /**Radio button */
+      /*Tipo de solicitud*/
       tipoSol: "",
       /*Informacion Solicitante*/
       nomSolicitante: "",
