@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class FormPatComUnificado extends React.Component {
 
     constructor(props) {
@@ -14,13 +15,34 @@ class FormPatComUnificado extends React.Component {
             cambio: '',
             /*Informacion Solicitante*/
             nomSolicitante: '',
-            cedula: ''
+            cedulaSolicitante: '',
+            represLegalSolicitante: '',
+            cedulaJuriSolicitante: '',
+            telSolicitante: '',
+            faxSolicitante: '',
+            dirSolicitante: '',
+            correoEleSolicitante: '',
+            /*Informacion Dueño de local
+            nomPropietario: '',
+            represLegalPropietario: '',
+            cedulaJuriPropietario: '',
+            dirPropietario: '',*/
+            /*Datos del local
+            nomPropietario: '',
+            represLegalPropietario: '',
+            cedulaJuriPropietario: '',
+            dirPropietario: '',*/
+            message:"",
         }
     }
 
+    save(e){
+        this.setState({message: 'Guardado correctamente'})
+
+    }
+
     render() {
-        const { nomSolicitante } = this.state
-        const { cedula } = this.state
+        
 
         return (
             <div>
@@ -59,22 +81,22 @@ class FormPatComUnificado extends React.Component {
                         <h2>Datos del Solicitante:</h2>
                         <div>
                             <label for>Nombre del solicitante o patentado:</label>
-                            <input type="text" value={nomSolicitante} onChange={(e) => this.setState({ nomSolicitante: e.target.value })} />
+                            <input type="text" value={this.state.nomSolicitante} onChange={(e) => this.setState({ nomSolicitante: e.target.value })} />
                         </div>
 
                         <div>
                             <label>Cedula:</label><br></br>
-                            <input type="text" value={cedula} onChange={(e) => this.setState({ cedula: e.target.value })} /><br></br>
+                            <input type="text" value={this.state.cedulaSolicitante} onChange={(e) => this.setState({ cedulaSolicitante: e.target.value })} /><br></br>
                         </div>
 
                         <div>
                             <label>En caso de sociedades: Nombre del representante legal</label><br></br>
-                            <input type="text" /><br></br>
+                            <input type="text" value={this.state.represLegalSolicitante} onChange={(e) => this.setState({ represLegalSolicitante: e.target.value })}/><br></br>
                         </div>
 
                         <div>
                             <label>Cedula Juridica:</label><br></br>
-                            <input type="text" /><br></br>
+                            <input type="text" value={this.state.cedulaJuriSolicitante} onChange={(e) => this.setState({ cedulaJuriSolicitante: e.target.value })}/><br></br>
                         </div>
 
                         <div>
@@ -83,22 +105,23 @@ class FormPatComUnificado extends React.Component {
 
                         <div>
                             <label>Telefono:</label><br></br>
-                            <input type="tel" /><br></br>
+                            <input type="tel" value={this.state.telSolicitante} onChange={(e) => this.setState({ telSolicitante: e.target.value })}/><br></br>
                         </div>
 
                         <div>
                             <label>Fax:</label><br></br>
-                            <input type="tel" /> <br></br>
+                            <input type="tel" value={this.state.faxSolicitante} onChange={(e) => this.setState({ faxSolicitante: e.target.value })}/> <br></br>
                         </div>
 
                         <div>
                             <label>Dirección:</label><br></br>
-                            <input type="text" /><br></br>
+                            <input type="text" value={this.state.dirSolicitante} onChange={(e) => this.setState({ dirSolicitante: e.target.value })}/><br></br>
                         </div>
                         <div>
                             <label>Correo electrónico:</label><br></br>
-                            <input type="email" /><br></br>
+                            <input type="email" value={this.state.correoEleSolicitante} onChange={(e) => this.setState({ correoEleSolicitante: e.target.value })}/><br></br>
                         </div>
+                        {/*<span>[JSON.stringify(this.state)]</span>*/}
                     </div>{/* fin de datos del solicitante*/}
 
                     <div>
@@ -333,6 +356,8 @@ class FormPatComUnificado extends React.Component {
 
                     <div>
                         <input type="submit" value="Enviar" />
+                        {/*<button onClick={this.save.bind(this)}>Enviar</button>
+                        <spam>[this.state.message]*/}
                         <input type="reset" value="Limpiar"/>
                     </div>
                 </form>
