@@ -7,12 +7,7 @@ class FormPatComUnificado extends React.Component {
         super(props)
         this.state = {
             /**Radio button */
-            nueva: '',
-            traspaso: '',
-            traslado: '',
-            retiro: '',
-            renovacion: '',
-            cambio: '',
+            tipoSol:'',
             /*Informacion Solicitante*/
             nomSolicitante: '',
             cedulaSolicitante: '',
@@ -47,7 +42,10 @@ class FormPatComUnificado extends React.Component {
         return (
             <div>
                 <form>
-
+                    <div>
+                        <span>{console.log(JSON.stringify(this.state))}</span>
+                        <span>{(JSON.stringify(this.state))}</span>
+                        </div>
                     <div>
                         <h1>Formulario Patente Comercial Unificado</h1>
                         <h3>Numero de tramite:</h3>
@@ -58,23 +56,29 @@ class FormPatComUnificado extends React.Component {
                     <div>
 
                         <h3>Tipo de solicitud:</h3>
-                        <input type="radio" value="nueva" name="tipoSol"></input>
-                        <label>Nueva    </label>
+                        <input type="radio" value='1' 
+                        onChange={(e) => this.setState({tipoSol: e.target.value })} name="tipoSol" id="tipoSol"></input>
+                        <label htmlFor="tipoSol">Nueva    </label>
 
-                        <input type="radio" value="traspaso" name="tipoSol"></input>
-                        <label>Traspaso </label>
+                        <input type="radio" value='2'
+                        onChange={(e) => this.setState({ tipoSol: e.target.value })} name="tipoSol" id="tipoSol"></input>
+                        <label htmlFor="tipoSol">Traspaso </label>
 
-                        <input type="radio" value="traslado" name="tipoSol"></input>
-                        <label>Traslado </label>
+                        <input type="radio" value='3' 
+                        onChange={(e) => this.setState({ tipoSol: e.target.value })} name="tipoSol" id="tipoSol"></input>
+                        <label htmlFor="tipoSol">Traslado </label>
 
-                        <input type="radio" value="retiro" name="tipoSol"></input>
-                        <label>Retiro   </label>
+                        <input type="radio" value='4' 
+                        onChange={(e) => this.setState({ tipoSol: e.target.value })} name="tipoSol" id="tipoSol"></input>
+                        <label htmlFor="tipoSol">Retiro   </label>
 
-                        <input type="radio" value="renovacion" name="tipoSol"></input>
-                        <label>Renovacion   </label>
+                        <input type="radio" value='5' 
+                        onChange={(e) => this.setState({ tipoSol: e.target.value })} name="tipoSol" id="tipoSol"></input>
+                        <label htmlFor="tipoSol">Renovacion   </label>
 
-                        <input type="radio" value="cambio" name="tipoSol"></input>
-                        <label>Cambio   </label>
+                        <input type="radio" value='6' 
+                        onChange={(e) => this.setState({ tipoSol: e.target.value })} name="tipoSol" id="tipoSol"></input>
+                        <label htmlFor="tipoSol">Cambio   </label>
                     </div>
 
                     <div>
@@ -121,7 +125,7 @@ class FormPatComUnificado extends React.Component {
                             <label>Correo electrónico:</label><br></br>
                             <input type="email" value={this.state.correoEleSolicitante} onChange={(e) => this.setState({ correoEleSolicitante: e.target.value })}/><br></br>
                         </div>
-                        {/*<span>[JSON.stringify(this.state)]</span>*/}
+                        
                     </div>{/* fin de datos del solicitante*/}
 
                     <div>
