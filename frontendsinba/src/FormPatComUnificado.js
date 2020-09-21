@@ -17,16 +17,25 @@ class FormPatComUnificado extends React.Component {
             faxSolicitante: '',
             dirSolicitante: '',
             correoEleSolicitante: '',
-            /*Informacion Dueño de local
+            /*Informacion Dueño de local*/
             nomPropietario: '',
             represLegalPropietario: '',
             cedulaJuriPropietario: '',
-            dirPropietario: '',*/
-            /*Datos del local
-            nomPropietario: '',
-            represLegalPropietario: '',
-            cedulaJuriPropietario: '',
-            dirPropietario: '',*/
+            dirPropietario: '',
+            /*Datos del local*/
+            nomComercial: '',
+            actividad: '',
+            /*datos del local retiro */
+            dirExactaLocal: '',
+            numPatenteCom: '',
+            /*datos del local renovacion */
+            numPlanoCatastro:'',
+            telLocal: '',
+            faxLocal: '',
+            estadoPaten: '',
+            correoEleLocal: '',
+            /*declaracion jurada */
+            declaraJura:'',
             message:"",
         }
     }
@@ -84,23 +93,27 @@ class FormPatComUnificado extends React.Component {
                     <div>
                         <h2>Datos del Solicitante:</h2>
                         <div>
-                            <label for>Nombre del solicitante o patentado:</label>
-                            <input type="text" value={this.state.nomSolicitante} onChange={(e) => this.setState({ nomSolicitante: e.target.value })} />
+                            <label htmlFor="nomSolicitante">Nombre del solicitante o patentado:</label>
+                            <input type="text" value={this.state.nomSolicitante} 
+                            onChange={(e) => this.setState({ nomSolicitante: e.target.value })} name="nomSolicitante" id="nomSolicitante"/>
                         </div>
 
                         <div>
-                            <label>Cedula:</label><br></br>
-                            <input type="text" value={this.state.cedulaSolicitante} onChange={(e) => this.setState({ cedulaSolicitante: e.target.value })} /><br></br>
+                            <label htmlFor="cedulaSolicitante">Cedula:</label><br></br>
+                            <input type="text" value={this.state.cedulaSolicitante} 
+                            onChange={(e) => this.setState({ cedulaSolicitante: e.target.value })} name="cedulaSolicitante" id="cedulaSolicitante"/><br></br>
                         </div>
 
                         <div>
-                            <label>En caso de sociedades: Nombre del representante legal</label><br></br>
-                            <input type="text" value={this.state.represLegalSolicitante} onChange={(e) => this.setState({ represLegalSolicitante: e.target.value })}/><br></br>
+                            <label htmlFor="represLegalSolicitante">En caso de sociedades: Nombre del representante legal</label><br></br>
+                            <input type="text" value={this.state.represLegalSolicitante} 
+                            onChange={(e) => this.setState({ represLegalSolicitante: e.target.value })} name="represLegalSolicitante" id="represLegalSolicitante"/><br></br>
                         </div>
 
                         <div>
-                            <label>Cedula Juridica:</label><br></br>
-                            <input type="text" value={this.state.cedulaJuriSolicitante} onChange={(e) => this.setState({ cedulaJuriSolicitante: e.target.value })}/><br></br>
+                            <label htmlFor="cedulaJuriSolicitante">Cedula Juridica:</label><br></br>
+                            <input type="text" value={this.state.cedulaJuriSolicitante} 
+                            onChange={(e) => this.setState({ cedulaJuriSolicitante: e.target.value })} name="cedulaJuriSolicitante" id="cedulaJuriSolicitante"/><br></br>
                         </div>
 
                         <div>
@@ -108,22 +121,26 @@ class FormPatComUnificado extends React.Component {
                         </div>
 
                         <div>
-                            <label>Telefono:</label><br></br>
-                            <input type="tel" value={this.state.telSolicitante} onChange={(e) => this.setState({ telSolicitante: e.target.value })}/><br></br>
+                            <label htmlFor="telSolicitante">Telefono:</label><br></br>
+                            <input type="tel" value={this.state.telSolicitante} 
+                            onChange={(e) => this.setState({ telSolicitante: e.target.value })} name="telSolicitante" id="telSolicitante"/><br></br>
                         </div>
 
                         <div>
-                            <label>Fax:</label><br></br>
-                            <input type="tel" value={this.state.faxSolicitante} onChange={(e) => this.setState({ faxSolicitante: e.target.value })}/> <br></br>
+                            <label htmlFor="faxSolicitante">Fax:</label><br></br>
+                            <input type="tel" value={this.state.faxSolicitante} 
+                            onChange={(e) => this.setState({ faxSolicitante: e.target.value })} name="faxSolicitante" id="faxSolicitante"/> <br></br>
                         </div>
 
                         <div>
-                            <label>Dirección:</label><br></br>
-                            <input type="text" value={this.state.dirSolicitante} onChange={(e) => this.setState({ dirSolicitante: e.target.value })}/><br></br>
+                            <label htmlFor="dirSolicitante">Dirección:</label><br></br>
+                            <input type="text" value={this.state.dirSolicitante} 
+                            onChange={(e) => this.setState({ dirSolicitante: e.target.value })} name="dirSolicitante" id="dirSolicitante"/><br></br>
                         </div>
                         <div>
-                            <label>Correo electrónico:</label><br></br>
-                            <input type="email" value={this.state.correoEleSolicitante} onChange={(e) => this.setState({ correoEleSolicitante: e.target.value })}/><br></br>
+                            <label htmlFor="correoEleSolicitante">Correo electrónico:</label><br></br>
+                            <input type="email" value={this.state.correoEleSolicitante} 
+                            onChange={(e) => this.setState({ correoEleSolicitante: e.target.value })} name="correoEleSolicitante" id="correoEleSolicitante"/><br></br>
                         </div>
                         
                     </div>{/* fin de datos del solicitante*/}
@@ -133,39 +150,45 @@ class FormPatComUnificado extends React.Component {
                         <h2>Dueño de la propiedad:</h2>
 
                         <div>
-                            <label>Nombre del propietario</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="nomPropietario">Nombre del propietario</label><br></br>
+                            <input type="text" value={this.state.nomPropietario} 
+                            onChange={(e) => this.setState({ nomPropietario: e.target.value })} name="nomPropietario" id="nomPropietario"/><br></br>
                         </div>
 
 
                         <div>
-                            <label>En caso de sociedades: Nombre del representante legal:</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="represLegalPropietario">En caso de sociedades: Nombre del representante legal:</label><br></br>
+                            <input type="text" value={this.state.represLegalPropietario} 
+                            onChange={(e) => this.setState({ represLegalPropietario: e.target.value })} name="represLegalPropietario" id="nomPrepresLegalPropietarioropietario"/><br></br>
                         </div>
 
                         <div>
-                            <label>Cédula jurídica o personal:</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="cedulaJuriPropietario">Cédula jurídica o personal:</label><br></br>
+                            <input type="text" value={this.state.cedulaJuriPropietario} 
+                            onChange={(e) => this.setState({ cedulaJuriPropietario: e.target.value })} name="cedulaJuriPropietario" id="cedulaJuriPropietario"/><br></br>
                         </div>
 
                         <div>
-                            <label>Dirección:</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="dirPropietario">Dirección:</label><br></br>
+                            <input type="text" value={this.state.dirPropietario} 
+                            onChange={(e) => this.setState({ dirPropietario: e.target.value })} name="dirPropietario" id="dirPropietario"/><br></br>
                         </div>
 
                     </div>{/*fin de dueño de la propiedad */}
 
                     <div>
 
-                        <h2>Datos Del Local</h2>
+                        <h2>Datos del Local</h2>
                         <div>
-                            <label>Nombre comercial del negocio o local</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="nomComercial">Nombre comercial del negocio o local</label><br></br>
+                            <input type="text" value={this.state.nomComercial} 
+                            onChange={(e) => this.setState({ nomComercial: e.target.value })} name="nomComercial" id="nomComercial"/><br></br>
                         </div>
 
                         <div>
-                            <label>Actividad específica</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="actividad">Actividad específica</label><br></br>
+                            <input type="text" value={this.state.actividad} 
+                            onChange={(e) => this.setState({ actividad: e.target.value })} name="actividad" id="actividad"/><br></br>
                         </div>
 
                     </div>{/*fin de datos del local */}
@@ -174,13 +197,16 @@ class FormPatComUnificado extends React.Component {
 
                         <h2>Datos Del Local Retiro</h2>
                         <div>
-                            <label>Dirección exacta del local, Distrito, otras señas</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="dirExactaLocal">Dirección exacta del local, Distrito, otras señas</label><br></br>
+                            <textarea value={this.state.dirExactaLocal} 
+                            onChange={(e) => this.setState({ dirExactaLocal: e.target.value })} name="dirExactaLocal" id="dirExactaLocal" rows="4" cols="50">
+                            </textarea><br></br>
                         </div>
 
                         <div>
-                            <label>Numero de Patente comercial</label><br></br>
-                            <input type="text" /><br></br>
+                            <label htmlFor="numPatenteCom">Numero de Patente comercial</label><br></br>
+                            <input type="text" value={this.state.numPatenteCom} 
+                            onChange={(e) => this.setState({ numPatenteCom: e.target.value })} name="numPatenteCom" id="numPatenteCom"/><br></br>
                         </div>
 
 
@@ -189,27 +215,36 @@ class FormPatComUnificado extends React.Component {
                     <div>
                         <h2>Datos Del Local Renovacion</h2>
                         <div>
-                            <label>Numero de Plano catastro</label><br></br>
-                            <input type="number" placeholder="Ingrese numero" /><br></br>
+                            <label htmlFor="numPlanoCatastro">Numero de Plano catastro</label><br></br>
+                            <input type="number" placeholder="Ingrese numero" value={this.state.numPlanoCatastro} 
+                            onChange={(e) => this.setState({ numPlanoCatastro: e.target.value })} name="numPlanoCatastro" id="numPlanoCatastro"/><br></br>
                             <div>
-                                <label>Telefono:</label><br></br>
-                                <input type="tel" /><br></br>
+                                <label htmlFor="telLocal">Telefono:</label><br></br>
+                                <input type="tel" value={this.state.telLocal} 
+                            onChange={(e) => this.setState({ telLocal: e.target.value })} name="telLocal" id="telLocal"/><br></br>
                             </div>
 
                             <div>
-                                <label>Fax:</label><br></br>
-                                <input type="tel" /> <br></br>
+                                <label htmlFor="faxLocal">Fax:</label><br></br>
+                                <input type="tel" value={this.state.faxLocal} 
+                            onChange={(e) => this.setState({ faxLocal: e.target.value })} name="faxLocal" id="faxLocal"/> <br></br>
                             </div>
 
                             <div>
-                                <label>Correo electrónico:</label><br></br>
-                                <input type="email" /><br></br>
+                                <label htmlFor="correoEleLocal">Correo electrónico:</label><br></br>
+                                <input type="email" value={this.state.correoEleLocal} 
+                            onChange={(e) => this.setState({ correoEleLocal: e.target.value })} name="correoEleLocal" id="correoEleLocal"/><br></br>
                             </div>
                         </div>
 
                         <div>
-                            <label>Numero de Patente comercial</label><br></br>
-                            <input type="text" /><br></br>
+                            <label>Estado de la Patente</label><br></br>
+                            <label htmlFor="estadoPaten">Activa </label>
+                            <input type="radio" value={this.state.estadoPaten} 
+                            onChange={(e) => this.setState({ estadoPaten: e.target.value })} name="estadoPaten" id="estadoPaten"/><br></br>
+                            <label htmlFor="estadoPaten">Inactiva </label>
+                            <input type="radio" value={this.state.estadoPaten} 
+                            onChange={(e) => this.setState({ estadoPaten: e.target.value })} name="estadoPaten" id="estadoPaten"/><br></br>
                         </div>
 
                     </div>{/*Fin de datos del local renovacion */}
