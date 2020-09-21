@@ -60,6 +60,11 @@ class FormPatComUnificado extends React.Component {
             <span>{JSON.stringify(this.state)}</span>
           </div>
           <div>
+            <input type="submit" value="Enviar" />
+
+            <input type="reset" value="Limpiar" />
+          </div>
+          <div>
             <h1>Formulario Patente Comercial Unificado</h1>
             <h3>Numero de tramite:</h3>
             <h3>Fecha del tramite:</h3>
@@ -747,19 +752,18 @@ class FormPatComUnificado extends React.Component {
             <input
               type="text"
               value={this.state.nomAutorizado}
-              onChange={(e) =>
-                this.setState({ nomAutorizado: e.target.value })
-              }
+              onChange={(e) => this.setState({ nomAutorizado: e.target.value })}
               name="nomAutorizado"
               id="nomAutorizado"
             />
             <label htmlFor="cedAutorizado">cedula </label>
-            <input type="text" value={this.state.cedAutorizado}
-              onChange={(e) =>
-                this.setState({ cedAutorizado: e.target.value })
-              }
+            <input
+              type="text"
+              value={this.state.cedAutorizado}
+              onChange={(e) => this.setState({ cedAutorizado: e.target.value })}
               name="cedAutorizado"
-              id="cedAutorizado"/>
+              id="cedAutorizado"
+            />
             <br></br>
             <p>
               Para que presente y retire documentos con respecto a este trámite
@@ -791,16 +795,10 @@ class FormPatComUnificado extends React.Component {
             </ol>
           </div>
           {/*Gestiones al dia Nueva, traspaso, traslado*/}
-          <div>
-            <input type="submit" value="Enviar" />
-            
-            <input type="reset" value="Limpiar" />
-          </div>
         </form>
       </div>
-    ); 
-  }/*Fin del render*/
-  
+    );
+  } /*Fin del render*/
 }
 
 export default FormPatComUnificado;
