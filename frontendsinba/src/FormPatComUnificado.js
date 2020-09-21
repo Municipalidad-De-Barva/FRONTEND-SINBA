@@ -51,10 +51,6 @@ class FormPatComUnificado extends React.Component {
     };
   }
 
-  save(e) {
-    this.setState({ message: "Guardado correctamente" });
-  }
-
   render() {
     return (
       <div>
@@ -797,14 +793,14 @@ class FormPatComUnificado extends React.Component {
           {/*Gestiones al dia Nueva, traspaso, traslado*/}
           <div>
             <input type="submit" value="Enviar" />
-            {/*<button onClick={this.save.bind(this)}>Enviar</button>
-                        <spam>[this.state.message]*/}
+            
             <input type="reset" value="Limpiar" />
           </div>
         </form>
       </div>
-    );
-  }
+    ); 
+  }/*Fin del render*/
+  
 }
 
 export default FormPatComUnificado;
