@@ -1,5 +1,3 @@
-
-
 /*
 formulario.addEventListener("submit", function (e) {
 	console.log("he clickeado");
@@ -26,7 +24,7 @@ bot.onclick(function (e) {
 	console.log("he clickeado");
 });*/
 
-export const prueba = (e)=>{
+export const prueba = (e) => {
 	console.log("he clickeado HERE");
 	e.preventDefault();
-}
+};

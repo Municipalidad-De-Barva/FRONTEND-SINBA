@@ -60,31 +60,32 @@ class FormPatComUnificado extends Component {
 			cedAutorizado: "",
 		};
 		this.onClick = this.handleClick.bind(this);
-		
 	}
-	handleClick(event){
+	handleClick(event) {
 		console.log(this.state);
 		//prueba();
 		fetch("http://localhost:3001/", {
-		method: "POST",
-		body: "{'msg':'oa'}",
-	})
-		.then((res) => res.json())
-		.then((data) => {
-			console.log(data);
-		});
+			method: "POST",
+			body: "{'msg':'oa'}",
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+			});
 	}
-	
 
 	render() {
 		return (
-			<div className="">
-				<div className="text-center">
+			<div className="container">
+				{/*className="text-center"*/}
+				<div>
 					<form>
+						{/*
 						<div className="form-group">
 							<span>{console.log(JSON.stringify(this.state))}</span>
 							<span>{JSON.stringify(this.state)}</span>
 						</div>
+						*/}
 						<div className="form-group">
 							<h1>Formulario Patente Comercial Unificado</h1>
 							<h3>Numero de tramite:</h3>
@@ -93,68 +94,100 @@ class FormPatComUnificado extends Component {
 						</div>
 						<div className="form-group">
 							<h3>Tipo de solicitud:</h3>
-							<input
-								type="radio"
-								value="1"
-								onChange={(e) => this.setState({tipoSol: e.target.value})}
-								name="tipoSol"
-								id="tipoSol"
-							></input>
-							<label htmlFor="tipoSol">Nueva </label>
+							<hr />
+							<div className="form-check form-check-inline">
+								<input
+									classclassName="form-check-input"
+									type="radio"
+									value="1"
+									onChange={(e) => this.setState({tipoSol: e.target.value})}
+									name="tipoSol"
+									id="tipoSol"
+								></input>
+								<label className="form-check-label" htmlFor="tipoSol">
+									Nueva{" "}
+								</label>
+							</div>
 
-							<input
-								type="radio"
-								value="2"
-								onChange={(e) => this.setState({tipoSol: e.target.value})}
-								name="tipoSol"
-								id="tipoSol"
-							></input>
-							<label htmlFor="tipoSol">Traspaso </label>
-
-							<input
-								type="radio"
-								value="3"
-								onChange={(e) => this.setState({tipoSol: e.target.value})}
-								name="tipoSol"
-								id="tipoSol"
-							></input>
-							<label htmlFor="tipoSol">Traslado </label>
-
-							<input
-								type="radio"
-								value="4"
-								onChange={(e) => this.setState({tipoSol: e.target.value})}
-								name="tipoSol"
-								id="tipoSol"
-							></input>
-							<label htmlFor="tipoSol">Retiro </label>
-
-							<input
-								type="radio"
-								value="5"
-								onChange={(e) => this.setState({tipoSol: e.target.value})}
-								name="tipoSol"
-								id="tipoSol"
-							></input>
-							<label htmlFor="tipoSol">Renovacion </label>
-
-							<input
-								type="radio"
-								value="6"
-								onChange={(e) => this.setState({tipoSol: e.target.value})}
-								name="tipoSol"
-								id="tipoSol"
-							></input>
-							<label htmlFor="tipoSol">Cambio </label>
+							<div className="form-check form-check-inline">
+								<input
+									classclassName="form-check-input"
+									type="radio"
+									value="2"
+									onChange={(e) => this.setState({tipoSol: e.target.value})}
+									name="tipoSol"
+									id="tipoSol"
+								></input>
+								<label className="form-check-label" htmlFor="tipoSol">
+									Traspaso{" "}
+								</label>
+							</div>
+							<div className="form-check form-check-inline">
+								<input
+									classclassName="form-check-input"
+									type="radio"
+									value="3"
+									onChange={(e) => this.setState({tipoSol: e.target.value})}
+									name="tipoSol"
+									id="tipoSol"
+								></input>
+								<label className="form-check-label" htmlFor="tipoSol">
+									Traslado{" "}
+								</label>
+							</div>
+							<div className="form-check form-check-inline">
+								<input
+									classclassName="form-check-input"
+									type="radio"
+									value="4"
+									onChange={(e) => this.setState({tipoSol: e.target.value})}
+									name="tipoSol"
+									id="tipoSol"
+								></input>
+								<label className="form-check-label" htmlFor="tipoSol">
+									Retiro{" "}
+								</label>
+							</div>
+							<div className="form-check form-check-inline">
+								<input
+									classclassName="form-check-input"
+									type="radio"
+									value="5"
+									onChange={(e) => this.setState({tipoSol: e.target.value})}
+									name="tipoSol"
+									id="tipoSol"
+								></input>
+								<label className="form-check-label" htmlFor="tipoSol">
+									Renovacion{" "}
+								</label>
+							</div>
+							<div className="form-check form-check-inline">
+								<input
+									classclassName="form-check-input"
+									type="radio"
+									value="6"
+									onChange={(e) => this.setState({tipoSol: e.target.value})}
+									name="tipoSol"
+									id="tipoSol"
+								></input>
+								<label className="form-check-label" htmlFor="tipoSol">
+									Cambio{" "}
+								</label>
+							</div>
 						</div>
 						{/*fin de tipos de solicitud */}
 						<div className="form-group">
 							<h2>Datos del Solicitante:</h2>
-							<div className="form-group">
-								<label htmlFor="nomSolicitante">
+							<hr />
+							<div className="form-group row">
+								<label
+									htmlFor="nomSolicitante"
+									className="col-sm-3 col-form-label"
+								>
 									Nombre del solicitante o patentado:
 								</label>
 								<input
+									className="form-control col-5"
 									type="text"
 									value={this.state.nomSolicitante}
 									onChange={(e) =>
@@ -165,10 +198,16 @@ class FormPatComUnificado extends Component {
 								/>
 							</div>
 
-							<div className="form-group">
-								<label htmlFor="cedulaSolicitante">Cedula:</label>
+							<div className="form-group row">
+								<label
+									htmlFor="cedulaSolicitante"
+									className="col-sm-3 col-form-label"
+								>
+									Cedula:{" "}
+								</label>
 
 								<input
+									className="form-control  col-2"
 									type="text"
 									value={this.state.cedulaSolicitante}
 									onChange={(e) =>
@@ -180,12 +219,16 @@ class FormPatComUnificado extends Component {
 								<br />
 							</div>
 
-							<div>
-								<label htmlFor="represLegalSolicitante">
+							<div className="form-group row">
+								<label
+									htmlFor="represLegalSolicitante"
+									className="col-sm-3 col-form-label"
+								>
 									En caso de sociedades: Nombre del representante legal
 								</label>
 
 								<input
+									className="form-control col-5"
 									type="text"
 									value={this.state.represLegalSolicitante}
 									onChange={(e) =>
@@ -197,10 +240,16 @@ class FormPatComUnificado extends Component {
 								<br />
 							</div>
 
-							<div>
-								<label htmlFor="cedulaJuriSolicitante">Cedula Juridica:</label>
+							<div className="form-group row">
+								<label
+									htmlFor="cedulaJuriSolicitante"
+									className="col-sm-3 col-form-label"
+								>
+									Cedula Juridica:
+								</label>
 
 								<input
+									className="form-control col-5"
 									type="text"
 									value={this.state.cedulaJuriSolicitante}
 									onChange={(e) =>
@@ -212,14 +261,22 @@ class FormPatComUnificado extends Component {
 								<br />
 							</div>
 
-							<div>
-								<label>Lugar o medio de notificación:</label>
+							<div className="form-group row">
+								<h4 className=" col-sm-3 col-form-label">
+									Lugar o medio de notificación:
+								</h4>
 							</div>
 
-							<div>
-								<label htmlFor="telSolicitante">Telefono:</label>
+							<div className="form-group row">
+								<label
+									htmlFor="telSolicitante"
+									className="col-sm-3 col-form-label"
+								>
+									Telefono:
+								</label>
 
 								<input
+									className="form-control col-2"
 									type="tel"
 									value={this.state.telSolicitante}
 									onChange={(e) =>
@@ -231,9 +288,15 @@ class FormPatComUnificado extends Component {
 								<br />
 							</div>
 
-							<div>
-								<label htmlFor="faxSolicitante">Fax:</label>
+							<div className="form-group row">
+								<label
+									htmlFor="faxSolicitante"
+									className="col-sm-3 col-form-label"
+								>
+									Fax:
+								</label>
 								<input
+									className="form-control col-2"
 									type="tel"
 									value={this.state.faxSolicitante}
 									onChange={(e) =>
@@ -245,10 +308,16 @@ class FormPatComUnificado extends Component {
 								<br />
 							</div>
 
-							<div>
-								<label htmlFor="dirSolicitante">Dirección:</label>
+							<div className="form-group row">
+								<label
+									htmlFor="dirSolicitante"
+									className="col-sm-3 col-form-label"
+								>
+									Dirección:
+								</label>
 
 								<input
+									className="form-control col-5"
 									type="text"
 									value={this.state.dirSolicitante}
 									onChange={(e) =>
@@ -259,12 +328,16 @@ class FormPatComUnificado extends Component {
 								/>
 								<br />
 							</div>
-							<div>
-								<label htmlFor="correoEleSolicitante">
+							<div className="form-group row">
+								<label
+									htmlFor="correoEleSolicitante"
+									className="col-sm-3 col-form-label"
+								>
 									Correo electrónico:
 								</label>
 
 								<input
+									className="form-control col-5"
 									type="email"
 									value={this.state.correoEleSolicitante}
 									onChange={(e) =>
@@ -279,7 +352,7 @@ class FormPatComUnificado extends Component {
 						{/* fin de datos del solicitante*/}
 						<div className="form-group">
 							<h2>Dueño de la propiedad:</h2>
-
+							<hr />
 							<div>
 								<label htmlFor="nomPropietario">Nombre del propietario</label>
 
@@ -826,10 +899,20 @@ class FormPatComUnificado extends Component {
 						</div>
 						{/*Gestiones al dia Nueva, traspaso, traslado*/}
 						<div className="form-group">
-							<Button variant="primary" type="submit" onClick={this.onClick} value="Enviar">
+							<Button
+								variant="primary"
+								type="submit"
+								onClick={this.onClick}
+								value="Enviar"
+							>
 								Enviar
 							</Button>
-							<Button variant="secondary" type="reset" onClick={this.onClick} value="Limpiar">
+							<Button
+								variant="secondary"
+								type="reset"
+								onClick={this.onClick}
+								value="Limpiar"
+							>
 								Limpiar
 							</Button>
 						</div>
