@@ -1,6 +1,4 @@
-//var formulario = document.getElementById("formulario");
 
-//const { FormPatComUnificado } = require("./FormPatComUnificado");
 
 /*
 formulario.addEventListener("submit", function (e) {
@@ -28,6 +26,7 @@ bot.onclick(function (e) {
 	console.log("he clickeado");
 });*/
 
-export const prueba = ()=>{
-    console.log("he clickeado HERE");
+export const prueba = (e)=>{
+	console.log("he clickeado HERE");
+	e.preventDefault();
 }
