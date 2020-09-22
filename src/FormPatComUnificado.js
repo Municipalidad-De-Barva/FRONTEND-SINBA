@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 //import {Button} from "react-bootstrap";
-//import enviarDatos from "./apiFetch";
+//import {prueba} from "./apiFetch";
 
 class FormPatComUnificado extends Component {
 	constructor(props) {
@@ -51,7 +51,22 @@ class FormPatComUnificado extends Component {
 			cedAutorizado: "",
 			message: "",
 		};
+		this.onClick = this.handleClick.bind(this);
+		
 	}
+	async handleClick(event){
+		console.log(this.state);
+		//prueba();
+		await fetch("http://localhost:3001/", {
+		method: "POST",
+		body: `{msg:'oa'}`,
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			console.log(data);
+		});
+	}
+	
 
 	render() {
 		return (
@@ -62,10 +77,10 @@ class FormPatComUnificado extends Component {
 						<span>{JSON.stringify(this.state)}</span>
 					</div>
 					<div>
-						<button className="btn btn-primary" type="submit" value="Enviar">
+						<button className="btn btn-primary" type="submit" onClick={this.onClick} value="Enviar">
 							Enviar
 						</button>
-						<button className="btn btn-secondary" type="reset" value="Limpiar">
+						<button className="btn btn-secondary" type="reset" onClick={this.onClick} value="Limpiar">
 							Limpiar
 						</button>
 					</div>
