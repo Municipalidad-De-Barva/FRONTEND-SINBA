@@ -97,7 +97,7 @@ class FormPatComUnificado extends Component {
 							<hr />
 							<div className="form-check form-check-inline">
 								<input
-									classclassName="form-check-input"
+									className="form-check-input"
 									type="radio"
 									value="1"
 									onChange={(e) => this.setState({tipoSol: e.target.value})}
@@ -111,7 +111,7 @@ class FormPatComUnificado extends Component {
 
 							<div className="form-check form-check-inline">
 								<input
-									classclassName="form-check-input"
+									className="form-check-input"
 									type="radio"
 									value="2"
 									onChange={(e) => this.setState({tipoSol: e.target.value})}
@@ -124,7 +124,7 @@ class FormPatComUnificado extends Component {
 							</div>
 							<div className="form-check form-check-inline">
 								<input
-									classclassName="form-check-input"
+									className="form-check-input"
 									type="radio"
 									value="3"
 									onChange={(e) => this.setState({tipoSol: e.target.value})}
@@ -137,7 +137,7 @@ class FormPatComUnificado extends Component {
 							</div>
 							<div className="form-check form-check-inline">
 								<input
-									classclassName="form-check-input"
+									className="form-check-input"
 									type="radio"
 									value="4"
 									onChange={(e) => this.setState({tipoSol: e.target.value})}
@@ -150,7 +150,7 @@ class FormPatComUnificado extends Component {
 							</div>
 							<div className="form-check form-check-inline">
 								<input
-									classclassName="form-check-input"
+									className="form-check-input"
 									type="radio"
 									value="5"
 									onChange={(e) => this.setState({tipoSol: e.target.value})}
@@ -163,7 +163,7 @@ class FormPatComUnificado extends Component {
 							</div>
 							<div className="form-check form-check-inline">
 								<input
-									classclassName="form-check-input"
+									className="form-check-input"
 									type="radio"
 									value="6"
 									onChange={(e) => this.setState({tipoSol: e.target.value})}
@@ -272,7 +272,7 @@ class FormPatComUnificado extends Component {
 									/>
 								</div>
 								{/*"----------Fax------------"*/}
-								<div class="form-group col-md-3">
+								<div className="form-group col-md-3">
 									<label htmlFor="faxSolicitante">Fax:</label>
 									<input
 										className="form-control"
@@ -286,7 +286,7 @@ class FormPatComUnificado extends Component {
 									/>
 								</div>
 								{/*"----------Correo electrónico:------------"*/}
-								<div class="form-group col-md-6">
+								<div className="form-group col-md-6">
 									<label htmlFor="correoEleSolicitante">
 										Correo electrónico:
 									</label>
@@ -401,77 +401,82 @@ class FormPatComUnificado extends Component {
 						<div className="form-group">
 							<h2>Datos del Local</h2>
 							<hr />
-							<div>
-								<label htmlFor="nomComercial">
-									Nombre comercial del negocio o local
-								</label>
 
-								<input
-									type="text"
-									value={this.state.nomComercial}
-									onChange={(e) =>
-										this.setState({nomComercial: e.target.value})
-									}
-									name="nomComercial"
-									id="nomComercial"
-								/>
-								<br />
-							</div>
-
-							<div>
-								<label htmlFor="actividad">Actividad específica</label>
-
-								<input
-									type="text"
-									value={this.state.actividad}
-									onChange={(e) => this.setState({actividad: e.target.value})}
-									name="actividad"
-									id="actividad"
-								/>
-								<br />
+							<div className="form-row">
+								{/*"-----------Nombre comercial del negocio o local------------"*/}
+								<div className="form-group col-md-6">
+									<label htmlFor="nomComercial">
+										Nombre comercial del negocio o local:
+									</label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.nomComercial}
+										onChange={(e) =>
+											this.setState({nomComercial: e.target.value})
+										}
+										name="nomComercial"
+										id="nomComercial"
+									/>
+								</div>
+								{/*"-----------------------"*/}
+								<div className="form-group col-md-6">
+									<label htmlFor="actividad">Actividad específica:</label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.actividad}
+										onChange={(e) => this.setState({actividad: e.target.value})}
+										name="actividad"
+										id="actividad"
+									/>
+								</div>
 							</div>
 						</div>
 						{/*fin de datos del local */}
 						<div className="form-group">
 							<h2>Datos Del Local Retiro</h2>
-							<div>
-								<label htmlFor="dirExactaLocal">
-									Dirección exacta del local, Distrito, otras señas
-								</label>
+							<hr />
+							<div className="form-row">
+								{/*"-----------Direccion Retiro------------"*/}
+								<div className="form-group col-md-12">
+									<label htmlFor="dirExactaLocal">
+										Dirección exacta del local, Distrito, otras señas
+									</label>
 
-								<textarea
-									value={this.state.dirExactaLocal}
-									onChange={(e) =>
-										this.setState({dirExactaLocal: e.target.value})
-									}
-									name="dirExactaLocal"
-									id="dirExactaLocal"
-									rows="4"
-									cols="50"
-								></textarea>
-								<br />
-							</div>
-
-							<div>
-								<label htmlFor="numPatenteCom">
-									Numero de Patente comercial
-								</label>
-
-								<input
-									type="text"
-									value={this.state.numPatenteCom}
-									onChange={(e) =>
-										this.setState({numPatenteCom: e.target.value})
-									}
-									name="numPatenteCom"
-									id="numPatenteCom"
-								/>
-								<br />
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.dirExactaLocal}
+										onChange={(e) =>
+											this.setState({dirExactaLocal: e.target.value})
+										}
+										name="dirExactaLocal"
+										id="dirExactaLocal"
+									/>
+								</div>
+								{/*"-----------Numero de Patente comercial Retiro------------"*/}
+								<div className="form-group col-md-4">
+									<label htmlFor="numPatenteCom">
+										Numero de Patente comercial
+									</label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.numPatenteCom}
+										onChange={(e) =>
+											this.setState({numPatenteCom: e.target.value})
+										}
+										name="numPatenteCom"
+										id="numPatenteCom"
+									/>
+								</div>
 							</div>
 						</div>
 						{/*fin datos del local retiro */}
 						<div className="form-group">
 							<h2>Datos Del Local Renovacion</h2>
+							<hr />
 							<div>
 								<label htmlFor="numPlanoCatastro">
 									Numero de Plano catastro
