@@ -179,86 +179,74 @@ class FormPatComUnificado extends Component {
 						<div className="form-group">
 							<h2>Datos del Solicitante:</h2>
 							<hr />
-							<div className="form-group row">
-								<label
-									htmlFor="nomSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Nombre del solicitante o patentado:
-								</label>
-								<input
-									className="form-control col-5"
-									type="text"
-									value={this.state.nomSolicitante}
-									onChange={(e) =>
-										this.setState({nomSolicitante: e.target.value})
-									}
-									name="nomSolicitante"
-									id="nomSolicitante"
-								/>
-							</div>
-
-							<div className="form-group row">
-								<label
-									htmlFor="cedulaSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Cedula:{" "}
-								</label>
-
-								<input
-									className="form-control  col-2"
-									type="text"
-									value={this.state.cedulaSolicitante}
-									onChange={(e) =>
-										this.setState({cedulaSolicitante: e.target.value})
-									}
-									name="cedulaSolicitante"
-									id="cedulaSolicitante"
-								/>
+							<div className="form-row">
+								<div className="form-group col-md-8">
+									<label htmlFor="nomSolicitante">
+										Nombre del solicitante o patentado:
+									</label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.nomSolicitante}
+										onChange={(e) =>
+											this.setState({nomSolicitante: e.target.value})
+										}
+										name="nomSolicitante"
+										id="nomSolicitante"
+									/>
+								</div>
+								{/*----------------CEDULA--------------------- */}
+								<div className="form-group col-md-4">
+									<label htmlFor="cedulaSolicitante">Cedula: </label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.cedulaSolicitante}
+										onChange={(e) =>
+											this.setState({cedulaSolicitante: e.target.value})
+										}
+										name="cedulaSolicitante"
+										id="cedulaSolicitante"
+									/>
+								</div>
 								<br />
 							</div>
 
-							<div className="form-group row">
-								<label
-									htmlFor="represLegalSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									En caso de sociedades: Nombre del representante legal
-								</label>
+							<div className="form-row">
+								{/*"----------Nombre del representante legal-------------"*/}
+								<div className="form-group col-md-8">
+									<label htmlFor="represLegalSolicitante">
+										En caso de sociedades: Nombre del representante legal
+									</label>
 
-								<input
-									className="form-control col-5"
-									type="text"
-									value={this.state.represLegalSolicitante}
-									onChange={(e) =>
-										this.setState({represLegalSolicitante: e.target.value})
-									}
-									name="represLegalSolicitante"
-									id="represLegalSolicitante"
-								/>
-								<br />
-							</div>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.represLegalSolicitante}
+										onChange={(e) =>
+											this.setState({represLegalSolicitante: e.target.value})
+										}
+										name="represLegalSolicitante"
+										id="represLegalSolicitante"
+									/>
+								</div>
+								{/*"----------CEDULA JURIDICA-------------"*/}
+								<div className="form-group col-md-4">
+									<label htmlFor="cedulaJuriSolicitante">
+										Cedula Juridica:
+									</label>
 
-							<div className="form-group row">
-								<label
-									htmlFor="cedulaJuriSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Cedula Juridica:
-								</label>
-
-								<input
-									className="form-control col-5"
-									type="text"
-									value={this.state.cedulaJuriSolicitante}
-									onChange={(e) =>
-										this.setState({cedulaJuriSolicitante: e.target.value})
-									}
-									name="cedulaJuriSolicitante"
-									id="cedulaJuriSolicitante"
-								/>
-								<br />
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.cedulaJuriSolicitante}
+										onChange={(e) =>
+											this.setState({cedulaJuriSolicitante: e.target.value})
+										}
+										name="cedulaJuriSolicitante"
+										id="cedulaJuriSolicitante"
+									/>
+								</div>
 							</div>
 
 							<div className="form-group row">
@@ -267,159 +255,152 @@ class FormPatComUnificado extends Component {
 								</h4>
 							</div>
 
-							<div className="form-group row">
-								<label
-									htmlFor="telSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Telefono:
-								</label>
+							<div className="form-row">
+								{/*"----------Telefono------------"*/}
+								<div className="form-group col-md-3">
+									<label htmlFor="telSolicitante">Telefono:</label>
 
-								<input
-									className="form-control col-2"
-									type="tel"
-									value={this.state.telSolicitante}
-									onChange={(e) =>
-										this.setState({telSolicitante: e.target.value})
-									}
-									name="telSolicitante"
-									id="telSolicitante"
-								/>
-								<br />
+									<input
+										className="form-control"
+										type="tel"
+										value={this.state.telSolicitante}
+										onChange={(e) =>
+											this.setState({telSolicitante: e.target.value})
+										}
+										name="telSolicitante"
+										id="telSolicitante"
+									/>
+								</div>
+								{/*"----------Fax------------"*/}
+								<div class="form-group col-md-3">
+									<label htmlFor="faxSolicitante">Fax:</label>
+									<input
+										className="form-control"
+										type="tel"
+										value={this.state.faxSolicitante}
+										onChange={(e) =>
+											this.setState({faxSolicitante: e.target.value})
+										}
+										name="faxSolicitante"
+										id="faxSolicitante"
+									/>
+								</div>
+								{/*"----------Correo electrónico:------------"*/}
+								<div class="form-group col-md-6">
+									<label htmlFor="correoEleSolicitante">
+										Correo electrónico:
+									</label>
+
+									<input
+										className="form-control"
+										type="email"
+										value={this.state.correoEleSolicitante}
+										onChange={(e) =>
+											this.setState({correoEleSolicitante: e.target.value})
+										}
+										name="correoEleSolicitante"
+										id="correoEleSolicitante"
+									/>
+								</div>
 							</div>
 
-							<div className="form-group row">
-								<label
-									htmlFor="faxSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Fax:
-								</label>
-								<input
-									className="form-control col-2"
-									type="tel"
-									value={this.state.faxSolicitante}
-									onChange={(e) =>
-										this.setState({faxSolicitante: e.target.value})
-									}
-									name="faxSolicitante"
-									id="faxSolicitante"
-								/>{" "}
-								<br />
-							</div>
+							<div className="form-row">
+								{/*"----------Dirección-------------"*/}
+								<div className="form-group col-md-12">
+									<label htmlFor="dirSolicitante">Dirección:</label>
 
-							<div className="form-group row">
-								<label
-									htmlFor="dirSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Dirección:
-								</label>
-
-								<input
-									className="form-control col-5"
-									type="text"
-									value={this.state.dirSolicitante}
-									onChange={(e) =>
-										this.setState({dirSolicitante: e.target.value})
-									}
-									name="dirSolicitante"
-									id="dirSolicitante"
-								/>
-								<br />
-							</div>
-							<div className="form-group row">
-								<label
-									htmlFor="correoEleSolicitante"
-									className="col-sm-3 col-form-label"
-								>
-									Correo electrónico:
-								</label>
-
-								<input
-									className="form-control col-5"
-									type="email"
-									value={this.state.correoEleSolicitante}
-									onChange={(e) =>
-										this.setState({correoEleSolicitante: e.target.value})
-									}
-									name="correoEleSolicitante"
-									id="correoEleSolicitante"
-								/>
-								<br />
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.dirSolicitante}
+										onChange={(e) =>
+											this.setState({dirSolicitante: e.target.value})
+										}
+										name="dirSolicitante"
+										id="dirSolicitante"
+									/>
+								</div>
 							</div>
 						</div>
 						{/* fin de datos del solicitante*/}
 						<div className="form-group">
 							<h2>Dueño de la propiedad:</h2>
 							<hr />
-							<div>
-								<label htmlFor="nomPropietario">Nombre del propietario</label>
 
-								<input
-									type="text"
-									value={this.state.nomPropietario}
-									onChange={(e) =>
-										this.setState({nomPropietario: e.target.value})
-									}
-									name="nomPropietario"
-									id="nomPropietario"
-								/>
-								<br />
+							<div className="form-row">
+								{/*"----------Nombre del propietario-------------"*/}
+								<div className="form-group col-md-6">
+									<label htmlFor="nomPropietario">Nombre del propietario</label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.nomPropietario}
+										onChange={(e) =>
+											this.setState({nomPropietario: e.target.value})
+										}
+										name="nomPropietario"
+										id="nomPropietario"
+									/>
+								</div>
+								<div className="form-group col-md-6">
+									<label htmlFor="represLegalPropietario">
+										En caso de sociedades: Nombre del representante legal:
+									</label>
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.represLegalPropietario}
+										onChange={(e) =>
+											this.setState({represLegalPropietario: e.target.value})
+										}
+										name="represLegalPropietario"
+										id="nomPrepresLegalPropietarioropietario"
+									/>
+								</div>
 							</div>
 
-							<div>
-								<label htmlFor="represLegalPropietario">
-									En caso de sociedades: Nombre del representante legal:
-								</label>
+							<div className="form-row">
+								{/*"----------Cédula jurídica o personal:-------------"*/}
+								<div className="form-group col-md-4">
+									<label htmlFor="cedulaJuriPropietario">
+										Cédula jurídica o personal:
+									</label>
 
-								<input
-									type="text"
-									value={this.state.represLegalPropietario}
-									onChange={(e) =>
-										this.setState({represLegalPropietario: e.target.value})
-									}
-									name="represLegalPropietario"
-									id="nomPrepresLegalPropietarioropietario"
-								/>
-								<br />
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.cedulaJuriPropietario}
+										onChange={(e) =>
+											this.setState({cedulaJuriPropietario: e.target.value})
+										}
+										name="cedulaJuriPropietario"
+										id="cedulaJuriPropietario"
+									/>
+								</div>
 							</div>
 
-							<div>
-								<label htmlFor="cedulaJuriPropietario">
-									Cédula jurídica o personal:
-								</label>
+							<div className="form-row">
+								{/*"----------Dirección Dueño de la propiedad:-------------"*/}
+								<div className="form-group col-md-12">
+									<label htmlFor="dirPropietario">Dirección:</label>
 
-								<input
-									type="text"
-									value={this.state.cedulaJuriPropietario}
-									onChange={(e) =>
-										this.setState({cedulaJuriPropietario: e.target.value})
-									}
-									name="cedulaJuriPropietario"
-									id="cedulaJuriPropietario"
-								/>
-								<br />
-							</div>
-
-							<div>
-								<label htmlFor="dirPropietario">Dirección:</label>
-
-								<input
-									type="text"
-									value={this.state.dirPropietario}
-									onChange={(e) =>
-										this.setState({dirPropietario: e.target.value})
-									}
-									name="dirPropietario"
-									id="dirPropietario"
-								/>
-								<br />
+									<input
+										className="form-control"
+										type="text"
+										value={this.state.dirPropietario}
+										onChange={(e) =>
+											this.setState({dirPropietario: e.target.value})
+										}
+										name="dirPropietario"
+										id="dirPropietario"
+									/>
+								</div>
 							</div>
 						</div>
 						{/*fin de dueño de la propiedad */}
 						<div className="form-group">
 							<h2>Datos del Local</h2>
+							<hr />
 							<div>
 								<label htmlFor="nomComercial">
 									Nombre comercial del negocio o local
