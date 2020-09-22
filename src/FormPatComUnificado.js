@@ -419,7 +419,7 @@ class FormPatComUnificado extends Component {
 										id="nomComercial"
 									/>
 								</div>
-								{/*"-----------------------"*/}
+								{/*"-----------Actividad específica:------------"*/}
 								<div className="form-group col-md-6">
 									<label htmlFor="actividad">Actividad específica:</label>
 									<input
@@ -477,51 +477,60 @@ class FormPatComUnificado extends Component {
 						<div className="form-group">
 							<h2>Datos Del Local Renovacion</h2>
 							<hr />
-							<div>
-								<label htmlFor="numPlanoCatastro">
-									Numero de Plano catastro
-								</label>
 
-								<input
-									type="number"
-									placeholder="Ingrese numero"
-									value={this.state.numPlanoCatastro}
-									onChange={(e) =>
-										this.setState({numPlanoCatastro: e.target.value})
-									}
-									name="numPlanoCatastro"
-									id="numPlanoCatastro"
-								/>
-								<br />
-								<div>
-									<label htmlFor="telLocal">Telefono:</label>
-
+							<div className="form-row">
+								{/*"-----------Numero de Plano catastro------------"*/}
+								<div className="form-group col-md-4">
+									<label htmlFor="numPlanoCatastro">
+										Numero de Plano catastro
+									</label>
 									<input
+										className="form-control"
+										type="number"
+										placeholder="Ingrese numero"
+										value={this.state.numPlanoCatastro}
+										onChange={(e) =>
+											this.setState({numPlanoCatastro: e.target.value})
+										}
+										name="numPlanoCatastro"
+										id="numPlanoCatastro"
+									/>
+								</div>
+							</div>
+
+							<div className="form-row">
+								{/*"-----------Telefono------------"*/}
+								<div className="form-group col-md-3">
+									<label htmlFor="telLocal">Telefono:</label>
+									<input
+										className="form-control"
 										type="tel"
 										value={this.state.telLocal}
 										onChange={(e) => this.setState({telLocal: e.target.value})}
 										name="telLocal"
 										id="telLocal"
 									/>
-									<br />
 								</div>
 
-								<div>
+								{/*"-----------Fax------------"*/}
+								<div className="form-group col-md-3">
 									<label htmlFor="faxLocal">Fax:</label>
 									<input
+										className="form-control"
 										type="tel"
 										value={this.state.faxLocal}
 										onChange={(e) => this.setState({faxLocal: e.target.value})}
 										name="faxLocal"
 										id="faxLocal"
-									/>{" "}
-									<br />
+									/>
 								</div>
 
-								<div>
+								{/*"-----------Correo electrónico:------------"*/}
+								<div className="form-group col-md-6">
 									<label htmlFor="correoEleLocal">Correo electrónico:</label>
 
 									<input
+										className="form-control"
 										type="email"
 										value={this.state.correoEleLocal}
 										onChange={(e) =>
@@ -530,31 +539,39 @@ class FormPatComUnificado extends Component {
 										name="correoEleLocal"
 										id="correoEleLocal"
 									/>
-									<br />
 								</div>
 							</div>
 
-							<div>
-								<label>Estado de la Patente</label>
-								<br />
-								<label htmlFor="estadoPaten">Activa </label>
-								<input
-									type="radio"
-									value="1"
-									onChange={(e) => this.setState({estadoPaten: e.target.value})}
-									name="estadoPaten"
-									id="estadoPaten"
-								/>
+							<div className="form-row">
+								{/*"-----------Telefono------------"*/}
+								<div className="form-group col-md-2">
+									<label>Estado de la Patente</label>
+								</div>
+								<div className="form-group col-md-1">
+									<input
+										type="radio"
+										value="1"
+										onChange={(e) =>
+											this.setState({estadoPaten: e.target.value})
+										}
+										name="estadoPaten"
+										id="estadoPaten"
+									/>
+									<label htmlFor="estadoPaten">Activa </label>
+								</div>
 
-								<label htmlFor="estadoPaten">Inactiva </label>
-								<input
-									type="radio"
-									value="0"
-									onChange={(e) => this.setState({estadoPaten: e.target.value})}
-									name="estadoPaten"
-									id="estadoPaten"
-								/>
-								<br />
+								<div className="form-group col-md-1">
+									<input
+										type="radio"
+										value="0"
+										onChange={(e) =>
+											this.setState({estadoPaten: e.target.value})
+										}
+										name="estadoPaten"
+										id="estadoPaten"
+									/>
+									<label htmlFor="estadoPaten">Inactiva </label>
+								</div>
 							</div>
 						</div>
 						{/*Fin de datos del local renovacion */}
