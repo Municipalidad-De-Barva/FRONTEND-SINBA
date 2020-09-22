@@ -87,10 +87,10 @@ class FormPatComUnificado extends Component {
 						</div>
 						*/}
 						<div className="form-group">
-							<h1>Formulario Patente Comercial Unificado</h1>
-							<h3>Numero de tramite:</h3>
-							<h3>Fecha del tramite:</h3>
-							<h3>Funcionario que recibe:</h3>
+							<h1>Formulario Patente Comercial Unificado.</h1>
+							<h5>Numero de tramite:_________________________</h5>
+							<h5>Fecha del tramite:_________________________</h5>
+							<h5>Funcionario que recibe:_________________________</h5>
 						</div>
 						<div className="form-group">
 							<h3>Tipo de solicitud:</h3>
@@ -547,36 +547,43 @@ class FormPatComUnificado extends Component {
 								<div className="form-group col-md-2">
 									<label>Estado de la Patente</label>
 								</div>
-								<div className="form-group col-md-1">
-									<input
-										type="radio"
-										value="1"
-										onChange={(e) =>
-											this.setState({estadoPaten: e.target.value})
-										}
-										name="estadoPaten"
-										id="estadoPaten"
-									/>
-									<label htmlFor="estadoPaten">Activa </label>
-								</div>
 
 								<div className="form-group col-md-1">
-									<input
-										type="radio"
-										value="0"
-										onChange={(e) =>
-											this.setState({estadoPaten: e.target.value})
-										}
-										name="estadoPaten"
-										id="estadoPaten"
-									/>
-									<label htmlFor="estadoPaten">Inactiva </label>
+									<div className="form-check form-check-inline">
+										<input
+											className="form-check-input"
+											type="radio"
+											value="1"
+											onChange={(e) =>
+												this.setState({estadoPaten: e.target.value})
+											}
+											name="estadoPaten"
+											id="estadoPaten"
+										/>
+										<label htmlFor="estadoPaten">Activa </label>
+									</div>
+								</div>
+								<div className="form-group col-md-1">
+									<div className="form-check form-check-inline">
+										<input
+											className="form-check-input"
+											type="radio"
+											value="0"
+											onChange={(e) =>
+												this.setState({estadoPaten: e.target.value})
+											}
+											name="estadoPaten"
+											id="estadoPaten"
+										/>
+										<label htmlFor="estadoPaten">Inactiva </label>
+									</div>
 								</div>
 							</div>
 						</div>
 						{/*Fin de datos del local renovacion */}
 						<div className="form-group">
 							<h2>Declaracion jurada Solicitud nueva</h2>
+							<hr />
 							<p>Declaro bajo juramento que</p>
 
 							<input
@@ -598,23 +605,28 @@ class FormPatComUnificado extends Component {
 							/>
 							<label>No utilizare repertorio musical (ACAM)</label>
 							<br />
-							<p>
-								Nosotros, los abajo firmantes de calidades antes mencionadas,
-								apercibimos de las penas que se castiga los delitos de falso
-								testimonio y perjurio declaramos bajo fe de juramento que la
-								información anotada anteriormente en lo que corresponde a cada
-								uno, es verdadera (Ley 6683 y Decreto 23485 MP)
-							</p>
+
+							<div className="alert alert-warning" role="alert">
+								<p className="mb-0 text-center">
+									Nosotros, los abajo firmantes de calidades antes mencionadas,
+									apercibimos de las penas que se castiga los delitos de falso
+									testimonio y perjurio declaramos bajo fe de juramento que la
+									información anotada anteriormente en lo que corresponde a cada
+									uno, es verdadera (Ley 6683 y Decreto 23485 MP)
+								</p>
+							</div>
 						</div>
 						{/*Fin declaracion jurada Solicitud*/}
 						<div className="form-group">
 							<h2>Declaracion jurada Retiro</h2>
-							<p>
-								Yo, el abajo firmante, de calidades antes mencionadas, a
-								percibido de las penas con que se castiga los delitos de falso
-								testimonio y perjurio, declaro bajo fe de juramento que la
-								información que he suministrado es verdadera
-							</p>
+							<div className="alert alert-warning" role="alert">
+								<p className="mb-0 text-center">
+									Yo, el abajo firmante, de calidades antes mencionadas, a
+									percibido de las penas con que se castiga los delitos de falso
+									testimonio y perjurio, declaro bajo fe de juramento que la
+									información que he suministrado es verdadera
+								</p>
+							</div>
 						</div>
 						{/*Fin declaracion jurada Retiro*/}
 						<div className="form-group">
