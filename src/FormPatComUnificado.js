@@ -62,12 +62,12 @@ class FormPatComUnificado extends Component {
 		this.onClick = this.handleClick.bind(this);
 		
 	}
-	async handleClick(event){
+	handleClick(event){
 		console.log(this.state);
 		//prueba();
-		await fetch("http://localhost:3001/", {
+		fetch("http://localhost:3001/", {
 		method: "POST",
-		body: `{msg:'oa'}`,
+		body: "{'msg':'oa'}",
 	})
 		.then((res) => res.json())
 		.then((data) => {
@@ -150,7 +150,7 @@ class FormPatComUnificado extends Component {
 						{/*fin de tipos de solicitud */}
 						<div className="form-group">
 							<h2>Datos del Solicitante:</h2>
-							<div class="form-group" s>
+							<div className="form-group">
 								<label htmlFor="nomSolicitante">
 									Nombre del solicitante o patentado:
 								</label>
@@ -165,7 +165,7 @@ class FormPatComUnificado extends Component {
 								/>
 							</div>
 
-							<div class="form-group">
+							<div className="form-group">
 								<label htmlFor="cedulaSolicitante">Cedula:</label>
 
 								<input
@@ -825,7 +825,7 @@ class FormPatComUnificado extends Component {
 							</ol>
 						</div>
 						{/*Gestiones al dia Nueva, traspaso, traslado*/}
-						<div class="form-group">
+						<div className="form-group">
 							<Button variant="primary" type="submit" onClick={this.onClick} value="Enviar">
 								Enviar
 							</Button>
