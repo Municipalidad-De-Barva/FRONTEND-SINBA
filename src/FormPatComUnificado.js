@@ -64,13 +64,26 @@ class FormPatComUnificado extends Component {
 	handleClick(event) {
 		console.log(this.state);
 		//prueba();
+		//var msg=JSON.stringify({"msg":'oa'}); 
+		//var msg={"msg":'oa'}; 
 		fetch("http://localhost:3001/", {
-			method: "POST",
-			body: "{'msg':'oa'}",
+			//method: "GET",
+			//body: msg,
+			method: 'POST',
+   			headers: {
+      			'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				/*'Access-Control-Allow-Headers': '*',
+				"Access-Control-Allow-Origin": "*",
+      			"Access-Control-Allow-Credentials": "true",
+      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+    		},
+    		body: JSON.stringify({msg: 'Textual content'})
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
+				//console.log(JSON.stringify(msg));
 			});
 	}
 
