@@ -66,7 +66,7 @@ class FormPatComUnificado extends Component {
 		//prueba();
 		//var msg=JSON.stringify({"msg":'oa'}); 
 		//var msg={"msg":'oa'}; 
-		fetch("http://localhost:3001/", {
+		fetch("http://localhost:3001/api/nuevoForm", {
 			//method: "GET",
 			//body: msg,
 			method: 'POST',
@@ -78,11 +78,12 @@ class FormPatComUnificado extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
     		},
-    		body: JSON.stringify({msg: 'Textual content'})
+    		body: JSON.stringify(this.state.data)
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
+				
 				//console.log(JSON.stringify(msg));
 			});
 	}
