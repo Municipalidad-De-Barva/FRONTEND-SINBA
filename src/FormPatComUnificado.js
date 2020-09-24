@@ -7,8 +7,8 @@ class FormPatComUnificado extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			/*Tipo de solicitud*/
-			tipoSol: "",
+			/*Tipo de solicitud
+			tipoSol: "",*/
 
 			/*Informacion Solicitante*/
 			nomSolicitante: "",
@@ -78,7 +78,7 @@ class FormPatComUnificado extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
     		},
-    		body: JSON.stringify(this.state.data)
+    		body: JSON.stringify(this.state)
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -106,90 +106,6 @@ class FormPatComUnificado extends Component {
 							<h5>Fecha del tramite:_________________________</h5>
 							<h5>Funcionario que recibe:_________________________</h5>
 						</div>
-						<div className="form-group">
-							<h3>Tipo de solicitud:</h3>
-							<hr />
-							<div className="form-check form-check-inline">
-								<input
-									className="form-check-input"
-									type="radio"
-									value="1"
-									onChange={(e) => this.setState({tipoSol: e.target.value})}
-									name="tipoSol"
-									id="tipoSol"
-								></input>
-								<label className="form-check-label" htmlFor="tipoSol">
-									Nueva{" "}
-								</label>
-							</div>
-
-							<div className="form-check form-check-inline">
-								<input
-									className="form-check-input"
-									type="radio"
-									value="2"
-									onChange={(e) => this.setState({tipoSol: e.target.value})}
-									name="tipoSol"
-									id="tipoSol"
-								></input>
-								<label className="form-check-label" htmlFor="tipoSol">
-									Traspaso{" "}
-								</label>
-							</div>
-							<div className="form-check form-check-inline">
-								<input
-									className="form-check-input"
-									type="radio"
-									value="3"
-									onChange={(e) => this.setState({tipoSol: e.target.value})}
-									name="tipoSol"
-									id="tipoSol"
-								></input>
-								<label className="form-check-label" htmlFor="tipoSol">
-									Traslado{" "}
-								</label>
-							</div>
-							<div className="form-check form-check-inline">
-								<input
-									className="form-check-input"
-									type="radio"
-									value="4"
-									onChange={(e) => this.setState({tipoSol: e.target.value})}
-									name="tipoSol"
-									id="tipoSol"
-								></input>
-								<label className="form-check-label" htmlFor="tipoSol">
-									Retiro{" "}
-								</label>
-							</div>
-							<div className="form-check form-check-inline">
-								<input
-									className="form-check-input"
-									type="radio"
-									value="5"
-									onChange={(e) => this.setState({tipoSol: e.target.value})}
-									name="tipoSol"
-									id="tipoSol"
-								></input>
-								<label className="form-check-label" htmlFor="tipoSol">
-									Renovacion{" "}
-								</label>
-							</div>
-							<div className="form-check form-check-inline">
-								<input
-									className="form-check-input"
-									type="radio"
-									value="6"
-									onChange={(e) => this.setState({tipoSol: e.target.value})}
-									name="tipoSol"
-									id="tipoSol"
-								></input>
-								<label className="form-check-label" htmlFor="tipoSol">
-									Cambio{" "}
-								</label>
-							</div>
-						</div>
-						{/*fin de tipos de solicitud */}
 						<div className="form-group">
 							<h2>Datos del Solicitante:</h2>
 							<hr />
@@ -513,8 +429,9 @@ class FormPatComUnificado extends Component {
 							<div className="form-row">
 								<div className="form-group col-md-6">
 									<label>
-										Firma del dueño: __________________________________
+										Firma del dueño: ______________________________________
 									</label>
+									<hr/>
 								</div>
 								<div className="form-group col-md-6">
 									<label>
