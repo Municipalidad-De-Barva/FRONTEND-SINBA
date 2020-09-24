@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import "react-bootstrap";
 //import {prueba} from "./apiFetch";
 
-class FormPatComUnificado extends Component {
+export default class FormSolPatCom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -569,4 +569,4 @@ class FormPatComUnificado extends Component {
 	} /*Fin del render*/
 }
 
-export default FormPatComUnificado;
+

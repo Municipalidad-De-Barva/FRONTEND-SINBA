@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import FormPatComUnificado from "./FormPatComUnificado";
+import FormSolPatCom from "./FormSolPatCom";
 import * as serviceWorker from "./serviceWorker";
 import "normalize.css";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<FormPatComUnificado />
+		<FormSolPatCom />
 	</React.StrictMode>,
 	document.getElementById("root")
 );
