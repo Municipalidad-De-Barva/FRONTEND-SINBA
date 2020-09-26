@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Button from "react-bootstrap/Button";
 import "react-bootstrap";
+
 //import {prueba} from "./apiFetch";
 
 export default class FormSolPatCom extends Component {
@@ -64,26 +65,26 @@ export default class FormSolPatCom extends Component {
 	handleClick(event) {
 		console.log(this.state);
 		//prueba();
-		//var msg=JSON.stringify({"msg":'oa'}); 
-		//var msg={"msg":'oa'}; 
+		//var msg=JSON.stringify({"msg":'oa'});
+		//var msg={"msg":'oa'};
 		fetch("http://localhost:3001/api/nuevoForm", {
 			//method: "GET",
 			//body: msg,
-			method: 'POST',
-   			headers: {
-      			'Accept': 'application/json',
-				'Content-Type': 'application/json',
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
 				/*'Access-Control-Allow-Headers': '*',
 				"Access-Control-Allow-Origin": "*",
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
-    		},
-    		body: JSON.stringify(this.state)
+			},
+			body: JSON.stringify(this.state),
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				
+
 				//console.log(JSON.stringify(msg));
 			});
 	}
@@ -123,6 +124,9 @@ export default class FormSolPatCom extends Component {
 										}
 										name="nomSolicitante"
 										id="nomSolicitante"
+										validators={["required"]}
+										errorMessages={["El campo es requerido"]}
+										required
 									/>
 								</div>
 								{/*----------------CEDULA--------------------- */}
@@ -137,6 +141,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="cedulaSolicitante"
 										id="cedulaSolicitante"
+										required
 									/>
 								</div>
 								<br />
@@ -199,6 +204,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="telSolicitante"
 										id="telSolicitante"
+										required
 									/>
 								</div>
 								{/*"----------Fax------------"*/}
@@ -230,6 +236,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="correoEleSolicitante"
 										id="correoEleSolicitante"
+										required
 									/>
 								</div>
 							</div>
@@ -270,6 +277,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="nomPropietario"
 										id="nomPropietario"
+										required
 									/>
 								</div>
 								<div className="form-group col-md-6">
@@ -347,6 +355,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="nomComercial"
 										id="nomComercial"
+										required
 									/>
 								</div>
 								{/*"-----------Actividad específica:------------"*/}
@@ -359,6 +368,7 @@ export default class FormSolPatCom extends Component {
 										onChange={(e) => this.setState({actividad: e.target.value})}
 										name="actividad"
 										id="actividad"
+										required
 									/>
 								</div>
 							</div>
@@ -376,7 +386,7 @@ export default class FormSolPatCom extends Component {
 								<div className="form-group col-md-1">
 									<input
 										type="radio"
-										value="0"
+										value="1"
 										onChange={(e) =>
 											this.setState({declaraJura: e.target.value})
 										}
@@ -388,7 +398,7 @@ export default class FormSolPatCom extends Component {
 								<div className="form-group col-md-1">
 									<input
 										type="radio"
-										value="1"
+										value="0"
 										onChange={(e) =>
 											this.setState({declaraJura: e.target.value})
 										}
@@ -431,7 +441,7 @@ export default class FormSolPatCom extends Component {
 									<label>
 										Firma del dueño: ______________________________________
 									</label>
-									<hr/>
+									<hr />
 								</div>
 								<div className="form-group col-md-6">
 									<label>
@@ -568,5 +578,3 @@ export default class FormSolPatCom extends Component {
 		);
 	} /*Fin del render*/
 }
-
-
