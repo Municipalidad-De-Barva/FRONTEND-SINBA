@@ -120,6 +120,9 @@ export default class FormSolPatCom extends Component {
 										}
 										name="nomSolicitante"
 										id="nomSolicitante"
+										validators={["required"]}
+										errorMessages={["El campo es requerido"]}
+										required
 									/>
 								</div>
 								{/*----------------CEDULA--------------------- */}
@@ -134,6 +137,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="cedulaSolicitante"
 										id="cedulaSolicitante"
+										required
 									/>
 								</div>
 								<br />
@@ -196,6 +200,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="telSolicitante"
 										id="telSolicitante"
+										required
 									/>
 								</div>
 								{/*"----------Fax------------"*/}
@@ -227,6 +232,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="correoEleSolicitante"
 										id="correoEleSolicitante"
+										required
 									/>
 								</div>
 							</div>
@@ -267,6 +273,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="nomPropietario"
 										id="nomPropietario"
+										required
 									/>
 								</div>
 								<div className="form-group col-md-6">
@@ -344,6 +351,7 @@ export default class FormSolPatCom extends Component {
 										}
 										name="nomComercial"
 										id="nomComercial"
+										required
 									/>
 								</div>
 								{/*"-----------Actividad específica:------------"*/}
@@ -356,6 +364,7 @@ export default class FormSolPatCom extends Component {
 										onChange={(e) => this.setState({actividad: e.target.value})}
 										name="actividad"
 										id="actividad"
+										required
 									/>
 								</div>
 							</div>
@@ -373,7 +382,7 @@ export default class FormSolPatCom extends Component {
 								<div className="form-group col-md-1">
 									<input
 										type="radio"
-										value="0"
+										value="1"
 										onChange={(e) =>
 											this.setState({declaraJura: e.target.value})
 										}
@@ -385,7 +394,7 @@ export default class FormSolPatCom extends Component {
 								<div className="form-group col-md-1">
 									<input
 										type="radio"
-										value="1"
+										value="0"
 										onChange={(e) =>
 											this.setState({declaraJura: e.target.value})
 										}
