@@ -4,7 +4,8 @@ import "./index.css";
 import FormSolPatCom from "./FormSolPatCom";
 import * as serviceWorker from "./serviceWorker";
 import "normalize.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap";
 ReactDOM.render(
 	<React.StrictMode>
 		<FormSolPatCom />

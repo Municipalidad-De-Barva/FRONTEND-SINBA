@@ -1,7 +1,4 @@
 import React, {Component} from "react";
-import Button from "react-bootstrap/Button";
-import "react-bootstrap";
-//import {prueba} from "./apiFetch";
 
 export default class FormSolPatCom extends Component {
 	constructor(props) {
@@ -64,26 +61,26 @@ export default class FormSolPatCom extends Component {
 	handleClick(event) {
 		console.log(this.state);
 		//prueba();
-		//var msg=JSON.stringify({"msg":'oa'}); 
-		//var msg={"msg":'oa'}; 
+		//var msg=JSON.stringify({"msg":'oa'});
+		//var msg={"msg":'oa'};
 		fetch("http://localhost:3001/api/nuevoForm", {
 			//method: "GET",
 			//body: msg,
-			method: 'POST',
-   			headers: {
-      			'Accept': 'application/json',
-				'Content-Type': 'application/json',
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
 				/*'Access-Control-Allow-Headers': '*',
 				"Access-Control-Allow-Origin": "*",
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
-    		},
-    		body: JSON.stringify(this.state)
+			},
+			body: JSON.stringify(this.state),
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				
+
 				//console.log(JSON.stringify(msg));
 			});
 	}
@@ -431,7 +428,7 @@ export default class FormSolPatCom extends Component {
 									<label>
 										Firma del dueño: ______________________________________
 									</label>
-									<hr/>
+									<hr />
 								</div>
 								<div className="form-group col-md-6">
 									<label>
@@ -541,24 +538,35 @@ export default class FormSolPatCom extends Component {
 						<div className="form-group">
 							<div className="form-row text-center">
 								<div className="form-group col-md-1">
-									<Button
-										variant="primary"
+									<button
+										className="btn btn-primary"
 										type="submit"
 										onClick={this.onClick}
 										value="Enviar"
 									>
 										Enviar
-									</Button>
+									</button>
 								</div>
 								<div className="form-group col-md-1">
-									<Button
-										variant="secondary"
+									<button
 										type="reset"
+										className="btn btn-danger"
 										onClick={this.onClick}
-										value="Limpiar"
+										value="Cancelar"
 									>
-										Limpiar
-									</Button>
+										Cancelar
+									</button>
+								</div>
+
+								<div className="form-group col-md-1">
+									<button
+										type="button"
+										class="btn btn-info"
+										onClick={this.onClick}
+										value="Imprimir"
+									>
+										Imprimir
+									</button>
 								</div>
 							</div>
 						</div>
@@ -568,5 +576,3 @@ export default class FormSolPatCom extends Component {
 		);
 	} /*Fin del render*/
 }
-
-
