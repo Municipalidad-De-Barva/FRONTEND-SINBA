@@ -32,10 +32,22 @@ export default class FormSolPatCom extends Component {
 			cedAutorizado: "",
 		};
 		this.onClick = this.handleClick.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
-	handleClick(event) {
-		console.log(this.state);
+	handleInputChange(e) {
+		const {value, name} = e.target;
+		console.log(value, name);
+		this.setState({
+			[name]: value,
+		});
+	}
+
+	handleClick() {
+		console.log(
+			"Preparando datos para enviar al servidor, mostrar datos:",
+			this.state
+		);
 
 		fetch("http://localhost:3001/api/nuevoForm", {
 			method: "POST",
@@ -51,7 +63,7 @@ export default class FormSolPatCom extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
+				console.log("respuesta del servidor: ", data);
 			});
 	}
 
@@ -105,10 +117,7 @@ export default class FormSolPatCom extends Component {
 										type="text"
 										value={this.state.nomSolicitante}
 										placeholder="Ingrese su nombre completo"
-										pattern="[A-Za-z]"
-										onChange={(e) =>
-											this.setState({nomSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="nomSolicitante"
 										id="nomSolicitante"
 										validators={["required"]}
@@ -124,9 +133,7 @@ export default class FormSolPatCom extends Component {
 										type="text"
 										value={this.state.cedulaSolicitante}
 										placeholder="Ingrese Número  de Cédula"
-										onChange={(e) =>
-											this.setState({cedulaSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="cedulaSolicitante"
 										id="cedulaSolicitante"
 										required
@@ -146,9 +153,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.represLegalSolicitante}
-										onChange={(e) =>
-											this.setState({represLegalSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="represLegalSolicitante"
 										id="represLegalSolicitante"
 									/>
@@ -163,9 +168,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.cedulaJuriSolicitante}
-										onChange={(e) =>
-											this.setState({cedulaJuriSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="cedulaJuriSolicitante"
 										id="cedulaJuriSolicitante"
 									/>
@@ -187,9 +190,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="tel"
 										value={this.state.telSolicitante}
-										onChange={(e) =>
-											this.setState({telSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="telSolicitante"
 										id="telSolicitante"
 										required
@@ -202,9 +203,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="tel"
 										value={this.state.faxSolicitante}
-										onChange={(e) =>
-											this.setState({faxSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="faxSolicitante"
 										id="faxSolicitante"
 									/>
@@ -219,9 +218,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="email"
 										value={this.state.correoEleSolicitante}
-										onChange={(e) =>
-											this.setState({correoEleSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="correoEleSolicitante"
 										id="correoEleSolicitante"
 										required
@@ -238,9 +235,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.dirSolicitante}
-										onChange={(e) =>
-											this.setState({dirSolicitante: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="dirSolicitante"
 										id="dirSolicitante"
 									/>
@@ -260,9 +255,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.nomPropietario}
-										onChange={(e) =>
-											this.setState({nomPropietario: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="nomPropietario"
 										id="nomPropietario"
 										required
@@ -276,9 +269,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.represLegalPropietario}
-										onChange={(e) =>
-											this.setState({represLegalPropietario: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="represLegalPropietario"
 										id="nomPrepresLegalPropietarioropietario"
 									/>
@@ -296,9 +287,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.cedulaJuriPropietario}
-										onChange={(e) =>
-											this.setState({cedulaJuriPropietario: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="cedulaJuriPropietario"
 										id="cedulaJuriPropietario"
 									/>
@@ -314,9 +303,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.dirPropietario}
-										onChange={(e) =>
-											this.setState({dirPropietario: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="dirPropietario"
 										id="dirPropietario"
 									/>
@@ -338,9 +325,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.nomComercial}
-										onChange={(e) =>
-											this.setState({nomComercial: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="nomComercial"
 										id="nomComercial"
 										required
@@ -353,7 +338,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.actividad}
-										onChange={(e) => this.setState({actividad: e.target.value})}
+										onChange={this.handleInputChange}
 										name="actividad"
 										id="actividad"
 										required
@@ -375,9 +360,7 @@ export default class FormSolPatCom extends Component {
 									<input
 										type="radio"
 										value="1"
-										onChange={(e) =>
-											this.setState({declaraJura: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="declaraJura"
 										id="declaraJura"
 									/>
@@ -387,9 +370,7 @@ export default class FormSolPatCom extends Component {
 									<input
 										type="radio"
 										value="0"
-										onChange={(e) =>
-											this.setState({declaraJura: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="declaraJura"
 										id="declaraJura"
 									/>
@@ -485,9 +466,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.nomAutorizado}
-										onChange={(e) =>
-											this.setState({nomAutorizado: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="nomAutorizado"
 										id="nomAutorizado"
 									/>
@@ -499,9 +478,7 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.cedAutorizado}
-										onChange={(e) =>
-											this.setState({cedAutorizado: e.target.value})
-										}
+										onChange={this.handleInputChange}
 										name="cedAutorizado"
 										id="cedAutorizado"
 									/>
