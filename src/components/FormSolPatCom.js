@@ -38,11 +38,38 @@ export default class FormSolPatCom extends Component {
 	handleInputChange(e) {
 		const {value, name} = e.target;
 		console.log(value, name);
+
+		if (name === "nomSolicitante") {
+			this.validarTexto(value);
+		}
+
+		if (name === "cedulaSolicitante") {
+			this.validarCedula(value);
+		}
 		this.setState({
 			[name]: value,
 		});
 	}
 
+	validarTexto(valor) {
+		let regex = new RegExp("^[a-zA-Z ]+$");
+
+		if (regex.test(valor)) {
+			console.log(" texto valido");
+		} else {
+			console.log(" texto invalido");
+		}
+	}
+
+	validarCedula(valor) {
+		let regex = new RegExp("^[0-9]{9}");
+
+		if (regex.test(valor)) {
+			console.log(" cedula valido");
+		} else {
+			console.log(" cedula invalido");
+		}
+	}
 	handleClick() {
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
