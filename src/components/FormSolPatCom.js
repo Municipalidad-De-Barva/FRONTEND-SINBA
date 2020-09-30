@@ -4,9 +4,6 @@ export default class FormSolPatCom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			/*Tipo de solicitud
-			tipoSol: "",*/
-
 			/*Informacion Solicitante*/
 			nomSolicitante: "",
 			cedulaSolicitante: "",
@@ -27,30 +24,8 @@ export default class FormSolPatCom extends Component {
 			nomComercial: "",
 			actividad: "",
 
-			/*datos del local retiro
-			dirExactaLocal: "",
-			numPatenteCom: "",*/
-
-			/*datos del local renovacion 
-			numPlanoCatastro: "",
-			telLocal: "",
-			faxLocal: "",
-			estadoPaten: "",
-			correoEleLocal: "",*/
-
 			/*Declaración jurada */
 			declaraJura: "",
-
-			/*Informacion del traspaso
-			nomTraspaso: "",
-			nomNegocio: "",
-			cedulaTraspaso: "",
-			represLegalTraspaso: "",
-			cedulaJuriTraspaso: "",
-			telTraspaso: "",
-			faxTraspaso: "",
-			dirTraspaso: "",
-			correoEleTraspaso: "",*/
 
 			/*Autorizo a*/
 			nomAutorizado: "",
@@ -61,12 +36,8 @@ export default class FormSolPatCom extends Component {
 
 	handleClick(event) {
 		console.log(this.state);
-		//prueba();
-		//var msg=JSON.stringify({"msg":'oa'});
-		//var msg={"msg":'oa'};
+
 		fetch("http://localhost:3001/api/nuevoForm", {
-			//method: "GET",
-			//body: msg,
 			method: "POST",
 			headers: {
 				Accept: "application/json",
@@ -81,26 +52,17 @@ export default class FormSolPatCom extends Component {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-
-				//console.log(JSON.stringify(msg));
 			});
 	}
 
 	render() {
 		return (
 			<div className="container">
-				{/*className="text-center"*/}
 				<div>
 					<form>
-						{/*
-						<div className="form-group">
-							<span>{console.log(JSON.stringify(this.state))}</span>
-							<span>{JSON.stringify(this.state)}</span>
-						</div>
-						*/}
 						<div className="form-group text-center">
 							<h1>
-								<strong>Formulario Patente Comercial Unificado.</strong>
+								<strong>Formulario Patente Comercial Nueva.</strong>
 							</h1>
 						</div>
 
