@@ -52,7 +52,7 @@ export default class FormSolPatCom extends Component {
 	}
 
 	validarTexto(valor) {
-		let regex = new RegExp("^[a-zA-Z ]+$");
+		let regex = new RegExp("^[a-zA-Z]+$");
 
 		if (regex.test(valor)) {
 			console.log(" texto valido");
@@ -62,7 +62,8 @@ export default class FormSolPatCom extends Component {
 	}
 
 	validarCedula(valor) {
-		let regex = new RegExp("^[0-9]{9}");
+		var expresion = /^[0-9]-?\d{4}-?\d{4}$/;
+		let regex = new RegExp(expresion);
 
 		if (regex.test(valor)) {
 			console.log(" cedula valido");
@@ -159,7 +160,8 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.cedulaSolicitante}
-										placeholder="Ingrese Número  de Cédula"
+										placeholder="0-0000-0000"
+										maxLength="11"
 										onChange={this.handleInputChange}
 										name="cedulaSolicitante"
 										id="cedulaSolicitante"
