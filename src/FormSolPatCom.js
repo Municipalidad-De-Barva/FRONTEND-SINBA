@@ -38,7 +38,7 @@ export default class FormSolPatCom extends Component {
 			estadoPaten: "",
 			correoEleLocal: "",*/
 
-			/*declaracion jurada */
+			/*Declaración jurada */
 			declaraJura: "",
 
 			/*Informacion del traspaso
@@ -58,6 +58,7 @@ export default class FormSolPatCom extends Component {
 		};
 		this.onClick = this.handleClick.bind(this);
 	}
+
 	handleClick(event) {
 		console.log(this.state);
 		//prueba();
@@ -97,14 +98,40 @@ export default class FormSolPatCom extends Component {
 							<span>{JSON.stringify(this.state)}</span>
 						</div>
 						*/}
-						<div className="form-group">
-							<h1>Formulario Patente Comercial Unificado.</h1>
-							<h5>Numero de tramite:_________________________</h5>
-							<h5>Fecha del tramite:_________________________</h5>
-							<h5>Funcionario que recibe:_________________________</h5>
+						<div className="form-group text-center">
+							<h1>
+								<strong>Formulario Patente Comercial Unificado.</strong>
+							</h1>
 						</div>
+
+						<div className="form-row">
+							<div className="form-group col-md-10">
+								<h5>
+									<strong>Número de trámite:</strong>
+								</h5>
+								<h5>
+									<strong>Fecha del trámite:</strong>
+								</h5>
+								<h5>
+									<strong>Funcionario que recibe:</strong>
+								</h5>
+							</div>
+							<div className="form-group col-md-2">
+								<img
+									src="logo192.png"
+									className="rounded mx-auto d-block"
+									height="100px"
+									width="100px"
+									alt="logoMuniBarva"
+								></img>
+							</div>
+						</div>
+
 						<div className="form-group">
-							<h2>Datos del Solicitante:</h2>
+							<div className="form-group text-center">
+								<h2>Datos del Solicitante:</h2>
+							</div>
+
 							<hr />
 							<div className="form-row">
 								<div className="form-group col-md-8">
@@ -115,23 +142,26 @@ export default class FormSolPatCom extends Component {
 										className="form-control"
 										type="text"
 										value={this.state.nomSolicitante}
+										placeholder="Ingrese su nombre completo"
+										pattern="[A-Za-z]"
 										onChange={(e) =>
 											this.setState({nomSolicitante: e.target.value})
 										}
 										name="nomSolicitante"
 										id="nomSolicitante"
 										validators={["required"]}
-										errorMessages={["El campo es requerido"]}
+										errormessages={["El campo es requerido"]}
 										required
 									/>
 								</div>
-								{/*----------------CEDULA--------------------- */}
+								{/*----------------Cédula--------------------- */}
 								<div className="form-group col-md-4">
-									<label htmlFor="cedulaSolicitante">Cedula: </label>
+									<label htmlFor="cedulaSolicitante">Cédula: </label>
 									<input
 										className="form-control"
 										type="text"
 										value={this.state.cedulaSolicitante}
+										placeholder="Ingrese Número  de Cédula"
 										onChange={(e) =>
 											this.setState({cedulaSolicitante: e.target.value})
 										}
@@ -161,10 +191,10 @@ export default class FormSolPatCom extends Component {
 										id="represLegalSolicitante"
 									/>
 								</div>
-								{/*"----------CEDULA JURIDICA-------------"*/}
+								{/*"----------Cédula Jurídica-------------"*/}
 								<div className="form-group col-md-4">
 									<label htmlFor="cedulaJuriSolicitante">
-										Cedula Juridica:
+										Cédula Jurídica:
 									</label>
 
 									<input
@@ -187,9 +217,9 @@ export default class FormSolPatCom extends Component {
 							</div>
 
 							<div className="form-row">
-								{/*"----------Telefono------------"*/}
+								{/*"----------Teléfono------------"*/}
 								<div className="form-group col-md-3">
-									<label htmlFor="telSolicitante">Telefono:</label>
+									<label htmlFor="telSolicitante">Teléfono:</label>
 
 									<input
 										className="form-control"
@@ -371,7 +401,7 @@ export default class FormSolPatCom extends Component {
 						</div>
 						{/*fin de datos del local */}
 						<div className="form-group">
-							<h2>Declaracion jurada Solicitud nueva</h2>
+							<h2>Declaración jurada Solicitud nueva</h2>
 							<hr />
 
 							<div className="form-row">
@@ -416,7 +446,7 @@ export default class FormSolPatCom extends Component {
 								</p>
 							</div>
 						</div>
-						{/*Fin declaracion jurada Solicitud*/}
+						{/*Fin Declaración jurada Solicitud*/}
 						<div className="form-group">
 							<br />
 							<div className="form-row">
@@ -427,7 +457,7 @@ export default class FormSolPatCom extends Component {
 								</div>
 								<div className="form-group col-md-6">
 									<label>
-										Cedula solicitante: __________________________________
+										Cédula solicitante: __________________________________
 									</label>
 								</div>
 							</div>
@@ -441,7 +471,7 @@ export default class FormSolPatCom extends Component {
 								</div>
 								<div className="form-group col-md-6">
 									<label>
-										Cedula del dueño: __________________________________
+										Cédula del dueño: __________________________________
 									</label>
 								</div>
 							</div>
@@ -468,7 +498,7 @@ export default class FormSolPatCom extends Component {
 						<div className="form-group">
 							<div>
 								<label>
-									Firmas autenticadas por notario Publico:
+									Firmas autenticadas por notario Público:
 									__________________________________ Firma:
 									__________________________________
 								</label>
@@ -501,7 +531,7 @@ export default class FormSolPatCom extends Component {
 									/>
 								</div>
 								<div className="form-group col-md-4">
-									<label htmlFor="cedAutorizado">cedula </label>
+									<label htmlFor="cedAutorizado">Cédula </label>
 
 									<input
 										className="form-control"
@@ -532,23 +562,24 @@ export default class FormSolPatCom extends Component {
 						<div className="form-group">
 							<h2>Departamento de cobros</h2>
 							<hr />
-							<p>Estar al dia con los siguientes departamentos: </p>
+							<p>Estar al día con los siguientes departamentos: </p>
 							<ol>
 								<li>Bienes inmuebles </li>
-								<li>Ingenieria </li>
+								<li>Ingeniería </li>
 								<li>Basura </li>
 								<li>Acueducto </li>
 								<li>Cementerio </li>
-								<li>Limpieza de vias </li>
+								<li>Limpieza de vías </li>
 								<li>Funcionario que aprueba </li>
 							</ol>
 						</div>
-						{/*Gestiones al dia Nueva, traspaso, traslado*/}
-						<div className="form-group">
-							<div className="form-row text-center">
-								<div className="form-group col-md-1">
+						{/*Gestiones al día Nueva, traspaso, traslado*/}
+
+						<div className="justify-content-center form-group">
+							<div className="form-row">
+								<div className="form-group col-md-2 text-center">
 									<button
-										className="btn btn-primary"
+										className="btn btn-primary text-center"
 										type="submit"
 										onClick={this.onClick}
 										value="Enviar"
@@ -556,21 +587,20 @@ export default class FormSolPatCom extends Component {
 										Enviar
 									</button>
 								</div>
-								<div className="form-group col-md-1">
+								<div className="form-group col-md-2 text-center">
 									<button
 										type="reset"
-										className="btn btn-danger"
+										className="btn btn-danger text-center"
 										onClick={this.onClick}
 										value="Cancelar"
 									>
 										Cancelar
 									</button>
 								</div>
-
-								<div className="form-group col-md-1">
+								<div className="form-group col-md-2 text-center">
 									<button
 										type="button"
-										class="btn btn-info"
+										className="btn btn-info text-center"
 										onClick={this.onClick}
 										value="Imprimir"
 									>
