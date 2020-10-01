@@ -119,13 +119,15 @@ export default class FormSolPatCom extends Component {
 								</h5>
 							</div>
 							<div className="form-group col-md-2">
-								<img
-									src="logo192.png"
-									className="rounded mx-auto d-block"
-									height="100px"
-									width="100px"
-									alt="logoMuniBarva"
-								></img>
+								<a href="https://munibarva.go.cr/">
+									<img
+										src="logo192.png"
+										className="rounded mx-auto d-block"
+										height="100px"
+										width="100px"
+										alt="logoMuniBarva"
+									></img>
+								</a>
 							</div>
 						</div>
 
