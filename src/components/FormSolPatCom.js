@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import "@fortawesome/fontawesome-free";
 export default class FormSolPatCom extends Component {
 	constructor(props) {
 		super(props);
@@ -62,7 +62,7 @@ export default class FormSolPatCom extends Component {
 	}
 
 	validarCedula(valor) {
-		var expresion = /^[0-9]-?\d{4}-?\d{4}$/;
+		var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
 		let regex = new RegExp(expresion);
 
 		if (regex.test(valor)) {
