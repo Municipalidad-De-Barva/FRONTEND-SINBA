@@ -311,7 +311,7 @@ export default class FormSolPatCom extends Component {
 								{/*"----------Cédula jurídica o personal:-------------"*/}
 								<div className="form-group col-md-4">
 									<label htmlFor="cedulaJuriPropietario">
-										Cédula jurídica o personal:
+										Cédula jurídica o física:
 									</label>
 
 									<input
@@ -383,10 +383,7 @@ export default class FormSolPatCom extends Component {
 							<hr />
 
 							<div className="form-row">
-								<div className="form-group col-md-3">
-									<p>Declaro bajo juramento que:</p>
-								</div>
-
+								
 								<div className="form-group col-md-1">
 									<input
 										type="radio"
@@ -395,7 +392,7 @@ export default class FormSolPatCom extends Component {
 										name="declaraJura"
 										id="declaraJura"
 									/>
-									<label>Si </label>
+									<label> Si </label>
 								</div>
 								<div className="form-group col-md-1">
 									<input
@@ -405,15 +402,15 @@ export default class FormSolPatCom extends Component {
 										name="declaraJura"
 										id="declaraJura"
 									/>
-									<label>No</label>
+									<label> No</label>
 								</div>
 								<p>utilizare repertorio musical (ACAM)</p>
 							</div>
 
 							<div className="alert alert-warning" role="alert">
 								<p className="mb-0 text-center">
-									Nosotros, los abajo firmantes de calidades antes mencionadas,
-									apercibimos de las penas que se castiga los delitos de falso
+									Declaro bajo juramento que: Nosotros, los abajo firmantes de calidades 
+									antes mencionadas,apercibimos de las penas que se castiga los delitos de falso
 									testimonio y perjurio declaramos bajo fe de juramento que la
 									información anotada anteriormente en lo que corresponde a cada
 									uno, es verdadera (Ley 6683 y Decreto 23485 MP)
