@@ -1,13 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import FormSolPatCom from "./components/FormSolPatCom";
+
 import * as serviceWorker from "./serviceWorker";
 import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
+
+import FormSolPatCom from "./components/FormSolPatCom";
+import Header from "./components/Header";
+
 ReactDOM.render(
 	<React.StrictMode>
+		<Header />
 		<FormSolPatCom />
 	</React.StrictMode>,
 	document.getElementById("root")
