@@ -410,7 +410,7 @@ export default class FormSolPatCom extends Component {
 							<div className="alert alert-warning" role="alert">
 								<p className="mb-0 text-center">
 									Declaro bajo juramento que: Nosotros, los abajo firmantes de calidades 
-									antes mencionadas,apercibimos de las penas que se castiga los delitos de falso
+									antes mencionadas, apercibimos de las penas que se castiga los delitos de falso
 									testimonio y perjurio declaramos bajo fe de juramento que la
 									información anotada anteriormente en lo que corresponde a cada
 									uno, es verdadera (Ley 6683 y Decreto 23485 MP)
