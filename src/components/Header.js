@@ -10,58 +10,116 @@ export default class Header extends Component {
 	render() {
 		return (
 			<div>
-				<div class="container">
-					<div class="row justify-content-md-center">
-						<div class="col">
+				<div className="container">
+					<div className="row justify-content-md-center">
+						<div className="col">
 							<a href="https://www.office.com/">
 								Correo Institucional <i className="far fa-envelope"></i>
 							</a>
 						</div>
-						<div class="col-md-auto"></div>
-						<div class="col col-lg-2">
-							<div>
-								<div class="social-twitter">
+						<div className="col-md-auto"></div>
+						<div className="col col-lg-2">
+							<ul>
+								<li className="social-twitter">
 									<a
 										href="http://www.twitter.com/munibarva"
 										data-original-title="Twitter"
 									>
-										Twitter <i class="fab fa-twitter"></i>
+										Twitter <i className="fab fa-twitter"></i>
 									</a>
-								</div>
-								<div class="social-facebook">
+								</li>
+								<li className="social-facebook">
 									<a
 										href="https://www.facebook.com/pages/Municipadivdad-de-Barva/1565214213707381?fref=ts"
 										data-original-title="Facebook"
 									>
-										Facebook <i class="fab fa-facebook-square"></i>
+										Facebook <i className="fab fa-facebook-square"></i>
 									</a>
-								</div>
-								<div class="social-skype">
+								</li>
+								<li className="social-skype">
 									<a href="skype:munibarva?call" data-original-title="Skype">
-										Skype <i class="fab fa-skype"></i>
+										Skype <i className="fab fa-skype"></i>
 									</a>
-								</div>
-								<div class="social-google">
+								</li>
+								<li className="social-google">
 									<a
 										href="https://plus.google.com/u/0/b/103743821005257143011/103743821005257143011/posts"
 										data-original-title="Google"
 									>
-										Google+ <i class="fab fa-google-plus-g"></i>
+										Google+ <i className="fab fa-google-plus-g"></i>
 									</a>
-								</div>
-								<div class="social-youtube">
+								</li>
+								<li className="social-youtube">
 									<a
 										href="https://www.youtube.com/channel/UCYa55zSGnjWN208pETfTgcQ"
 										data-original-title="YouTube"
 									>
-										YouTube <i class="fab fa-youtube"></i>
+										YouTube <i className="fab fa-youtube"></i>
 									</a>
-								</div>
-							</div>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-				<header></header>
+				<header>
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<a
+							class="navbar-brand"
+							href="https://getbootstrap.com/docs/4.5/components/navbar/"
+						>
+							Navbar
+						</a>
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarNav"
+							aria-controls="navbarNav"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav">
+								<li class="nav-item active">
+									<a
+										class="nav-link"
+										href="https://getbootstrap.com/docs/4.5/components/navbar/"
+									>
+										Home <span class="sr-only">(current)</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a
+										class="nav-link"
+										href="https://getbootstrap.com/docs/4.5/components/navbar/"
+									>
+										Features
+									</a>
+								</li>
+								<li class="nav-item">
+									<a
+										class="nav-link"
+										href="https://getbootstrap.com/docs/4.5/components/navbar/"
+									>
+										Pricing
+									</a>
+								</li>
+								<li class="nav-item">
+									<a
+										class="nav-link disabled"
+										href="https://getbootstrap.com/docs/4.5/components/navbar/"
+										tabindex="-1"
+										aria-disabled="true"
+									>
+										Disabled
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</header>
 			</div>
 		);
 	}
