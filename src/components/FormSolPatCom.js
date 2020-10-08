@@ -383,7 +383,6 @@ export default class FormSolPatCom extends Component {
 							<hr />
 
 							<div className="form-row">
-								
 								<div className="form-group col-md-1">
 									<input
 										type="radio"
@@ -409,11 +408,12 @@ export default class FormSolPatCom extends Component {
 
 							<div className="alert alert-warning" role="alert">
 								<p className="mb-0 text-center">
-									Declaro bajo juramento que: Nosotros, los abajo firmantes de calidades 
-									antes mencionadas, apercibimos de las penas que se castiga los delitos de falso
-									testimonio y perjurio declaramos bajo fe de juramento que la
-									información anotada anteriormente en lo que corresponde a cada
-									uno, es verdadera (Ley 6683 y Decreto 23485 MP)
+									Declaro bajo juramento que: Nosotros, los abajo firmantes de
+									calidades antes mencionadas, apercibimos de las penas que se
+									castiga los delitos de falso testimonio y perjurio declaramos
+									bajo fe de juramento que la información anotada anteriormente
+									en lo que corresponde a cada uno, es verdadera (Ley 6683 y
+									Decreto 23485 MP)
 								</p>
 							</div>
 						</div>
@@ -564,7 +564,7 @@ export default class FormSolPatCom extends Component {
 										Cancelar
 									</button>
 								</div>
-								<div className="form-group col-md-2 text-center">
+								{/*<div className="form-group col-md-2 text-center">
 									<button
 										type="button"
 										className="btn btn-info text-center"
@@ -573,7 +573,7 @@ export default class FormSolPatCom extends Component {
 									>
 										Imprimir
 									</button>
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</form>
