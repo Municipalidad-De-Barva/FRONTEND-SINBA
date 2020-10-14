@@ -99,23 +99,44 @@ export default class Footer extends Component {
 							<div class="text-center text-md-right">
 								<ul class="list-unstyled list-inline">
 									<li class="list-inline-item">
-										<a class="btn-floating btn-sm rgba-white-slight mx-1">
-											<i class="fab fa-facebook-f"></i>
-										</a>
-									</li>
-									<li class="list-inline-item">
-										<a class="btn-floating btn-sm rgba-white-slight mx-1">
+										<a
+											class="btn-floating btn-sm rgba-white-slight mx-1"
+											href="http://www.twitter.com/munibarva"
+										>
 											<i class="fab fa-twitter"></i>
 										</a>
 									</li>
 									<li class="list-inline-item">
-										<a class="btn-floating btn-sm rgba-white-slight mx-1">
+										<a
+											class="btn-floating btn-sm rgba-white-slight mx-1"
+											href="https://www.facebook.com/pages/Municipadivdad-de-Barva/1565214213707381?fref=ts"
+										>
+											<i class="fab fa-facebook-f"></i>
+										</a>
+									</li>
+
+									<li class="list-inline-item">
+										<a
+											class="btn-floating btn-sm rgba-white-slight mx-1"
+											href="https://plus.google.com/u/0/b/103743821005257143011/103743821005257143011/posts"
+										>
 											<i class="fab fa-google-plus-g"></i>
 										</a>
 									</li>
 									<li class="list-inline-item">
-										<a class="btn-floating btn-sm rgba-white-slight mx-1">
-											<i class="fab fa-linkedin-in"></i>
+										<a
+											class="btn-floating btn-sm rgba-white-slight mx-1"
+											href="skype:munibarva?call"
+										>
+											<i className="fab fa-skype"></i>
+										</a>
+									</li>
+									<li class="list-inline-item">
+										<a
+											class="btn-floating btn-sm rgba-white-slight mx-1"
+											href="https://www.youtube.com/channel/UCYa55zSGnjWN208pETfTgcQ"
+										>
+											<i className="fab fa-youtube"></i>
 										</a>
 									</li>
 								</ul>
