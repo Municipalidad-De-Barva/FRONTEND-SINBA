@@ -6,14 +6,15 @@ import * as serviceWorker from "./serviceWorker";
 import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
-
-import FormSolPatCom from "./components/FormSolPatCom";
 import Header from "./components/Header";
+import FormSolPatCom from "./components/FormSolPatCom";
 
+import Footer from "./components/Footer";
 ReactDOM.render(
 	<React.StrictMode>
 		<Header />
 		<FormSolPatCom />
+		<Footer />
 	</React.StrictMode>,
 	document.getElementById("root")
 );
