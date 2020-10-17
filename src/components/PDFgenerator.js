@@ -27,10 +27,15 @@ const PDF = (props) => {
 		<>
 			<Pdf targetRef={ref} filename="Patente_Comercial_Nueva.pdf">
 				{({toPdf}) => (
-					<div className="form-group col-md-4 text-center">
-						<button className="btn btn-primary text-center" onClick={toPdf}>
-							Descargar PDF
-						</button>
+					<div className="text-center">
+						<br />
+						<div className="form-row">
+							<div className="form-group col-md-4">
+								<button className="btn btn-primary text-center" onClick={toPdf}>
+									Descargar PDF
+								</button>
+							</div>
+						</div>
 					</div>
 				)}
 			</Pdf>
@@ -74,7 +79,7 @@ const PDF = (props) => {
 									</div>
 
 									<div className="form-group">
-										<div className="form-group text-center">
+										<div className="form-group">
 											<h2>Datos del Solicitante:</h2>
 										</div>
 
@@ -89,7 +94,6 @@ const PDF = (props) => {
 													className="form-control"
 													type="text"
 													value={nomSolicitante}
-													placeholder="Ingrese su nombre completo"
 													name="nomSolicitante"
 													id="nomSolicitante"
 												/>
@@ -102,13 +106,11 @@ const PDF = (props) => {
 													className="form-control"
 													type="text"
 													value={cedulaSolicitante}
-													placeholder="0-0000-0000"
 													maxLength="11"
 													name="cedulaSolicitante"
 													id="cedulaSolicitante"
 												/>
 											</div>
-											<br />
 										</div>
 
 										<div className="form-row">
@@ -485,10 +487,15 @@ const PDF = (props) => {
 			</div>
 			<Pdf targetRef={ref} filename="Patente_Comercial_Nueva.pdf">
 				{({toPdf}) => (
-					<div className="form-group col-md-4 text-center">
-						<button className="btn btn-primary text-center" onClick={toPdf}>
-							Descargar PDF
-						</button>
+					<div className="text-center">
+						<br />
+						<div className="form-row">
+							<div className="form-group col-md-4">
+								<button className="btn btn-primary text-center" onClick={toPdf}>
+									Descargar PDF
+								</button>
+							</div>
+						</div>
 					</div>
 				)}
 			</Pdf>

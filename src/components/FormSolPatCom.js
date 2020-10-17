@@ -183,7 +183,7 @@ export default class FormSolPatCom extends Component {
 												</div>
 
 												<div className="form-group">
-													<div className="form-group text-center">
+													<div className="form-group">
 														<h2>Datos del Solicitante:</h2>
 													</div>
 
@@ -610,9 +610,10 @@ export default class FormSolPatCom extends Component {
 													</ol>
 												</div>
 											</div>
-											{/*Gestiones al día Nueva, traspaso, traslado*/}
+
 											<div className="card-footer text-center">
 												<div className="form-row">
+													{/*
 													<div className="form-group col-md-2 text-center">
 														<button
 															className="btn btn-primary text-center"
@@ -623,6 +624,7 @@ export default class FormSolPatCom extends Component {
 															Enviar
 														</button>
 													</div>
+													*/}
 													{/*
 													<div className="form-group col-md-2 text-center">
 														<button
