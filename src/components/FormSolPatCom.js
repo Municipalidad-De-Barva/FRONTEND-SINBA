@@ -3,34 +3,34 @@ import PDF from "./PDFgenerator";
 import "@fortawesome/fontawesome-free";
 export default class FormSolPatCom extends Component {
 	constructor(props) {
-		super(props);
+		super();
 		this.state = {
 			/*Informacion Solicitante*/
-			nomSolicitante: "",
-			cedulaSolicitante: "",
-			represLegalSolicitante: "",
-			cedulaJuriSolicitante: "",
-			telSolicitante: "",
-			faxSolicitante: "",
-			dirSolicitante: "",
-			correoEleSolicitante: "",
+			nomSolicitante: "Bryan Sanchez Brenes",
+			cedulaSolicitante: "304760577",
+			represLegalSolicitante: "Bryan Sanchez Brenes",
+			cedulaJuriSolicitante: "304760577",
+			telSolicitante: "71464730",
+			faxSolicitante: "71464730",
+			dirSolicitante: "Cartago, Costa Rica",
+			correoEleSolicitante: "bryan.jsb.1801@gmail.com",
 
 			/*Informacion Dueño de local*/
-			nomPropietario: "",
-			represLegalPropietario: "",
-			cedulaJuriPropietario: "",
-			dirPropietario: "",
+			nomPropietario: "Bryan Sanchez Brenes",
+			represLegalPropietario: "Bryan Sanchez Brenes",
+			cedulaJuriPropietario: "304760577",
+			dirPropietario: "Cartago, Costa Rica",
 
 			/*Datos del local*/
-			nomComercial: "",
-			actividad: "",
+			nomComercial: "ComercioNuevo",
+			actividad: "Comercial",
 
 			/*Declaración jurada */
-			declaraJura: "",
+			declaraJura: "1",
 
 			/*Autorizo a*/
-			nomAutorizado: "",
-			cedAutorizado: "",
+			nomAutorizado: "Bryan Sanchez Brenes",
+			cedAutorizado: "304760577",
 
 			/*PDF */
 			postSubmitted: false,
@@ -106,9 +106,29 @@ export default class FormSolPatCom extends Component {
 	}
 
 	render() {
+		const {
+			nomSolicitante,
+			cedulaSolicitante,
+			represLegalSolicitante,
+			cedulaJuriSolicitante,
+			telSolicitante,
+			faxSolicitante,
+			dirSolicitante,
+			correoEleSolicitante,
+			nomPropietario,
+			represLegalPropietario,
+			cedulaJuriPropietario,
+			dirPropietario,
+			nomComercial,
+			actividad,
+			declaraJura,
+			nomAutorizado,
+			cedAutorizado,
+		} = this.state;
+
 		return (
 			<div
-				class="image-container set-full-height"
+				className="image-container set-full-height"
 				style={{
 					backgroundImage:
 						"url(" +
@@ -123,17 +143,31 @@ export default class FormSolPatCom extends Component {
 				<>
 					{!this.state.postSubmitted ? (
 						<div className="container">
-							<div class="row">
-								<div class="col-sm-12 col-sm-offset-0">
-									<div class="card">
+							<br />
+							<br />
+							<div className="row">
+								<div className="col-sm-12 col-sm-offset-0">
+									<div className="card">
 										<form>
 											<div className=" card-header form-group text-center">
 												<h1>
 													<strong>Formulario Patente Comercial Nueva.</strong>
 												</h1>
 											</div>
-											<div class="card-body">
+											<div className="card-body">
 												<div className="form-row">
+													<div className="form-group col-md-2">
+														<a href="https://munibarva.go.cr/">
+															<img
+																src="logo192.png"
+																className="rounded mx-auto d-block"
+																height="100px"
+																width="100px"
+																alt="logoMuniBarva"
+															></img>
+														</a>
+													</div>
+
 													<div className="form-group col-md-10">
 														<h5>
 															<strong>Número de trámite:</strong>
@@ -145,18 +179,6 @@ export default class FormSolPatCom extends Component {
 															<strong>Funcionario que recibe:</strong>
 														</h5>
 														<hr />
-													</div>
-
-													<div className="form-group col-md-2">
-														<a href="https://munibarva.go.cr/">
-															<img
-																src="logo192.png"
-																className="rounded mx-auto d-block"
-																height="100px"
-																width="100px"
-																alt="logoMuniBarva"
-															></img>
-														</a>
 													</div>
 												</div>
 
@@ -174,7 +196,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.nomSolicitante}
+																value={nomSolicitante}
 																placeholder="Ingrese su nombre completo"
 																onChange={this.handleInputChange}
 																name="nomSolicitante"
@@ -192,7 +214,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.cedulaSolicitante}
+																value={cedulaSolicitante}
 																placeholder="0-0000-0000"
 																maxLength="11"
 																onChange={this.handleInputChange}
@@ -215,7 +237,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.represLegalSolicitante}
+																value={represLegalSolicitante}
 																onChange={this.handleInputChange}
 																name="represLegalSolicitante"
 																id="represLegalSolicitante"
@@ -230,7 +252,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.cedulaJuriSolicitante}
+																value={cedulaJuriSolicitante}
 																onChange={this.handleInputChange}
 																name="cedulaJuriSolicitante"
 																id="cedulaJuriSolicitante"
@@ -252,7 +274,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="tel"
-																value={this.state.telSolicitante}
+																value={telSolicitante}
 																onChange={this.handleInputChange}
 																name="telSolicitante"
 																id="telSolicitante"
@@ -265,7 +287,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="tel"
-																value={this.state.faxSolicitante}
+																value={faxSolicitante}
 																onChange={this.handleInputChange}
 																name="faxSolicitante"
 																id="faxSolicitante"
@@ -280,7 +302,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="email"
-																value={this.state.correoEleSolicitante}
+																value={correoEleSolicitante}
 																onChange={this.handleInputChange}
 																name="correoEleSolicitante"
 																id="correoEleSolicitante"
@@ -297,7 +319,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.dirSolicitante}
+																value={dirSolicitante}
 																onChange={this.handleInputChange}
 																name="dirSolicitante"
 																id="dirSolicitante"
@@ -319,7 +341,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.nomPropietario}
+																value={nomPropietario}
 																onChange={this.handleInputChange}
 																name="nomPropietario"
 																id="nomPropietario"
@@ -334,7 +356,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.represLegalPropietario}
+																value={represLegalPropietario}
 																onChange={this.handleInputChange}
 																name="represLegalPropietario"
 																id="nomPrepresLegalPropietarioropietario"
@@ -352,7 +374,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.cedulaJuriPropietario}
+																value={cedulaJuriPropietario}
 																onChange={this.handleInputChange}
 																name="cedulaJuriPropietario"
 																id="cedulaJuriPropietario"
@@ -368,7 +390,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.dirPropietario}
+																value={dirPropietario}
 																onChange={this.handleInputChange}
 																name="dirPropietario"
 																id="dirPropietario"
@@ -390,7 +412,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.nomComercial}
+																value={nomComercial}
 																onChange={this.handleInputChange}
 																name="nomComercial"
 																id="nomComercial"
@@ -405,7 +427,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.actividad}
+																value={actividad}
 																onChange={this.handleInputChange}
 																name="actividad"
 																id="actividad"
@@ -422,6 +444,7 @@ export default class FormSolPatCom extends Component {
 													<div className="form-row">
 														<div className="form-group col-md-1">
 															<input
+																checked
 																type="radio"
 																value="1"
 																onChange={this.handleInputChange}
@@ -539,7 +562,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.nomAutorizado}
+																value={nomAutorizado}
 																onChange={this.handleInputChange}
 																name="nomAutorizado"
 																id="nomAutorizado"
@@ -551,7 +574,7 @@ export default class FormSolPatCom extends Component {
 															<input
 																className="form-control"
 																type="text"
-																value={this.state.cedAutorizado}
+																value={cedAutorizado}
 																onChange={this.handleInputChange}
 																name="cedAutorizado"
 																id="cedAutorizado"
@@ -588,7 +611,7 @@ export default class FormSolPatCom extends Component {
 												</div>
 											</div>
 											{/*Gestiones al día Nueva, traspaso, traslado*/}
-											<div class="card-footer text-center">
+											<div className="card-footer text-center">
 												<div className="form-row">
 													<div className="form-group col-md-2 text-center">
 														<button
@@ -630,13 +653,63 @@ export default class FormSolPatCom extends Component {
 						</div>
 					) : (
 						<PDF
-							title1={this.state.nomSolicitante}
-							title2={this.state.nomPropietario}
-							title3={this.state.nomComercial}
+							nomSolicitante={nomSolicitante}
+							cedulaSolicitante={cedulaSolicitante}
+							represLegalSolicitante={represLegalSolicitante}
+							cedulaJuriSolicitante={cedulaJuriSolicitante}
+							telSolicitante={telSolicitante}
+							faxSolicitante={faxSolicitante}
+							dirSolicitante={dirSolicitante}
+							correoEleSolicitante={correoEleSolicitante}
+							nomPropietario={nomPropietario}
+							represLegalPropietario={represLegalPropietario}
+							cedulaJuriPropietario={cedulaJuriPropietario}
+							dirPropietario={dirPropietario}
+							nomComercial={nomComercial}
+							actividad={actividad}
+							declaraJura={declaraJura}
+							nomAutorizado={nomAutorizado}
+							cedAutorizado={cedAutorizado}
 						/>
 					)}
 				</>
+				<br />
+				<br />
 			</div>
 		);
 	} /*Fin del render*/
 }
+
+/*
+this.state = {
+//Informacion Solicitante
+  nomSolicitante: "",
+  cedulaSolicitante: "",
+  represLegalSolicitante: "",
+  cedulaJuriSolicitante: "",
+  telSolicitante: "",
+  faxSolicitante: "",
+  dirSolicitante: "",
+  correoEleSolicitante: "",
+
+//Informacion Dueño de local
+  nomPropietario: "",
+  represLegalPropietario: "",
+  cedulaJuriPropietario: "",
+  dirPropietario: "",
+
+//Datos del local
+  nomComercial: "",
+  actividad: "",
+
+//Declaración jurada 
+  declaraJura: "",
+
+//Autorizo a
+  nomAutorizado: "",
+  cedAutorizado: "",
+
+//DF
+  postSubmitted: false,
+};
+*/
