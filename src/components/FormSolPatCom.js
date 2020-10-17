@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PDF from "./PDFgenerator";
+import ModalDatosAdjunto from "./ModalDatosAdjunto";
 import "@fortawesome/fontawesome-free";
 export default class FormSolPatCom extends Component {
 	constructor(props) {
@@ -608,6 +609,10 @@ export default class FormSolPatCom extends Component {
 														<li>Limpieza de vías </li>
 														<li>Funcionario que aprueba </li>
 													</ol>
+												</div>
+
+												<div>
+													<ModalDatosAdjunto />
 												</div>
 											</div>
 
