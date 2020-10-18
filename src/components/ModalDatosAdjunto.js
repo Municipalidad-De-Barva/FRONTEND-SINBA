@@ -15,35 +15,35 @@ class Modal extends Component {
 			<div>
 				<button
 					type="button"
-					class="btn btn-primary"
+					className="btn btn-primary"
 					data-toggle="modal"
 					data-target="#exampleModal"
 				>
 					ver documentos Adjuntos
 				</button>
 				<div
-					class="modal fade"
+					className="modal fade"
 					id="exampleModal"
-					tabindex="1"
+					tabIndex="1"
 					aria-labelledby="exampleModalLabel"
 					aria-hidden="true"
 				>
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title text-center">
+					<div className="modal-dialog">
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title text-center">
 									DEBE ADJUNTAR PARA TRAMITAR PATENTE:
 								</h5>
 								<button
 									type="button"
-									class="close"
+									className="close"
 									data-dismiss="modal"
 									aria-label="Close"
 								>
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<div class="modal-body justify">
+							<div className="modal-body justify">
 								<p>
 									Formulario de Declaración Jurada de solicitud. Debe venir
 									firmado por los interesados en el trámite (solicitante de la
@@ -124,10 +124,10 @@ class Modal extends Component {
 									verificar la condición del solicitante.
 								</p>
 							</div>
-							<div class="modal-footer">
+							<div className="modal-footer">
 								<button
 									type="button"
-									class="btn btn-secondary"
+									className="btn btn-secondary"
 									data-dismiss="modal"
 								>
 									Cerrar
