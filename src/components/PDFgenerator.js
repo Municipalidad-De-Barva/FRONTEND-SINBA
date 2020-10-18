@@ -1,7 +1,5 @@
 import React from "react";
-
 import Pdf from "react-to-pdf";
-
 const ref = React.createRef();
 
 const PDF = (props) => {
@@ -31,7 +29,7 @@ const PDF = (props) => {
 						<br />
 						<div className="form-row">
 							<div className="form-group col-md-4">
-								<button className="btn btn-primary text-center" onClick={toPdf}>
+								<button onClick={toPdf} className="btn btn-primary text-center">
 									Descargar PDF
 								</button>
 							</div>
@@ -39,7 +37,7 @@ const PDF = (props) => {
 					</div>
 				)}
 			</Pdf>
-			<div className="container">
+			<div className="container" ref={ref}>
 				<br />
 				<br />
 				<div className="row">
@@ -488,7 +486,7 @@ const PDF = (props) => {
 						<br />
 						<div className="form-row">
 							<div className="form-group col-md-4">
-								<button className="btn btn-primary text-center" onClick={toPdf}>
+								<button onClick={toPdf} className="btn btn-primary text-center">
 									Descargar PDF
 								</button>
 							</div>
