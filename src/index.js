@@ -7,14 +7,17 @@ import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import FormSolPatCom from "./components/FormSolPatCom";
 
-import Footer from "./components/Footer";
+//import Body from "./components/BodyIndex";
 ReactDOM.render(
 	<React.StrictMode>
 		<Header />
 		<FormSolPatCom />
 		<Footer />
+
+		{/*<Body />*/}
 	</React.StrictMode>,
 	document.getElementById("root")
 );

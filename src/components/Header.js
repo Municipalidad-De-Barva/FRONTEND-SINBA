@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
-import "./header.css";
 export default class Header extends Component {
 	constructor(props) {
 		super(props);
