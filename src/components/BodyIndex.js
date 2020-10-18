@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
-import "./BodyIndex.css";
+//import "./BodyIndex.css";
 export default class BodyIndex extends Component {
 	render() {
 		return (
@@ -17,7 +17,7 @@ export default class BodyIndex extends Component {
 	}
 }
 
-class Body extends Component {
+class Body extends Component {	
 	render() {
 		return (
 			<div className="container mt-5">
@@ -27,7 +27,7 @@ class Body extends Component {
 					<div className="row">
 						<div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
 							<div className="card hoverable">
-								<a href="./">
+								<a href= "./FormSolPatCom" >
 									<img
 										className="card-img-top"
 										src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -45,7 +45,7 @@ class Body extends Component {
 
 						<div className="col-lg-4 col-md-6 mb-md-0 mb-4">
 							<div className="card hoverable">
-								<a href=" ">
+								<a href="./components/FormSolPatCom">
 									<img
 										className="card-img-top"
 										src="https://images.pexels.com/photos/19043/pexels-photo.jpg?cs=srgb&dl=pexels-skitterphoto-19043.jpg&fm=jpg"
