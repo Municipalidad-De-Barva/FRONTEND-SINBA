@@ -1,31 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
 import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import FormSolPatCom from "./components/FormSolPatCom";
 
+import FormSolPatCom from "./components/FormSolPatCom";
 import Body from "./components/BodyIndex";
+import Login from "./components/Login";
+
 ReactDOM.render(
 	<React.StrictMode>
-		{/*<Header />
-		<FormSolPatCom />
-	<Footer />*/}
-	<Router>
-		<Route exact path="/" render={()=>{return <Body />}}>
-		</Route>
-
-		<Route path="/FormSolPatCom" render={()=>{return <FormSolPatCom />}}>
-		</Route>
-	</Router>
-		
-		
+		<Router>
+			<Route
+				exact
+				path="/"
+				render={() => {
+					return <Body />;
+				}}
+			></Route>
+			<Route
+				path="/FormSolPatCom"
+				render={() => {
+					return <FormSolPatCom />;
+				}}
+			></Route>
+			<Route
+				path="/Login"
+				render={() => {
+					return <Login />;
+				}}
+			></Route>
+		</Router>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
