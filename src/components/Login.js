@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
+
 export default class Login extends Component {
 	render() {
 		return (
@@ -15,7 +16,52 @@ export default class Login extends Component {
 }
 
 class PaginaLogin extends Component {
+	constructor(props) {
+		super();
+		this.state = {
+			user: "",
+			pass: "",
+		};
+
+		this.onClick = this.handleClick.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
+	}
+
+	handleInputChange(e) {
+		const {value, name} = e.target;
+		console.log(value, name);
+
+		this.setState({
+			[name]: value,
+		});
+	}
+
+	handleClick() {
+		console.log(
+			"Preparando datos para enviar al servidor, mostrar datos:",
+			this.state
+		);
+
+		fetch("http://localhost:3001/api/admLogIn", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+				/*'Access-Control-Allow-Headers': '*',
+				"Access-Control-Allow-Origin": "*",
+      			"Access-Control-Allow-Credentials": "true",
+      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+			},
+			body: JSON.stringify(this.state),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log("respuesta del servidor: ", data);
+			});
+	}
+
 	render() {
+		const {user, pass} = this.state;
 		return (
 			<div
 				className="image-container set-full-height"
@@ -39,35 +85,40 @@ class PaginaLogin extends Component {
 									<p class="h4 mb-4">Iniciar Sección</p>
 
 									<input
-										type="email"
-										id="defaultLoginFormEmail"
+										value={user}
+										onChange={this.handleInputChange}
+										type="text"
+										id="user"
 										class="form-control mb-4"
-										placeholder="E-mail"
+										placeholder="Ingrese su numero de cedúla"
 									/>
 
 									<input
+										value={pass}
+										onChange={this.handleInputChange}
 										type="password"
-										id="defaultLoginFormPassword"
+										id="pass"
 										class="form-control mb-4"
-										placeholder="Password"
+										placeholder="Ingrese su contraseña"
 									/>
 
 									<div class="d-flex justify-content-around">
+										{/*}
 										<div>
 											<div class="custom-control custom-checkbox">
 												<input
+													value={remember}
+													onChange={this.handleInputChange}
 													type="checkbox"
 													class="custom-control-input"
-													id="defaultLoginFormRemember"
+													id="remember"
 												/>
-												<label
-													class="custom-control-label"
-													for="defaultLoginFormRemember"
-												>
+												<label class="custom-control-label" htmlFor="remember">
 													Recordarme
 												</label>
 											</div>
 										</div>
+										*/}
 										<div>
 											<a href="./">Olvido la contraseña?</a>
 										</div>
@@ -76,6 +127,7 @@ class PaginaLogin extends Component {
 									<button
 										class="btn btn-info btn-block my-4 col-sm-2"
 										type="submit"
+										onClick={this.onClick}
 									>
 										Entrar
 									</button>
