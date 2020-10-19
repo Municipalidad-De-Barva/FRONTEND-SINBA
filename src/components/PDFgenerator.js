@@ -2,6 +2,21 @@ import React from "react";
 import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
+function mostrarDeclaracionJurada(declaraJura) {
+	let description;
+	if (declaraJura == 1) {
+		description = <strong>SI</strong>;
+	} else {
+		description = <strong>NO</strong>;
+	}
+
+	return (
+		<div className="form-group col-md-4">
+			<p> {description} utilizare repertorio musical (ACAM)</p>
+		</div>
+	);
+}
+
 const PDF = (props) => {
 	const {
 		nomSolicitante,
@@ -16,11 +31,13 @@ const PDF = (props) => {
 		represLegalPropietario,
 		cedulaJuriPropietario,
 		dirPropietario,
+		declaraJura,
 		nomComercial,
 		actividad,
 		nomAutorizado,
 		cedAutorizado,
 	} = props;
+
 	return (
 		<>
 			<Pdf targetRef={ref} filename="Patente_Comercial_Nueva.pdf">
@@ -315,29 +332,8 @@ const PDF = (props) => {
 								<div className="form-group">
 									<h2>Declaración jurada Solicitud nueva</h2>
 									<hr />
-
 									<div className="form-row">
-										<div className="form-group col-md-1">
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="declaraJura"
-												id="declaraJura"
-											/>
-											<label> Si </label>
-										</div>
-										<div className="form-group col-md-1">
-											<input
-												disabled
-												type="radio"
-												value="0"
-												name="declaraJura"
-												id="declaraJura"
-											/>
-											<label> No </label>
-										</div>
-										<p>utilizare repertorio musical (ACAM)</p>
+										{mostrarDeclaracionJurada(declaraJura)}
 									</div>
 
 									<div className="alert alert-warning" role="alert">

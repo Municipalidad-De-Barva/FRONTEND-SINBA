@@ -12,7 +12,7 @@ import FormSolPatCom from "./components/FormSolPatCom";
 import Body from "./components/BodyIndex";
 import Login from "./components/Login";
 import AdmSolPatCom from "./components/AdmSolPatCom";
-import RevSolPatCom from "./components/RevSolPatCom";
+//import RevSolPatCom from "./components/RevSolPatCom";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -42,12 +42,12 @@ ReactDOM.render(
 					return <AdmSolPatCom />;
 				}}
 			></Route>
-			<Route
+			{/*<Route
 				path="/RevSolPatCom"
 				render={() => {
 					return <RevSolPatCom />;
 				}}
-			></Route>
+			></Route>*/}
 		</Router>
 	</React.StrictMode>,
 	document.getElementById("root")
