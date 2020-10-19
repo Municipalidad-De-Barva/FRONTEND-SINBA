@@ -85,21 +85,23 @@ class PaginaLogin extends Component {
 									<p class="h4 mb-4">Iniciar Sección</p>
 
 									<input
-										value={user}
-										onChange={this.handleInputChange}
 										type="text"
 										id="user"
+										name="user"
 										class="form-control mb-4"
 										placeholder="Ingrese su numero de cedúla"
+										value={user}
+										onChange={this.handleInputChange}
 									/>
 
 									<input
-										value={pass}
-										onChange={this.handleInputChange}
 										type="password"
 										id="pass"
+										name="pass"
 										class="form-control mb-4"
 										placeholder="Ingrese su contraseña"
+										value={pass}
+										onChange={this.handleInputChange}
 									/>
 
 									<div class="d-flex justify-content-around">
