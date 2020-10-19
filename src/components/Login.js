@@ -82,14 +82,14 @@ class PaginaLogin extends Component {
 						<div className="col-sm-12 col-sm-offset-12">
 							<div className="card text-center">
 								<form class="text-center border border-light p-5" action="#!">
-									<p class="h4 mb-4">Iniciar Sección</p>
+									<p class="h4 mb-4">Iniciar Sesión</p>
 
 									<input
 										type="text"
 										id="user"
 										name="user"
 										class="form-control mb-4"
-										placeholder="Ingrese su numero de cedúla"
+										placeholder="Ingrese su numero de cédula"
 										value={user}
 										onChange={this.handleInputChange}
 									/>

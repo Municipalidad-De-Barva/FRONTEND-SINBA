@@ -11,6 +11,8 @@ import "bootstrap/dist/js/bootstrap";
 import FormSolPatCom from "./components/FormSolPatCom";
 import Body from "./components/BodyIndex";
 import Login from "./components/Login";
+import AdmSolPatCom from "./components/AdmSolPatCom";
+import RevSolPatCom from "./components/RevSolPatCom";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -32,6 +34,18 @@ ReactDOM.render(
 				path="/Login"
 				render={() => {
 					return <Login />;
+				}}
+			></Route>
+			<Route
+				path="/AdmSolPatCom"
+				render={() => {
+					return <AdmSolPatCom />;
+				}}
+			></Route>
+			<Route
+				path="/RevSolPatCom"
+				render={() => {
+					return <RevSolPatCom />;
 				}}
 			></Route>
 		</Router>
