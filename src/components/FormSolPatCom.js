@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import PDF from "./PDFgenerator";
 import ModalDatosAdjunto from "./ModalDatosAdjunto";
 import "@fortawesome/fontawesome-free";
+
 export default class FormSolPatCom extends Component {
 	constructor(props) {
 		super();
@@ -137,8 +138,8 @@ export default class FormSolPatCom extends Component {
 					style={{
 						backgroundImage:
 							"url(" +
-							"https://images.pexels.com/photos/4476623/pexels-photo-4476623.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4476623.jpg&fm=jpg" +
-							")",
+							"https://images.pexels.com/photos/4476623/pexels-photo" +
+							"-4476623.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4476623.jpg&fm=jpg)",
 						backgroundPosition: "center",
 						backgroundSize: "cover",
 						backgroundRepeat: "no-repeat",
@@ -631,18 +632,17 @@ export default class FormSolPatCom extends Component {
 
 												<div className="card-footer text-center">
 													<div className="form-row">
-														{/*
-													<div className="form-group col-md-2 text-center">
-														<button
-															className="btn btn-primary text-center"
-															type="submit"
-															onClick={this.onClick}
-															value="Enviar"
-														>
-															Enviar
-														</button>
-													</div>
-													*/}
+														<div className="form-group col-md-2 text-center">
+															<button
+																className="btn btn-primary text-center"
+																type="submit"
+																onClick={this.onClick}
+																value="Enviar"
+															>
+																Enviar
+															</button>
+														</div>
+
 														{/*
 													<div className="form-group col-md-2 text-center">
 														<button
