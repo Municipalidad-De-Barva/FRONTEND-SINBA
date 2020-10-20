@@ -22,7 +22,7 @@ class PagNAdmin extends Component {
 			user: "",
 			pass: "",
 			name: "",
-			rol: "",
+			rol: "3",
 			email: "",
 		};
 
@@ -39,7 +39,8 @@ class PagNAdmin extends Component {
 		});
 	}
 
-	handleClick() {
+	handleClick(e) {
+		e.preventDefault();
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
 			this.state
@@ -64,7 +65,7 @@ class PagNAdmin extends Component {
 	}
 
 	render() {
-		const {user, pass} = this.state;
+		const {user, pass, name, rol, email} = this.state;
 		return (
 			<div
 				className="image-container set-full-height"
@@ -116,7 +117,7 @@ class PagNAdmin extends Component {
 										name="name"
 										className="form-control mb-4"
 										placeholder="Ingrese el nombre"
-										value={pass}
+										value={name}
 										onChange={this.handleInputChange}
 									/>
 
@@ -124,13 +125,12 @@ class PagNAdmin extends Component {
 										className="custom-select mr-sm-2 mb-4"
 										id="rol"
 										name="rol"
+										value={rol}
+										onChange={this.handleInputChange}
 									>
-										<option value="0" defaultValue>
-											Choose...
-										</option>
 										<option value="1">Jefa/e patentes</option>
 										<option value="2">Informática</option>
-										<option value="3">Inspector</option>
+										<option value="3" defaultValue >Inspector</option>
 									</select>
 
 									<input
@@ -139,7 +139,7 @@ class PagNAdmin extends Component {
 										name="email"
 										className="form-control mb-4"
 										placeholder="Ingrese el correo"
-										value={pass}
+										value={email}
 										onChange={this.handleInputChange}
 									/>
 									<div className="d-flex justify-content-around">
