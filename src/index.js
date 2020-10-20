@@ -12,6 +12,7 @@ import FormSolPatCom from "./components/FormSolPatCom";
 import Body from "./components/BodyIndex";
 import Login from "./components/Login";
 import AdmSolPatCom from "./components/AdmSolPatCom";
+import NuevoAdm from "./components/NuevoAdm";
 //import RevSolPatCom from "./components/RevSolPatCom";
 
 ReactDOM.render(
@@ -40,6 +41,12 @@ ReactDOM.render(
 				path="/AdmSolPatCom"
 				render={() => {
 					return <AdmSolPatCom />;
+				}}
+			></Route>
+			<Route
+				path="/NuevoAdm"
+				render={() => {
+					return <NuevoAdm />;
 				}}
 			></Route>
 			{/*<Route
