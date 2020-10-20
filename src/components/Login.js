@@ -81,14 +81,17 @@ class PaginaLogin extends Component {
 					<div className="row">
 						<div className="col-sm-12 col-sm-offset-12">
 							<div className="card text-center">
-								<form class="text-center border border-light p-5" action="#!">
-									<p class="h4 mb-4">Iniciar Sesión</p>
+								<form
+									className="text-center border border-light p-5"
+									action="#!"
+								>
+									<p className="h4 mb-4">Iniciar Sesión</p>
 
 									<input
 										type="text"
 										id="user"
 										name="user"
-										class="form-control mb-4"
+										className="form-control mb-4"
 										placeholder="Ingrese su numero de cédula"
 										value={user}
 										onChange={this.handleInputChange}
@@ -98,24 +101,24 @@ class PaginaLogin extends Component {
 										type="password"
 										id="pass"
 										name="pass"
-										class="form-control mb-4"
+										className="form-control mb-4"
 										placeholder="Ingrese su contraseña"
 										value={pass}
 										onChange={this.handleInputChange}
 									/>
 
-									<div class="d-flex justify-content-around">
+									<div className="d-flex justify-content-around">
 										{/*}
 										<div>
-											<div class="custom-control custom-checkbox">
+											<div className="custom-control custom-checkbox">
 												<input
 													value={remember}
 													onChange={this.handleInputChange}
 													type="checkbox"
-													class="custom-control-input"
+													className="custom-control-input"
 													id="remember"
 												/>
-												<label class="custom-control-label" htmlFor="remember">
+												<label className="custom-control-label" htmlFor="remember">
 													Recordarme
 												</label>
 											</div>
@@ -127,7 +130,7 @@ class PaginaLogin extends Component {
 									</div>
 
 									<button
-										class="btn btn-info btn-block my-4 col-sm-2"
+										className="btn btn-info btn-block my-4 col-sm-2"
 										type="submit"
 										onClick={this.onClick}
 									>

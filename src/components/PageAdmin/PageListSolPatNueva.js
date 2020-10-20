@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header";
 import Footer from "../Footer";
-
+import {Link} from "react-router-dom";
 export default class PageListSolPatNueva extends Component {
 	render() {
 		return (
@@ -22,7 +22,9 @@ class PageList extends Component {
 		super();
 		this.state = {
 			todos: [],
+			idSolicitud: "",
 		};
+
 		this.pedirFormularioNuevos();
 	}
 
@@ -48,26 +50,102 @@ class PageList extends Component {
 	render() {
 		const todos = this.state.todos.map((todo, i) => {
 			return (
-				<div className="col-md-4" key={i}>
+				<div className="col-md-6" key={i}>
 					<div className="card mt-4">
-						<div className="card-title text-center">
-							<h3>{todo.PK_Codigo}</h3>
-							<span className="badge badge-pill badge-danger ml-2">
-								{todo.Estado}
-							</span>
+						<div className="card-header text-center">
+							<h3>N° {todo.PK_Codigo}</h3>
 						</div>
-						<div className="card-body">{todo.description}</div>
-						<div className="card-footer">
-							<button className="btn btn-danger">Entrar</button>
+						<div className="card-title text-center">
+							<span className="badge badge-pill badge-info ml-2">Nuevo</span>
+						</div>
+						<div className="card-body">
+							<p>
+								<strong>Nombre Del Local: </strong>
+								{todo.Nombre_Comercial_Negocio}
+							</p>
+							<p>
+								<strong>Nombre Del Contribuyente: </strong>
+								{todo.Nombre_Representante_Legal_Contribuyente}
+							</p>
+						</div>
+						<div className="card-footer text-center">
+							<Link
+								to={{
+									pathname: "/RevSolPatCom",
+									state: {id: todo.PK_Codigo},
+								}}
+							>
+								<button className="btn btn-success">Entrar</button>
+							</Link>
 						</div>
 					</div>
 				</div>
 			);
 		});
+
 		return (
-			<div className="container">
-				<div className="row mt-4">
-					<div className="col-md-8">
+			<div className="container-fluid">
+				<div className="row mt-3">
+					<nav className="col-md-3 d-none d-md-block bg-light sidebar">
+						<div className="sidebar-sticky">
+							<ul className="nav flex-column">
+								<li className="nav-item">
+									<a
+										href="./PageListSolPatNueva"
+										className="nav-link sidebar-heading 
+                         d-flex justify-content-between align-items-center"
+									>
+										<i className="fas fa-book-open"></i>
+										Patentes Nuevas
+										<span className="badge badge-primary badge-pill">
+											{this.state.todos.length}
+										</span>
+									</a>
+								</li>
+								<li className="nav-item">
+									<a
+										href="./PageListSolPatNueva"
+										className="nav-link  sidebar-heading 
+                         d-flex justify-content-between align-items-center"
+									>
+										<i className="fas fa-tasks"></i>
+										Patentes Pendientes
+										<span className="badge badge-primary badge-pill">
+											{this.state.todos.length}
+										</span>
+									</a>
+								</li>
+								<li className="nav-item">
+									<a
+										href="./PageListSolPatNueva"
+										className="nav-link  sidebar-heading 
+                         d-flex justify-content-between align-items-center"
+									>
+										<i className="fas fa-check"></i>
+										Patentes Aprobadas
+										<span className="badge badge-primary badge-pill">
+											{this.state.todos.length}
+										</span>
+									</a>
+								</li>
+								<li className="nav-item">
+									<a
+										href="./PageListSolPatNueva"
+										className="nav-link sidebar-heading 
+                         d-flex justify-content-between align-items-center"
+									>
+										<i className="fas fa-trash"></i>
+										Patentes Rechazadas
+										<span className="badge badge-primary badge-pill">
+											{this.state.todos.length}
+										</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</nav>
+
+					<div className="col-md-7">
 						<div className="row">{todos}</div>
 					</div>
 				</div>

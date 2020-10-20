@@ -20,10 +20,10 @@ class PagNAdmin extends Component {
 		super();
 		this.state = {
 			user: "",
-            pass: "",
-            name: "",
-            rol: "",
-            email: ""
+			pass: "",
+			name: "",
+			rol: "",
+			email: "",
 		};
 
 		this.onClick = this.handleClick.bind(this);
@@ -84,7 +84,10 @@ class PagNAdmin extends Component {
 					<div className="row">
 						<div className="col-sm-12 col-sm-offset-12">
 							<div className="card text-center">
-								<form className="text-center border border-light p-5" action="#!">
+								<form
+									className="text-center border border-light p-5"
+									action="#!"
+								>
 									<p className="h4 mb-4">Registrar usuario</p>
 
 									<input
@@ -107,7 +110,7 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 									/>
 
-                                    <input
+									<input
 										type="text"
 										id="name"
 										name="name"
@@ -117,14 +120,20 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 									/>
 
-                                    <select className="custom-select mr-sm-2 mb-4" id="rol" name="rol">
-                                    <option value="0" defaultValue>Choose...</option>
-                                    <option value="1">Jefa/e patentes</option>
-                                    <option value="2">Informática</option>
-                                    <option value="3">Inspector</option>
-                                    </select>
+									<select
+										className="custom-select mr-sm-2 mb-4"
+										id="rol"
+										name="rol"
+									>
+										<option value="0" defaultValue>
+											Choose...
+										</option>
+										<option value="1">Jefa/e patentes</option>
+										<option value="2">Informática</option>
+										<option value="3">Inspector</option>
+									</select>
 
-                                    <input
+									<input
 										type="text"
 										id="email"
 										name="email"
@@ -136,15 +145,15 @@ class PagNAdmin extends Component {
 									<div className="d-flex justify-content-around">
 										{/*}
 										<div>
-											<div class="custom-control custom-checkbox">
+											<div className="custom-control custom-checkbox">
 												<input
 													value={remember}
 													onChange={this.handleInputChange}
 													type="checkbox"
-													class="custom-control-input"
+													className="custom-control-input"
 													id="remember"
 												/>
-												<label class="custom-control-label" htmlFor="remember">
+												<label className="custom-control-label" htmlFor="remember">
 													Recordarme
 												</label>
 											</div>
