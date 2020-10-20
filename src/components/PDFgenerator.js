@@ -5,7 +5,7 @@ const ref = React.createRef();
 
 function mostrarDeclaracionJurada(declaraJura) {
 	let description;
-	if (declaraJura == 1) {
+	if (declaraJura === "1") {
 		description = <strong>SI</strong>;
 	} else {
 		description = <strong>NO</strong>;
@@ -19,10 +19,6 @@ function mostrarDeclaracionJurada(declaraJura) {
 }
 
 export default class PDFgenerator extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	handleClick() {
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",

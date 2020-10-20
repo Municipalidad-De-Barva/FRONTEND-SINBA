@@ -13,6 +13,7 @@ import Body from "./components/BodyIndex";
 import Login from "./components/Login";
 import AdmSolPatCom from "./components/AdmSolPatCom";
 import NuevoAdm from "./components/NuevoAdm";
+import PageListSolPatNueva from "./components/PageAdmin/PageListSolPatNueva";
 //import RevSolPatCom from "./components/RevSolPatCom";
 
 ReactDOM.render(
@@ -47,6 +48,12 @@ ReactDOM.render(
 				path="/NuevoAdm"
 				render={() => {
 					return <NuevoAdm />;
+				}}
+			></Route>
+			<Route
+				path="/PageListSolPatNueva"
+				render={() => {
+					return <PageListSolPatNueva />;
 				}}
 			></Route>
 			{/*<Route

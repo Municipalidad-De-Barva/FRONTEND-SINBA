@@ -9,7 +9,7 @@ export default class AdmSolPatCom extends Component {
 			<div>
 				<Header />
 
-				<AdmSolPatCom />
+				<Body />
 
 				<Footer />
 			</div>
@@ -22,12 +22,14 @@ class Body extends Component {
 		return (
 			<div className="container mt-5">
 				<section className="text-center">
-					<h3 className="font-weight-bold mb-5">Página administración de patentes</h3>
+					<h3 className="font-weight-bold mb-5">
+						Página administración de patentes
+					</h3>
 
 					<div className="row">
 						<div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
 							<div className="card hoverable">
-								<a href="./FormSolPatCom">
+								<a href="./NuevoAdm">
 									<img
 										className="card-img-top"
 										src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -45,7 +47,7 @@ class Body extends Component {
 
 						<div className="col-lg-4 col-md-6 mb-md-0 mb-4">
 							<div className="card hoverable">
-								<a href="./BusSolPatCom">
+								<a href="./PageListSolPatNueva">
 									<img
 										className="card-img-top"
 										src="https://images.pexels.com/photos/19043/pexels-photo.jpg?cs=srgb&dl=pexels-skitterphoto-19043.jpg&fm=jpg"
