@@ -98,7 +98,6 @@ export default class PDFgenerator extends Component {
 												<div className="form-group col-md-10">
 													<h5>
 														<strong>Número de trámite:</strong>
-														{state.id}
 													</h5>
 													<h5>
 														<strong>Fecha del trámite:</strong>

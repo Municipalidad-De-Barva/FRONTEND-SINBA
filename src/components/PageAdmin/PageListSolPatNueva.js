@@ -29,7 +29,7 @@ class PageList extends Component {
 	}
 
 	pedirFormularioNuevos() {
-		fetch("http://localhost:3001/api/allNForms", {
+		fetch("http://localhost:3001/api/allNForms/nuevas", {
 			method: "GET",
 			headers: {
 				Accept: "application/json",
