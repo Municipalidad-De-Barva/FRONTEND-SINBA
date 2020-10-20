@@ -84,14 +84,14 @@ class PagNAdmin extends Component {
 					<div className="row">
 						<div className="col-sm-12 col-sm-offset-12">
 							<div className="card text-center">
-								<form class="text-center border border-light p-5" action="#!">
-									<p class="h4 mb-4">Registrar usuario</p>
+								<form className="text-center border border-light p-5" action="#!">
+									<p className="h4 mb-4">Registrar usuario</p>
 
 									<input
 										type="text"
 										id="user"
 										name="user"
-										class="form-control mb-4"
+										className="form-control mb-4"
 										placeholder="Ingrese el numero de cédula"
 										value={user}
 										onChange={this.handleInputChange}
@@ -101,7 +101,7 @@ class PagNAdmin extends Component {
 										type="text"
 										id="pass"
 										name="pass"
-										class="form-control mb-4"
+										className="form-control mb-4"
 										placeholder="Ingrese la contraseña temporal"
 										value={pass}
 										onChange={this.handleInputChange}
@@ -111,32 +111,29 @@ class PagNAdmin extends Component {
 										type="text"
 										id="name"
 										name="name"
-										class="form-control mb-4"
+										className="form-control mb-4"
 										placeholder="Ingrese el nombre"
 										value={pass}
 										onChange={this.handleInputChange}
 									/>
 
-                                    <input
-										type="text"
-										id="rol"
-										name="rol"
-										class="form-control mb-4"
-										placeholder="Ingrese el rol"
-										value={pass}
-										onChange={this.handleInputChange}
-									/>
+                                    <select className="custom-select mr-sm-2 mb-4" id="rol" name="rol">
+                                    <option value="0" defaultValue>Choose...</option>
+                                    <option value="1">Jefa/e patentes</option>
+                                    <option value="2">Informática</option>
+                                    <option value="3">Inspector</option>
+                                    </select>
 
                                     <input
 										type="text"
 										id="email"
 										name="email"
-										class="form-control mb-4"
+										className="form-control mb-4"
 										placeholder="Ingrese el correo"
 										value={pass}
 										onChange={this.handleInputChange}
 									/>
-									<div class="d-flex justify-content-around">
+									<div className="d-flex justify-content-around">
 										{/*}
 										<div>
 											<div class="custom-control custom-checkbox">
@@ -156,7 +153,7 @@ class PagNAdmin extends Component {
 									</div>
 
 									<button
-										class="btn btn-info btn-block my-4 col-sm-2"
+										className="btn btn-info btn-block my-4 col-sm-2"
 										type="submit"
 										onClick={this.onClick}
 									>
