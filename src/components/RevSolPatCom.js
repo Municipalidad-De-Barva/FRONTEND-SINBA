@@ -1,14 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import Pdf from "react-to-pdf";
-import {Checkbox, CheckboxGroup} from "rsuite";
 const ref = React.createRef();
 
 export default class PDFgenerator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			indeterminate: true,
-			checkAll: false,
 			notInfoForm: "",
 			insCCSS: "",
 			insFODESAF: "",
@@ -16,37 +13,8 @@ export default class PDFgenerator extends Component {
 			declJura: "",
 			timbFisc: "",
 			impuMunic: "",
-			value: [
-				"Ingeniería",
-				"Basura",
-				"Acueducto",
-				"Cementerio",
-				"Limpieza de vías",
-			],
 		};
-		this.handleCheckAll = this.handleCheckAll.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 	}
-
-	handleCheckAll(value, checked) {
-		const nextValue = checked ? options : [];
-		console.log(nextValue, "handleCheckAll");
-		this.setState({
-			value: nextValue,
-			indeterminate: false,
-			checkAll: checked,
-		});
-	}
-
-	handleChange(value) {
-		console.log(value, "handleChange");
-		this.setState({
-			value,
-			indeterminate: value.length > 0 && value.length < options.length,
-			checkAll: value.length === options.length,
-		});
-	}
-
 	handleClick() {
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
@@ -395,7 +363,6 @@ export default class PDFgenerator extends Component {
 											<div className="form-group">
 												<h2>Declaración jurada Solicitud nueva</h2>
 												<hr />
-
 												<div className="form-row">
 													<div className="form-group col-md-1">
 														<input
@@ -470,13 +437,11 @@ export default class PDFgenerator extends Component {
 						<tr>
 							<div className="form-group">
 								<h2>Revisión de formulario</h2>
-								<label htmlFor="notInfoForm">Notas sobre el formulario </label>
-
+								<label htmlFor="notInfoForm">Formulario completo </label>
 								<input
 									disabled
-									className="form-control"
-									type="text"
-									value={notInfoForm}
+									type="radio"
+									value="1"
 									name="notInfoForm"
 									id="notInfoForm"
 								/>
@@ -563,30 +528,29 @@ export default class PDFgenerator extends Component {
 										</td>
 									</tr>
 									<tr>
-										<Checkbox
-											indeterminate={this.state.indeterminate}
-											checked={this.state.checkAll}
-											onChange={this.handleCheckAll}
-											value="impuMunic"
-										>
-											Impuestos Municipales
-										</Checkbox>
-									</tr>
-									<tr>
-										<CheckboxGroup
-											inline
-											name="checkboxList"
-											value={this.state.value}
-											onChange={this.handleChange}
-										>
-											<Checkbox value="Ingeniería">Ingeniería</Checkbox>
-											<Checkbox value="Basura">Basura</Checkbox>
-											<Checkbox value="Acueducto">Acueducto</Checkbox>
-											<Checkbox value="Cementerio">Cementerio</Checkbox>
-											<Checkbox value="Limpieza de vías">
-												Limpieza de vías
-											</Checkbox>
-										</CheckboxGroup>
+										<td>
+											<label htmlFor="declJura">Impuestos municipales</label>
+										</td>
+										<td>
+											<ol>
+												<li>Bienes inmuebles </li>
+												<li>Ingeniería </li>
+												<li>Basura </li>
+												<li>Acueducto </li>
+												<li>Cementerio </li>
+												<li>Limpieza de vías </li>
+												<li>Funcionario que aprueba </li>
+											</ol>
+										</td>
+										<td>
+											<input
+												disabled
+												type="radio"
+												value="1"
+												name="impuMunic"
+												id="impuMunic"
+											/>
+										</td>
 									</tr>
 								</table>
 							</div>

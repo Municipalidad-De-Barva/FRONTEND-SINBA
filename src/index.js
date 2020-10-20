@@ -14,7 +14,7 @@ import Login from "./components/Login";
 import AdmSolPatCom from "./components/AdmSolPatCom";
 import NuevoAdm from "./components/NuevoAdm";
 import PageListSolPatNueva from "./components/PageAdmin/PageListSolPatNueva";
-//import RevSolPatCom from "./components/RevSolPatCom";
+import RevSolPatCom from "./components/RevSolPatCom";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -56,12 +56,12 @@ ReactDOM.render(
 					return <PageListSolPatNueva />;
 				}}
 			></Route>
-			{/*<Route
+			<Route
 				path="/RevSolPatCom"
 				render={() => {
 					return <RevSolPatCom />;
 				}}
-			></Route>*/}
+			></Route>
 		</Router>
 	</React.StrictMode>,
 	document.getElementById("root")
