@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import Pdf from "react-to-pdf";
 const ref = React.createRef();
 
 export default class PDFgenerator extends Component {
@@ -13,8 +12,15 @@ export default class PDFgenerator extends Component {
 			declJura: "",
 			timbFisc: "",
 			impuMunic: "",
+			selecTo: "",
 		};
 	}
+	toggleChange = () => {
+		this.setState({
+			isChecked: !this.state.isChecked,
+		});
+	};
+
 	handleClick() {
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
@@ -62,23 +68,6 @@ export default class PDFgenerator extends Component {
 
 		return (
 			<>
-				<Pdf targetRef={ref} filename="Patente_Comercial_Nueva.pdf">
-					{({toPdf}) => (
-						<div className="text-center">
-							<br />
-							<div className="form-row">
-								<div className="form-group col-md-4">
-									<button
-										onClick={toPdf}
-										className="btn btn-primary text-center"
-									>
-										Descargar PDF
-									</button>
-								</div>
-							</div>
-						</div>
-					)}
-				</Pdf>
 				<div className="container" ref={ref}>
 					<br />
 					<br />
@@ -435,125 +424,146 @@ export default class PDFgenerator extends Component {
 							</div>
 						</tr>
 						<tr>
+							<div>
+								<br />
+								<br />
+								<br />
+								<br />
+							</div>
 							<div className="form-group">
 								<h2>Revisión de formulario</h2>
-								<label htmlFor="notInfoForm">Formulario completo </label>
-								<input
-									disabled
-									type="radio"
-									value="1"
-									name="notInfoForm"
-									id="notInfoForm"
-								/>
 							</div>
-							<div className="form-group">
-								<h2>Revisión de requisitos</h2>
-								<table className="Requisitos">
-									<tr>
-										<td>
-											<label htmlFor="insCCSS">
-												Inscrito y al día con la CCSS
-											</label>
-										</td>
-										<td>
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="insCCSS"
-												id="insCCSS"
-											/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label htmlFor="insFODESAF">
-												Inscrito y al día en FODESAF
-											</label>
-										</td>
-										<td>
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="insFODESAF"
-												id="insFODESAF"
-											/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label htmlFor="exoPoliRie">
-												Tener la exoneracion y la poliza de riesgo al dia
-											</label>
-										</td>
-										<td>
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="exoPoliRie"
-												id="exoPoliRie"
-											/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label htmlFor="timbFisc">Timbre fiscal</label>
-										</td>
-										<td>
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="timbFisc"
-												id="timbFisc"
-											/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label htmlFor="declJura">
-												Declaracion jurada firmada
-											</label>
-										</td>
-										<td>
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="declJura"
-												id="declJura"
-											/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label htmlFor="declJura">Impuestos municipales</label>
-										</td>
-										<td>
-											<ol>
-												<li>Bienes inmuebles </li>
-												<li>Ingeniería </li>
-												<li>Basura </li>
-												<li>Acueducto </li>
-												<li>Cementerio </li>
-												<li>Limpieza de vías </li>
-												<li>Funcionario que aprueba </li>
-											</ol>
-										</td>
-										<td>
-											<input
-												disabled
-												type="radio"
-												value="1"
-												name="impuMunic"
-												id="impuMunic"
-											/>
-										</td>
-									</tr>
-								</table>
+							<div>
+								<br />
 							</div>
+							<table className="Requisitos">
+								<tr>
+									<td>
+										<input
+											type="checkbox"
+											value="1"
+											name="selecTo"
+											id="selecTo"
+											checked={this.state.isChecked}
+											//onChange={this.toggleChange}
+										/>
+									</td>
+									<td>
+										<label htmlFor="selecTo">Seleccionar todo </label>
+									</td>
+								</tr>
+								<div>
+									<br />
+								</div>
+								<tr>
+									<td>
+										<input
+											type="checkbox"
+											value="1"
+											name="notInfoForm"
+											id="notInfoForm"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="notInfoForm">Formulario completo </label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input
+											value="1"
+											name="insCCSS"
+											id="insCCSS"
+											type="checkbox"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="insCCSS">
+											Inscrito y al día con la CCSS
+										</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input
+											value="1"
+											name="insFODESAF"
+											id="insFODESAF"
+											type="checkbox"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="insFODESAF">
+											Inscrito y al día en FODESAF
+										</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input
+											value="1"
+											name="exoPoliRie"
+											id="exoPoliRie"
+											type="checkbox"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="exoPoliRie">
+											Tener la exoneracion y la poliza de riesgo al dia
+										</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input
+											value="1"
+											name="timbFisc"
+											id="timbFisc"
+											type="checkbox"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="timbFisc">Timbre fiscal</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input
+											value="1"
+											name="declJura"
+											id="declJura"
+											type="checkbox"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="declJura">Declaracion jurada firmada</label>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<input
+											value="1"
+											name="impuMunic"
+											id="impuMunic"
+											type="checkbox"
+											checked={this.state.isChecked}
+										/>
+									</td>
+									<td>
+										<label htmlFor="declJura">Impuestos municipales</label>
+									</td>
+								</tr>
+								<div>
+									<br />
+									<br />
+								</div>
+							</table>
 						</tr>
 					</table>
 				</div>
