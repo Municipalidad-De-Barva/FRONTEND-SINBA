@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
+import { event } from "jquery";
+import PageListSolPatNueva from "./PageAdmin/PageListSolPatNueva";
 
 export default class Login extends Component {
 	render() {
@@ -36,7 +38,8 @@ class PaginaLogin extends Component {
 		});
 	}
 
-	handleClick() {
+	handleClick(e) {
+		e.preventDefault();
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
 			this.state
@@ -57,6 +60,11 @@ class PaginaLogin extends Component {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log("respuesta del servidor: ", data);
+
+				if (data==="ok") {
+					console.log("Entro");
+					return <PageListSolPatNueva />;
+				}
 			});
 	}
 
