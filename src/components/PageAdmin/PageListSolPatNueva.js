@@ -44,7 +44,7 @@ class PageList extends Component {
 			.then((data) => {
 				this.setState({todos: data});
 			});
-		console.log("respuesta del servidor: ", this.state.todos);
+		//console.log("respuesta del servidor: ", this.state.todos);
 	}
 
 	render() {

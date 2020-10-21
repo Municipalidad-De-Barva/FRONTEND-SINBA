@@ -105,7 +105,7 @@ export default class FormSolPatCom extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("respuesta del servidor: ", data);
+				//console.log("respuesta del servidor: ", data);
 			});
 	}
 

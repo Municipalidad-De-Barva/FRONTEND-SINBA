@@ -20,7 +20,6 @@ export default class RevSolPatCom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			datos: {},
 			nomSolicitante: "",
 			cedulaSolicitante: "",
 			represLegalSolicitante: "",
@@ -40,20 +39,52 @@ export default class RevSolPatCom extends Component {
 			cedAutorizado: "",
 
 			//------------
-			notInfoForm: "",
-			insCCSS: "",
-			insFODESAF: "",
-			exoPoliRie: "",
-			declJura: "",
-			timbFisc: "",
-			impuMunic: "",
-			codPat: "",
+			codigoSolicitud: "0",
+			notInfoForm: "0",
+			insCCSS: "0",
+			insFODESAF: "0",
+			exonePoliRiesgo: "0",
+			declJura: "0",
+			timbFisc: "0",
+			impuMunic: "0",
 		};
+		this.onClick = this.handleClick.bind(this);
+		this.handleInputChange = this.handleInputChange.bind(this);
 	}
+
+	handleInputChange(e) {
+		const {value, name} = e.target;
+		console.log(value, name);
+
+		this.setState({
+			[name]: value,
+		});
+	}
+	handleClick() {
+		console.log("Datos revision de formulario", this.state);
+		fetch("http://localhost:3001/api/revision", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+				/*'Access-Control-Allow-Headers': '*',
+				"Access-Control-Allow-Origin": "*",
+      			"Access-Control-Allow-Credentials": "true",
+      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+			},
+			body: JSON.stringify(this.state),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log("respuesta del servidor en revSolPatCom: ", data);
+			});
+	}
+
 	componentDidMount() {
 		const {id} = this.props;
 		this.solicitarDatosporCodigo(id);
 	}
+
 	solicitarDatosporCodigo(cod) {
 		fetch("http://localhost:3001/api/EspForm/selected", {
 			method: "POST",
@@ -69,9 +100,9 @@ export default class RevSolPatCom extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("imprimiendo datos ", this.state.data);
-				this.setState({datos: data[0]});
-				this.getDatos();
+				//console.log("imprimiendo datos ", data[0]);
+				//this.setState({datos: data[0]});
+				this.getDatos(data[0]);
 			});
 	}
 	toggleChange = () => {
@@ -80,75 +111,76 @@ export default class RevSolPatCom extends Component {
 		});
 	};
 
-	getDatos() {
+	getDatos(datos) {
 		this.setState({
-			nomSolicitante: this.state.datos.Nombre,
+			nomSolicitante: datos.Nombre,
 		});
 		this.setState({
-			cedulaSolicitante: this.state.datos.FK_ID_Contribuyente,
-		});
-
-		this.setState({
-			represLegalSolicitante: this.state.datos
-				.Nombre_Representante_Legal_Contribuyente,
+			cedulaSolicitante: datos.FK_ID_Contribuyente,
 		});
 
 		this.setState({
-			cedulaJuriSolicitante: this.state.datos
-				.Cedula_Representante_Legal_Contribuyente,
+			represLegalSolicitante: datos.Nombre_Representante_Legal_Contribuyente,
 		});
 
 		this.setState({
-			telSolicitante: this.state.datos.Telefono,
+			cedulaJuriSolicitante: datos.Cedula_Representante_Legal_Contribuyente,
 		});
 
 		this.setState({
-			faxSolicitante: this.state.datos.Fax,
+			telSolicitante: datos.Telefono,
 		});
 
 		this.setState({
-			dirSolicitante: this.state.datos.Direccion,
+			faxSolicitante: datos.Fax,
 		});
 
 		this.setState({
-			correoEleSolicitante: this.state.datos.Correo,
+			dirSolicitante: datos.Direccion,
 		});
 
 		this.setState({
-			nomPropietario: this.state.datos.Nombre_Propetario,
-		});
-		this.setState({
-			represLegalPropietario: this.state.datos
-				.Nombre_Representante_Legal_Propietario,
-		});
-		this.setState({
-			cedulaJuriPropietario: this.state.datos.Cedula_Propetario,
+			correoEleSolicitante: datos.Correo,
 		});
 
 		this.setState({
-			dirPropietario: this.state.datos.Direccion_Propietario,
+			nomPropietario: datos.Nombre_Propetario,
+		});
+		this.setState({
+			represLegalPropietario: datos.Nombre_Representante_Legal_Propietario,
+		});
+		this.setState({
+			cedulaJuriPropietario: datos.Cedula_Propetario,
 		});
 
 		this.setState({
-			declaraJura: this.state.datos.Declaracion_Jurada,
+			dirPropietario: datos.Direccion_Propietario,
 		});
 
 		this.setState({
-			nomComercial: this.state.datos.Nombre_Comercial_Negocio,
-		});
-		this.setState({
-			actividad: this.state.datos.Actividad,
+			declaraJura: datos.Declaracion_Jurada,
 		});
 
 		this.setState({
-			nomAutorizado: this.state.datos.Nombre_Persona_Autorizada,
+			nomComercial: datos.Nombre_Comercial_Negocio,
+		});
+		this.setState({
+			actividad: datos.Actividad,
 		});
 
 		this.setState({
-			cedAutorizado: this.state.datos.ID_Persona_Autorizada,
+			nomAutorizado: datos.Nombre_Persona_Autorizada,
 		});
 
-		console.log(this.state.datos);
+		this.setState({
+			cedAutorizado: datos.ID_Persona_Autorizada,
+		});
+
+		this.setState({
+			codigoSolicitud: datos.PK_Codigo,
+		});
+
+		console.log(datos);
 	}
 	render() {
 		const {
@@ -501,104 +533,132 @@ export default class RevSolPatCom extends Component {
 						</div>
 					</div>
 					<div>
-						<br />
-						<br />
-						<br />
-						<br />
-					</div>
-					<div className="form-group">
-						<h2>Revisión de formulario</h2>
-					</div>
-					<div>
-						<br />
-					</div>
-					<div>
-						<input
-							type="checkbox"
-							value="1"
-							name="notInfoForm"
-							id="notInfoForm"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="notInfoForm">Formulario completo </label>
-					</div>
-					<div>
-						<input
-							value="1"
-							name="insCCSS"
-							id="insCCSS"
-							type="checkbox"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="insCCSS">Inscrito y al día con la CCSS</label>
-					</div>
-					<div>
-						<input
-							value="1"
-							name="insFODESAF"
-							id="insFODESAF"
-							type="checkbox"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="insFODESAF">Inscrito y al día en FODESAF</label>
-					</div>
-					<div>
-						<input
-							value="1"
-							name="exoPoliRie"
-							id="exoPoliRie"
-							type="checkbox"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="exoPoliRie">
-							Tener la exoneracion y la poliza de riesgo al dia
-						</label>
-					</div>
-					<div>
-						<input
-							value="1"
-							name="timbFisc"
-							id="timbFisc"
-							type="checkbox"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="timbFisc">Timbre fiscal</label>
-					</div>
-					<div>
-						<input
-							value="1"
-							name="declJura"
-							id="declJura"
-							type="checkbox"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="declJura">Declaracion jurada firmada</label>
-					</div>
-					<div>
-						<input
-							value="1"
-							name="impuMunic"
-							id="impuMunic"
-							type="checkbox"
-							checked={this.state.isChecked}
-						/>
-						<label htmlFor="declJura">Impuestos municipales</label>
-					</div>
-					<div>
+						<div>
+							<br />
+							<br />
+							<br />
+							<br />
+						</div>
+						<div className="form-group">
+							<h2>Revisión de formulario</h2>
+						</div>
+						<div>
+							<br />
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="notInfoForm"
+								id="notInfoForm"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="notInfoForm">
+								Formulario completo
+							</label>
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="insCCSS"
+								id="insCCSS"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="insCCSS">
+								Inscrito y al día con la CCSS
+							</label>
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="insFODESAF"
+								id="insFODESAF"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="insFODESAF">
+								Inscrito y al día en FODESAF
+							</label>
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="exonePoliRiesgo"
+								id="exonePoliRiesgo"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="exonePoliRiesgo">
+								Tener la exoneracion y la poliza de riesgo al dia
+							</label>
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="timbFisc"
+								id="timbFisc"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="timbFisc">
+								Timbre fiscal
+							</label>
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="declJura"
+								id="declJura"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="declJura">
+								Declaracion jurada firmada
+							</label>
+						</div>
+						<div className="custom-control custom-switch">
+							<input
+								type="checkbox"
+								className="custom-control-input"
+								value="1"
+								name="impuMunic"
+								id="impuMunic"
+								checked={this.state.isChecked}
+								onChange={this.handleInputChange}
+							/>
+							<label className="custom-control-label" htmlFor="impuMunic">
+								Impuestos municipales
+							</label>
+						</div>
+
 						<br />
 						<br />
 					</div>
 					<div className="form-group col-md-4">
-					<button
-						type="submit"
-						onClick={this.onClick}
-						className="btn btn-primary text-center"
-					>
-						Guardar
-					</button>
+						<a href="./PageListSolPatNueva">
+							<button
+								type="submit"
+								onClick={this.onClick}
+								className="btn btn-primary text-center"
+							>
+								Guardar
+							</button>
+						</a>
 					</div>
 				</div>
-				
 			</>
 		);
 	}

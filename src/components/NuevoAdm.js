@@ -60,7 +60,7 @@ class PagNAdmin extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("respuesta del servidor: ", data);
+				//console.log("respuesta del servidor: ", data);
 			});
 	}
 
@@ -183,35 +183,35 @@ class PagNAdmin extends Component {
 class ModalRegistrar extends Component {
 	render() {
 		return (
-			<div class="modal" tabindex="-1" id="modalMessageRegister">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">Usuario Nuevo Registrado</h5>
+			<div className="modal" tabindex="-1" id="modalMessageRegister">
+				<div className="modal-dialog">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h5 className="modal-title">Usuario Nuevo Registrado</h5>
 							<button
 								type="button"
-								class="close"
+								className="close"
 								data-dismiss="modal"
 								aria-label="Close"
 							>
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<div class="modal-body">
+						<div className="modal-body">
 							<p>{this.props.name}</p>
 						</div>
-						<div class="modal-footer">
+						<div className="modal-footer">
 							<a href="./NuevoAdm">
 								<button
 									type="button"
-									class="btn btn-secondary"
+									className="btn btn-secondary"
 									data-dismiss="modal"
 								>
 									Registrar un nuevo usuario
 								</button>
 							</a>
 							<a href="./AdmSolPatCom">
-								<button type="button" class="btn btn-primary">
+								<button type="button" className="btn btn-primary">
 									Ir a la pagina principal
 								</button>
 							</a>

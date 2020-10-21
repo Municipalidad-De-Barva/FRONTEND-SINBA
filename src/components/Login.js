@@ -58,9 +58,9 @@ class PaginaLogin extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log("respuesta del servidor: ", data);
+				//console.log("respuesta del servidor: ", data);
 
-				if (data==="ok") {
+				if (data === "ok") {
 					console.log("Entro");
 					return <PageListSolPatNueva />;
 				}
