@@ -66,6 +66,7 @@ class PagNAdmin extends Component {
 
 	render() {
 		const {user, pass, name, rol, email} = this.state;
+
 		return (
 			<div
 				className="image-container set-full-height"
@@ -90,7 +91,6 @@ class PagNAdmin extends Component {
 									action="#!"
 								>
 									<p className="h4 mb-4">Registrar usuario</p>
-
 									<input
 										type="text"
 										id="user"
@@ -100,7 +100,6 @@ class PagNAdmin extends Component {
 										value={user}
 										onChange={this.handleInputChange}
 									/>
-
 									<input
 										type="text"
 										id="pass"
@@ -110,7 +109,6 @@ class PagNAdmin extends Component {
 										value={pass}
 										onChange={this.handleInputChange}
 									/>
-
 									<input
 										type="text"
 										id="name"
@@ -120,7 +118,6 @@ class PagNAdmin extends Component {
 										value={name}
 										onChange={this.handleInputChange}
 									/>
-
 									<select
 										className="custom-select mr-sm-2 mb-4"
 										id="rol"
@@ -130,9 +127,10 @@ class PagNAdmin extends Component {
 									>
 										<option value="1">Jefa/e patentes</option>
 										<option value="2">Informática</option>
-										<option value="3" defaultValue >Inspector</option>
+										<option value="3" defaultValue>
+											Inspector
+										</option>
 									</select>
-
 									<input
 										type="text"
 										id="email"
@@ -160,14 +158,16 @@ class PagNAdmin extends Component {
 										</div>
 										*/}
 									</div>
-
 									<button
+										data-toggle="modal"
+										data-target="#modalMessageRegister"
 										className="btn btn-info btn-block my-4 col-sm-2"
 										type="submit"
 										onClick={this.onClick}
 									>
 										Registrar
 									</button>
+									<ModalRegistrar name={name} />
 								</form>
 							</div>
 						</div>
@@ -175,6 +175,49 @@ class PagNAdmin extends Component {
 				</div>
 				<br />
 				<br />
+			</div>
+		);
+	}
+}
+
+class ModalRegistrar extends Component {
+	render() {
+		return (
+			<div class="modal" tabindex="-1" id="modalMessageRegister">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Usuario Nuevo Registrado</h5>
+							<button
+								type="button"
+								class="close"
+								data-dismiss="modal"
+								aria-label="Close"
+							>
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>{this.props.name}</p>
+						</div>
+						<div class="modal-footer">
+							<a href="./NuevoAdm">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-dismiss="modal"
+								>
+									Registrar un nuevo usuario
+								</button>
+							</a>
+							<a href="./AdmSolPatCom">
+								<button type="button" class="btn btn-primary">
+									Ir a la pagina principal
+								</button>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
