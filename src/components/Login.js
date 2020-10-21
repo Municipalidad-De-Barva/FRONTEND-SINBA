@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
-import { event } from "jquery";
 import PageListSolPatNueva from "./PageAdmin/PageListSolPatNueva";
 
 export default class Login extends Component {

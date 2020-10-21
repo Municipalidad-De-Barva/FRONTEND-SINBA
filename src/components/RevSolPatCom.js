@@ -462,7 +462,7 @@ export default class RevSolPatCom extends Component {
 												las penas que se castiga los delitos de falso testimonio
 												y perjurio declaramos bajo fe de juramento que la
 												información anotada anteriormente en lo que corresponde
-												a cada uno, es verdadera (Ley 6683 y Decreto 23485 MP)
+												a cada uno, es verdadera.
 											</p>
 										</div>
 									</div>
@@ -588,8 +588,7 @@ export default class RevSolPatCom extends Component {
 						<br />
 						<br />
 					</div>
-				</div>
-				<div className="form-group col-md-4">
+					<div className="form-group col-md-4">
 					<button
 						type="submit"
 						onClick={this.onClick}
@@ -597,7 +596,9 @@ export default class RevSolPatCom extends Component {
 					>
 						Guardar
 					</button>
+					</div>
 				</div>
+				
 			</>
 		);
 	}
