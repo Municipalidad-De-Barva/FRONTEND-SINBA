@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header";
 import Footer from "../Footer";
-import {Link} from "react-router-dom";
 import RevSolPatCom from "../RevSolPatCom";
 export default class PageListSolPatNueva extends Component {
 	render() {
@@ -70,16 +69,8 @@ class PageList extends Component {
 							</p>
 						</div>
 						<div className="card-footer text-center">
-							<Link
-								to={{
-									pathname: "/RevSolPatCom",
-									state: {id: todo.PK_Codigo},
-								}}
-							>
-								<button className="btn btn-success">Entrar 1</button>
-							</Link>
 							<a href={`?id=${todo.PK_Codigo}`}>
-								<button className="btn btn-success">Entrar 2</button>
+								<button className="btn btn-success">Revisar</button>
 							</a>
 						</div>
 					</div>

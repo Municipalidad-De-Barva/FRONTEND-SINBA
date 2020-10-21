@@ -19,30 +19,6 @@ function mostrarDeclaracionJurada(declaraJura) {
 }
 
 export default class PDFgenerator extends Component {
-	handleClick() {
-		console.log(
-			"Preparando datos para enviar al servidor, mostrar datos:",
-			this.props
-		);
-
-		fetch("http://localhost:3001/api/nuevoForm", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-				/*'Access-Control-Allow-Headers': '*',
-				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
-			},
-			body: JSON.stringify(this.props),
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log("respuesta del servidor: ", data);
-			});
-	}
-
 	render() {
 		const {
 			nomSolicitante,

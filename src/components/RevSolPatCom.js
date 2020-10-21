@@ -52,12 +52,9 @@ export default class RevSolPatCom extends Component {
 	}
 	componentDidMount() {
 		const {id} = this.props;
-		console.log("mostrando id: ", id);
 		this.solicitarDatosporCodigo(id);
 	}
 	solicitarDatosporCodigo(cod) {
-		console.log(JSON.stringify({codigo: cod}));
-
 		fetch("http://localhost:3001/api/EspForm/selected", {
 			method: "POST",
 			headers: {
@@ -72,8 +69,6 @@ export default class RevSolPatCom extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				//this.setState({ todos: data });
-				console.log("respuesta del servidor: ", data[0]);
 				this.setState({datos: data[0]});
 				this.getDatos();
 			});
@@ -151,8 +146,6 @@ export default class RevSolPatCom extends Component {
 		this.setState({
 			cedAutorizado: this.state.datos.ID_Persona_Autorizada,
 		});
-
-		console.log("datos objeto", this.state.datos);
 	}
 	render() {
 		const {
