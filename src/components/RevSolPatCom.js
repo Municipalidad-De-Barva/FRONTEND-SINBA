@@ -69,6 +69,7 @@ export default class RevSolPatCom extends Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				console.log("imprimiendo datos ", this.state.data);
 				this.setState({datos: data[0]});
 				this.getDatos();
 			});
@@ -81,10 +82,10 @@ export default class RevSolPatCom extends Component {
 
 	getDatos() {
 		this.setState({
-			nomSolicitante: "falta",
+			nomSolicitante: this.state.datos.Nombre,
 		});
 		this.setState({
-			cedulaSolicitante: "falta",
+			cedulaSolicitante: this.state.datos.FK_ID_Contribuyente,
 		});
 
 		this.setState({
@@ -98,19 +99,19 @@ export default class RevSolPatCom extends Component {
 		});
 
 		this.setState({
-			telSolicitante: "falta",
+			telSolicitante: this.state.datos.Telefono,
 		});
 
 		this.setState({
-			faxSolicitante: "falta",
+			faxSolicitante: this.state.datos.Fax,
 		});
 
 		this.setState({
-			dirSolicitante: "falta",
+			dirSolicitante: this.state.datos.Direccion,
 		});
 
 		this.setState({
-			correoEleSolicitante: "falta",
+			correoEleSolicitante: this.state.datos.Correo,
 		});
 
 		this.setState({
@@ -146,6 +147,8 @@ export default class RevSolPatCom extends Component {
 		this.setState({
 			cedAutorizado: this.state.datos.ID_Persona_Autorizada,
 		});
+
+		console.log(this.state.datos);
 	}
 	render() {
 		const {
