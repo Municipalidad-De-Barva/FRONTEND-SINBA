@@ -30,9 +30,16 @@ export default class RevSolPatCom extends Component {
 			codPat: "",
 		};
 	}
-	solicitarDatosporCodigo(codPat) {
-		fetch("http://localhost:3001/api/EspForm/nuevas", {
-			method: "GET",
+	componentDidMount() {
+		const {id} = this.props;
+		console.log("mostrando id: ", id);
+		this.solicitarDatosporCodigo(id);
+	}
+	solicitarDatosporCodigo(codigo) {
+		console.log(JSON.stringify(`codigo: ` + codigo));
+
+		fetch("http://localhost:3001/api/EspForm/selected", {
+			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
@@ -41,12 +48,13 @@ export default class RevSolPatCom extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
+			body: JSON.stringify(codigo),
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				this.setState({todos: data});
+				//this.setState({ todos: data });
+				console.log("respuesta del servidor: ", data);
 			});
-		console.log("respuesta del servidor: ", this.state.todos);
 	}
 	toggleChange = () => {
 		this.setState({

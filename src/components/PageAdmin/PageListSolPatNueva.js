@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free";
 import Header from "../Header";
 import Footer from "../Footer";
 import {Link} from "react-router-dom";
+import RevSolPatCom from "../RevSolPatCom";
 export default class PageListSolPatNueva extends Component {
 	render() {
 		return (
@@ -75,14 +76,23 @@ class PageList extends Component {
 									state: {id: todo.PK_Codigo},
 								}}
 							>
-								<button className="btn btn-success">Entrar</button>
+								<button className="btn btn-success">Entrar 1</button>
 							</Link>
+							<a href={`?id=${todo.PK_Codigo}`}>
+								<button className="btn btn-success">Entrar 2</button>
+							</a>
 						</div>
 					</div>
 				</div>
 			);
 		});
 
+		const url = new URL(document.location);
+		const hasId = url.searchParams.has("id");
+
+		if (hasId) {
+			return <RevSolPatCom id={url.searchParams.get("id")} />;
+		}
 		return (
 			<div className="container-fluid">
 				<div className="row mt-3">
