@@ -65,7 +65,7 @@ class PageList extends Component {
 							</p>
 							<p>
 								<strong>Nombre Del Contribuyente: </strong>
-								{todo.Nombre_Representante_Legal_Contribuyente}
+								{todo.Nombre}
 							</p>
 						</div>
 						<div className="card-footer text-center">
