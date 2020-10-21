@@ -20,6 +20,26 @@ export default class RevSolPatCom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			datos: {},
+			nomSolicitante: "",
+			cedulaSolicitante: "",
+			represLegalSolicitante: "",
+			cedulaJuriSolicitante: "",
+			telSolicitante: "",
+			faxSolicitante: "",
+			dirSolicitante: "",
+			correoEleSolicitante: "",
+			nomPropietario: "",
+			represLegalPropietario: "",
+			cedulaJuriPropietario: "",
+			dirPropietario: "",
+			declaraJura: "",
+			nomComercial: "",
+			actividad: "",
+			nomAutorizado: "",
+			cedAutorizado: "",
+
+			//------------
 			notInfoForm: "",
 			insCCSS: "",
 			insFODESAF: "",
@@ -35,8 +55,8 @@ export default class RevSolPatCom extends Component {
 		console.log("mostrando id: ", id);
 		this.solicitarDatosporCodigo(id);
 	}
-	solicitarDatosporCodigo(codigo) {
-		console.log(JSON.stringify(`codigo: ` + codigo));
+	solicitarDatosporCodigo(cod) {
+		console.log(JSON.stringify({codigo: cod}));
 
 		fetch("http://localhost:3001/api/EspForm/selected", {
 			method: "POST",
@@ -48,12 +68,14 @@ export default class RevSolPatCom extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
-			body: JSON.stringify(codigo),
+			body: JSON.stringify({codigo: cod}),
 		})
 			.then((res) => res.json())
 			.then((data) => {
 				//this.setState({ todos: data });
-				console.log("respuesta del servidor: ", data);
+				console.log("respuesta del servidor: ", data[0]);
+				this.setState({datos: data[0]});
+				this.getDatos();
 			});
 	}
 	toggleChange = () => {
@@ -62,30 +84,76 @@ export default class RevSolPatCom extends Component {
 		});
 	};
 
-	handleClick() {
-		console.log(
-			"Preparando datos para enviar al servidor, mostrar datos:",
-			this.props
-		);
+	getDatos() {
+		this.setState({
+			nomSolicitante: "falta",
+		});
+		this.setState({
+			cedulaSolicitante: "falta",
+		});
 
-		fetch("http://localhost:3001/api/nuevoForm", {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-				/*'Access-Control-Allow-Headers': '*',
-				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
-			},
-			body: JSON.stringify(this.props),
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log("respuesta del servidor: ", data);
-			});
+		this.setState({
+			represLegalSolicitante: this.state.datos
+				.Nombre_Representante_Legal_Contribuyente,
+		});
+
+		this.setState({
+			cedulaJuriSolicitante: this.state.datos
+				.Cedula_Representante_Legal_Contribuyente,
+		});
+
+		this.setState({
+			telSolicitante: "falta",
+		});
+
+		this.setState({
+			faxSolicitante: "falta",
+		});
+
+		this.setState({
+			dirSolicitante: "falta",
+		});
+
+		this.setState({
+			correoEleSolicitante: "falta",
+		});
+
+		this.setState({
+			nomPropietario: this.state.datos.Nombre_Propetario,
+		});
+		this.setState({
+			represLegalPropietario: this.state.datos
+				.Nombre_Representante_Legal_Propietario,
+		});
+		this.setState({
+			cedulaJuriPropietario: this.state.datos.Cedula_Propetario,
+		});
+
+		this.setState({
+			dirPropietario: this.state.datos.Direccion_Propietario,
+		});
+
+		this.setState({
+			declaraJura: this.state.datos.Declaracion_Jurada,
+		});
+
+		this.setState({
+			nomComercial: this.state.datos.Nombre_Comercial_Negocio,
+		});
+		this.setState({
+			actividad: this.state.datos.Actividad,
+		});
+
+		this.setState({
+			nomAutorizado: this.state.datos.Nombre_Persona_Autorizada,
+		});
+
+		this.setState({
+			cedAutorizado: this.state.datos.ID_Persona_Autorizada,
+		});
+
+		console.log("datos objeto", this.state.datos);
 	}
-
 	render() {
 		const {
 			nomSolicitante,
@@ -105,7 +173,7 @@ export default class RevSolPatCom extends Component {
 			actividad,
 			nomAutorizado,
 			cedAutorizado,
-		} = this.props;
+		} = this.state;
 
 		return (
 			<>
@@ -388,27 +456,7 @@ export default class RevSolPatCom extends Component {
 										<h2>Declaración jurada Solicitud nueva</h2>
 										<hr />
 										<div className="form-row">
-											<div className="form-group col-md-1">
-												<input
-													disabled
-													type="radio"
-													value="1"
-													name="declaraJura"
-													id="declaraJura"
-												/>
-												<label> Si </label>
-											</div>
-											<div className="form-group col-md-1">
-												<input
-													disabled
-													type="radio"
-													value="0"
-													name="declaraJura"
-													id="declaraJura"
-												/>
-												<label> No </label>
-											</div>
-											<p>utilizare repertorio musical (ACAM)</p>
+											{mostrarDeclaracionJurada(declaraJura)}
 										</div>
 
 										<div className="alert alert-warning" role="alert">
