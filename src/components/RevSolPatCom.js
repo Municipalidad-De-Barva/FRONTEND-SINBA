@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 const ref = React.createRef();
 
-export default class PDFgenerator extends Component {
+export default class RevSolPatCom extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -12,10 +12,27 @@ export default class PDFgenerator extends Component {
 			declJura: "",
 			timbFisc: "",
 			impuMunic: "",
-			selecTo: "",
+			codPat: "",
 		};
 	}
-	obtenerID() {}
+	solicitarDatosporCodigo(codPat) {
+		fetch("http://localhost:3001/api/EspForm/nuevas", {
+			method: "GET",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json",
+				/*'Access-Control-Allow-Headers': '*',
+				"Access-Control-Allow-Origin": "*",
+      			"Access-Control-Allow-Credentials": "true",
+      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({todos: data});
+			});
+		console.log("respuesta del servidor: ", this.state.todos);
+	}
 	toggleChange = () => {
 		this.setState({
 			isChecked: !this.state.isChecked,
@@ -438,24 +455,6 @@ export default class PDFgenerator extends Component {
 								<br />
 							</div>
 							<table className="Requisitos">
-								<tr>
-									<td>
-										<input
-											type="checkbox"
-											value="1"
-											name="selecTo"
-											id="selecTo"
-											checked={this.state.isChecked}
-											//onChange={this.toggleChange}
-										/>
-									</td>
-									<td>
-										<label htmlFor="selecTo">Seleccionar todo </label>
-									</td>
-								</tr>
-								<div>
-									<br />
-								</div>
 								<tr>
 									<td>
 										<input
