@@ -126,7 +126,7 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 									>
 										<option value="1">Jefa/e patentes</option>
-										<option value="2">Informática</option>
+										<option value="2">Tecnologías de información</option>
 										<option value="3" defaultValue>
 											Inspector
 										</option>
