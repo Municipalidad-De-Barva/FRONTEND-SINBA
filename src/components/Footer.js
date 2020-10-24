@@ -8,39 +8,25 @@ export default class Footer extends Component {
 
 	render() {
 		return (
-			<footer className="page-footer font-small mdb-color lighten-3 pt-4">
+			<footer className="page-footer font-small mdb-color dark-3 pt-4" >
 				<div className="container text-center text-md-left">
 					<div className="row">
 						<div className="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 							<h5 className="font-weight-bold text-uppercase mb-4">
-								Municipalidad de Barva
+								<h5>Municipalidad de Barva</h5>
 							</h5>
+							
 						</div>
 
 						<hr className="clearfix w-100 d-md-none" />
 
 						<div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-							<h5 className="font-weight-bold text-uppercase mb-4">About</h5>
+							<h5 className="font-weight-bold text-uppercase mb-4"><img src="logo512.png" width="150" height="150"></img></h5>
 
 							<ul className="list-unstyled">
 								<li>
 									<p>
-										<a href="#!">PROJECTS</a>
-									</p>
-								</li>
-								<li>
-									<p>
-										<a href="#!">ABOUT US</a>
-									</p>
-								</li>
-								<li>
-									<p>
-										<a href="#!">BLOG</a>
-									</p>
-								</li>
-								<li>
-									<p>
-										<a href="#!">AWARDS</a>
+										<a href="#!"></a>
 									</p>
 								</li>
 							</ul>
@@ -49,27 +35,23 @@ export default class Footer extends Component {
 						<hr className="clearfix w-100 d-md-none" />
 
 						<div className="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
-							<h5 className="font-weight-bold text-uppercase mb-4">Address</h5>
+							<h5 className="font-weight-bold text-uppercase mb-4">Contacto</h5>
 
 							<ul className="list-unstyled">
 								<li>
 									<p>
-										<i className="fas fa-home mr-3"></i> New York, NY 10012, US
+										<i className="fas fa-home mr-3"></i> Heredia, Barva	
+									</p>
+								</li>
+						
+								<li>
+									<p>
+										<i className="fas fa-phone mr-3"></i> 2260-3292
 									</p>
 								</li>
 								<li>
 									<p>
-										<i className="fas fa-envelope mr-3"></i> info@example.com
-									</p>
-								</li>
-								<li>
-									<p>
-										<i className="fas fa-phone mr-3"></i> + 01 234 567 88
-									</p>
-								</li>
-								<li>
-									<p>
-										<i className="fas fa-print mr-3"></i> + 01 234 567 89
+										<i className="fas fa-print mr-3"></i> 2260-3120
 									</p>
 								</li>
 							</ul>
@@ -80,8 +62,8 @@ export default class Footer extends Component {
 						<div className="col-md-7 col-lg-8">
 							<p className="text-center text-md-left">
 								© 2020 Copyright:
-								<a href="https://mdbootstrap.com/">
-									<strong> MDBootstrap.com</strong>
+								<a href="https://munibarva.go.cr/">
+									<strong> Municipalidad de Barva</strong>
 								</a>
 							</p>
 						</div>
