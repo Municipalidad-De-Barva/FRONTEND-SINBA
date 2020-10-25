@@ -626,7 +626,7 @@ export default class RevSolPatCom extends Component {
 								onChange={this.handleInputChange}
 							/>
 							<label className="custom-control-label" htmlFor="declJura">
-								Declaracion jurada firmada
+								Documentación ACAM
 							</label>
 						</div>
 						<div className="custom-control custom-switch">
