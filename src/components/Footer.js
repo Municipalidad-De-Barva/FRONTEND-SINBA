@@ -21,13 +21,11 @@ export default class Footer extends Component {
 						<hr className="clearfix w-100 d-md-none" />
 
 						<div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
-							<h5 className="font-weight-bold text-uppercase mb-4"><img src="logo512.png" width="150" height="150"></img></h5>
+							<h5 className="font-weight-bold text-uppercase mb-4"><img src="logo512.png" width="150" height="150" alt=""></img></h5>
 
 							<ul className="list-unstyled">
 								<li>
-									<p>
-										<a href="#!"></a>
-									</p>
+									
 								</li>
 							</ul>
 						</div>
