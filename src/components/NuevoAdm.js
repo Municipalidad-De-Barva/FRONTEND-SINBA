@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -24,6 +24,7 @@ class PagNAdmin extends Component {
 			name: "",
 			rol: "3",
 			email: "",
+			Tipo_Identificacion: "",
 		};
 
 		this.onClick = this.handleClick.bind(this);
@@ -31,7 +32,7 @@ class PagNAdmin extends Component {
 	}
 
 	handleInputChange(e) {
-		const { value, name } = e.target;
+		const {value, name} = e.target;
 		console.log(value, name);
 
 		this.setState({
@@ -65,7 +66,7 @@ class PagNAdmin extends Component {
 	}
 
 	render() {
-		const { user, pass, name, rol, email } = this.state;
+		const {user, pass, name, rol, email, Tipo_Identificacion} = this.state;
 
 		return (
 			<div
@@ -91,6 +92,21 @@ class PagNAdmin extends Component {
 									action="#!"
 								>
 									<p className="h4 mb-4">Registrar usuario</p>
+									<select
+										className="custom-select mr-sm-2 mb-4"
+										id="Tipo_Identificacion"
+										name="Tipo_Identificacion"
+										value={Tipo_Identificacion}
+										onChange={this.handleInputChange}
+										required
+									>
+										<option value="1" defaultValue>
+											Nacional
+										</option>
+										<option value="2">Residente</option>
+										<option value="3">Pasaporte</option>
+										<option value="4">DIMEX</option>
+									</select>
 									<input
 										type="text"
 										id="user"
@@ -122,7 +138,7 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 										required
 									/>
-									<h4 align="left" >Rol de usuario:</h4>
+									<h4 align="left">Rol de usuario:</h4>
 									<select
 										className="custom-select mr-sm-2 mb-4"
 										id="rol"
@@ -174,8 +190,8 @@ class PagNAdmin extends Component {
 										Registrar
 									</button>
 									*/}
-									<input type="submit" value="Enviar"/>
-									
+									<input type="submit" value="Enviar" />
+
 									<ModalRegistrar name={name} />
 								</form>
 							</div>
