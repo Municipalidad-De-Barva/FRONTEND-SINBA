@@ -559,6 +559,9 @@ export default class RevSolPatCom extends Component {
 								Formulario completo
 							</label>
 						</div>
+						<div>
+							<br />
+						</div>
 						<div className="custom-control custom-switch">
 							<input
 								type="checkbox"
@@ -572,6 +575,9 @@ export default class RevSolPatCom extends Component {
 							<label className="custom-control-label" htmlFor="insCCSS">
 								Inscrito y al día con la CCSS
 							</label>
+						</div>
+						<div>
+							<br />
 						</div>
 						<div className="custom-control custom-switch">
 							<input
@@ -587,6 +593,9 @@ export default class RevSolPatCom extends Component {
 								Inscrito y al día en FODESAF
 							</label>
 						</div>
+						<div>
+							<br />
+						</div>
 						<div className="custom-control custom-switch">
 							<input
 								type="checkbox"
@@ -600,6 +609,9 @@ export default class RevSolPatCom extends Component {
 							<label className="custom-control-label" htmlFor="exonePoliRiesgo">
 								Tener la exoneracion y la poliza de riesgo al dia
 							</label>
+						</div>
+						<div>
+							<br />
 						</div>
 						<div className="custom-control custom-switch">
 							<input
@@ -615,6 +627,9 @@ export default class RevSolPatCom extends Component {
 								Timbre fiscal
 							</label>
 						</div>
+						<div>
+							<br />
+						</div>
 						<div className="custom-control custom-switch">
 							<input
 								type="checkbox"
@@ -628,6 +643,9 @@ export default class RevSolPatCom extends Component {
 							<label className="custom-control-label" htmlFor="declJura">
 								Documentación ACAM
 							</label>
+						</div>
+						<div>
+							<br />
 						</div>
 						<div className="custom-control custom-switch">
 							<input
