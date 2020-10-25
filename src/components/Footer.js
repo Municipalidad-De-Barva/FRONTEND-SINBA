@@ -8,20 +8,25 @@ export default class Footer extends Component {
 
 	render() {
 		return (
-			<footer className="page-footer font-small mdb-color dark-3 pt-4" >
+			<footer className="page-footer font-small mdb-color dark-3 pt-4">
 				<div className="container text-center text-md-left">
 					<div className="row">
 						<div className="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 							<h5 className="font-weight-bold text-uppercase mb-4">
 								Municipalidad de Barva
 							</h5>
-							
 						</div>
 
 						<hr className="clearfix w-100 d-md-none" />
 
 						<div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
+<<<<<<< Updated upstream
 							<h5 className="font-weight-bold text-uppercase mb-4"><img src="logo512.png" width="150" height="150" alt=""></img></h5>
+=======
+							<h5 className="font-weight-bold text-uppercase mb-4">
+								<img src="logo512.png" width="150" height="150" alt="" />
+							</h5>
+>>>>>>> Stashed changes
 
 							<ul className="list-unstyled">
 								<li>
@@ -38,10 +43,10 @@ export default class Footer extends Component {
 							<ul className="list-unstyled">
 								<li>
 									<p>
-										<i className="fas fa-home mr-3"></i> Heredia, Barva	
+										<i className="fas fa-home mr-3"></i> Heredia, Barva
 									</p>
 								</li>
-						
+
 								<li>
 									<p>
 										<i className="fas fa-phone mr-3"></i> 2260-3292
