@@ -100,12 +100,10 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 										required
 									>
-										<option value="1" defaultValue>
-											Nacional
-										</option>
+										<option value="1">Nacional</option>
 										<option value="2">Residente</option>
 										<option value="3">Pasaporte</option>
-										<option value="4">DIMEX</option>
+										<option value="4" defaultValue>DIMEX</option>
 									</select>
 									<input
 										type="text"
@@ -190,7 +188,9 @@ class PagNAdmin extends Component {
 										Registrar
 									</button>
 									*/}
-									<input type="submit" value="Enviar" />
+									<input type="submit" 
+									value="Enviar" 
+									onClick={this.onClick} />
 
 									<ModalRegistrar name={name} />
 								</form>
@@ -208,7 +208,7 @@ class PagNAdmin extends Component {
 class ModalRegistrar extends Component {
 	render() {
 		return (
-			<div className="modal" tabindex="-1" id="modalMessageRegister">
+			<div className="modal" tabIndex="-1" id="modalMessageRegister">
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">
