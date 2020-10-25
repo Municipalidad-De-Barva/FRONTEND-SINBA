@@ -30,6 +30,7 @@ class PagNAdmin extends Component {
 		}
 
 		this.onClick = this.handleClick.bind(this);
+		//this.onClick = this.contactSubmit.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
@@ -54,6 +55,71 @@ class PagNAdmin extends Component {
 			console.log(" texto invalido");
 		}
 	}
+
+	/*handleValidation(){
+		let formIsValid = true;
+
+		//Name
+		if(this.state.name===""){
+		   formIsValid = false;
+		}
+  
+		if(typeof this.state.name !== "undefined"){
+		   if(!this.state.name.match(/^[a-zA-Z]+$/)){
+			  formIsValid = false;
+		   }        
+		}
+   /*
+		//Email
+		if(!fields["email"]){
+		   formIsValid = false;
+		   errors["email"] = "Cannot be empty";
+		}
+  
+		if(typeof fields["email"] !== "undefined"){
+		   let lastAtPos = fields["email"].lastIndexOf('@');
+		   let lastDotPos = fields["email"].lastIndexOf('.');
+
+		   if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
+			  formIsValid = false;
+			  errors["email"] = "Email is not valid";
+			}
+	   } 
+
+	   //this.setState({errors: errors});
+	   return formIsValid;
+   }
+   */
+   devuelveError(){
+	let errors = [];
+	errors[0] = "ok";
+	//Name
+	if(this.state.name===""){
+	   errors[0] = "Nombre no puede ir vacio";
+	}
+
+	if(typeof this.state.name !== "undefined"){
+	   if(!this.state.name.match(/^[a-zA-Z]+$/)){
+		  errors[0] = "Solo letras";
+	   }        
+	}
+
+  // this.setState({errors: errors});
+   return errors[0];
+	}
+
+	/*contactSubmit(e){
+		e.preventDefault();
+	
+		if(this.handleValidation()){
+		   //alert("Form submitted");
+		   this.handleClick(e);
+		}else{
+		   //alert(this.devuelveError());
+		}
+	
+		}
+	*/
 
 	handleClick(e) {
 		//e.preventDefault();
@@ -218,7 +284,7 @@ class PagNAdmin extends Component {
 									>
 										Registrar
 															</button>
-									<ModalRegistrar name={name} />
+									<ModalRegistrar name={name} error = {this.devuelveError()} />
 								</form>
 							</div>
 						</div>
@@ -233,43 +299,85 @@ class PagNAdmin extends Component {
 
 class ModalRegistrar extends Component {
 	render() {
-		return (
-			<div className="modal" tabIndex="-1" id="modalMessageRegister">
-				<div className="modal-dialog">
-					<div className="modal-content">
-						<div className="modal-header">
-							<h5 className="modal-title">Usuario Nuevo Registrado</h5>
-							<button
-								type="button"
-								className="close"
-								data-dismiss="modal"
-								aria-label="Close"
-							>
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div className="modal-body">
-							<p>{this.props.name}</p>
-						</div>
-						<div className="modal-footer">
-							<a href="./NuevoAdm">
+		if(this.error==="ok"){
+			return (
+				<div className="modal" tabIndex="-1" id="modalMessageRegister">
+					<div className="modal-dialog">
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title">Usuario Nuevo Registrado</h5>
 								<button
 									type="button"
-									className="btn btn-secondary"
+									className="close"
 									data-dismiss="modal"
+									aria-label="Close"
 								>
-									Registrar un nuevo usuario
+									<span aria-hidden="true">&times;</span>
 								</button>
-							</a>
-							<a href="./AdmSolPatCom">
-								<button type="button" className="btn btn-primary">
-									Ir a la pagina principal
-								</button>
-							</a>
+							</div>
+							<div className="modal-body">
+								<p>{this.props.name}</p>
+							</div>
+							<div className="modal-footer">
+								<a href="./NuevoAdm">
+									<button
+										type="button"
+										className="btn btn-secondary"
+										data-dismiss="modal"
+									>
+										Registrar un nuevo usuario
+									</button>
+								</a>
+								<a href="./AdmSolPatCom">
+									<button type="button" className="btn btn-primary">
+										Ir a la pagina principal
+									</button>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		);
+			);
+		}else{
+			return (
+				<div className="modal" tabIndex="-1" id="modalMessageRegister">
+					<div className="modal-dialog">
+						<div className="modal-content">
+							<div className="modal-header">
+								<h5 className="modal-title">Problemas con Usuario Nuevo</h5>
+								<button
+									type="button"
+									className="close"
+									data-dismiss="modal"
+									aria-label="Close"
+								>
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div className="modal-body">
+								<p>{this.props.error}</p>
+							</div>
+							<div className="modal-footer">
+								<a href="./NuevoAdm">
+									<button
+										type="button"
+										className="btn btn-secondary"
+										data-dismiss="modal"
+									>
+										Intentar el registro de nuevo
+									</button>
+								</a>
+								<a href="./AdmSolPatCom">
+									<button type="button" className="btn btn-primary">
+										Ir a la pagina principal
+									</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			);
+		}
+		
 	}
 }
