@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -19,29 +19,44 @@ class PagNAdmin extends Component {
 	constructor(props) {
 		super();
 		this.state = {
+
 			user: "",
 			pass: "",
 			name: "",
 			rol: "3",
 			email: "",
-			Tipo_Identificacion: "",
-		};
+			Tipo_Identificacion: "1"
+
+		}
 
 		this.onClick = this.handleClick.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
 	handleInputChange(e) {
-		const {value, name} = e.target;
+		const { value, name } = e.target;
 		console.log(value, name);
 
+		if (name === "name") {
+			this.validarTexto(value);
+		}
 		this.setState({
 			[name]: value,
 		});
 	}
 
+	validarTexto(valor) {
+		let regex = new RegExp("^[a-zA-Z]+$");
+
+		if (regex.test(valor)) {
+			console.log(" texto valido");
+		} else {
+			console.log(" texto invalido");
+		}
+	}
+
 	handleClick(e) {
-		e.preventDefault();
+		//e.preventDefault();
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
 			this.state
@@ -66,7 +81,7 @@ class PagNAdmin extends Component {
 	}
 
 	render() {
-		const {user, pass, name, rol, email, Tipo_Identificacion} = this.state;
+		const { user, pass, name, rol, email, Tipo_Identificacion } = this.state;
 
 		return (
 			<div
@@ -133,6 +148,8 @@ class PagNAdmin extends Component {
 										className="form-control mb-4"
 										placeholder="Ingrese el nombre completo"
 										value={name}
+										validators={["required"]}
+										errormessages={["El campo es requerido"]}
 										onChange={this.handleInputChange}
 										required
 									/>
@@ -188,10 +205,19 @@ class PagNAdmin extends Component {
 										Registrar
 									</button>
 									*/}
-									<input type="submit" 
+									{/*<input type="submit" 
 									value="Enviar" 
-									onClick={this.onClick} />
-
+								onClick={this.onClick} />*/}
+									<button
+										data-toggle="modal"
+										data-target="#modalMessageRegister"
+										className="btn btn-primary text-center"
+										type="	"
+										onClick={this.onClick}
+										value="Enviar"
+									>
+										Registrar
+															</button>
 									<ModalRegistrar name={name} />
 								</form>
 							</div>
