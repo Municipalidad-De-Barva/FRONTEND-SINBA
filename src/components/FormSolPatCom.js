@@ -634,7 +634,7 @@ export default class FormSolPatCom extends Component {
 														<div className="form-group col-md-2 text-center">
 															<button
 																className="btn btn-primary text-center"
-																type="submit"
+																type="	"
 																onClick={this.onClick}
 																value="Enviar"
 															>
