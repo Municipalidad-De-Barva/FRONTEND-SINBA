@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -31,7 +31,7 @@ class PagNAdmin extends Component {
 	}
 
 	handleInputChange(e) {
-		const {value, name} = e.target;
+		const { value, name } = e.target;
 		console.log(value, name);
 
 		this.setState({
@@ -53,8 +53,8 @@ class PagNAdmin extends Component {
 				"Content-Type": "application/json",
 				/*'Access-Control-Allow-Headers': '*',
 				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+					"Access-Control-Allow-Credentials": "true",
+					"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
 			body: JSON.stringify(this.state),
 		})
@@ -65,7 +65,7 @@ class PagNAdmin extends Component {
 	}
 
 	render() {
-		const {user, pass, name, rol, email} = this.state;
+		const { user, pass, name, rol, email } = this.state;
 
 		return (
 			<div
@@ -99,6 +99,7 @@ class PagNAdmin extends Component {
 										placeholder="Ingrese el numero de cédula"
 										value={user}
 										onChange={this.handleInputChange}
+										required
 									/>
 									<input
 										type="text"
@@ -108,8 +109,10 @@ class PagNAdmin extends Component {
 										placeholder="Ingrese la contraseña temporal"
 										value={pass}
 										onChange={this.handleInputChange}
+										required
 									/>
 									<input
+										//className="form-control"
 										type="text"
 										id="name"
 										name="name"
@@ -117,6 +120,7 @@ class PagNAdmin extends Component {
 										placeholder="Ingrese el nombre completo"
 										value={name}
 										onChange={this.handleInputChange}
+										required
 									/>
 									<h4 align="left" >Rol de usuario:</h4>
 									<select
@@ -140,6 +144,7 @@ class PagNAdmin extends Component {
 										placeholder="Ingrese el correo"
 										value={email}
 										onChange={this.handleInputChange}
+										required
 									/>
 									<div className="d-flex justify-content-around">
 										{/*}
@@ -159,15 +164,18 @@ class PagNAdmin extends Component {
 										</div>
 										*/}
 									</div>
-									<button
+									{/*<button
 										data-toggle="modal"
 										data-target="#modalMessageRegister"
 										className="btn btn-info btn-block my-4 col-sm-2"
-										type="submit"
+										type="button"
 										onClick={this.onClick}
 									>
 										Registrar
 									</button>
+									*/}
+									<input type="submit" value="Enviar"/>
+									
 									<ModalRegistrar name={name} />
 								</form>
 							</div>
