@@ -555,7 +555,7 @@ export default class RevSolPatCom extends Component {
 								checked={this.state.isChecked}
 								onChange={this.handleInputChange}
 							/>
-							<label className="custom-control-label" htmlFor="notInfoForm">
+							<label style={{font:16}} className="custom-control-label" htmlFor="notInfoForm">
 								Formulario completo
 							</label>
 						</div>
