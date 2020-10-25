@@ -13,7 +13,7 @@ export default class Footer extends Component {
 					<div className="row">
 						<div className="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
 							<h5 className="font-weight-bold text-uppercase mb-4">
-								<h5>Municipalidad de Barva</h5>
+								Municipalidad de Barva
 							</h5>
 							
 						</div>
