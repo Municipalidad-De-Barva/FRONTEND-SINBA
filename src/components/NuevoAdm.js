@@ -114,10 +114,11 @@ class PagNAdmin extends Component {
 										id="name"
 										name="name"
 										className="form-control mb-4"
-										placeholder="Ingrese el nombre"
+										placeholder="Ingrese el nombre completo"
 										value={name}
 										onChange={this.handleInputChange}
 									/>
+									<h4 align="left" >Rol de usuario:</h4>
 									<select
 										className="custom-select mr-sm-2 mb-4"
 										id="rol"
