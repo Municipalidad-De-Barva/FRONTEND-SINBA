@@ -107,8 +107,8 @@ class PagNAdmin extends Component {
 	if(this.state.name===""){
 	   errors[0] = "Nombre no puede ir vacio";
 	}else{
-		if(!this.state.name.match(/^[a-zA-Z]+$/)){
-			errors[0] = "Solo letras";
+		if(!this.state.name.match(/^[a-zA-Z\s]*$/)){
+			errors[0] = "Nombre no debe tener números";
 		}else{
 			if(this.state.name.trim().length<6){
 				errors[0] = "Eso no es un nombre completo";
@@ -123,14 +123,32 @@ class PagNAdmin extends Component {
 		 if(this.state.pass.trim().length<6){
 			errors[0] = "Contraseña muy corta, min de 6 caracteres";
 		 }else{
-			 if(!this.state.pass.match(/^[a-z]+$/)){
-				 errors[0] = "wewewo";
+			 if(!this.state.pass.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,256}$/)){
+				 errors[0] = "La contraseña no cumple los parámetros";
 			 }
 		 } 
 	 }
 
+	 if(!this.validarCedula(this.state.user)){
+		errors[0] = "Cedula no cumple los parametros";
+	 }
+
   // this.setState({errors: errors});
-   return errors[0];
+   	return errors[0];
+	}
+
+	validarCedula(valor) {
+		var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
+		let regex = new RegExp(expresion);
+		return regex.test(valor);
+/*
+		if (regex.test(valor)) {
+			console.log(" cedula valido");
+			return true;
+		} else {
+			console.log(" cedula invalido");
+			return false;
+		}*/
 	}
 
 	/*contactSubmit(e){
@@ -147,7 +165,7 @@ class PagNAdmin extends Component {
 	*/
 
 	handleClick(e) {
-		//e.preventDefault();
+		e.preventDefault();
 		console.log(
 			"Preparando datos para enviar al servidor, mostrar datos:",
 			this.state
