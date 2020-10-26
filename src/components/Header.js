@@ -76,7 +76,7 @@ export default class Header extends Component {
 					</nav>
 					<div>
 						<img
-							src="https://munibarva.go.cr/wp-content/uploads/2018/11/Sin-título-2-01-01-1-1024x258.png"
+							src="./images/logoHeader.png"
 							alt="Municipalidad de Barva"
 							height="64px"
 							width="256x"

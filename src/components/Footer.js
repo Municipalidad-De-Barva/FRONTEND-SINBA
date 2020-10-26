@@ -21,7 +21,12 @@ export default class Footer extends Component {
 
 						<div className="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1">
 							<h5 className="font-weight-bold text-uppercase mb-4">
-								<img src="logo512.png" width="150" height="150" alt="" />
+								<img
+									src="./images/logo192.png"
+									width="150"
+									height="150"
+									alt=""
+								/>
 							</h5>
 
 							<ul className="list-unstyled">
