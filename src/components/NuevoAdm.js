@@ -93,16 +93,41 @@ class PagNAdmin extends Component {
    devuelveError(){
 	let errors = [];
 	errors[0] = "ok";
+
+	//email
+	if(this.state.email===""){
+		errors[0] = "Email no puede ir vacio";
+	}else{
+		if (!this.state.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@+[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
+			errors[0] = "Digite un correo valido";
+		}
+	}
+
 	//Name
 	if(this.state.name===""){
 	   errors[0] = "Nombre no puede ir vacio";
+	}else{
+		if(!this.state.name.match(/^[a-zA-Z]+$/)){
+			errors[0] = "Solo letras";
+		}else{
+			if(this.state.name.trim().length<6){
+				errors[0] = "Eso no es un nombre completo";
+			}
+		} 
 	}
 
-	if(typeof this.state.name !== "undefined"){
-	   if(!this.state.name.match(/^[a-zA-Z]+$/)){
-		  errors[0] = "Solo letras";
-	   }        
-	}
+	//contra
+	if(this.state.pass===""){
+		errors[0] = "Contraseña no puede ir vacio";
+	 }else{
+		 if(this.state.pass.trim().length<6){
+			errors[0] = "Contraseña muy corta, min de 6 caracteres";
+		 }else{
+			 if(!this.state.pass.match(/^[a-z]+$/)){
+				 errors[0] = "wewewo";
+			 }
+		 } 
+	 }
 
   // this.setState({errors: errors});
    return errors[0];
@@ -299,7 +324,7 @@ class PagNAdmin extends Component {
 
 class ModalRegistrar extends Component {
 	render() {
-		if(this.error==="ok"){
+		if(this.props.error==="ok"){
 			return (
 				<div className="modal" tabIndex="-1" id="modalMessageRegister">
 					<div className="modal-dialog">
