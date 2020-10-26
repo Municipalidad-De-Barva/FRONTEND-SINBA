@@ -67,22 +67,22 @@ class PaginaLogin extends Component {
 				}
 				if (data.error === "ambos nulos") {
 					console.log("Entro al error ambos nulos");
-					document.getElementById("user").style.borderBlockEndColor= "red";
-					document.getElementById("pass").style.borderBlockEndColor= "red";
+					document.getElementById("user").style.borderColor= "red";
+					document.getElementById("pass").style.borderColor= "red";
 					
 
 
 				}
 				if (data.error === "usuario nulo") {
 					console.log("Entro al error usuario nulo");
-					document.getElementById("user").style.borderBlockEndColor= "red";
-					document.getElementById("pass").style.borderBlockEndColor= "gray";
+					document.getElementById("user").style.borderColor= "red";
+					document.getElementById("pass").style.borderColor= "gray";
 					
 				}
 				if (data.error === "pass nulo") {
 					console.log("Entro al error pass nulo");
-					document.getElementById("user").style.borderBlockEndColor= "gray";
-					document.getElementById("pass").style.borderBlockEndColor= "red";
+					document.getElementById("user").style.borderColor= "gray";
+					document.getElementById("pass").style.borderColor= "red";
 					
 				}
 
