@@ -40,13 +40,13 @@ export default class RevSolPatCom extends Component {
 
 			//------------
 			codigoSolicitud: "0",
-			notInfoForm: 0,
-			insCCSS: 0,
-			insFODESAF: 0,
-			exonePoliRiesgo: 0,
-			declJura: 0,
-			timbFisc: 0,
-			impuMunic: 0,
+			notInfoForm: "0",
+			insCCSS: "0",
+			insFODESAF: "0",
+			exonePoliRiesgo: "0",
+			declJura: "0",
+			timbFisc: "0",
+			impuMunic: "0",
 		};
 		this.onClick = this.handleClick.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -98,6 +98,15 @@ export default class RevSolPatCom extends Component {
 	}
 	handleClick() {
 		console.log("Datos revision de formulario", this.state);
+		var sta = {};
+		sta.codigoSolicitud=this.state.codigoSolicitud;
+		sta.notInfoForm=this.state.notInfoForm;
+		sta.insCCSS=this.state.insCCSS;
+		sta.insFODESAF=this.state.insFODESAF;
+		sta.exonePoliRiesgo=this.state.exonePoliRiesgo;
+		sta.declJura=this.state.declJura;
+		sta.timbFisc=this.state.timbFisc;
+		sta.impuMunic=this.state.impuMunic;
 		fetch("http://localhost:3001/api/revision", {
 			method: "POST",
 			headers: {
@@ -108,7 +117,8 @@ export default class RevSolPatCom extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
-			body: JSON.stringify(this.state),
+			
+			body: JSON.stringify(sta),
 		})
 			.then((res) => res.json())
 			.then((data) => {
