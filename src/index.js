@@ -15,6 +15,10 @@ import Login from "./components/Login";
 import AdmSolPatCom from "./components/AdmSolPatCom";
 import NuevoAdm from "./components/NuevoAdm";
 import PageListSolPatNueva from "./components/PageAdmin/PageListSolPatNueva";
+import PageListSolPatNuevaPendiente from "./components/PageAdmin/PageListSolPatNuevaPendiente";
+import PageListSolPatNuevaAprobadas from "./components/PageAdmin/PageListSolPatNuevaAprobadas";
+import PageListSolPatNuevaRechazadas from "./components/PageAdmin/PageListSolPatNuevaRechazadas";
+
 import RevSolPatCom from "./components/RevSolPatCom";
 
 ReactDOM.render(
@@ -55,6 +59,24 @@ ReactDOM.render(
 				path="/PageListSolPatNueva"
 				render={() => {
 					return <PageListSolPatNueva />;
+				}}
+			></Route>
+			<Route
+				path="/PageListSolPatNuevaPendiente"
+				render={() => {
+					return <PageListSolPatNuevaPendiente />;
+				}}
+			></Route>
+			<Route
+				path="/PageListSolPatNuevaAprobadas"
+				render={() => {
+					return <PageListSolPatNuevaAprobadas />;
+				}}
+			></Route>
+			<Route
+				path="/PageListSolPatNuevaRechazadas"
+				render={() => {
+					return <PageListSolPatNuevaRechazadas />;
 				}}
 			></Route>
 			<Route

@@ -4,7 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import RevSolPatCom from "../RevSolPatCom";
 import Dashboard from "./DashboardPat";
-export default class PageListSolPatNueva extends Component {
+export default class PageListSolPatNuevaRechazadas extends Component {
 	render() {
 		return (
 			<div>
@@ -30,7 +30,7 @@ class PageList extends Component {
 	}
 
 	pedirFormularioNuevos() {
-		fetch("http://localhost:3001/api/allNForms/nuevas", {
+		fetch("http://localhost:3001/api/allNForms/descartados", {
 			method: "GET",
 			headers: {
 				Accept: "application/json",
