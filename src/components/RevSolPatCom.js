@@ -40,13 +40,13 @@ export default class RevSolPatCom extends Component {
 
 			//------------
 			codigoSolicitud: "0",
-			notInfoForm: "0",
-			insCCSS: "0",
-			insFODESAF: "0",
-			exonePoliRiesgo: "0",
-			declJura: "0",
-			timbFisc: "0",
-			impuMunic: "0",
+			notInfoForm: 0,
+			insCCSS: 0,
+			insFODESAF: 0,
+			exonePoliRiesgo: 0,
+			declJura: 0,
+			timbFisc: 0,
+			impuMunic: 0,
 		};
 		this.onClick = this.handleClick.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
@@ -55,6 +55,42 @@ export default class RevSolPatCom extends Component {
 	handleInputChange(e) {
 		const {value, name} = e.target;
 		console.log(value, name);
+
+		if (document.getElementById("notInfoForm").checked === true) {
+			document.getElementById("notInfoForm").value = 0;
+		} else {
+			document.getElementById("notInfoForm").value = 1;
+		}
+		if (document.getElementById("insCCSS").checked === true) {
+			document.getElementById("insCCSS").value = 0;
+		} else {
+			document.getElementById("insCCSS").value = 1;
+		}
+		if (document.getElementById("insFODESAF").checked === true) {
+			document.getElementById("insFODESAF").value = 0;
+		} else {
+			document.getElementById("insFODESAF").value = 1;
+		}
+		if (document.getElementById("exonePoliRiesgo").checked === true) {
+			document.getElementById("exonePoliRiesgo").value = 0;
+		} else {
+			document.getElementById("exonePoliRiesgo").value = 1;
+		}
+		if (document.getElementById("declJura").checked === true) {
+			document.getElementById("declJura").value = 0;
+		} else {
+			document.getElementById("declJura").value = 1;
+		}
+		if (document.getElementById("timbFisc").checked === true) {
+			document.getElementById("timbFisc").value = 0;
+		} else {
+			document.getElementById("timbFisc").value = 1;
+		}
+		if (document.getElementById("impuMunic").checked === true) {
+			document.getElementById("impuMunic").value = 0;
+		} else {
+			document.getElementById("impuMunic").value = 1;
+		}
 
 		this.setState({
 			[name]: value,
@@ -549,13 +585,16 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="notInfoForm"
 								id="notInfoForm"
 								checked={this.state.isChecked}
 								onChange={this.handleInputChange}
 							/>
-							<label style={{font:16}} className="custom-control-label" htmlFor="notInfoForm">
+							<label
+								style={{font: 16}}
+								className="custom-control-label"
+								htmlFor="notInfoForm"
+							>
 								Formulario completo
 							</label>
 						</div>
@@ -566,7 +605,6 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="insCCSS"
 								id="insCCSS"
 								checked={this.state.isChecked}
@@ -583,7 +621,6 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="insFODESAF"
 								id="insFODESAF"
 								checked={this.state.isChecked}
@@ -600,7 +637,6 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="exonePoliRiesgo"
 								id="exonePoliRiesgo"
 								checked={this.state.isChecked}
@@ -617,7 +653,6 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="timbFisc"
 								id="timbFisc"
 								checked={this.state.isChecked}
@@ -634,7 +669,6 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="declJura"
 								id="declJura"
 								checked={this.state.isChecked}
@@ -651,7 +685,6 @@ export default class RevSolPatCom extends Component {
 							<input
 								type="checkbox"
 								className="custom-control-input"
-								value="1"
 								name="impuMunic"
 								id="impuMunic"
 								checked={this.state.isChecked}
