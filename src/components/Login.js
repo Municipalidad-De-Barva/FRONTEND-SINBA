@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -10,6 +10,7 @@ export default class Login extends Component {
 			<div>
 				<Header />
 				<PaginaLogin />
+
 				<Footer />
 			</div>
 		);
@@ -29,7 +30,7 @@ class PaginaLogin extends Component {
 	}
 
 	handleInputChange(e) {
-		const {value, name} = e.target;
+		const { value, name } = e.target;
 		console.log(value, name);
 
 		this.setState({
@@ -51,24 +52,49 @@ class PaginaLogin extends Component {
 				"Content-Type": "application/json",
 				/*'Access-Control-Allow-Headers': '*',
 				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+					"Access-Control-Allow-Credentials": "true",
+					"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
 			body: JSON.stringify(this.state),
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				//console.log("respuesta del servidor: ", data);
+				console.log("respuesta del servidor: ", data);
 
 				if (data === "ok") {
 					console.log("Entro");
 					window.location.href = "./AdmSolPatCom";
 				}
+				if (data.error === "ambos nulos") {
+					console.log("Entro al error ambos nulos");
+					document.getElementById("user").style.borderBlockEndColor= "red";
+					document.getElementById("pass").style.borderBlockEndColor= "red";
+					
+
+
+				}
+				if (data.error === "usuario nulo") {
+					console.log("Entro al error usuario nulo");
+					document.getElementById("user").style.borderBlockEndColor= "red";
+					document.getElementById("pass").style.borderBlockEndColor= "gray";
+					
+				}
+				if (data.error === "pass nulo") {
+					console.log("Entro al error pass nulo");
+					document.getElementById("user").style.borderBlockEndColor= "gray";
+					document.getElementById("pass").style.borderBlockEndColor= "red";
+					
+				}
+
+				if (data.error === "Datos erroneos") {
+					console.log("Entro al error Datos erroneos");
+					alert("Datos erroneos");
+				}
 			});
 	}
 
 	render() {
-		const {user, pass} = this.state;
+		const { user, pass } = this.state;
 		return (
 			<div
 				className="image-container set-full-height"
@@ -102,6 +128,7 @@ class PaginaLogin extends Component {
 										placeholder="Ingrese su numero de cédula"
 										value={user}
 										onChange={this.handleInputChange}
+										required
 									/>
 
 									<input
@@ -112,6 +139,7 @@ class PaginaLogin extends Component {
 										placeholder="Ingrese su contraseña"
 										value={pass}
 										onChange={this.handleInputChange}
+										required
 									/>
 
 									<div className="d-flex justify-content-around">
@@ -140,6 +168,7 @@ class PaginaLogin extends Component {
 										className="btn btn-info btn-block my-4 col-sm-2"
 										type="submit"
 										onClick={this.onClick}
+
 									>
 										Entrar
 									</button>
@@ -154,3 +183,5 @@ class PaginaLogin extends Component {
 		);
 	}
 }
+
+
