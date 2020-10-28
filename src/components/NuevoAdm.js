@@ -46,14 +46,14 @@ class PagNAdmin extends Component {
 	let errors = [];
 	errors[0] = "ok";
 
-	//email
-	if(this.state.email===""){
-		errors[0] = "Email no puede ir vacio";
-	}else{
-		if (!this.state.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@+[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
-			errors[0] = "Digite un correo valido";
+		//email
+		if (this.state.email === "") {
+			errors[0] = "Email no puede ir vacio";
+		} else {
+			if (!this.state.email.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@+[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+				errors[0] = "Digite un correo valido";
+			}
 		}
-	}
 
 	//Name
 	if(this.state.name===""){
@@ -65,42 +65,42 @@ class PagNAdmin extends Component {
 			if(this.state.name.trim().length<6){
 				errors[0] = "Eso no es un nombre completo";
 			}
-		} 
+		}
+
+		//contra
+		if (this.state.pass === "") {
+			errors[0] = "Contraseña no puede ir vacio";
+		} else {
+			if (this.state.pass.trim().length < 6) {
+				errors[0] = "Contraseña muy corta, min de 6 caracteres";
+			} else {
+				if (!this.state.pass.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,256}$/)) {
+					errors[0] = "La contraseña no cumple los parámetros";
+				}
+			}
+		}
+
+		if (!this.validarCedula(this.state.user)) {
+			errors[0] = "Cedula no cumple los parametros";
+		}
+
+		// this.setState({errors: errors});
+		return errors[0];
 	}
-
-	//contra
-	if(this.state.pass===""){
-		errors[0] = "Contraseña no puede ir vacio";
-	 }else{
-		 if(this.state.pass.trim().length<6){
-			errors[0] = "Contraseña muy corta, min de 6 caracteres";
-		 }else{
-			 if(!this.state.pass.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,256}$/)){
-				 errors[0] = "La contraseña no cumple los parámetros";
-			 }
-		 } 
-	 }
-
-	 if(!this.validarCedula(this.state.user)){
-		errors[0] = "Cedula no cumple los parametros";
-	 }
-
-  // this.setState({errors: errors});
-   	return errors[0];
-	}
+}
 
 	validarCedula(valor) {
 		var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
 		let regex = new RegExp(expresion);
 		return regex.test(valor);
-/*
-		if (regex.test(valor)) {
-			console.log(" cedula valido");
-			return true;
-		} else {
-			console.log(" cedula invalido");
-			return false;
-		}*/
+		/*
+				if (regex.test(valor)) {
+					console.log(" cedula valido");
+					return true;
+				} else {
+					console.log(" cedula invalido");
+					return false;
+				}*/
 	}
 
 	/*contactSubmit(e){
@@ -168,6 +168,7 @@ class PagNAdmin extends Component {
 									action="#!"
 								>
 									<p className="h4 mb-4">Registrar usuario</p>
+									<h5 align="left" >Tipo de identificación:</h5>
 									<select
 										className="custom-select mr-sm-2 mb-4"
 										id="Tipo_Identificacion"
@@ -181,26 +182,19 @@ class PagNAdmin extends Component {
 										<option value="3">Pasaporte</option>
 										<option value="4" defaultValue>DIMEX</option>
 									</select>
+									<h5 align="left" >Número de identificación:</h5>
 									<input
 										type="text"
 										id="user"
 										name="user"
 										className="form-control mb-4"
-										placeholder="Ingrese el numero de cédula"
+										placeholder="Ingrese el número de cédula"
 										value={user}
 										onChange={this.handleInputChange}
 										required
 									/>
-									<input
-										type="text"
-										id="pass"
-										name="pass"
-										className="form-control mb-4"
-										placeholder="Ingrese la contraseña temporal"
-										value={pass}
-										onChange={this.handleInputChange}
-										required
-									/>
+									<h5 align="left" >Nombre Completo:</h5>
+
 									<input
 										//className="form-control"
 										type="text"
@@ -214,7 +208,24 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 										required
 									/>
-									<h4 align="left">Rol de usuario:</h4>
+									<h5 align="left" >Requerimientos de contraseña:</h5>
+									<h6 align="left" >- La longitud mínima es de 6 caracteres.</h6>
+									<h6 align="left" >- Debe contener al menos un número.</h6>
+									<h6 align="left" >- Debe contener al menos una minúscula.</h6>
+									<h6 align="left" className="mb-4">- Debe contener al menos una mayúscula.</h6>
+									
+									<input
+										type="text"
+										id="pass"
+										name="pass"
+										className="form-control mb-4"
+										placeholder="Ingrese la contraseña temporal"
+										value={pass}
+										onChange={this.handleInputChange}
+										required
+									/>
+
+									<h5 align="left">Rol de usuario:</h5>
 									<select
 										className="custom-select mr-sm-2 mb-4"
 										id="rol"
@@ -228,6 +239,7 @@ class PagNAdmin extends Component {
 											Inspector
 										</option>
 									</select>
+									<h5 align="left" >Correo Electrónico:</h5>
 									<input
 										type="text"
 										id="email"
@@ -279,7 +291,7 @@ class PagNAdmin extends Component {
 									>
 										Registrar
 															</button>
-									<ModalRegistrar name={name} error = {this.devuelveError()} />
+									<ModalRegistrar name={name} error={this.devuelveError()} />
 								</form>
 							</div>
 						</div>
@@ -294,7 +306,7 @@ class PagNAdmin extends Component {
 
 class ModalRegistrar extends Component {
 	render() {
-		if(this.props.error==="ok"){
+		if (this.props.error === "ok") {
 			return (
 				<div className="modal" tabIndex="-1" id="modalMessageRegister">
 					<div className="modal-dialog">
@@ -333,7 +345,7 @@ class ModalRegistrar extends Component {
 					</div>
 				</div>
 			);
-		}else{
+		} else {
 			return (
 				<div className="modal" tabIndex="-1" id="modalMessageRegister">
 					<div className="modal-dialog">
@@ -373,6 +385,6 @@ class ModalRegistrar extends Component {
 				</div>
 			);
 		}
-		
+
 	}
 }
