@@ -38,58 +38,10 @@ class PagNAdmin extends Component {
 		const { value, name } = e.target;
 		console.log(value, name);
 
-		if (name === "name") {
-			this.validarTexto(value);
-		}
 		this.setState({
 			[name]: value,
 		});
 	}
-
-	validarTexto(valor) {
-		let regex = new RegExp("^[a-zA-Z]+$");
-
-		if (regex.test(valor)) {
-			console.log(" texto valido");
-		} else {
-			console.log(" texto invalido");
-		}
-	}
-
-	/*handleValidation(){
-		let formIsValid = true;
-
-		//Name
-		if(this.state.name===""){
-		   formIsValid = false;
-		}
-  
-		if(typeof this.state.name !== "undefined"){
-		   if(!this.state.name.match(/^[a-zA-Z]+$/)){
-			  formIsValid = false;
-		   }        
-		}
-   /*
-		//Email
-		if(!fields["email"]){
-		   formIsValid = false;
-		   errors["email"] = "Cannot be empty";
-		}
-  
-		if(typeof fields["email"] !== "undefined"){
-		   let lastAtPos = fields["email"].lastIndexOf('@');
-		   let lastDotPos = fields["email"].lastIndexOf('.');
-
-		   if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
-			  formIsValid = false;
-			  errors["email"] = "Email is not valid";
-			}
-	   } 
-
-	   //this.setState({errors: errors});
-	   return formIsValid;
-   }
-   */
    devuelveError(){
 	let errors = [];
 	errors[0] = "ok";
@@ -107,7 +59,7 @@ class PagNAdmin extends Component {
 	if(this.state.name===""){
 	   errors[0] = "Nombre no puede ir vacio";
 	}else{
-		if(!this.state.name.match(/^[a-zA-Z\s]*$/)){
+		if(!this.state.name.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g)){
 			errors[0] = "Nombre no debe tener números";
 		}else{
 			if(this.state.name.trim().length<6){
