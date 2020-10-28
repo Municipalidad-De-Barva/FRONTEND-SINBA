@@ -53,60 +53,35 @@ export default class RevSolPatCom extends Component {
 	}
 
 	handleInputChange(e) {
-		const {value, name} = e.target;
-		console.log(value, name);
+		const {name} = e.target;
 
-		if (document.getElementById("notInfoForm").checked === true) {
-			document.getElementById("notInfoForm").value = 0;
+		let ck = document.getElementById(name);
+
+		if (ck.checked) {
+			ck.value = 1;
 		} else {
-			document.getElementById("notInfoForm").value = 1;
-		}
-		if (document.getElementById("insCCSS").checked === true) {
-			document.getElementById("insCCSS").value = 0;
-		} else {
-			document.getElementById("insCCSS").value = 1;
-		}
-		if (document.getElementById("insFODESAF").checked === true) {
-			document.getElementById("insFODESAF").value = 0;
-		} else {
-			document.getElementById("insFODESAF").value = 1;
-		}
-		if (document.getElementById("exonePoliRiesgo").checked === true) {
-			document.getElementById("exonePoliRiesgo").value = 0;
-		} else {
-			document.getElementById("exonePoliRiesgo").value = 1;
-		}
-		if (document.getElementById("declJura").checked === true) {
-			document.getElementById("declJura").value = 0;
-		} else {
-			document.getElementById("declJura").value = 1;
-		}
-		if (document.getElementById("timbFisc").checked === true) {
-			document.getElementById("timbFisc").value = 0;
-		} else {
-			document.getElementById("timbFisc").value = 1;
-		}
-		if (document.getElementById("impuMunic").checked === true) {
-			document.getElementById("impuMunic").value = 0;
-		} else {
-			document.getElementById("impuMunic").value = 1;
+			ck.value = 0;
 		}
 
 		this.setState({
-			[name]: value,
+			[name]: ck.value,
 		});
+		console.log(name, ck.value);
 	}
+
 	handleClick() {
 		console.log("Datos revision de formulario", this.state);
 		var sta = {};
-		sta.codigoSolicitud=this.state.codigoSolicitud;
-		sta.notInfoForm=this.state.notInfoForm;
-		sta.insCCSS=this.state.insCCSS;
-		sta.insFODESAF=this.state.insFODESAF;
-		sta.exonePoliRiesgo=this.state.exonePoliRiesgo;
-		sta.declJura=this.state.declJura;
-		sta.timbFisc=this.state.timbFisc;
-		sta.impuMunic=this.state.impuMunic;
+		sta.codigoSolicitud = this.state.codigoSolicitud;
+		sta.notInfoForm = this.state.notInfoForm;
+		sta.insCCSS = this.state.insCCSS;
+		sta.insFODESAF = this.state.insFODESAF;
+		sta.exonePoliRiesgo = this.state.exonePoliRiesgo;
+		sta.declJura = this.state.declJura;
+		sta.timbFisc = this.state.timbFisc;
+		sta.impuMunic = this.state.impuMunic;
+
+		console.log("estado :", sta);
 		fetch("http://localhost:3001/api/revision", {
 			method: "POST",
 			headers: {
@@ -117,7 +92,6 @@ export default class RevSolPatCom extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
-			
 			body: JSON.stringify(sta),
 		})
 			.then((res) => res.json())
@@ -267,7 +241,7 @@ export default class RevSolPatCom extends Component {
 										<div className="form-group col-md-2">
 											<a href="https://munibarva.go.cr/">
 												<img
-													src="logo192.png"
+													src="./images/logo192.png"
 													className="rounded mx-auto d-block"
 													height="100px"
 													width="100px"
