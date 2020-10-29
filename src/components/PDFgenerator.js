@@ -75,7 +75,7 @@ export default class PDFgenerator extends Component {
 										<div className="form-group col-md-2">
 											<a href="https://munibarva.go.cr/">
 												<img
-													src="logo192.png"
+													src="./images/logo192.png"
 													className="rounded mx-auto d-block"
 													height="100px"
 													width="100px"

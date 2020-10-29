@@ -9,34 +9,34 @@ export default class FormSolPatCom extends Component {
 	constructor(props) {
 		super();
 		this.state = {
-			/*Informacion Solicitante*/
-			nomSolicitante: "Bryan Sanchez Brenes",
-			cedulaSolicitante: "304760577",
-			represLegalSolicitante: "Bryan Sanchez Brenes",
-			cedulaJuriSolicitante: "304760577",
-			telSolicitante: "71464730",
-			faxSolicitante: "71464730",
-			dirSolicitante: "Cartago, Costa Rica",
-			correoEleSolicitante: "bryan.jsb.1801@gmail.com",
+			//Informacion Solicitante
+			nomSolicitante: "",
+			cedulaSolicitante: "",
+			represLegalSolicitante: "",
+			cedulaJuriSolicitante: "",
+			telSolicitante: "",
+			faxSolicitante: "",
+			dirSolicitante: "",
+			correoEleSolicitante: "",
 
-			/*Informacion Dueño de local*/
-			nomPropietario: "Bryan Sanchez Brenes",
-			represLegalPropietario: "Bryan Sanchez Brenes",
-			cedulaJuriPropietario: "304760577",
-			dirPropietario: "Cartago, Costa Rica",
+			//Informacion Dueño de local
+			nomPropietario: "",
+			represLegalPropietario: "",
+			cedulaJuriPropietario: "",
+			dirPropietario: "",
 
-			/*Datos del local*/
-			nomComercial: "ComercioNuevo",
-			actividad: "Comercial",
+			//Datos del local
+			nomComercial: "",
+			actividad: "",
 
-			/*Declaración jurada */
-			declaraJura: "1",
+			//Declaración jurada
+			declaraJura: "",
 
-			/*Autorizo a*/
-			nomAutorizado: "Bryan Sanchez Brenes",
-			cedAutorizado: "304760577",
+			//Autorizo a
+			nomAutorizado: "",
+			cedAutorizado: "",
 
-			/*PDF */
+			//DF
 			postSubmitted: false,
 		};
 		this.onClick = this.handleClick.bind(this);
@@ -703,34 +703,34 @@ export default class FormSolPatCom extends Component {
 
 /*
 this.state = {
-//Informacion Solicitante
-  nomSolicitante: "",
-  cedulaSolicitante: "",
-  represLegalSolicitante: "",
-  cedulaJuriSolicitante: "",
-  telSolicitante: "",
-  faxSolicitante: "",
-  dirSolicitante: "",
-  correoEleSolicitante: "",
+			//Informacion Solicitante
+			nomSolicitante: "Bryan Sanchez Brenes",
+			cedulaSolicitante: "304760577",
+			represLegalSolicitante: "Bryan Sanchez Brenes",
+			cedulaJuriSolicitante: "304760577",
+			telSolicitante: "71464730",
+			faxSolicitante: "71464730",
+			dirSolicitante: "Cartago, Costa Rica",
+			correoEleSolicitante: "bryan.jsb.1801@gmail.com",
 
-//Informacion Dueño de local
-  nomPropietario: "",
-  represLegalPropietario: "",
-  cedulaJuriPropietario: "",
-  dirPropietario: "",
+			//Informacion Dueño de local
+			nomPropietario: "Bryan Sanchez Brenes",
+			represLegalPropietario: "Bryan Sanchez Brenes",
+			cedulaJuriPropietario: "304760577",
+			dirPropietario: "Cartago, Costa Rica",
 
-//Datos del local
-  nomComercial: "",
-  actividad: "",
+			//Datos del local
+			nomComercial: "ComercioNuevo",
+			actividad: "Comercial",
 
-//Declaración jurada 
-  declaraJura: "",
+			//Declaración jurada 
+			declaraJura: "1",
 
-//Autorizo a
-  nomAutorizado: "",
-  cedAutorizado: "",
+			//Autorizo a
+			nomAutorizado: "Bryan Sanchez Brenes",
+			cedAutorizado: "304760577",
 
-//DF
-  postSubmitted: false,
+			//PDF 
+			postSubmitted: false,
 };
 */
