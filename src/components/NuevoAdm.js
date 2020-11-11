@@ -177,10 +177,10 @@ class PagNAdmin extends Component {
 										onChange={this.handleInputChange}
 										required
 									>
-										<option value="1">Nacional</option>
+										<option value="1" defaultValue>Nacional</option>
 										<option value="2">Residente</option>
-										<option value="3">Pasaporte</option>
-										<option value="4" defaultValue>DIMEX</option>
+										{/*<option value="3">Pasaporte</option>
+										<option value="4" >DIMEX</option>*/}
 									</select>
 									<h5 align="left" >Número de identificación:</h5>
 									<input
