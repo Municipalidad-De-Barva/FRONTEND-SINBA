@@ -36,11 +36,11 @@ export default class FormSolPatCom extends Component {
 			nomAutorizado: "",
 			cedAutorizado: "",
 
-			//DF
+			//PDF
 			postSubmitted: false,
 		};
 		this.onClick = this.handleClick.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
+		//this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
 	sunmitPost = (e) => {
@@ -49,7 +49,7 @@ export default class FormSolPatCom extends Component {
 		});
 	};
 
-	handleInputChange(e) {
+	handleInputChange = (e) => {
 		const {value, name} = e.target;
 		console.log(value, name);
 
@@ -63,7 +63,24 @@ export default class FormSolPatCom extends Component {
 		this.setState({
 			[name]: value,
 		});
-	}
+	};
+
+	handleInputChangeDeclaraJura = (e) => {
+		const {name} = e.target;
+
+		let ck = document.getElementById(name);
+
+		if (ck.checked) {
+			ck.value = 1;
+		} else {
+			ck.value = 0;
+		}
+
+		this.setState({
+			[name]: ck.value,
+		});
+		console.log(name, ck.value);
+	};
 
 	validarTexto(valor) {
 		let regex = new RegExp("^[a-zA-Z]+$");
@@ -107,6 +124,7 @@ export default class FormSolPatCom extends Component {
 			.then((data) => {
 				//console.log("respuesta del servidor: ", data);
 			});
+		return <Modal />;
 	}
 
 	render() {
@@ -456,24 +474,23 @@ export default class FormSolPatCom extends Component {
 														<div className="form-row">
 															<div className="form-group col-md-1">
 																<input
-																	checked
 																	type="radio"
-																	value="1"
-																	onChange={this.handleInputChange}
+																	onChange={this.handleInputChangeDeclaraJura}
 																	name="declaraJura"
 																	id="declaraJura"
+																	required
 																/>
 																<label> Si </label>
 															</div>
 															<div className="form-group col-md-1">
 																<input
 																	type="radio"
-																	value="0"
-																	onChange={this.handleInputChange}
+																	onChange={this.handleInputChangeDeclaraJura}
 																	name="declaraJura"
 																	id="declaraJura"
+																	required
 																/>
-																<label> No</label>
+																<label> No </label>
 															</div>
 															<p>utilizare repertorio musical (ACAM)</p>
 														</div>
@@ -642,23 +659,12 @@ export default class FormSolPatCom extends Component {
 															</button>
 														</div>
 
-														{/*
-													<div className="form-group col-md-2 text-center">
-														<button
-															type="reset"
-															className="btn btn-danger text-center"
-															onClick={this.onClick}
-															value="Cancelar"
-														>
-															Cancelar
-														</button>
-													</div>*/}
 														<div className="form-group col-md-2 text-center">
 															<button
 																type="button"
 																className="btn btn-info text-center"
-																onClick={this.sunmitPost}
-																value="Imprimir"
+																//onClick={this.sunmitPost}
+																onClick={() => window.print()}
 															>
 																Imprimir
 															</button>
@@ -701,36 +707,41 @@ export default class FormSolPatCom extends Component {
 	} /*Fin del render*/
 }
 
-/*
-this.state = {
-			//Informacion Solicitante
-			nomSolicitante: "Bryan Sanchez Brenes",
-			cedulaSolicitante: "304760577",
-			represLegalSolicitante: "Bryan Sanchez Brenes",
-			cedulaJuriSolicitante: "304760577",
-			telSolicitante: "71464730",
-			faxSolicitante: "71464730",
-			dirSolicitante: "Cartago, Costa Rica",
-			correoEleSolicitante: "bryan.jsb.1801@gmail.com",
-
-			//Informacion Dueño de local
-			nomPropietario: "Bryan Sanchez Brenes",
-			represLegalPropietario: "Bryan Sanchez Brenes",
-			cedulaJuriPropietario: "304760577",
-			dirPropietario: "Cartago, Costa Rica",
-
-			//Datos del local
-			nomComercial: "ComercioNuevo",
-			actividad: "Comercial",
-
-			//Declaración jurada 
-			declaraJura: "1",
-
-			//Autorizo a
-			nomAutorizado: "Bryan Sanchez Brenes",
-			cedAutorizado: "304760577",
-
-			//PDF 
-			postSubmitted: false,
-};
-*/
+class Modal extends Component {
+	render() {
+		return (
+			<div class="modal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Modal title</h5>
+							<button
+								type="button"
+								class="close"
+								data-dismiss="modal"
+								aria-label="Close"
+							>
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-dismiss="modal"
+							>
+								Ir a la pagina principal
+							</button>
+							<button type="button" class="btn btn-primary">
+								Seguir en esta pagina
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
