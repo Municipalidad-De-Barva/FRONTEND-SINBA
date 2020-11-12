@@ -30,7 +30,7 @@ export default class FormSolPatCom extends Component {
 			actividad: "",
 
 			//Declaración jurada
-			declaraJura: "",
+			declaraJura: "1",
 
 			//Autorizo a
 			nomAutorizado: "",
