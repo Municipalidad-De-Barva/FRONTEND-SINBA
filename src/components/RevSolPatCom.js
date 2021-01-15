@@ -241,7 +241,7 @@ export default class RevSolPatCom extends Component {
 										<div className="form-group col-md-2">
 											<a href="https://munibarva.go.cr/">
 												<img
-													src="./images/logo192.png"
+													src="./assets/images/logo192.png"
 													className="rounded mx-auto d-block"
 													height="100px"
 													width="100px"

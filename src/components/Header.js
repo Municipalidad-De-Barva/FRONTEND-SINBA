@@ -76,7 +76,7 @@ export default class Header extends Component {
 					</nav>
 					<div>
 						<img
-							src="./images/logoHeader.png"
+							src="./assets/images/logoHeader.png"
 							alt="Municipalidad de Barva"
 							height="64px"
 							width="256x"
