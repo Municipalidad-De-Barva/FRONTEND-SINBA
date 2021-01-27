@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -10,7 +10,6 @@ export default class Login extends Component {
 			<div>
 				<Header />
 				<PaginaLogin />
-
 				<Footer />
 			</div>
 		);
@@ -30,7 +29,7 @@ class PaginaLogin extends Component {
 	}
 
 	handleInputChange(e) {
-		const { value, name } = e.target;
+		const {value, name} = e.target;
 		console.log(value, name);
 
 		this.setState({
@@ -38,52 +37,43 @@ class PaginaLogin extends Component {
 		});
 	}
 
+
+	//evento enviar las credenciales is, password al servidor
 	handleClick(e) {
 		e.preventDefault();
-		console.log(
-			"Preparando datos para enviar al servidor, mostrar datos:",
-			this.state
-		);
 
 		fetch("http://localhost:3001/api/admLogIn", {
 			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
-				/*'Access-Control-Allow-Headers': '*',
-				"Access-Control-Allow-Origin": "*",
-					"Access-Control-Allow-Credentials": "true",
-					"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
 			},
 			body: JSON.stringify(this.state),
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				localStorage.setItem('token', data.token);
+				localStorage.setItem('auth', data.auth);
 				console.log("respuesta del servidor: ", data);
-
-				if (data === "ok") {
-					console.log("Entro");
+				console.log(localStorage.getItem('token'));
+				console.log(localStorage.getItem('auth'));
+				if (data.auth) {
 					window.location.href = "./AdmSolPatCom";
 				}
 				if (data.error === "ambos nulos") {
 					console.log("Entro al error ambos nulos");
-					document.getElementById("user").style.borderColor= "red";
-					document.getElementById("pass").style.borderColor= "red";
-					
-
-
+					document.getElementById("user").style.borderColor = "red";
+					document.getElementById("pass").style.borderColor = "red";
 				}
 				if (data.error === "usuario nulo") {
 					console.log("Entro al error usuario nulo");
-					document.getElementById("user").style.borderColor= "red";
-					document.getElementById("pass").style.borderColor= "gray";
-					
+					document.getElementById("user").style.borderColor = "red";
+					document.getElementById("pass").style.borderColor = "gray";
 				}
 				if (data.error === "pass nulo") {
 					console.log("Entro al error pass nulo");
-					document.getElementById("user").style.borderColor= "gray";
-					document.getElementById("pass").style.borderColor= "red";
-					
+					document.getElementById("user").style.borderColor = "gray";
+					document.getElementById("pass").style.borderColor = "red";
 				}
 
 				if (data.error === "Datos erroneos") {
@@ -94,7 +84,7 @@ class PaginaLogin extends Component {
 	}
 
 	render() {
-		const { user, pass } = this.state;
+		const {user, pass} = this.state;
 		return (
 			<div
 				className="image-container set-full-height"
@@ -168,7 +158,6 @@ class PaginaLogin extends Component {
 										className="btn btn-info btn-block my-4 col-sm-2"
 										type="submit"
 										onClick={this.onClick}
-
 									>
 										Entrar
 									</button>
@@ -183,5 +172,3 @@ class PaginaLogin extends Component {
 		);
 	}
 }
-
-
