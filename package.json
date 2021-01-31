@@ -60,9 +60,6 @@
     "prettier": "2.1.2"
   },
   "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npx prettier --write src/* && npx eslint --fix src/*"
-    }
+    "hooks": {}
   }
 }
