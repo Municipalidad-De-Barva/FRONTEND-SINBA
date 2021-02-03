@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header";
 import Footer from "./Footer";
-//import PageListSolPatNueva from "./PageAdmin/PageListSolPatNueva";
 
 export default class Login extends Component {
   render() {
@@ -130,28 +129,6 @@ class PaginaLogin extends Component {
                     onChange={this.handleInputChange}
                     required
                   />
-
-                  <div className="d-flex justify-content-around">
-                    {/*}
-										<div>
-											<div className="custom-control custom-checkbox">
-												<input
-													value={remember}
-													onChange={this.handleInputChange}
-													type="checkbox"
-													className="custom-control-input"
-													id="remember"
-												/>
-												<label className="custom-control-label" htmlFor="remember">
-													Recordarme
-												</label>
-											</div>
-										</div>
-										*/}
-                    <div>
-                      <a href="./">Olvido la contraseña?</a>
-                    </div>
-                  </div>
 
                   <button
                     className="btn btn-info btn-block my-4 col-sm-2"
