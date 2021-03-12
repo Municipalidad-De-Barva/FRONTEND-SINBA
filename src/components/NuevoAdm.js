@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Header/header";
+import Footer from "./Footer/footer";
 
 export default class NuevoAdm extends Component {
   render() {
@@ -132,7 +132,7 @@ class PagNAdmin extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/newEmp", {
+    fetch("http://localhost:3001/api/empleado/crearEmpleado", {
       method: "POST",
       headers: {
         Accept: "application/json",

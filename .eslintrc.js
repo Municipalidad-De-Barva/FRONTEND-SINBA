@@ -2,8 +2,9 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
   },
-  extends: ["eslint:recommended", "prettier"],
+  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -11,8 +12,8 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  plugins: [],
-  rules: {},
+  plugins: ["react"],
+  rules: {"react/jsx-uses-react": "error", "react/jsx-uses-vars": "error"},
 };
 
 /*
@@ -20,7 +21,6 @@ estas lineas van en el package.json para activar el precommit, para habilitar es
 "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npx prettier --write src/* && npx eslint --fix src/*"
     }
   }
 */
