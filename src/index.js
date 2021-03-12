@@ -9,11 +9,11 @@ import "normalize.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
-import FormSolPatCom from "./components/FormSolPatCom";
+import FormSolPatCom from "./components/FormPatentesNuevas/FormSolPatCom";
 import Body from "./views";
 import Login from "./components/Login";
 import AdmSolPatCom from "./components/AdmSolPatCom";
-import NuevoAdm from "./components/NuevoAdm";
+import NuevoAdm from "./components/RegistroAdministrativo/NuevoAdm";
 import PageListSolPatNueva from "./components/PageAdmin/PageListSolPatNueva";
 import PageListSolPatNuevaPendiente from "./components/PageAdmin/PageListSolPatNuevaPendiente";
 import PageListSolPatNuevaAprobadas from "./components/PageAdmin/PageListSolPatNuevaAprobadas";

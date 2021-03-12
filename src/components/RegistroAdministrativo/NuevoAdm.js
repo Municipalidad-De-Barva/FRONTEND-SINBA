@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
-import Header from "./Header/header";
-import Footer from "./Footer/footer";
+import Header from "../Header/header";
+import Footer from "../Footer/footer";
+import ModalRegistrar from "./ModalRegistrar";
 
 export default class NuevoAdm extends Component {
   render() {
@@ -15,28 +16,6 @@ export default class NuevoAdm extends Component {
   }
 }
 
-class Role extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      listRole: [],
-    };
-    this.listarRole();
-  }
-  listarRole() {
-    fetch("http://localhost:3001/api/role/list", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({listRole: data});
-        console.log(data);
-      });
-  }
-  render() {
-    return <div>role</div>;
-  }
-}
 class PagNAdmin extends Component {
   constructor(props) {
     super();
@@ -314,89 +293,5 @@ class PagNAdmin extends Component {
         <br />
       </div>
     );
-  }
-}
-
-class ModalRegistrar extends Component {
-  render() {
-    if (this.props.error === "ok") {
-      return (
-        <div className="modal" tabIndex="-1" id="modalMessageRegister">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Usuario Nuevo Registrado</h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p>{this.props.name}</p>
-              </div>
-              <div className="modal-footer">
-                <a href="./NuevoAdm">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Registrar un nuevo usuario
-                  </button>
-                </a>
-                <a href="./AdmSolPatCom">
-                  <button type="button" className="btn btn-primary">
-                    Ir a la pagina principal
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="modal" tabIndex="-1" id="modalMessageRegister">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Problemas con Usuario Nuevo</h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p>{this.props.error}</p>
-              </div>
-              <div className="modal-footer">
-                <a href="./NuevoAdm">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Intentar el registro de nuevo
-                  </button>
-                </a>
-                <a href="./AdmSolPatCom">
-                  <button type="button" className="btn btn-primary">
-                    Ir a la pagina principal
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
   }
 }

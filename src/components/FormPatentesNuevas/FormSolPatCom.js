@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import Header from "./Header/header";
-import Footer from "./Footer/footer";
-import PDF from "./PDFgenerator";
+import Header from "../Header/header";
+import Footer from "../Footer/footer";
+import PDF from "../PDFgenerator";
 import ModalDatosAdjunto from "./ModalDatosAdjunto";
 import "@fortawesome/fontawesome-free";
 
