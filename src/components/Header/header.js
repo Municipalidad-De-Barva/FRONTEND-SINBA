@@ -38,10 +38,7 @@ export default class Header extends Component {
               {/*start menu */}
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                  <a
-                    className="nav-link waves-effect waves-light"
-                    href="./"
-                  >
+                  <a className="nav-link waves-effect waves-light" href="./">
                     <span className="sr-only">(current)</span>Inicio
                   </a>
                 </li>

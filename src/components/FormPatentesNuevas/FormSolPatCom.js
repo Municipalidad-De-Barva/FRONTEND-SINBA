@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
-import PDF from "../PDFgenerator";
+//import PDF from "../PDFgenerator";
 import ModalDatosAdjunto from "./ModalDatosAdjunto";
 import "@fortawesome/fontawesome-free";
 
@@ -102,6 +102,10 @@ export default class FormSolPatCom extends Component {
       console.log(" cedula invalido");
     }
   }
+  habilitarEnvío() {
+    let habEnv = document.getElementById("butSend");
+    habEnv.disabled = false;
+  }
   handleClick() {
     console.log(
       "Preparando datos para enviar al servidor, mostrar datos:",
@@ -165,14 +169,15 @@ export default class FormSolPatCom extends Component {
           //style="background-image: url('src/images/backGroundFormPatNueva.jpg')"
         >
           <>
-            {!this.state.postSubmitted ? (
+            {
+              /*!this.state.postSubmitted ? ( */
               <div className="container">
                 <br />
                 <br />
                 <div className="row">
                   <div className="col-sm-12 col-sm-offset-0">
                     <div className="card">
-                      <form>
+                      <form id="formPat">
                         <div className=" card-header form-group text-center">
                           <h1>
                             <strong>Formulario Patente Comercial Nueva.</strong>
@@ -624,59 +629,82 @@ export default class FormSolPatCom extends Component {
                             </div>
                           </div>
                           {/*Fin autorizacion*/}
-                          <div className="form-group">
-                            <h2>Departamento de cobros</h2>
-                            <hr />
-                            <p>
-                              Estar al día con los siguientes departamentos:{" "}
-                            </p>
-                            <ol>
-                              <li>Bienes inmuebles </li>
-                              <li>Ingeniería </li>
-                              <li>Basura </li>
-                              <li>Acueducto </li>
-                              <li>Cementerio </li>
-                              <li>Limpieza de vías </li>
-                              <li>Funcionario que aprueba </li>
-                            </ol>
-                          </div>
-
-                          <div>
-                            <ModalDatosAdjunto />
-                          </div>
-                        </div>
-
-                        <div className="card-footer text-center">
-                          <div className="form-row">
-                            <div className="form-group col-md-2 text-center">
-                              <button
-                                className="btn btn-primary text-center"
-                                type="	"
-                                onClick={this.onClick}
-                                value="Enviar"
-                              >
-                                Enviar
-                              </button>
-                            </div>
-
-                            <div className="form-group col-md-2 text-center">
-                              <button
-                                type="button"
-                                className="btn btn-info text-center"
-                                //onClick={this.sunmitPost}
-                                onClick={() => window.print()}
-                              >
-                                Imprimir
-                              </button>
-                            </div>
-                          </div>
                         </div>
                       </form>
+                      <div className="form-group " id="fuera">
+                        <h2>Departamento de cobros</h2>
+                        <hr />
+                        <p>Estar al día con los siguientes departamentos: </p>
+                        <ol>
+                          <li>Bienes inmuebles </li>
+                          <li>Ingeniería </li>
+                          <li>Basura </li>
+                          <li>Acueducto </li>
+                          <li>Cementerio </li>
+                          <li>Limpieza de vías </li>
+                          <li>Funcionario que aprueba </li>
+                        </ol>
+                      </div>
+
+                      <div>
+                        <ModalDatosAdjunto />
+                      </div>
+                      <div className="card-footer text-center">
+                        <div className="form-row">
+                          <div className="form-group col-md-2 text-center">
+                            <button
+                              className="btn btn-primary text-center"
+                              type="	"
+                              onClick={this.onClick}
+                              value="Enviar"
+                              id="butSend"
+                              disabled
+                            >
+                              Enviar
+                            </button>
+                          </div>
+
+                          <div className="form-group col-md-2 text-center">
+                            <button
+                              type="button"
+                              className="btn btn-info text-center"
+                              //onClick={this.sunmitPost}
+                              onClick={() => {
+                                this.habilitarEnvío();
+                                var prtContent = document.getElementById(
+                                  "formPat"
+                                );
+                                //var WinPrint= window.open(' ', '_blank', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+                                var WinPrint = window.open(
+                                  " ",
+                                  "_blank",
+                                  "resizable=yes, scrollbars=yes, titlebar=yes, width=800, height=900, top=10, left=10"
+                                );
+                                WinPrint.document.write(
+                                  '<head><title>Print it!</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">' +
+                                    '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">' +
+                                    "</head>"
+                                );
+                                WinPrint.document.write(prtContent.innerHTML);
+                                WinPrint.document.getElementById("declaraJura");
+                                WinPrint.document.close();
+                                WinPrint.addEventListener("load", function () {
+                                  WinPrint.focus();
+                                  WinPrint.print();
+                                  WinPrint.close();
+                                });
+                              }}
+                            >
+                              Imprimir
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ) : (
+              /*) : (
               <PDF
                 nomSolicitante={nomSolicitante}
                 cedulaSolicitante={cedulaSolicitante}
@@ -696,7 +724,8 @@ export default class FormSolPatCom extends Component {
                 nomAutorizado={nomAutorizado}
                 cedAutorizado={cedAutorizado}
               />
-            )}
+            )*/
+            }
           </>
           <br />
           <br />
