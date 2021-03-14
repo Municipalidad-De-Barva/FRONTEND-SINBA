@@ -40,7 +40,7 @@ export default class Header extends Component {
                 <li className="nav-item active">
                   <a
                     className="nav-link waves-effect waves-light"
-                    href="https://munibarva.go.cr/"
+                    href="./"
                   >
                     <span className="sr-only">(current)</span>Inicio
                   </a>
