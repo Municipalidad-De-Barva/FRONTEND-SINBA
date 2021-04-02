@@ -17,8 +17,14 @@ export default class ActaPostInspe extends Component {
       Resultado: "",
       FK_Testigo1: "",
       FK_Testigo2: "",
+      Tel_Testigo1: "",
+      Tel_Testigo2: "",
       Correo_Testigo1: "",
       Correo_Testigo2: "",
+      Firma_Testigo2: "",
+      Firma_Testigo1: "",
+      Firma_Inspector1: "",
+      Firma_Inspector2: "",
       Lugar: "",
 
       //PDF
@@ -92,8 +98,14 @@ export default class ActaPostInspe extends Component {
       Resultado,
       FK_Testigo1,
       FK_Testigo2,
+      Tel_Testigo1,
+      Tel_Testigo2,
       Correo_Testigo1,
       Correo_Testigo2,
+      Firma_Testigo2,
+      Firma_Testigo1,
+      Firma_Inspector1,
+      Firma_Inspector2,
       Lugar,
     } = this.state;
 
@@ -184,7 +196,6 @@ export default class ActaPostInspe extends Component {
                             </div>
                             <br />
                           </div>
-
                           <div className="form-row">
                             {/*"----------Testigo 1-------------"*/}
                             <div className="form-group col-md-8">
@@ -200,21 +211,35 @@ export default class ActaPostInspe extends Component {
                                 id="FK_Testigo1"
                               />
                             </div>
+                            <div className="form-row">
+                              {/*"----------Teléfono------------"*/}
+                              <div className="form-group col-md-4">
+                                <label htmlFor="Tel_Testigo1">Teléfono:</label>
+                                <input
+                                  className="form-control"
+                                  type="tel"
+                                  value={Tel_Testigo1}
+                                  onChange={this.handleInputChange}
+                                  name="Tel_Testigo1"
+                                  id="Tel_Testigo1"
+                                  required
+                                />
+                              </div>
 
-                            <div className="form-group col-md-4">
-                              <label htmlFor="Correo_Testigo1">
-                                Correo electrónico:
-                              </label>
-
-                              <input
-                                className="form-control"
-                                type="email"
-                                value={Correo_Testigo1}
-                                onChange={this.handleInputChange}
-                                name="Correo_Testigo1"
-                                id="Correo_Testigo1"
-                                required
-                              />
+                              <div className="form-group col-md-6">
+                                <label htmlFor="Correo_Testigo1">
+                                  Correo electrónico:
+                                </label>
+                                <input
+                                  className="form-control"
+                                  type="email"
+                                  value={Correo_Testigo1}
+                                  onChange={this.handleInputChange}
+                                  name="Correo_Testigo1"
+                                  id="Correo_Testigo1"
+                                  required
+                                />
+                              </div>
                             </div>
                             {/*"----------Testigo 2-------------"*/}
                             <div className="form-group col-md-8">
@@ -230,24 +255,39 @@ export default class ActaPostInspe extends Component {
                                 id="FK_Testigo2"
                               />
                             </div>
-
-                            <div className="form-group col-md-4">
-                              <label htmlFor="Correo_Testigo2">
-                                Correo electrónico:
-                              </label>
-
-                              <input
-                                className="form-control"
-                                type="email"
-                                value={Correo_Testigo2}
-                                onChange={this.handleInputChange}
-                                name="Correo_Testigo2"
-                                id="Correo_Testigo2"
-                                required
-                              />
+                            <div className="form-row">
+                              {/*"----------Teléfono------------"*/}
+                              <div className="form-group col-md-4">
+                                <label htmlFor="Tel_Testigo2">Teléfono:</label>
+                                <input
+                                  className="form-control"
+                                  type="tel"
+                                  value={Tel_Testigo2}
+                                  onChange={this.handleInputChange}
+                                  name="Tel_Testigo2"
+                                  id="Tel_Testigo2"
+                                  required
+                                />
+                              </div>
+                              <div className="form-group col-md-6">
+                                <label htmlFor="Correo_Testigo2">
+                                  Correo electrónico:
+                                </label>
+                                <input
+                                  className="form-control"
+                                  type="email"
+                                  value={Correo_Testigo2}
+                                  onChange={this.handleInputChange}
+                                  name="Correo_Testigo2"
+                                  id="Correo_Testigo2"
+                                  required
+                                />
+                              </div>
                             </div>
+                          </div>
+                          <div className="form-row">
                             {/*"----------Diligencias-------------"*/}
-                            <div className="form-group col-md-8">
+                            <div className="form-group col-md-30">
                               <label htmlFor="Diligencia">
                                 Procedo a iniciar la inspección ocular que se
                                 hace necesaria en las diligencias de:
@@ -261,22 +301,90 @@ export default class ActaPostInspe extends Component {
                                 id="Diligencia"
                               />
                             </div>
-                          </div>
-
-                          <div className="form-row">
                             {/*"----------Resultado------------"*/}
-                            <div className="form-group col-md-3">
+                            <div className="form-group col-md-8">
                               <label htmlFor="Resultado">
                                 Obteniendo el siguiente resultado:
                               </label>
 
-                              <input
+                              <textarea
                                 className="form-control"
                                 type="text"
                                 value={Resultado}
                                 onChange={this.handleInputChange}
                                 name="Resultado"
                                 id="Resultado"
+                                rows="5"
+                                required
+                              />
+                            </div>
+                          </div>
+
+                          <hr />
+                        </div>
+                        {/*"----------Firmas------------"*/}
+                        <div className="form-group">
+                          <div className="form-group">
+                            <h5>Firma de los presentes</h5>
+                          </div>
+                          <div className="form-row">
+                            <div className="form-group col-md-5">
+                              <label htmlFor="Firma_Inspector1">
+                                Firma del inspector 1
+                              </label>
+                              <textarea
+                                className="form-control"
+                                type="text"
+                                value={Firma_Inspector1}
+                                onChange={this.handleInputChange}
+                                name="Firma_Inspector1"
+                                id="Firma_Inspector1"
+                                rows="4"
+                                required
+                              />
+                            </div>
+                            <div className="form-group col-md-5">
+                              <label htmlFor="Firma_Inspector2">
+                                Firma del inspector 2
+                              </label>
+                              <textarea
+                                className="form-control"
+                                type="text"
+                                value={Firma_Inspector2}
+                                onChange={this.handleInputChange}
+                                name="Firma_Inspector2"
+                                id="Firma_Inspector2"
+                                rows="4"
+                                required
+                              />
+                            </div>
+                            <div className="form-group col-md-5">
+                              <label htmlFor="Firma_Testigo1">
+                                Firma del testigo 1
+                              </label>
+                              <textarea
+                                className="form-control"
+                                type="text"
+                                value={Firma_Testigo1}
+                                onChange={this.handleInputChange}
+                                name="Firma_Testigo1"
+                                id="Firma_Testigo1"
+                                rows="4"
+                                required
+                              />
+                            </div>
+                            <div className="form-group col-md-5">
+                              <label htmlFor="Firma_Testigo2">
+                                Firma del Testigo 2
+                              </label>
+                              <textarea
+                                className="form-control"
+                                type="text"
+                                value={Firma_Testigo2}
+                                onChange={this.handleInputChange}
+                                name="Firma_Testigo2"
+                                id="Firma_Testigo2"
+                                rows="4"
                                 required
                               />
                             </div>
