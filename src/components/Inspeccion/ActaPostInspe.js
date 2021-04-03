@@ -285,6 +285,10 @@ export default class ActaPostInspe extends Component {
                               </div>
                             </div>
                           </div>
+                          <div>
+                            <br />
+                            <br />
+                          </div>
                           <div className="form-row">
                             {/*"----------Diligencias-------------"*/}
                             <div className="form-group col-md-30">
@@ -319,7 +323,12 @@ export default class ActaPostInspe extends Component {
                               />
                             </div>
                           </div>
-
+                          <div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                          </div>
                           <hr />
                         </div>
                         {/*"----------Firmas------------"*/}
