@@ -18,6 +18,11 @@ export default class AdmSolPatCom extends Component {
 }
 
 class Body extends Component {
+  noEsAdmin(){
+    //console.log(localStorage.getItem("type"));
+    return localStorage.getItem("type")==="3";
+    //1 y 2 hacen lo mismo por el momento
+  }
   render() {
     return (
       <div className="container mt-5">
@@ -27,9 +32,12 @@ class Body extends Component {
           </h3>
 
           <div className="row">
-            <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
-              <div className="card hoverable">
-                <a href="./NuevoAdm">
+            {
+              !this.noEsAdmin()?(
+                <>
+                <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
+                  <div className="card hoverable">
+                  <a href="./NuevoAdm">
                   <img
                     className="card-img-top"
                     src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -41,11 +49,11 @@ class Body extends Component {
                       Crear usuario nuevo
                     </p>
                   </div>
-                </a>
-              </div>
-            </div>
+                  </a>
+                  </div>
+                </div>
 
-            <div className="col-lg-4 col-md-6 mb-md-0 mb-4">
+                <div className="col-lg-4 col-md-6 mb-md-0 mb-4">
               <div className="card hoverable">
                 <a href="./PageListSolPatNueva">
                   <img
@@ -61,8 +69,9 @@ class Body extends Component {
                 </a>
               </div>
             </div>
-
-            <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
+                </>
+              ):(
+                  <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
               <div className="card hoverable">
                 <a href="./FormInspecc">
                   <img
@@ -79,6 +88,9 @@ class Body extends Component {
                 </a>
               </div>
             </div>
+              )
+            }
+            
           </div>
         </section>
       </div>

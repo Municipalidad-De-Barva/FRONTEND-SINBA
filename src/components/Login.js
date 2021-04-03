@@ -52,6 +52,7 @@ class PaginaLogin extends Component {
       .then((data) => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("auth", data.auth);
+        localStorage.setItem("type",data.sendType); //nuevo
         console.log("respuesta del servidor: ", data);
         console.log(localStorage.getItem("token"));
         console.log(localStorage.getItem("auth"));
