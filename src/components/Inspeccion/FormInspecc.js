@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+import UploadForm from "./UploadForm";
 
 import "@fortawesome/fontawesome-free";
 const ref = React.createRef();
@@ -353,6 +354,10 @@ export default class FormInspecc extends Component {
             <br />
             <br />
           </div>
+          <div className="form-group col-md-4">
+            <UploadForm />
+          </div>
+          
           <div className="form-group col-md-4">
             <a href="./ActaPostInspe">
               <button
