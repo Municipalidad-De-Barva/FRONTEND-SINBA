@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header/header";
 import Footer from "./Footer/footer";
+import PatInspec from "./Inspeccion/PatInspec";
 //import "./BodyIndex.css";
 export default class AdmSolPatCom extends Component {
   render() {
@@ -71,9 +72,14 @@ class Body extends Component {
             </div>
                 </>
               ):(
+                <>
+                {/*
+                <div className="col-lg-0 col-md-12">
+                  <PatInspec/>
+                </div>*/}
                   <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
               <div className="card hoverable">
-                <a href="./FormInspecc">
+                <a href="./PatInspec">
                 {/*<a href="./PatInspec FormInspecc"></a>*/ }
                   <img
                     className="card-img-top"
@@ -88,7 +94,7 @@ class Body extends Component {
                   </div>
                 </a>
               </div>
-            </div>
+                </div></>
               )
             }
             

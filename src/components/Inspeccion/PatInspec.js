@@ -3,7 +3,6 @@ import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import FormInspecc from "./FormInspecc";
-import Dashboard from "../PageAdmin/DashboardPat";
 export default class PatInspec extends Component {
   render() {
     return (
@@ -86,7 +85,6 @@ class PageList extends Component {
     return (
       <div className="container-fluid">
         <div className="row mt-3">
-          <Dashboard />
           <div className="col-md-7">
             <div className="row">{todos}</div>
           </div>

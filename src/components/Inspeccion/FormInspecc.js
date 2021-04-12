@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Header from "../Header/header";
-import Footer from "../Footer/footer";
+//import Header from "../Header/header";
+//import Footer from "../Footer/footer";
 import UploadForm from "./UploadForm";
 
 import "@fortawesome/fontawesome-free";
@@ -11,7 +11,7 @@ export default class FormInspecc extends Component {
     this.state = {
       //Informacion Inspeccion
       PK_Codigo_Inspeccion: "",
-      FK_Inspector_Administrativo: "",
+      FK_Inspector_Administrativo: localStorage.getItem("tipoUser"),
       FK_Solicitud_Patente: "",
       Descripcion: "",
       Fecha: "",
@@ -29,6 +29,43 @@ export default class FormInspecc extends Component {
     };
     this.onClick = this.handleClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  componentDidMount() {
+    const {id} = this.props;
+    this.solicitarDatosporCodigo(id);
+  }
+
+  solicitarDatosporCodigo(cod) {
+    fetch("http://localhost:3001/api/EspForm/selected", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        /*'Access-Control-Allow-Headers': '*',
+				"Access-Control-Allow-Origin": "*",
+      			"Access-Control-Allow-Credentials": "true",
+      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+      },
+      body: JSON.stringify({codigo: cod}),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log("imprimiendo datos ", data[0]);
+        //this.setState({datos: data[0]});
+        this.getDatos(data[0]);
+      });
+  }
+  getDatos(datos) {
+    console.log(datos);
+    this.setState({
+      FK_Solicitud_Patente: datos.PK_Codigo,
+    });
+    this.setState({
+      Local: datos.Nombre_Comercial_Negocio,
+    });
+    this.setState({
+      Direccion: datos.Direccion,
+    });
   }
   handleInputChange(e) {
     const {name} = e.target;
@@ -375,7 +412,7 @@ export default class FormInspecc extends Component {
             <br />
           </div>
           <hr />
-          <Footer />
+          {/*<Footer />*/}
         </div>
       </>
     );

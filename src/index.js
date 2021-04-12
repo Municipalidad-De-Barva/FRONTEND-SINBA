@@ -21,6 +21,7 @@ import PageListSolPatNuevaRechazadas from "./components/PageAdmin/PageListSolPat
 import RevSolPatCom from "./components/RevSolPatCom";
 import ActaPostInspe from "./components/Inspeccion/ActaPostInspe";
 import FormInspecc from "./components/Inspeccion/FormInspecc";
+import PatInspec from "./components/Inspeccion/PatInspec";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -96,6 +97,12 @@ ReactDOM.render(
         path="/FormInspecc"
         render={() => {
           return <FormInspecc />;
+        }}
+      ></Route>
+      <Route
+        path="/PatInspec"
+        render={() => {
+          return <PatInspec />;
         }}
       ></Route>
     </Router>
