@@ -298,6 +298,19 @@ export default class FormInspecc extends Component {
                 <input
                   type="checkbox"
                   className="custom-control-input"
+                  name="Requisito_Local_Acorde_Actividad"
+                  id="Requisito_Local_Acorde_Actividad"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label className="custom-control-label" htmlFor="Extintor">
+                  Requisito_Local_Acorde_Actividad
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
                   name="Senalizacion"
                   id="Senalizacion"
                   checked={this.state.isChecked}
@@ -394,7 +407,7 @@ export default class FormInspecc extends Component {
           <div className="form-group col-md-4">
             <UploadForm />
           </div>
-          
+
           <div className="form-group col-md-4">
             <a href="./ActaPostInspe">
               <button
