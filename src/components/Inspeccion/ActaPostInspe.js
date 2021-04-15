@@ -1,10 +1,23 @@
 import React, {Component} from "react";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
-
+import SignaturePad from "react-signature-canvas";
 import "@fortawesome/fontawesome-free";
 
+import styles from "./styles.cssm";
+
 export default class ActaPostInspe extends Component {
+  state = {trimmedDataURL: null};
+  sigPad = {};
+  clear = () => {
+    this.sigPad.clear();
+  };
+  trim = () => {
+    this.setState({
+      trimmedDataURL: this.sigPad.getTrimmedCanvas().toDataURL("image/png"),
+    });
+    this.sigPad.clear();
+  };
   constructor(props) {
     super();
     this.state = {
@@ -89,6 +102,7 @@ export default class ActaPostInspe extends Component {
   }
 
   render() {
+    let {trimmedDataURL} = this.state;
     const {
       PK_Codigo_Inspeccion,
       FK_Inspeccion_Patente_Nueva,
@@ -305,6 +319,17 @@ export default class ActaPostInspe extends Component {
                                 id="Diligencia"
                               />
                             </div>
+                            <div className="form-group col-md-8">
+                              <label htmlFor="Ordenada">Ordenada por:</label>
+                              <input
+                                className="form-control"
+                                type="text"
+                                value={Ordenada}
+                                onChange={this.handleInputChange}
+                                name="Ordenada"
+                                id="Ordenada"
+                              />
+                            </div>
                             {/*"----------Resultado------------"*/}
                             <div className="form-group col-md-8">
                               <label htmlFor="Resultado">
@@ -341,16 +366,36 @@ export default class ActaPostInspe extends Component {
                               <label htmlFor="Firma_Inspector1">
                                 Firma del inspector 1
                               </label>
-                              <textarea
-                                className="form-control"
-                                type="text"
-                                value={Firma_Inspector1}
-                                onChange={this.handleInputChange}
-                                name="Firma_Inspector1"
-                                id="Firma_Inspector1"
-                                rows="4"
-                                required
-                              />
+                              <div className={styles.container}>
+                                <div className={styles.sigContainer}>
+                                  <SignaturePad
+                                    canvasProps={{className: styles.sigPad}}
+                                    ref={(ref) => {
+                                      this.sigPad = ref;
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <button
+                                    className={styles.buttons}
+                                    onClick={this.clear}
+                                  >
+                                    Borrar
+                                  </button>
+                                  <button
+                                    className={styles.buttons}
+                                    onClick={this.trim}
+                                  >
+                                    Guardar firma
+                                  </button>
+                                </div>
+                                {trimmedDataURL ? (
+                                  <img
+                                    className={styles.sigImage}
+                                    src={trimmedDataURL}
+                                  />
+                                ) : null}
+                              </div>
                             </div>
                             <div className="form-group col-md-5">
                               <label htmlFor="Firma_Inspector2">
