@@ -37,7 +37,7 @@ export default class FormInspecc extends Component {
   }
 
   solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/inspector/agregar", {
+    fetch("http://localhost:3001/api/EspForm/selected", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -122,7 +122,7 @@ export default class FormInspecc extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/nuevoForm", {
+    fetch("http://localhost:3001/api/inspector/agregar", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -217,7 +217,7 @@ export default class FormInspecc extends Component {
               </div>
               <div className="form-group col-md-4">
                 <label htmlFor="FK_Inspector_Administrativo">
-                  Nombre del inspector:
+                  Cedula del inspector:
                 </label>
                 <input
                   className="form-control"
