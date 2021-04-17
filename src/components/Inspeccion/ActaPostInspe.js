@@ -9,11 +9,10 @@ export default class ActaPostInspe extends Component {
     super();
     this.state = {
       //Informacion Solicitante
-      PK_Codigo_Inspeccion: "",
+      PK_Codigo_Inspeccion: localStorage.getItem("PK_Codigo_Inspeccion"),
       FK_Inspeccion_Patente_Nueva: "",
       Fecha: "",
       Diligencia: "",
-      Ordenada: "",
       Resultado: "",
       FK_Testigo1: "",
       FK_Testigo2: "",
@@ -94,7 +93,6 @@ export default class ActaPostInspe extends Component {
       FK_Inspeccion_Patente_Nueva,
       Fecha,
       Diligencia,
-      Ordenada,
       Resultado,
       FK_Testigo1,
       FK_Testigo2,

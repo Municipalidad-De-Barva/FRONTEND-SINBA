@@ -10,7 +10,7 @@ export default class FormInspecc extends Component {
     super();
     this.state = {
       //Informacion Inspeccion
-      PK_Codigo_Inspeccion: "",
+      //PK_Codigo_Inspeccion: "",
       FK_Inspector_Administrativo: localStorage.getItem("tipoUser"),
       FK_Solicitud_Patente: "",
       Descripcion: "",
@@ -134,11 +134,21 @@ export default class FormInspecc extends Component {
       },
       body: JSON.stringify(this.state),
     })
+      //.then(status)
       .then((res) => res.json())
       .then((data) => {
+        localStorage.setItem("PK_Codigo_Inspeccion",data.PK_Codigo_Inspeccion);
         //console.log("respuesta del servidor: ", data);
       });
   }
+/*
+  status(response) {
+    if (response && response.status >= 200 && response.status < 300) {
+      return Promise.resolve(response);
+    } else {
+      return Promise.reject(setError1("Error al conectar al servidor"));
+    }
+  }*/
 
   render() {
     const {
@@ -156,6 +166,7 @@ export default class FormInspecc extends Component {
       Extintor,
       Salida_Emergencia,
     } = this.state;
+    
     return (
       <>
         <div className="container" ref={ref}>
