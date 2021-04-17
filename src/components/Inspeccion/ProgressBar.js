@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from "react";
 //import { motion } from 'framer-motion';
 //import useStorage from './mandarABase';
 
-const ProgressBar = ({ file, setFile }) => {
+const ProgressBar = ({file, setFile}) => {
   //const { progress, url } = useStorage(file);
   //console.log(progress,url);
-  
+
   /*useEffect(() => {
     if (url) {
       setFile(null);
@@ -19,5 +19,5 @@ const ProgressBar = ({ file, setFile }) => {
     ></motion.div>*/
     <div>Error ocurr</div>
   );
-} 
+};
 export default ProgressBar;
