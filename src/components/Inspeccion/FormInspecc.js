@@ -17,8 +17,8 @@ export default class FormInspecc extends Component {
       Fecha: "",
       Local: "",
       Direccion: "",
-      Requisito_Local_Acorde_Actividad: "",
-      Planta_Fisica: "",
+      Requisito_Local_Acorde_Actividad: "0",
+      Planta_Fisica: "0",
       Senalizacion: "0",
       Luces_Emergencias: "0",
       Extintor: "0",
@@ -29,6 +29,7 @@ export default class FormInspecc extends Component {
     };
     this.onClick = this.handleClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange2 = this.handleInputChange2.bind(this);
   }
   componentDidMount() {
     const {id} = this.props;
@@ -36,7 +37,7 @@ export default class FormInspecc extends Component {
   }
 
   solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/EspForm/selected", {
+    fetch("http://localhost:3001/api/inspector/agregar", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -65,6 +66,13 @@ export default class FormInspecc extends Component {
     });
     this.setState({
       Direccion: datos.Direccion,
+    });
+  }
+  handleInputChange2(e) {
+    const {value, name} = e.target;
+    console.log(value, name);
+    this.setState({
+      [name]: value,
     });
   }
   handleInputChange(e) {
@@ -108,20 +116,6 @@ export default class FormInspecc extends Component {
 
   handleClick() {
     console.log("Datos revision de formulario", this.state);
-    var sta = {};
-    sta.PK_Codigo_Inspeccion = this.state.PK_Codigo_Inspeccion;
-    sta.FK_Inspector_Administrativo = this.state.FK_Inspector_Administrativo;
-    sta.FK_Solicitud_Patente = this.state.FK_Solicitud_Patente;
-    sta.Descripcion = this.state.Descripcion;
-    sta.Fecha = this.state.Fecha;
-    sta.Local = this.state.Local;
-    sta.Direccion = this.state.Direccion;
-    sta.Requisito_Local_Acorde_Actividad = this.state.Requisito_Local_Acorde_Actividad;
-    sta.Planta_Fisica = this.state.Planta_Fisica;
-    sta.Senalizacion = this.state.Senalizacion;
-    sta.Luces_Emergencias = this.state.Luces_Emergencias;
-    sta.Extintor = this.state.Extintor;
-    sta.Salida_Emergencia = this.state.Salida_Emergencia;
 
     console.log(
       "Preparando datos para enviar al servidor, mostrar datos:",
@@ -212,11 +206,12 @@ export default class FormInspecc extends Component {
                   type="text"
                   value={Fecha}
                   name="Fecha"
-                  placeholder="DD/MM/AAAA hh-mm"
+                  placeholder="AAAA-MM-DD"
                   maxLength="13"
                   id="Fecha"
                   validators={["required"]}
                   errormessages={["El campo es requerido"]}
+                  onChange={this.handleInputChange2}
                   required
                 />
               </div>
@@ -271,28 +266,25 @@ export default class FormInspecc extends Component {
                   className="form-control"
                   type="text"
                   value={Direccion}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleInputChange2}
                   name="Direccion"
                   id="Direccion"
-                  validators={["required"]}
-                  errormessages={["El campo es requerido"]}
+                  rows="5"
                   required
-                  row="5"
                 />
               </div>
-              <div className="form-group col-md-8">
-                <label htmlFor="Planta_Fisica">Planta Física: </label>
-                <textarea
-                  className="form-control"
-                  type="text"
-                  value={Planta_Fisica}
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
                   name="Planta_Fisica"
                   id="Planta_Fisica"
-                  row="5"
-                  validators={["required"]}
-                  errormessages={["El campo es requerido"]}
-                  required
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
                 />
+                <label className="custom-control-label" htmlFor="Planta_Fisica">
+                  Planta Fisica
+                </label>
               </div>
               <div className="custom-control custom-switch">
                 <input
@@ -303,7 +295,10 @@ export default class FormInspecc extends Component {
                   checked={this.state.isChecked}
                   onChange={this.handleInputChange}
                 />
-                <label className="custom-control-label" htmlFor="Extintor">
+                <label
+                  className="custom-control-label"
+                  htmlFor="Requisito_Local_Acorde_Actividad"
+                >
                   Requisito_Local_Acorde_Actividad
                 </label>
               </div>
@@ -391,13 +386,11 @@ export default class FormInspecc extends Component {
                   className="form-control"
                   type="text"
                   value={Descripcion}
-                  onChange={this.handleInputChange}
+                  onChange={this.handleInputChange2}
                   name="Descripcion"
                   id="Descripcion"
-                  validators={["required"]}
-                  errormessages={["El campo es requerido"]}
+                  rows="5"
                   required
-                  row="5"
                 />
               </div>
             </div>
