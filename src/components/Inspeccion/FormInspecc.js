@@ -134,21 +134,21 @@ export default class FormInspecc extends Component {
       },
       body: JSON.stringify(this.state),
     })
-      //.then(status)
+      .then(this.status())
       .then((res) => res.json())
       .then((data) => {
         localStorage.setItem("PK_Codigo_Inspeccion",data.PK_Codigo_Inspeccion);
         //console.log("respuesta del servidor: ", data);
       });
   }
-/*
+
   status(response) {
     if (response && response.status >= 200 && response.status < 300) {
       return Promise.resolve(response);
     } else {
-      return Promise.reject(setError1("Error al conectar al servidor"));
+      return Promise.reject();
     }
-  }*/
+  }
 
   render() {
     const {
