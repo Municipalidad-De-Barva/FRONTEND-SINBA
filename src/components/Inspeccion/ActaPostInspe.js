@@ -70,7 +70,7 @@ export default class ActaPostInspe extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/nuevoForm", {
+    fetch("http://localhost:3001/api/inspOcular/insertar", {
       method: "POST",
       headers: {
         Accept: "application/json",
