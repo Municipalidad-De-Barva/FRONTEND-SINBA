@@ -9,22 +9,23 @@ export default class ActaPostInspe extends Component {
     super();
     this.state = {
       //Informacion Solicitante
-      PK_Codigo_Inspeccion: localStorage.getItem("PK_Codigo_Inspeccion"),
-      FK_Inspeccion_Patente_Nueva: "",
+      //PK_Codigo_Inspeccion: "",
+      FK_Inspeccion_Patente_Nueva: localStorage.getItem("ocular"),
+      Lugar: "",
       Fecha: "",
       Diligencia: "",
       Resultado: "",
       FK_Testigo1: "",
-      FK_Testigo2: "",
       Tel_Testigo1: "",
-      Tel_Testigo2: "",
       Correo_Testigo1: "",
+      FK_Testigo2: "",
+      Tel_Testigo2: "",
       Correo_Testigo2: "",
       Firma_Testigo2: "",
       Firma_Testigo1: "",
       Firma_Inspector1: "",
       Firma_Inspector2: "",
-      Lugar: "",
+      
 
       //PDF
       postSubmitted: false,
@@ -89,7 +90,7 @@ export default class ActaPostInspe extends Component {
 
   render() {
     const {
-      PK_Codigo_Inspeccion,
+      //PK_Codigo_Inspeccion,
       FK_Inspeccion_Patente_Nueva,
       Fecha,
       Diligencia,
@@ -172,6 +173,17 @@ export default class ActaPostInspe extends Component {
                                 onChange={this.handleInputChange}
                                 name="Lugar"
                                 id="Lugar"
+                                validators={["required"]}
+                                errormessages={["El campo es requerido"]}
+                                required
+                              />
+                              <input
+                                className="form-control"
+                                type="text"
+                                value={FK_Inspeccion_Patente_Nueva}
+                                onChange={this.handleInputChange}
+                                name="FK_Inspeccion_Patente_Nueva"
+                                id="FK_Inspeccion_Patente_Nueva"
                                 validators={["required"]}
                                 errormessages={["El campo es requerido"]}
                                 required

@@ -114,7 +114,8 @@ export default class FormInspecc extends Component {
     });
   };
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault();
     console.log("Datos revision de formulario", this.state);
 
     console.log(
@@ -137,8 +138,9 @@ export default class FormInspecc extends Component {
       .then(this.status())
       .then((res) => res.json())
       .then((data) => {
-        localStorage.setItem("PK_Codigo_Inspeccion",data.PK_Codigo_Inspeccion);
+        localStorage.setItem("ocular",data.PK_Codigo_Inspeccion);
         //console.log("respuesta del servidor: ", data);
+        window.location.href="./ActaPostInspe";
       });
   }
 
@@ -152,7 +154,7 @@ export default class FormInspecc extends Component {
 
   render() {
     const {
-      PK_Codigo_Inspeccion,
+      //PK_Codigo_Inspeccion,
       FK_Inspector_Administrativo,
       FK_Solicitud_Patente,
       Descripcion,
