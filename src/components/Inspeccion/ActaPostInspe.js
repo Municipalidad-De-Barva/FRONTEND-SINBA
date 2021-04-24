@@ -1,8 +1,31 @@
 import React, {Component} from "react";
+import {useRef} from "react";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+import SignaturePad from "react-signature-canvas";
+import "./sigCanvas.css";
 
 import "@fortawesome/fontawesome-free";
+
+const sigCanvas = React.createRef();
+const limpiar = () => sigCanvas.current.clear();
+const firmar = () =>
+  console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+
+const sigCanvas2 = React.createRef();
+const limpiar2 = () => sigCanvas2.current.clear();
+const firmar2 = () =>
+  console.log(sigCanvas2.current.getTrimmedCanvas().toDataURL("image/png"));
+
+const sigCanvas3 = React.createRef();
+const limpiar3 = () => sigCanvas3.current.clear();
+const firmar3 = () =>
+  console.log(sigCanvas3.current.getTrimmedCanvas().toDataURL("image/png"));
+
+const sigCanvas4 = React.createRef();
+const limpiar4 = () => sigCanvas4.current.clear();
+const firmar4 = () =>
+  console.log(sigCanvas4.current.getTrimmedCanvas().toDataURL("image/png"));
 
 export default class ActaPostInspe extends Component {
   constructor(props) {
@@ -25,13 +48,12 @@ export default class ActaPostInspe extends Component {
       Firma_Testigo1: "",
       Firma_Inspector1: "",
       Firma_Inspector2: "",
-      
 
       //PDF
       postSubmitted: false,
     };
     this.onClick = this.handleClick.bind(this);
-    //this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   sunmitPost = (e) => {
     this.setState({
@@ -62,6 +84,19 @@ export default class ActaPostInspe extends Component {
     this.setState({
       [name]: value,
     });
+
+    /*if (name === "Firma_Inspector1") {
+      sigCanvas.setState(value.Firma_Inspector1);
+    }
+    if (name === "Firma_Inspector2") {
+      sigCanvas.setState(value.Firma_Inspector2);
+    }
+    if (name === "Firma_Testigo1") {
+      sigCanvas.setState(value.Firma_Testigo1);
+    }
+    if (name === "Firma_Testigo2") {
+      sigCanvas.setState(value.Firma_Testigo2);
+    }*/
   };
 
   handleClick() {
@@ -351,61 +386,127 @@ export default class ActaPostInspe extends Component {
                               <label htmlFor="Firma_Inspector1">
                                 Firma del inspector 1
                               </label>
-                              <textarea
-                                className="form-control"
-                                type="text"
-                                value={Firma_Inspector1}
-                                onChange={this.handleInputChange}
-                                name="Firma_Inspector1"
-                                id="Firma_Inspector1"
-                                rows="4"
-                                required
-                              />
+                              <>
+                                <SignaturePad
+                                  ref={sigCanvas}
+                                  canvasProps={{
+                                    className: "signatureCanvas",
+                                  }}
+                                />
+                                <div className="form-row">
+                                  <div className="form-group col-md-4">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={limpiar}
+                                      onChange={this.handleInputChange}
+                                    >
+                                      Limpiar
+                                    </button>
+                                  </div>
+                                  <div className="form-group col-md-6">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={firmar}
+                                      onChange={this.handleInputChange}
+                                    >
+                                      Firmar
+                                    </button>
+                                  </div>
+                                </div>
+                              </>
                             </div>
                             <div className="form-group col-md-5">
                               <label htmlFor="Firma_Inspector2">
                                 Firma del inspector 2
                               </label>
-                              <textarea
-                                className="form-control"
-                                type="text"
-                                value={Firma_Inspector2}
-                                onChange={this.handleInputChange}
-                                name="Firma_Inspector2"
-                                id="Firma_Inspector2"
-                                rows="4"
-                                required
-                              />
+                              <>
+                                <SignaturePad
+                                  ref={sigCanvas2}
+                                  canvasProps={{
+                                    className: "signatureCanvas",
+                                  }}
+                                />
+                                <div className="form-row">
+                                  <div className="form-group col-md-4">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={limpiar2}
+                                    >
+                                      Limpiar
+                                    </button>
+                                  </div>
+                                  <div className="form-group col-md-6">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={firmar2}
+                                    >
+                                      Firmar
+                                    </button>
+                                  </div>
+                                </div>
+                              </>
                             </div>
                             <div className="form-group col-md-5">
                               <label htmlFor="Firma_Testigo1">
                                 Firma del testigo 1
                               </label>
-                              <textarea
-                                className="form-control"
-                                type="text"
-                                value={Firma_Testigo1}
-                                onChange={this.handleInputChange}
-                                name="Firma_Testigo1"
-                                id="Firma_Testigo1"
-                                rows="4"
-                                required
-                              />
+                              <>
+                                <SignaturePad
+                                  ref={sigCanvas2}
+                                  canvasProps={{
+                                    className: "signatureCanvas",
+                                  }}
+                                />
+                                <div className="form-row">
+                                  <div className="form-group col-md-4">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={limpiar3}
+                                    >
+                                      Limpiar
+                                    </button>
+                                  </div>
+                                  <div className="form-group col-md-6">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={firmar3}
+                                    >
+                                      Firmar
+                                    </button>
+                                  </div>
+                                </div>
+                              </>
                             </div>
                             <div className="form-group col-md-5">
                               <label htmlFor="Firma_Testigo2">
                                 Firma del Testigo 2
                               </label>
-                              <textarea
-                                className="form-control"
-                                type="text"
-                                value={Firma_Testigo2}
-                                onChange={this.handleInputChange}
-                                name="Firma_Testigo2"
-                                id="Firma_Testigo2"
-                                rows="4"
-                                required
-                              />
+                              <>
+                                <SignaturePad
+                                  ref={sigCanvas2}
+                                  canvasProps={{
+                                    className: "signatureCanvas",
+                                  }}
+                                />
+                                <div className="form-row">
+                                  <div className="form-group col-md-4">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={limpiar4}
+                                    >
+                                      Limpiar
+                                    </button>
+                                  </div>
+                                  <div className="form-group col-md-6">
+                                    <button
+                                      className="btn btn-primary text-center"
+                                      onClick={firmar4}
+                                    >
+                                      Firmar
+                                    </button>
+                                  </div>
+                                </div>
+                              </>
                             </div>
                           </div>
                         </div>
