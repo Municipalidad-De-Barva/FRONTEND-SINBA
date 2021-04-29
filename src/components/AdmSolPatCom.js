@@ -69,6 +69,23 @@ class Body extends Component {
                     </a>
                   </div>
                 </div>
+
+                <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
+                  <div className="card hoverable">
+                    <a href="./PatInspecR">
+                      <img
+                        className="card-img-top"
+                        src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        alt=""
+                      />
+                      <div className="card-body">
+                        <p className="card-title text-muted text-uppercase font-small mt-1 mb-3">
+                          Ver Inspección Realizada
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </>
             ) : (
               <>
@@ -85,7 +102,6 @@ class Body extends Component {
                         src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                         alt=""
                       />
-
                       <div className="card-body">
                         <p className="card-title text-muted text-uppercase font-small mt-1 mb-3">
                           Pendientes de Inspección
@@ -94,6 +110,8 @@ class Body extends Component {
                     </a>
                   </div>
                 </div>
+
+                
               </>
             )}
           </div>

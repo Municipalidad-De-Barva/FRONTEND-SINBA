@@ -25,6 +25,7 @@
     "react-phone-number-input": "^3.0.25",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-signature-canvas": "^1.0.3",
     "react-to-pdf": "0.0.13"
   },
   "scripts": {

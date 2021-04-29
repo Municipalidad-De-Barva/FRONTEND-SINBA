@@ -22,6 +22,7 @@ import RevSolPatCom from "./components/RevSolPatCom";
 import ActaPostInspe from "./components/Inspeccion/ActaPostInspe";
 import FormInspecc from "./components/Inspeccion/FormInspecc";
 import PatInspec from "./components/Inspeccion/PatInspec";
+import PatInspecR from "./components/Inspeccion/PatInspecR";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -103,6 +104,12 @@ ReactDOM.render(
         path="/PatInspec"
         render={() => {
           return <PatInspec />;
+        }}
+      ></Route>
+      <Route
+        path="/PatInspecR"
+        render={() => {
+          return <PatInspecR />;
         }}
       ></Route>
     </Router>
