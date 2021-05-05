@@ -6,7 +6,7 @@ import SignaturePad from "react-signature-canvas";
 import "./sigCanvas.css";
 
 import "@fortawesome/fontawesome-free";
-
+//falta firma, aún no he logrado que no borre todo
 const sigCanvas = React.createRef();
 const limpiar = () => sigCanvas.current.clear();
 const firmar = () =>
@@ -222,7 +222,6 @@ export default class ActaPostInspe extends Component {
                                 validators={["required"]}
                                 errormessages={["El campo es requerido"]}
                                 required
-                                disabled
                               />
                             </div>
                             {/*----------------Fecha--------------------- */}
@@ -246,7 +245,7 @@ export default class ActaPostInspe extends Component {
                             {/*"----------Testigo 1-------------"*/}
                             <div className="form-group col-md-8">
                               <label htmlFor="FK_Testigo1">
-                                Cédula del testigo 1:
+                                Nombre completo del testigo 1:
                               </label>
                               <input
                                 className="form-control"
@@ -290,7 +289,7 @@ export default class ActaPostInspe extends Component {
                             {/*"----------Testigo 2-------------"*/}
                             <div className="form-group col-md-8">
                               <label htmlFor="FK_Testigo2">
-                                Cédula del testigo 2:
+                                Nombre completo del testigo 2:
                               </label>
                               <input
                                 className="form-control"
@@ -410,7 +409,7 @@ export default class ActaPostInspe extends Component {
                                       onClick={firmar}
                                       onChange={this.handleInputChange}
                                     >
-                                      Firmar
+                                      Guardar
                                     </button>
                                   </div>
                                 </div>
@@ -441,7 +440,7 @@ export default class ActaPostInspe extends Component {
                                       className="btn btn-primary text-center"
                                       onClick={firmar2}
                                     >
-                                      Firmar
+                                      Guardar
                                     </button>
                                   </div>
                                 </div>
@@ -472,7 +471,7 @@ export default class ActaPostInspe extends Component {
                                       className="btn btn-primary text-center"
                                       onClick={firmar3}
                                     >
-                                      Firmar
+                                      Guardar
                                     </button>
                                   </div>
                                 </div>
@@ -503,7 +502,7 @@ export default class ActaPostInspe extends Component {
                                       className="btn btn-primary text-center"
                                       onClick={firmar4}
                                     >
-                                      Firmar
+                                      Guardar
                                     </button>
                                   </div>
                                 </div>
