@@ -143,87 +143,88 @@ export default class FormAproInspe extends Component {
   getDatos(datos) {
     console.log(datos);
     //1
-    this.setState({ 
-      FK_Inspector_Administrativo: datos.FK_Inspector_Administrativo,
+    //inp es lo que recupera la base y se mete en FK_Inspeccion_Patente_Nueva como obj
+    this.setState({ //inp.FK_Inspector_Administrativo
+      FK_Inspector_Administrativo: datos.FK_Inspeccion_Patente_Nueva.FK_Inspector_Administrativo,
     });
-    this.setState({
-      FK_Solicitud_Patente: datos.PK_Codigo,
+    this.setState({ //inp.FK_Solicitud_Patente
+      FK_Solicitud_Patente: datos.FK_Inspeccion_Patente_Nueva.FK_Solicitud_Patente,
     });
-    this.setState({
-      Descripcion: datos.Descripcion,
+    this.setState({ //inp.Descripcion
+      Descripcion: datos.FK_Inspeccion_Patente_Nueva.Descripcion,
     });
-    this.setState({
-      Fecha: datos.Fecha,
+    this.setState({ //inp.Fecha
+      Fecha: datos.FK_Inspeccion_Patente_Nueva.Fecha,
     });
-    this.setState({
-      Local: datos.Local,
+    this.setState({ //inp.Local
+      Local: datos.FK_Inspeccion_Patente_Nueva.Local,
     });
-    this.setState({
-      Direccion: datos.Direccion,
+    this.setState({ //inp.Direccion
+      Direccion: datos.FK_Inspeccion_Patente_Nueva.Direccion,
     });
-    this.setState({
-      Requisito_Local_Acorde_Actividad: datos.Requisito_Local_Acorde_Actividad,
+    this.setState({ //inp.Requisito_Local_Acorde_Actividadl
+      Requisito_Local_Acorde_Actividad: datos.FK_Inspeccion_Patente_Nueva.Requisito_Local_Acorde_Actividadl,
     });
-    this.setState({
-      Planta_Fisica: datos.Planta_Fisica,
+    this.setState({ //inp.Planta_Fisica
+      Planta_Fisica: datos.FK_Inspeccion_Patente_Nueva.Planta_Fisica,
     });
-    this.setState({
-      Senalizacion: datos.Senalizacion,
+    this.setState({ //inp.Senalizacion
+      Senalizacion: datos.FK_Inspeccion_Patente_Nueva.Senalizacion,
     });
-    this.setState({
-      Luces_Emergencias: datos.Luces_Emergencias,
+    this.setState({ //inp.Luces_Emergencias
+      Luces_Emergencias: datos.FK_Inspeccion_Patente_Nueva.Luces_Emergencias,
     });
-    this.setState({
-      Extintor: datos.Extintor,
+    this.setState({ //inp.Extintor
+      Extintor: datos.FK_Inspeccion_Patente_Nueva.Extintor,
     });
-    this.setState({
-      Salida_Emergencia: datos.Salida_Emergencia,
+    this.setState({ //inp.Salida_Emergencia
+      Salida_Emergencia: datos.FK_Inspeccion_Patente_Nueva.Salida_Emergencia,
     });
 
     //2
-    this.setState({
+    this.setState({ //PK_Codigo_Inspeccion
       PK_Codigo_Inspeccion: datos.PK_Codigo_Inspeccion,
     });
-    this.setState({
-      FK_Inspeccion_Patente_Nueva: datos.FK_Inspeccion_Patente_Nueva,
+    this.setState({ //FK_Inspeccion_Patente_Nueva.PK_Codigo_Inspeccion
+      FK_Inspeccion_Patente_Nueva: datos.FK_Inspeccion_Patente_Nueva.PK_Codigo_Inspeccion,
     });
-    this.setState({
-      Lugar: datos.Lugar,
+    this.setState({ //Lugar_Visita
+      Lugar: datos.Lugar_Visita,
     });
-    this.setState({
+    this.setState({ //Diligencia
       Diligencia: datos.Diligencia,
     });
-    this.setState({
+    this.setState({ //Resultado
       Resultado: datos.Resultado,
     });
-    this.setState({
-      FK_Testigo1: datos.FK_Testigo1,
+    this.setState({ //FK_Testigo1.PK_ID
+      FK_Testigo1: datos.FK_Testigo1.PK_ID,
     });
-    this.setState({
-      Tel_Testigo1: datos.Tel_Testigo1,
+    this.setState({ //FK_Testigo1.Telefono
+      Tel_Testigo1: datos.FK_Testigo1.Telefono,
     });
-    this.setState({
-      Correo_Testigo1: datos.Correo_Testigo1,
+    this.setState({ //FK_Testigo1.Correo
+      Correo_Testigo1: datos.FK_Testigo1.Correo,
     });
-    this.setState({
-      FK_Testigo2: datos.FK_Testigo2,
+    this.setState({ //FK_Testigo2.PK_ID
+      FK_Testigo2: datos.FK_Testigo2.PK_ID,
     });
-    this.setState({
-      Tel_Testigo2: datos.Tel_Testigo2,
+    this.setState({ //FK_Testigo2.Telefono
+      Tel_Testigo2: datos.FK_Testigo2.Telefono,
     });
-    this.setState({
-      Correo_Testigo2: datos.Correo_Testigo2,
+    this.setState({ //FK_Testigo2.Correo
+      Correo_Testigo2: datos.FK_Testigo2.Correo,
     });
-    this.setState({
-      Firma_Testigo2: datos.Firma_Testigo2,
+    this.setState({ //FK_Testigo2.firma ----Deberían ir en img
+      Firma_Testigo2: datos.FK_Testigo2.firma,
     });
-    this.setState({
-      Firma_Testigo1: datos.Firma_Testigo1,
+    this.setState({ //FK_Testigo1.firma ----Deberían ir en img
+      Firma_Testigo1: datos.FK_Testigo1.firma,
     });
-    this.setState({
+    this.setState({ //Firma_Inspector_1  ---esto devuelve una url
       Firma_Inspector1: datos.Firma_Inspector1,
     });
-    this.setState({
+    this.setState({ //Firma_Inspector_2 ---esto devuelve una url
       Firma_Inspector2: datos.Firma_Inspector2,
     });
 
