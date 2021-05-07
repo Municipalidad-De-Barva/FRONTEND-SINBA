@@ -39,22 +39,131 @@ export default class FormAproInspe extends Component {
     this.onClick = this.handleClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-
-  cambioCheckBox(e) {
-    const {name} = e.target;
-
-    let ck = document.getElementById(name);
-
-    if ((ck.value = 1)) {
-      ck.value = "Cumple";
-    } else {
-      ck.value = "No cumple";
-    }
-    this.setState({
-      [name]: ck.value,
-    });
-    console.log(name, ck.value);
+  componentDidMount() {
+    const {id} = this.props;
+    this.solicitarDatosporCodigo(id);
   }
+
+  solicitarDatosporCodigo(cod) {
+    console.log("mi codigo"+cod);
+    fetch("http://localhost:3001/api/inspOcular/obtenerInspeccionOcularId", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        /*'Access-Control-Allow-Headers': '*',
+				"Access-Control-Allow-Origin": "*",
+      			"Access-Control-Allow-Credentials": "true",
+      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
+      },
+      body: JSON.stringify({PK_Codigo_Inspeccion: cod}),
+    })
+    .then(this.status)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("imprimiendo datos ", data);
+        //this.setState({datos: data[0]});
+        this.getDatos(data);
+      });
+      console.log(JSON.stringify({codigo: cod}));
+  }
+
+  getDatos(datos) {
+    console.log("Datos que tengo> "+datos);
+    //1
+    //inp es lo que recupera la base y se mete en FK_Inspeccion_Patente_Nueva como obj
+    this.setState({ //inp.FK_Inspector_Administrativo
+      FK_Inspector_Administrativo: datos.FK_Inspeccion_Patente_Nueva[0].FK_Inspector_Administrativo,
+    });
+    this.setState({ //inp.FK_Solicitud_Patente
+      FK_Solicitud_Patente: datos.FK_Inspeccion_Patente_Nueva[0].FK_Solicitud_Patente,
+    });
+    this.setState({ //inp.Descripcion
+      Descripcion: datos.FK_Inspeccion_Patente_Nueva[0].Descripcion,
+    });
+    this.setState({ //inp.Fecha
+      Fecha: datos.FK_Inspeccion_Patente_Nueva[0].Fecha,
+    });
+    this.setState({ //inp.Local
+      Local: datos.FK_Inspeccion_Patente_Nueva[0].Local,
+    });
+    this.setState({ //inp.Direccion
+      Direccion: datos.FK_Inspeccion_Patente_Nueva[0].Direccion,
+    });
+    this.setState({ //inp.Requisito_Local_Acorde_Actividadl
+      Requisito_Local_Acorde_Actividad: datos.FK_Inspeccion_Patente_Nueva[0].Requisito_Local_Acorde_Actividadl,
+    });
+    this.setState({ //inp.Planta_Fisica
+      Planta_Fisica: datos.FK_Inspeccion_Patente_Nueva[0].Planta_Fisica,
+    });
+    this.setState({ //inp.Senalizacion
+      Senalizacion: datos.FK_Inspeccion_Patente_Nueva[0].Senalizacion,
+    });
+    this.setState({ //inp.Luces_Emergencias
+      Luces_Emergencias: datos.FK_Inspeccion_Patente_Nueva[0].Luces_Emergencias,
+    });
+    this.setState({ //inp.Extintor
+      Extintor: datos.FK_Inspeccion_Patente_Nueva[0].Extintor,
+    });
+    this.setState({ //inp.Salida_Emergencia
+      Salida_Emergencia: datos.FK_Inspeccion_Patente_Nueva[0].Salida_Emergencia,
+    });
+
+    //2
+    this.setState({ //PK_Codigo_Inspeccion
+      PK_Codigo_Inspeccion: datos.PK_Codigo_Inspeccion,
+    });
+    this.setState({ //FK_Inspeccion_Patente_Nueva.PK_Codigo_Inspeccion
+      FK_Inspeccion_Patente_Nueva: datos.FK_Inspeccion_Patente_Nueva[0].PK_Codigo_Inspeccion,
+    });
+    this.setState({ //Lugar_Visita
+      Lugar: datos.Lugar_Visita,
+    });
+    this.setState({ //Diligencia
+      Diligencia: datos.Diligencia,
+    });
+    this.setState({ //Resultado
+      Resultado: datos.Resultado,
+    });
+    this.setState({ //FK_Testigo1.PK_ID
+      FK_Testigo1: datos.FK_Testigo1[0].PK_ID,
+    });
+    this.setState({ //FK_Testigo1.Telefono
+      Tel_Testigo1: datos.FK_Testigo1[0].Telefono,
+    });
+    this.setState({ //FK_Testigo1.Correo
+      Correo_Testigo1: datos.FK_Testigo1[0].Correo,
+    });
+    this.setState({ //FK_Testigo2.PK_ID
+      FK_Testigo2: datos.FK_Testigo2[0].PK_ID,
+    });
+    this.setState({ //FK_Testigo2.Telefono
+      Tel_Testigo2: datos.FK_Testigo2[0].Telefono,
+    });
+    this.setState({ //FK_Testigo2.Correo
+      Correo_Testigo2: datos.FK_Testigo2[0].Correo,
+    });
+    this.setState({ //FK_Testigo2.firma ----Deberían ir en img
+      Firma_Testigo2: datos.FK_Testigo2[0].firma,
+    });
+    this.setState({ //FK_Testigo1.firma ----Deberían ir en img
+      Firma_Testigo1: datos.FK_Testigo1[0].firma,
+    });
+    this.setState({ //Firma_Inspector_1  ---esto devuelve una url
+      Firma_Inspector1: datos.Firma_Inspector1,
+    });
+    this.setState({ //Firma_Inspector_2 ---esto devuelve una url
+      Firma_Inspector2: datos.Firma_Inspector2,
+    });
+
+  }
+  status(response) {
+        if (response && response.status >= 200 && response.status < 300) {
+            return Promise.resolve(response);
+        } else {
+            return Promise.reject(console.log("Error al conectar al servidor"));
+        }
+    }
 
   handleInputChange(e) {
     const {name} = e.target;
@@ -109,127 +218,7 @@ export default class FormAproInspe extends Component {
       });
   }
 
-  componentDidMount() {
-    const {id} = this.props;
-    this.solicitarDatosporCodigo(id);
-  }
-
-  solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/EspForm/selected", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        /*'Access-Control-Allow-Headers': '*',
-				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
-      },
-      body: JSON.stringify({codigo: cod}),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        //console.log("imprimiendo datos ", data[0]);
-        //this.setState({datos: data[0]});
-        this.getDatos(data[0]);
-      });
-  }
-  toggleChange = () => {
-    this.setState({
-      isChecked: !this.state.isChecked,
-    });
-  };
-
-  getDatos(datos) {
-    console.log(datos);
-    //1
-    //inp es lo que recupera la base y se mete en FK_Inspeccion_Patente_Nueva como obj
-    this.setState({ //inp.FK_Inspector_Administrativo
-      FK_Inspector_Administrativo: datos.FK_Inspeccion_Patente_Nueva.FK_Inspector_Administrativo,
-    });
-    this.setState({ //inp.FK_Solicitud_Patente
-      FK_Solicitud_Patente: datos.FK_Inspeccion_Patente_Nueva.FK_Solicitud_Patente,
-    });
-    this.setState({ //inp.Descripcion
-      Descripcion: datos.FK_Inspeccion_Patente_Nueva.Descripcion,
-    });
-    this.setState({ //inp.Fecha
-      Fecha: datos.FK_Inspeccion_Patente_Nueva.Fecha,
-    });
-    this.setState({ //inp.Local
-      Local: datos.FK_Inspeccion_Patente_Nueva.Local,
-    });
-    this.setState({ //inp.Direccion
-      Direccion: datos.FK_Inspeccion_Patente_Nueva.Direccion,
-    });
-    this.setState({ //inp.Requisito_Local_Acorde_Actividadl
-      Requisito_Local_Acorde_Actividad: datos.FK_Inspeccion_Patente_Nueva.Requisito_Local_Acorde_Actividadl,
-    });
-    this.setState({ //inp.Planta_Fisica
-      Planta_Fisica: datos.FK_Inspeccion_Patente_Nueva.Planta_Fisica,
-    });
-    this.setState({ //inp.Senalizacion
-      Senalizacion: datos.FK_Inspeccion_Patente_Nueva.Senalizacion,
-    });
-    this.setState({ //inp.Luces_Emergencias
-      Luces_Emergencias: datos.FK_Inspeccion_Patente_Nueva.Luces_Emergencias,
-    });
-    this.setState({ //inp.Extintor
-      Extintor: datos.FK_Inspeccion_Patente_Nueva.Extintor,
-    });
-    this.setState({ //inp.Salida_Emergencia
-      Salida_Emergencia: datos.FK_Inspeccion_Patente_Nueva.Salida_Emergencia,
-    });
-
-    //2
-    this.setState({ //PK_Codigo_Inspeccion
-      PK_Codigo_Inspeccion: datos.PK_Codigo_Inspeccion,
-    });
-    this.setState({ //FK_Inspeccion_Patente_Nueva.PK_Codigo_Inspeccion
-      FK_Inspeccion_Patente_Nueva: datos.FK_Inspeccion_Patente_Nueva.PK_Codigo_Inspeccion,
-    });
-    this.setState({ //Lugar_Visita
-      Lugar: datos.Lugar_Visita,
-    });
-    this.setState({ //Diligencia
-      Diligencia: datos.Diligencia,
-    });
-    this.setState({ //Resultado
-      Resultado: datos.Resultado,
-    });
-    this.setState({ //FK_Testigo1.PK_ID
-      FK_Testigo1: datos.FK_Testigo1.PK_ID,
-    });
-    this.setState({ //FK_Testigo1.Telefono
-      Tel_Testigo1: datos.FK_Testigo1.Telefono,
-    });
-    this.setState({ //FK_Testigo1.Correo
-      Correo_Testigo1: datos.FK_Testigo1.Correo,
-    });
-    this.setState({ //FK_Testigo2.PK_ID
-      FK_Testigo2: datos.FK_Testigo2.PK_ID,
-    });
-    this.setState({ //FK_Testigo2.Telefono
-      Tel_Testigo2: datos.FK_Testigo2.Telefono,
-    });
-    this.setState({ //FK_Testigo2.Correo
-      Correo_Testigo2: datos.FK_Testigo2.Correo,
-    });
-    this.setState({ //FK_Testigo2.firma ----Deberían ir en img
-      Firma_Testigo2: datos.FK_Testigo2.firma,
-    });
-    this.setState({ //FK_Testigo1.firma ----Deberían ir en img
-      Firma_Testigo1: datos.FK_Testigo1.firma,
-    });
-    this.setState({ //Firma_Inspector_1  ---esto devuelve una url
-      Firma_Inspector1: datos.Firma_Inspector1,
-    });
-    this.setState({ //Firma_Inspector_2 ---esto devuelve una url
-      Firma_Inspector2: datos.Firma_Inspector2,
-    });
-
-    console.log(datos);
-  }
+  
   render() {
     const {
       PK_Codigo_Inspeccion,
@@ -262,6 +251,7 @@ export default class FormAproInspe extends Component {
 
     return (
       <>
+      <div className="container" ref={ref}>
         <div className="container" ref={ref}>
           <br />
           <br />
@@ -289,7 +279,7 @@ export default class FormAproInspe extends Component {
                       </a>
                     </div>
                     <div className="form-group col-md-10">
-                      <h7>
+                      <h6>
                         <div className="form-group col-md-4">
                           <label htmlFor="FK_Solicitud_Patente">
                             Código solicitud patente:
@@ -300,12 +290,12 @@ export default class FormAproInspe extends Component {
                             value={FK_Solicitud_Patente}
                             name="FK_Solicitud_Patente"
                             id="FK_Solicitud_Patente"
-                            onChange={this.handleInputChange2}
+                            onChange={this.handleInputChange}
                             required
                           />
                         </div>
-                      </h7>
-                      <h7>
+                      </h6>
+                      <h6>
                         <div className="form-group col-md-4">
                           <label htmlFor="FK_Inspeccion_Patente_Nueva">
                             Código inspección patente nueva:
@@ -316,12 +306,12 @@ export default class FormAproInspe extends Component {
                             value={FK_Inspeccion_Patente_Nueva}
                             name="FK_Inspeccion_Patente_Nueva"
                             id="FK_Inspeccion_Patente_Nueva"
-                            onChange={this.handleInputChange2}
+                            onChange={this.handleInputChange}
                             required
                           />
                         </div>
-                      </h7>
-                      <h7>
+                      </h6>
+                      <h6>
                         <div className="form-group col-md-4">
                           <label htmlFor="PK_Codigo_Inspeccion">
                             Código Acta Inspección Ocular:
@@ -332,11 +322,11 @@ export default class FormAproInspe extends Component {
                             value={PK_Codigo_Inspeccion}
                             name="PK_Codigo_Inspeccion"
                             id="PK_Codigo_Inspeccion"
-                            onChange={this.handleInputChange2}
+                            onChange={this.handleInputChange}
                             required
                           />
                         </div>
-                      </h7>
+                      </h6>
                       <hr />
                     </div>
                   </div>
@@ -353,7 +343,7 @@ export default class FormAproInspe extends Component {
                         id="Fecha"
                         validators={["required"]}
                         errormessages={["El campo es requerido"]}
-                        onChange={this.handleInputChange2}
+                        onChange={this.handleInputChange}
                         required
                       />
                     </div>
@@ -392,7 +382,7 @@ export default class FormAproInspe extends Component {
                         className="form-control"
                         type="text"
                         value={Direccion}
-                        onChange={this.handleInputChange2}
+                        onChange={this.handleInputChange}
                         name="Direccion"
                         id="Direccion"
                         rows="5"
@@ -478,7 +468,7 @@ export default class FormAproInspe extends Component {
                         className="form-control"
                         type="text"
                         value={Descripcion}
-                        onChange={this.handleInputChange2}
+                        onChange={this.handleInputChange}
                         name="Descripcion"
                         id="Descripcion"
                         rows="5"
@@ -701,6 +691,7 @@ export default class FormAproInspe extends Component {
               </button>
             </a>
           </div>
+        </div>
         </div>
       </>
     );

@@ -29,19 +29,28 @@ class PageList extends Component {
   }
 
   pedirFormularios() {
-    fetch("http://localhost:3001/api/allNForms/terminados", { //ruta de BRYAN que carga oculares
+    fetch("http://localhost:3001/api/inspOcular/listarInspeccionesOculares", { //ruta de BRYAN que carga oculares
       method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     })
+      .then(this.status)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data[0]);
         this.setState({todos: data});
       });
     //console.log("respuesta del servidor: ", this.state.todos);
   }
+  status(response) {
+        if (response && response.status >= 200 && response.status < 300) {
+            return Promise.resolve(response);
+        } else {
+            return Promise.reject(console.log("Error al conectar al servidor"));
+        }
+    }
 
   render() {
     const todos = this.state.todos.map((todo, i) => {
@@ -63,7 +72,7 @@ class PageList extends Component {
               </p>
             </div>
             <div className="card-footer text-center">
-              <a href={`?id=${todo.PK_Codigo}`}>
+              <a href={`?id=${todo.PK_Codigo_Inspeccion}`}>
                 <button className="btn btn-success">Revisar</button>
               </a>
             </div>
