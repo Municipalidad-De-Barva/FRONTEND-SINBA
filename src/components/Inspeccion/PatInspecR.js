@@ -49,7 +49,7 @@ class PageList extends Component {
         <div className="col-md-6" key={i}>
           <div className="card mt-4">
             <div className="card-header text-center">
-              <h3>N° {todo.PK_Codigo}</h3>
+              <h3>N° {todo.PK_Codigo_Inspeccion}</h3>
             </div>
             <div className="card-title text-center">
               <span className="badge badge-pill badge-info ml-2">
@@ -59,7 +59,7 @@ class PageList extends Component {
             <div className="card-body">
               <p>
                 <strong>Nombre Del Local: </strong>
-                {todo.Nombre_Comercial_Negocio}
+                {todo.Lugar_Visita}
               </p>
             </div>
             <div className="card-footer text-center">
