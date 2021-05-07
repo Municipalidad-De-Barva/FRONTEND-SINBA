@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
-import FormInspecc from "./FormInspecc";
+import FormAproInspe from "./FormAproInspe";
 export default class PatInspecR extends Component {
   render() {
     return (
@@ -76,7 +76,7 @@ class PageList extends Component {
     const hasId = url.searchParams.has("id");
 
     if (hasId) {
-      return <FormInspecc id={url.searchParams.get("id")} />;
+      return <FormAproInspe id={url.searchParams.get("id")} />;
     }
     return (
       <div className="container-fluid">

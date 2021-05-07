@@ -6,7 +6,7 @@ export default class FormAproInspe extends Component {
     super(props);
     this.state = {
       //Formulario  Inspeccion
-      FK_Inspector_Administrativo: localStorage.getItem("tipoUser"),
+      FK_Inspector_Administrativo: "",
       FK_Solicitud_Patente: "",
       Descripcion: "",
       Fecha: "",
@@ -21,7 +21,7 @@ export default class FormAproInspe extends Component {
 
       //Acta Ocular
       PK_Codigo_Inspeccion: "",
-      FK_Inspeccion_Patente_Nueva: localStorage.getItem("ocular"),
+      FK_Inspeccion_Patente_Nueva: "",
       Lugar: "",
       Diligencia: "",
       Resultado: "",
@@ -142,8 +142,9 @@ export default class FormAproInspe extends Component {
 
   getDatos(datos) {
     console.log(datos);
-    /*this.setState({
-      PK_Codigo_Inspeccion: datos.PK_Codigo_Inspeccion,
+    //1
+    this.setState({ 
+      FK_Inspector_Administrativo: datos.FK_Inspector_Administrativo,
     });
     this.setState({
       FK_Solicitud_Patente: datos.PK_Codigo,
@@ -178,6 +179,11 @@ export default class FormAproInspe extends Component {
     this.setState({
       Salida_Emergencia: datos.Salida_Emergencia,
     });
+
+    //2
+    this.setState({
+      PK_Codigo_Inspeccion: datos.PK_Codigo_Inspeccion,
+    });
     this.setState({
       FK_Inspeccion_Patente_Nueva: datos.FK_Inspeccion_Patente_Nueva,
     });
@@ -187,11 +193,9 @@ export default class FormAproInspe extends Component {
     this.setState({
       Diligencia: datos.Diligencia,
     });
-
     this.setState({
       Resultado: datos.Resultado,
     });
-
     this.setState({
       FK_Testigo1: datos.FK_Testigo1,
     });
@@ -221,7 +225,7 @@ export default class FormAproInspe extends Component {
     });
     this.setState({
       Firma_Inspector2: datos.Firma_Inspector2,
-    });*/
+    });
 
     console.log(datos);
   }
