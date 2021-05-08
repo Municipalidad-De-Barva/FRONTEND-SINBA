@@ -17,13 +17,13 @@ export default class PageContactUser extends Component {
 }
 
 class PageList extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-        //viene de contribuyente
+      //viene de contribuyente
       Nombre_Solicitante: "",
       Correo: "",
-      Telefono1: ""
+      Telefono1: "",
     };
     //this.onClick = this.handleClick.bind(this);
     //this.handleInputChange = this.handleInputChange.bind(this);
@@ -60,76 +60,65 @@ class PageList extends Component {
   };*/
 
   getDatos(datos) {
-
-    this.setState({ 
-      Nombre_Solicitante: datos.Nombre,
-    });
-    this.setState({ 
-      Correo: datos.Correo,
-    });
-    this.setState({ 
-      Telefono1: datos.Telefono,
-    });
+    // this.setState({
+    //   Nombre_Solicitante: datos.Nombre,
+    // });
+    // this.setState({
+    //   Correo: datos.Correo,
+    // });
+    // this.setState({
+    //   Telefono1: datos.Telefono,
+    // });
 
     console.log(datos);
   }
 
   render() {
-      const {
-      Nombre_Solicitante,
-      Correo,
-      Telefono1
-    } = this.state;
+    const {Nombre_Solicitante, Correo, Telefono1} = this.state;
     return (
-        <>
+      <>
         <div className="row">
-            <div className="col-sm-12 col-sm-offset-0">
-                <div className="card">
-                    <div className=" card-header form-group text-center">
-                        <h1>
-                            <strong>
-                                Datos de usuario solicitante
-                            </strong>
-                        </h1>
+          <div className="col-sm-12 col-sm-offset-0">
+            <div className="card">
+              <div className=" card-header form-group text-center">
+                <h1>
+                  <strong>Datos de usuario solicitante</strong>
+                </h1>
+              </div>
+              <div className="card-body">
+                <div className="form-group col-md-10">
+                  <h7>
+                    <div className="form-group col-md-4">
+                      <label htmlFor="FK_Solicitud_Patente">
+                        Nombre:{Nombre_Solicitante}
+                      </label>
                     </div>
-                    <div className="card-body">
-                        <div className="form-group col-md-10">
-                            <h7>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="FK_Solicitud_Patente">
-                                        Nombre:{Nombre_Solicitante}
-                                    </label>
-                                </div>
-                            </h7>
-                            <h7>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="FK_Solicitud_Patente">
-                                        Telefono:{Telefono1}
-                                    </label>
-                                </div>
-                            </h7>
-                            <h7>
-                                <div className="form-group col-md-4">
-                                    <label htmlFor="FK_Solicitud_Patente">
-                                        Correo:{Correo}
-                                    </label>
-                                </div>
-                            </h7>
-                        </div>
+                  </h7>
+                  <h7>
+                    <div className="form-group col-md-4">
+                      <label htmlFor="FK_Solicitud_Patente">
+                        Telefono:{Telefono1}
+                      </label>
                     </div>
+                  </h7>
+                  <h7>
+                    <div className="form-group col-md-4">
+                      <label htmlFor="FK_Solicitud_Patente">
+                        Correo:{Correo}
+                      </label>
+                    </div>
+                  </h7>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
         <div className="form-group col-md-4">
-            <a href="./PatInspecR">
-              <button
-                className="btn btn-primary text-center"
-              >
-                Guardar
-              </button>
-            </a>
+          <a href="./PatInspecR">
+            <button className="btn btn-primary text-center">Guardar</button>
+          </a>
         </div>
-        </>
+      </>
     );
   }
 }

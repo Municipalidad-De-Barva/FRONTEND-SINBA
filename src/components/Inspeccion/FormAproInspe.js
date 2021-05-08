@@ -35,7 +35,7 @@ export default class FormAproInspe extends Component {
       Firma_Testigo1: "",
       Firma_Inspector1: "",
       Firma_Inspector2: "",
-      Estado: "",
+      Estado: "0",
     };
     this.onClick = this.handleClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -224,34 +224,13 @@ export default class FormAproInspe extends Component {
   }
 
   handleClick() {
-    console.log("Datos revision de formulario", this.state);
-    var sta = {};
-    sta.PK_Codigo_Inspeccion = this.state.PK_Codigo_Inspeccion;
-    sta.FK_Inspector_Administrativo = this.state.FK_Inspector_Administrativo;
-    sta.FK_Solicitud_Patente = this.state.FK_Solicitud_Patente;
-    sta.Descripcion = this.state.Descripcion;
-    sta.Fecha = this.state.Fecha;
-    sta.Local = this.state.Local;
-    sta.Direccion = this.state.Direccion;
-    sta.Requisito_Local_Acorde_Actividad = this.state.Requisito_Local_Acorde_Actividad;
-    sta.Planta_Fisica = this.state.Planta_Fisica;
-    sta.Senalizacion = this.state.Senalizacion;
-    sta.Luces_Emergencias = this.state.Luces_Emergencias;
-    sta.Extintor = this.state.Extintor;
-    sta.Salida_Emergencia = this.state.Salida_Emergencia;
-
-    console.log("estado :", sta);
-    fetch("http://localhost:3001/api/revision", {
-      method: "POST",
+    fetch("http://localhost:3001/api/inspOcular/cambiarEstado", {
+      method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        /*'Access-Control-Allow-Headers': '*',
-				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
       },
-      body: JSON.stringify(sta),
+      body: JSON.stringify(this.state),
     })
       .then((res) => res.json())
       .then((data) => {
