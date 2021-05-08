@@ -452,7 +452,7 @@ export default class ActaPostInspe extends Component {
                               </label>
                               <>
                                 <SignaturePad
-                                  ref={sigCanvas2}
+                                  ref={sigCanvas3}
                                   canvasProps={{
                                     className: "signatureCanvas",
                                   }}
@@ -483,7 +483,7 @@ export default class ActaPostInspe extends Component {
                               </label>
                               <>
                                 <SignaturePad
-                                  ref={sigCanvas2}
+                                  ref={sigCanvas4}
                                   canvasProps={{
                                     className: "signatureCanvas",
                                   }}
