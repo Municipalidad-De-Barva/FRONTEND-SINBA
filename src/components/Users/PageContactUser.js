@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
-export default class PatInspecR extends Component {
+export default class PageContactUser extends Component {
   render() {
     return (
       <div>

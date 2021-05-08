@@ -739,7 +739,7 @@ export default class FormAproInspe extends Component {
               <br />
             </div>
             <div className="form-group col-md-4">
-              <a href="./PageListSolPatNueva">
+              <a href="./PageContactUser">
                 <button
                   type="submit"
                   onClick={this.onClick}
