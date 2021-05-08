@@ -224,6 +224,8 @@ export default class FormAproInspe extends Component {
   }
 
   handleClick() {
+    localStorage.setItem("codd", this.state.PK_Codigo_Inspeccion);
+    //localStorage.getItem("tipoUser")
     fetch("http://localhost:3001/api/inspOcular/cambiarEstado", {
       method: "PUT",
       headers: {

@@ -29,11 +29,11 @@ class PageList extends Component {
     //this.handleInputChange = this.handleInputChange.bind(this);
   }
   componentDidMount() {
-    const {id} = this.props;
-    this.solicitarDatosporCodigo(id);
+    //const {id} = this.props;
+    this.solicitarDatosporCodigo(localStorage.getItem("codd"));
   }
   solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/EspForm/selected", {
+    fetch("http://localhost:3001/api/inspOcular/obtenerContribuyenteOcular", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -43,13 +43,13 @@ class PageList extends Component {
       			"Access-Control-Allow-Credentials": "true",
       			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
       },
-      body: JSON.stringify({codigo: cod}),
+      body: JSON.stringify({PK_Codigo_Inspeccion: cod}),
     })
       .then((res) => res.json())
       .then((data) => {
-        //console.log("imprimiendo datos ", data[0]);
+        console.log("imprimiendo datos ", data);
         //this.setState({datos: data[0]});
-        this.getDatos(data[0]);
+        this.getDatos(data);
       });
   }
   /*
@@ -60,15 +60,15 @@ class PageList extends Component {
   };*/
 
   getDatos(datos) {
-    // this.setState({
-    //   Nombre_Solicitante: datos.Nombre,
-    // });
-    // this.setState({
-    //   Correo: datos.Correo,
-    // });
-    // this.setState({
-    //   Telefono1: datos.Telefono,
-    // });
+    this.setState({
+      Nombre_Solicitante: datos.Nombre,
+    });
+    this.setState({
+      Correo: datos.Correo,
+    });
+    this.setState({
+      Telefono1: datos.Telefono,
+    });
 
     console.log(datos);
   }
@@ -90,21 +90,21 @@ class PageList extends Component {
                   <h7>
                     <div className="form-group col-md-4">
                       <label htmlFor="FK_Solicitud_Patente">
-                        Nombre:{Nombre_Solicitante}
+                        Nombre: {Nombre_Solicitante}
                       </label>
                     </div>
                   </h7>
                   <h7>
                     <div className="form-group col-md-4">
                       <label htmlFor="FK_Solicitud_Patente">
-                        Telefono:{Telefono1}
+                        Telefono: {Telefono1}
                       </label>
                     </div>
                   </h7>
                   <h7>
                     <div className="form-group col-md-4">
                       <label htmlFor="FK_Solicitud_Patente">
-                        Correo:{Correo}
+                        Correo electrónico: {Correo}
                       </label>
                     </div>
                   </h7>
@@ -115,7 +115,7 @@ class PageList extends Component {
         </div>
         <div className="form-group col-md-4">
           <a href="./PatInspecR">
-            <button className="btn btn-primary text-center">Guardar</button>
+            <button className="btn btn-primary text-center">Volver</button>
           </a>
         </div>
       </>
