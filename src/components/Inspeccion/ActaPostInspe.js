@@ -245,7 +245,7 @@ export default class ActaPostInspe extends Component {
                             {/*"----------Testigo 1-------------"*/}
                             <div className="form-group col-md-8">
                               <label htmlFor="FK_Testigo1">
-                                Nombre completo del testigo 1:
+                                Cédula del testigo 1:
                               </label>
                               <input
                                 className="form-control"
@@ -289,7 +289,7 @@ export default class ActaPostInspe extends Component {
                             {/*"----------Testigo 2-------------"*/}
                             <div className="form-group col-md-8">
                               <label htmlFor="FK_Testigo2">
-                                Nombre completo del testigo 2:
+                                Cédula del testigo 2:
                               </label>
                               <input
                                 className="form-control"
