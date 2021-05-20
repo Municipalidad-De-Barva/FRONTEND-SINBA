@@ -61,8 +61,29 @@ export default class ActaPostInspe extends Component {
     });
   };
 
+  validarCedula(valor) {
+    var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
+    let regex = new RegExp(expresion);
+
+    if (regex.test(valor)) {
+      console.log(" cedula valido");
+    } else {
+      console.log(" cedula invalido");
+    }
+  }
+
   validarTexto(valor) {
     let regex = new RegExp("^[a-zA-Z]+$");
+
+    if (regex.test(valor)) {
+      console.log(" texto valido");
+    } else {
+      console.log(" texto invalido");
+    }
+  }
+
+  validarNumeros(valor) {
+    let regex = new RegExp("^[0-9]");
 
     if (regex.test(valor)) {
       console.log(" texto valido");
@@ -76,10 +97,16 @@ export default class ActaPostInspe extends Component {
     console.log(value, name);
 
     if (name === "FK_Testigo1") {
-      this.validarTexto(value);
+      this.validarCedula(value);
     }
     if (name === "FK_Testigo2") {
-      this.validarTexto(value);
+      this.validarCedula(value);
+    }
+    if (name === "Tel_Testigo1") {
+      this.validarNumeros(value);
+    }
+    if (name === "Tel_Testigo2") {
+      this.validarNumeros(value);
     }
     this.setState({
       [name]: value,
@@ -252,6 +279,8 @@ export default class ActaPostInspe extends Component {
                                 type="text"
                                 value={FK_Testigo1}
                                 onChange={this.handleInputChange}
+                                placeholder="0-0000-0000"
+                                maxLength="11"
                                 name="FK_Testigo1"
                                 id="FK_Testigo1"
                               />
@@ -296,6 +325,8 @@ export default class ActaPostInspe extends Component {
                                 type="text"
                                 value={FK_Testigo2}
                                 onChange={this.handleInputChange}
+                                placeholder="0-0000-0000"
+                                maxLength="11"
                                 name="FK_Testigo2"
                                 id="FK_Testigo2"
                               />
