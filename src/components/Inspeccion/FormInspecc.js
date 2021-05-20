@@ -58,6 +58,7 @@ export default class FormInspecc extends Component {
   }
   getDatos(datos) {
     console.log(datos);
+    localStorage.setItem("paraImg",datos.PK_Codigo);
     this.setState({
       FK_Solicitud_Patente: datos.PK_Codigo,
     });
