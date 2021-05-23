@@ -29,7 +29,8 @@ class PageList extends Component {
   }
 
   pedirFormularios() {
-    fetch("http://localhost:3001/api/inspOcular/listarInspeccionesOculares", { //ruta de BRYAN que carga oculares
+    fetch("http://localhost:3001/api/inspOcular/listarInspeccionesOculares", {
+      //ruta de BRYAN que carga oculares
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -45,12 +46,12 @@ class PageList extends Component {
     //console.log("respuesta del servidor: ", this.state.todos);
   }
   status(response) {
-        if (response && response.status >= 200 && response.status < 300) {
-            return Promise.resolve(response);
-        } else {
-            return Promise.reject(console.log("Error al conectar al servidor"));
-        }
+    if (response && response.status >= 200 && response.status < 300) {
+      return Promise.resolve(response);
+    } else {
+      return Promise.reject(console.log("Error al conectar al servidor"));
     }
+  }
 
   render() {
     const todos = this.state.todos.map((todo, i) => {

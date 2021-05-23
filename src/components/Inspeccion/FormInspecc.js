@@ -58,7 +58,7 @@ export default class FormInspecc extends Component {
   }
   getDatos(datos) {
     console.log(datos);
-    localStorage.setItem("paraImg",datos.PK_Codigo);
+    localStorage.setItem("paraImg", datos.PK_Codigo);
     this.setState({
       FK_Solicitud_Patente: datos.PK_Codigo,
     });
@@ -139,9 +139,9 @@ export default class FormInspecc extends Component {
       .then(this.status())
       .then((res) => res.json())
       .then((data) => {
-        localStorage.setItem("ocular",data.PK_Codigo_Inspeccion);
+        localStorage.setItem("ocular", data.PK_Codigo_Inspeccion);
         //console.log("respuesta del servidor: ", data);
-        window.location.href="./ActaPostInspe";
+        window.location.href = "./ActaPostInspe";
       });
   }
 
@@ -169,7 +169,7 @@ export default class FormInspecc extends Component {
       Extintor,
       Salida_Emergencia,
     } = this.state;
-    
+
     return (
       <>
         <div className="container" ref={ref}>

@@ -110,8 +110,6 @@ class Body extends Component {
                     </a>
                   </div>
                 </div>
-
-                
               </>
             )}
           </div>

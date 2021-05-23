@@ -32,7 +32,8 @@ class PageList extends Component {
   handleClick(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/api/auth/signin", { //ruta cambio contra
+    fetch("http://localhost:3001/api/auth/signin", {
+      //ruta cambio contra
       method: "POST",
       headers: {
         Accept: "application/json",
