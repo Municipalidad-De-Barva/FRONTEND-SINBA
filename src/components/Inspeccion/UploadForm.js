@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-//import ProgressBar from './ProgressBar';
-//import useStorage from './useStorage';
+import apiInspOcular from "../../api/inspeccionOcular.api";
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -33,17 +32,18 @@ const UploadForm = () => {
   function json(response) {
     return response.json();
   }
-  function enviar(){
-      if(!error1){
+  function enviar() {
+    if (!error1) {
       /////////////////////////////////////////////////////////////
       let progress = 0;
       let error = null;
-      const formData=new FormData();
-      formData.append("Codigo",localStorage.getItem("paraImg"));
-      formData.append("userpic",file,file.name);
-      fetch(`https://api.chucknorris.io/jokes/random`, {
+      const formData = new FormData();
+      formData.append("Codigo", localStorage.getItem("paraImg"));
+      formData.append("userpic", file, file.name);
+      //`https://api.chucknorris.io/jokes/random`;
+      fetch(apiInspOcular.RUTA_INSERTAR_IMAGEN, {
         method: "POST",
-        body:formData
+        body: formData,
       })
         .catch((err) => {
           error = err;
@@ -65,13 +65,13 @@ const UploadForm = () => {
       console.log("suo");
     }
   }
-  function cann(){
+  function cann() {
     //setSend(false);
     setFile(null);
     setError1("Cancelado");
   }
   return (
-    <div >
+    <div>
       <input type="file" onChange={changeHandler} />
       <hr />
       <div>
@@ -79,8 +79,12 @@ const UploadForm = () => {
         {file && <div>{file.name}</div>}
         {/*file && <UseStorage file={file}/>*/}
         {file && <img href={file} />}
-        <button id="send" className="btn btn-primary" onClick={enviar}>Enviar</button>
-        <button id="cancelar" className="btn btn-secondary" onClick={cann}>Cancelar</button>
+        <button id="send" className="btn btn-primary" onClick={enviar}>
+          Enviar
+        </button>
+        <button id="cancelar" className="btn btn-secondary" onClick={cann}>
+          Cancelar
+        </button>
       </div>
     </div>
   );
