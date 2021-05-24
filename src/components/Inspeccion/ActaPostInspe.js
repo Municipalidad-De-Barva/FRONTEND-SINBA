@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import inspecOcular from "../../api/inspeccionOcular.api";
 import {useRef} from "react";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
@@ -132,7 +133,7 @@ export default class ActaPostInspe extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/inspOcular/insertar", {
+    fetch(inspecOcular.RUTA_INSERTAR_FIRMAS_TESTIGOS_INPECTOR, {
       method: "POST",
       headers: {
         Accept: "application/json",

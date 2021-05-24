@@ -91,6 +91,7 @@ ReactDOM.render(
         }}
       ></Route>
       <Route
+        //Acta post inspeccion ocular, se realiza las firmas testigo y de inspectores.
         path="/ActaPostInspe"
         render={() => {
           return <ActaPostInspe />;
