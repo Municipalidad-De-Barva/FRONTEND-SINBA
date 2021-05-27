@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
-import Header from "./Header/header";
-import Footer from "./Footer/footer";
+import Header from "../Header/header";
+import Footer from "../Footer/footer";
 
 export default class PageRecupCont extends Component {
   render() {
@@ -44,31 +44,18 @@ class PageList extends Component {
       .then((res) => res.json())
       .then((data) => {
         console.log("respuesta del servidor: ", data);
-        console.log(localStorage.getItem("token"));
-        console.log(localStorage.getItem("auth"));
-        if (data.auth) {
-          window.location.href = "./AdmSolPatCom";
-        }
-        if (data.error === "ambos nulos") {
-          console.log("Entro al error ambos nulos");
+        if (data.error === "El Usuario NO Existe") {
+          console.log("El Usuario NO Existe");
           document.getElementById("user").style.borderColor = "red";
           document.getElementById("pass").style.borderColor = "red";
-        }
-        if (data.error === "usuario nulo") {
-          console.log("Entro al error usuario nulo");
-          document.getElementById("user").style.borderColor = "red";
-          document.getElementById("pass").style.borderColor = "gray";
-        }
-        if (data.error === "pass nulo") {
-          console.log("Entro al error pass nulo");
-          document.getElementById("user").style.borderColor = "gray";
-          document.getElementById("pass").style.borderColor = "red";
+          alert("El Usuario NO Existe");
         }
 
         if (data.error === "Datos erroneos") {
           console.log("Entro al error Datos erroneos");
           alert("Datos erroneos");
         }
+        if(data && !data.error){alert("Cambio con éxito"); window.location.href = "./AdmSolPatCom";}
       });
   }
 
@@ -85,28 +72,47 @@ class PageList extends Component {
                 </h1>
               </div>
               <div className="card-body">
-                <div className="form-group col-md-10">
-                  <h7>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="FK_Solicitud_Patente">
-                        Usuario: {user}
-                      </label>
-                    </div>
-                  </h7>
-                  <h7>
-                    <div className="form-group col-md-4">
-                      <label htmlFor="FK_Solicitud_Patente">
-                        contraseña: {pass}
-                      </label>
-                    </div>
-                  </h7>
-                </div>
+                <form
+                  className="text-center border border-light p-5"
+                  action="#!"
+                >
+
+                  <input
+                    type="text"
+                    id="user"
+                    name="user"
+                    className="form-control mb-4"
+                    placeholder="Ingrese el numero de cédula"
+                    value={user}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+
+                  <input
+                    type="password"
+                    id="pass"
+                    name="pass"
+                    className="form-control mb-4"
+                    placeholder="Ingrese contraseña nueva"
+                    value={pass}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+
+                  <button
+                    className="btn btn-info btn-block my-4 col-sm-2"
+                    type="submit"
+                    onClick={this.onClick}
+                  >
+                    Cambiar
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
         <div className="form-group col-md-4">
-          <a href="./PatInspecR">
+          <a href="./AdmSolPatCom">
             <button className="btn btn-primary text-center">Volver</button>
           </a>
         </div>

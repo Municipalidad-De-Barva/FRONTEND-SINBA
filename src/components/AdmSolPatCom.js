@@ -40,7 +40,7 @@ class Body extends Component {
                     <a href="./NuevoAdm">
                       <img
                         className="card-img-top"
-                        src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        src="https://images.pexels.com/photos/7354/startup-photos.jpg?auto=compress&cs=tinysrgb&h=750&w=1260"
                         alt=""
                       />
 
@@ -92,7 +92,7 @@ class Body extends Component {
                     <a href="./PageRecupCont">
                       <img
                         className="card-img-top"
-                        src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                        src="https://images.pexels.com/photos/163142/glasses-notebook-wooden-business-163142.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
                         alt=""
                       />
                       <div className="card-body">
