@@ -23,6 +23,12 @@ export default class FormInspecc extends Component {
       Luces_Emergencias: "0",
       Extintor: "0",
       Salida_Emergencia: "0",
+      Parqueo: "0",
+      Disposiciones_Accesibilidad_7600: "0",
+      Servicios_Sanitarios: "0",
+      Actividades_Acorde_Naturaleza_Dimensiones: "0",
+      Acceso_Red: "0",
+      Cumplir_Requisitos_CONEXA: "0",
 
       //PDF
       postSubmitted: false,
@@ -168,6 +174,12 @@ export default class FormInspecc extends Component {
       Luces_Emergencias,
       Extintor,
       Salida_Emergencia,
+      Parqueo,
+      Disposiciones_Accesibilidad_7600,
+      Servicios_Sanitarios,
+      Actividades_Acorde_Naturaleza_Dimensiones,
+      Acceso_Red,
+      Cumplir_Requisitos_CONEXA,
     } = this.state;
 
     return (
@@ -385,6 +397,96 @@ export default class FormInspecc extends Component {
                   htmlFor="Salida_Emergencia"
                 >
                   Salida de emergencia
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  name="Parqueo"
+                  id="Parqueo"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label className="custom-control-label" htmlFor="Parqueo">
+                  Parqueo
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  name="Disposiciones_Accesibilidad_7600"
+                  id="Disposiciones_Accesibilidad_7600"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="Disposiciones_Accesibilidad_7600"
+                >
+                  Disposiciones Accesibilidad 7600
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  name="Servicios_Sanitarios"
+                  id="Servicios_Sanitarios"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="Servicios_Sanitarios"
+                >
+                  Servicios Sanitarios
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  name="Actividades_Acorde_Naturaleza_Dimensiones"
+                  id="Actividades_Acorde_Naturaleza_Dimensiones"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="Actividades_Acorde_Naturaleza_Dimensiones"
+                >
+                  Actividades Acorde Naturaleza Dimensiones
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  name="Acceso_Red"
+                  id="Acceso_Red"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label className="custom-control-label" htmlFor="Acceso_Red">
+                  Acceso Red
+                </label>
+              </div>
+              <div className="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  className="custom-control-input"
+                  name="Cumplir_Requisitos_CONEXA"
+                  id="Cumplir_Requisitos_CONEXA"
+                  checked={this.state.isChecked}
+                  onChange={this.handleInputChange}
+                />
+                <label
+                  className="custom-control-label"
+                  htmlFor="Cumplir_Requisitos_CONEXA"
+                >
+                  Cumplir Requisitos CONEXA
                 </label>
               </div>
               <div>
