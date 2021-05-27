@@ -25,6 +25,7 @@ import PatInspec from "./components/Inspeccion/PatInspec";
 import PatInspecR from "./components/Inspeccion/PatInspecR";
 import FormAproInspe from "./components/Inspeccion/FormAproInspe";
 import PageContactUser from "./components/Users/PageContactUser";
+import PageRecupCont from "./components/Users/PageRecupCont";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -125,6 +126,12 @@ ReactDOM.render(
         path="/PageContactUser"
         render={() => {
           return <PageContactUser />;
+        }}
+      ></Route>
+      <Route
+        path="/PageRecupCont"
+        render={() => {
+          return <PageRecupCont />;
         }}
       ></Route>
     </Router>
