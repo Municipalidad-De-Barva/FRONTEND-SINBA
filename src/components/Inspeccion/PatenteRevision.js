@@ -105,8 +105,8 @@ class Body extends Component {
         <div className="container">
           <br />
           <br />
-          <div className="row">
-            <div className="col-sm-12 col-sm-offset-0">
+          <div id="print" className="row">
+            <div id="n1" className="col-sm-12 col-sm-offset-0">
               <div className="card">
                 <div className=" card-header form-group text-center">
                   <h1>
@@ -147,7 +147,7 @@ class Body extends Component {
                           <label htmlFor="Fecha">Fecha:</label>
                           <input
                             className="form-control"
-                            type="date"
+                            type="text"
                             value={Fecha}
                             name="Fecha"
                             id="Fecha"
@@ -244,13 +244,38 @@ class Body extends Component {
             <br />
             <br />
           </div>
-          <div className="form-group col-md-4">
+
+          <div className="form-group col-md-2 text-center">
             <button
-              type="submit"
-              onClick={this.onClick}
-              className="btn btn-primary text-center"
+              type="button"
+              className="btn btn-info text-center"
+              onClick={() => {
+                var prtContent = document.getElementById("print");
+
+                var WinPrint = window.open(
+                  " ",
+                  "_blank",
+                  "resizable=yes, scrollbars=yes, titlebar=yes, width=800, height=900, top=10, left=10"
+                );
+                WinPrint.document.write(
+                  '<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">' +
+                    '<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">' +
+                    "</head>"
+                );
+                //WinPrint.document.write(prtContent.innerHTML);
+                WinPrint.document.write(
+                  document.getElementById("n1").innerHTML
+                );
+
+                WinPrint.document.close();
+                WinPrint.addEventListener("load", function () {
+                  WinPrint.focus();
+                  WinPrint.print();
+                  WinPrint.close();
+                });
+              }}
             >
-              IMPRIMIR
+              Imprimir
             </button>
           </div>
         </div>
