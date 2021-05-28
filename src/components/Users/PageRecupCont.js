@@ -26,15 +26,23 @@ class PageList extends Component {
       pass: "",
     };
     this.onClick = this.handleClick.bind(this);
-    //this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  handleInputChange(e) {
+    const {value, name} = e.target;
+    console.log(value, name);
+
+    this.setState({
+      [name]: value,
+    });
   }
 
   handleClick(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/api/auth/signin", {
+    fetch("http://localhost:3001/api/empleado/recuperarCuenta", {
       //ruta cambio contra
-      method: "POST",
+      method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

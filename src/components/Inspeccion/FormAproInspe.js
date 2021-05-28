@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Contenedor from "./Contenedor";
 const ref = React.createRef();
 
 export default class FormAproInspe extends Component {
@@ -63,7 +64,7 @@ export default class FormAproInspe extends Component {
       .then(this.status)
       .then((res) => res.json())
       .then((data) => {
-        console.log("imprimiendo datos ", data);
+        console.log("imprimiendo datos de form", data);
         //this.setState({datos: data[0]});
         this.getDatos(data);
       });
@@ -71,7 +72,7 @@ export default class FormAproInspe extends Component {
   }
 
   getDatos(datos) {
-    console.log("Datos que tengo> " + datos);
+    //console.log("Datos que tengo>>> " + datos);
     //1
     //inp es lo que recupera la base y se mete en FK_Inspeccion_Patente_Nueva como obj
     this.setState({
@@ -183,11 +184,11 @@ export default class FormAproInspe extends Component {
     });
     this.setState({
       //Firma_Inspector_1  ---esto devuelve una url
-      Firma_Inspector1: datos.Firma_Inspector1,
+      Firma_Inspector1: datos.Firma_Inspector_1,
     });
     this.setState({
       //Firma_Inspector_2 ---esto devuelve una url
-      Firma_Inspector2: datos.Firma_Inspector2,
+      Firma_Inspector2: datos.Firma_Inspector_2,
     });
   }
   status(response) {
@@ -630,63 +631,44 @@ export default class FormAproInspe extends Component {
                           <label htmlFor="Firma_Inspector1">
                             Firma del inspector 1
                           </label>
-                          <textarea
-                            className="form-control"
-                            type="text"
-                            value={Firma_Inspector1}
-                            onChange={this.handleInputChange}
-                            name="Firma_Inspector1"
-                            id="Firma_Inspector1"
-                            rows="5"
-                            required
+                          <img
+                            className="card-img-top"
+                            src={Firma_Inspector1}
+                            alt=""
                           />
                         </div>
                         <div className="form-group col-md-5">
                           <label htmlFor="Firma_Inspector2">
                             Firma del inspector 2
                           </label>
-                          <textarea
-                            className="form-control"
-                            type="text"
-                            value={Firma_Inspector2}
-                            onChange={this.handleInputChange}
-                            name="Firma_Inspector2"
-                            id="Firma_Inspector2"
-                            rows="5"
-                            required
+                          <img
+                            className="card-img-top"
+                            src={Firma_Inspector2}
+                            alt=""
                           />
                         </div>
                         <div className="form-group col-md-5">
                           <label htmlFor="Firma_Testigo1">
                             Firma del testigo 1
                           </label>
-                          <textarea
-                            className="form-control"
-                            type="text"
-                            value={Firma_Testigo1}
-                            onChange={this.handleInputChange}
-                            name="Firma_Testigo1"
-                            id="Firma_Testigo1"
-                            rows="5"
-                            required
+                          <img
+                            className="card-img-top"
+                            src={Firma_Testigo1}
+                            alt=""
                           />
                         </div>
                         <div className="form-group col-md-5">
                           <label htmlFor="Firma_Testigo2">
                             Firma del Testigo 2
                           </label>
-                          <textarea
-                            className="form-control"
-                            type="text"
-                            value={Firma_Testigo2}
-                            onChange={this.handleInputChange}
-                            name="Firma_Testigo2"
-                            id="Firma_Testigo2"
-                            rows="5"
-                            required
+                          <img
+                            className="card-img-top"
+                            src={Firma_Testigo2}
+                            alt=""
                           />
                         </div>
                       </div>
+                      <Contenedor />
                     </div>
                     <div className="form-group col-md-8">
                       <h4 align="left">Resultado de revisión</h4>
