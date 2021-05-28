@@ -51,6 +51,7 @@ class Body extends Component {
       },
       body: JSON.stringify(this.state),
     })
+    .then(this.status)
       .then((res) => res.json())
       .then((data) => {
         console.log("respuesta del servidor en patente: ", data);
@@ -75,7 +76,6 @@ class Body extends Component {
       },
       body: JSON.stringify({PK_Codigo_Inspeccion: cod}),
     })
-      .then(this.status)
       .then((res) => res.json())
       .then((data) => {
         console.log("imprimiendo datos ", data);
@@ -110,6 +110,13 @@ class Body extends Component {
       Nombre_Local: datos.Nombre_Comercial_Negocio,
     });
     
+  }
+  status(response) {
+    if (response && response.status >= 200 && response.status < 300) {
+      return Promise.resolve(response);
+    } else {
+      return Promise.reject(alert("Error al conectar al servidor"));
+    }
   }
     render() {
         const {
@@ -174,11 +181,13 @@ class Body extends Component {
                             </label>
                             <input
                               className="form-control"
-                              type="text"
+                              type="date"
                               value={Fecha}
                               name="Fecha"
                               id="Fecha"
                               onChange={this.handleInputChange}
+                              validators={["required"]}
+                              errormessages={["El campo es requerido"]}
                               required
                             />
                           </div>

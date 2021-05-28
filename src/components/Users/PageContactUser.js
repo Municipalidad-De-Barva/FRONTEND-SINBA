@@ -113,9 +113,15 @@ class PageList extends Component {
             </div>
           </div>
         </div>
-        <div className="form-group col-md-4">
-          <a href="./PatInspecR">
-            <button className="btn btn-primary text-center">Volver</button>
+        <div className="form-group col-md-8">
+          <a href="./PatInspecR" className="ml-3 mr-5">
+            <button className="btn btn-primary text-center">Revisar otros</button>
+          </a>
+          <a href="./AdmSolPatCom" className="ml-5 mr-5">
+            <button className="btn btn-primary text-center">Volver a inicio</button>
+          </a>
+          <a href="./Patente" className="ml-5">
+            <button className="btn btn-primary text-center">Crear el certificado</button>
           </a>
         </div>
       </>
