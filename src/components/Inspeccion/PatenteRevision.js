@@ -33,10 +33,10 @@ class Body extends Component {
   }
 
   componentDidMount() {
-    this.solicitarDatosporCodigo(localStorage.getItem("SolPatC"));
+    const {id} = this.props;
+    this.solicitarDatosporCodigo(id);
   }
   solicitarDatosporCodigo(cod) {
-    cod = 2;
     console.log("mi codigo" + cod);
     fetch("http://localhost:3001/api/patentes/obtenerPatentes", {
       method: "POST",

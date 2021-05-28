@@ -28,6 +28,7 @@ import PageContactUser from "./components/Users/PageContactUser";
 import PageRecupCont from "./components/Users/PageRecupCont";
 import Patente from "./components/Inspeccion/Patente";
 import PatenteRevision from "./components/Inspeccion/PatenteRevision";
+import PatenteR from "./components/Inspeccion/PatenteR";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -148,7 +149,14 @@ ReactDOM.render(
           return <PatenteRevision />;
         }}
       ></Route>
+      <Route
+        path="/PatenteR"
+        render={() => {
+          return <PatenteR />;
+        }}
+      ></Route>
     </Router>
+    
   </React.StrictMode>,
   document.getElementById("root")
 );
