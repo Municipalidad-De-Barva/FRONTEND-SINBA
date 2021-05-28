@@ -10,14 +10,14 @@ export default class Cuadricula extends Component {
       }
 
       componentDidMount() {
-          console.log(JSON.stringify({Codigo: 23}));
+          console.log(JSON.stringify({Codigo: localStorage.getItem("SolPatC")}));
           fetch('http://localhost:3001/api/inspector/obtenerImagenes', {
           method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({Codigo: 23}),
+        body: JSON.stringify({Codigo: localStorage.getItem("SolPatC")}),
     })
                 //.then(this.status)
               .then(data => data.json())
