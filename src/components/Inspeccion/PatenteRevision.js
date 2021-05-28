@@ -3,20 +3,8 @@ import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 //import "./BodyIndex.css";
+
 export default class PatenteRevision extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-
-        <Body />
-
-        <Footer />
-      </div>
-    );
-  }
-}
-class Body extends Component {
   constructor(props) {
     super(props);
     this.state = {

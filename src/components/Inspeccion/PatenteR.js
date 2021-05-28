@@ -29,7 +29,7 @@ class PageList extends Component {
   }
 
   pedirFormularios() {
-    fetch("http://localhost:3001/api/inspOcular/listarInspeccionesOculares", {
+    fetch("http://localhost:3001/api/patentes/listarPatentes", {
       //ruta de BRYAN que carga patentes
       method: "GET",
       headers: {

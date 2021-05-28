@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 
 export default class Cuadricula extends Component {
-      constructor() {
-          super();
+      constructor(props) {
+          super(props);
           this.state = {
               docs: [],
           };
@@ -14,15 +14,15 @@ export default class Cuadricula extends Component {
           fetch('http://localhost:3001/api/inspector/obtenerImagenes', {
           method: "POST",
         headers: {
-
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({Codigo: 23}),
     })
-                .then(this.status)
-                .then(console.log("MI DATA"))
+                //.then(this.status)
               .then(data => data.json())
               .then((data) =>{
-                console.log("MI DATA DATA"+data);
+                console.log("MI DATA DATA"+JSON.stringify(data));
                  this.setState({ docs: data });
                 });
       console.log('app mounted METODO 2');
@@ -30,6 +30,7 @@ export default class Cuadricula extends Component {
 
     status(response) {
         if (response && response.status >= 200 && response.status < 300) {
+            console.log("rESUELTO");
             return Promise.resolve(response);
         } else {
             return Promise.reject(console.log("Error al conectar al servidor"));
@@ -44,7 +45,7 @@ export default class Cuadricula extends Component {
           //<motion.div className="img-wrap" key={doc.id}
           <div
             className="img-wrap"
-            key={doc.id}
+            key={doc.URL_Imagen}
             layout
             whileHover={{opacity: 1}}
             s
@@ -52,13 +53,16 @@ export default class Cuadricula extends Component {
           >
             {//<motion.img src={doc.url} alt="uploaded pic"
             }
+            <div className="col-lg-6 mb-4">
             <img
-              src={doc.url}
+              className="w-100"
+              src={"http://localhost:3001/"+doc.URL_Imagen}
               alt="uploaded pic"
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              transition={{delay: 1}}
+              //initial={{opacity: 0}}
+              //animate={{opacity: 1}}
+              //transition={{delay: 1}}
             />
+            </div>
             {//</motion.div>
             }
           </div>
