@@ -211,14 +211,15 @@ export default class PatenteRevision extends Component {
                         disabled
                       />
                     </div>
-                    <div className="form-group col-md-4">
+                    <div className="form-group col-md-8">
                       <label htmlFor="Direccion">situado en: </label>
-                      <input
+                      <textarea
                         className="form-control"
                         type="text"
                         value={Direccion}
                         name="Direccion"
                         id="Direccion"
+                        rows="5"
                         disabled
                       />
                     </div>

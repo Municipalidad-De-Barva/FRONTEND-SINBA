@@ -261,14 +261,15 @@ class Body extends Component {
                         required
                       />
                     </div>
-                    <div className="form-group col-md-4">
+                    <div className="form-group col-md-8">
                       <label htmlFor="Direccion">situado en: </label>
-                      <input
+                      <textarea
                         className="form-control"
                         type="text"
                         value={Direccion}
                         name="Direccion"
                         id="Direccion"
+                        rows="5"
                         onChange={this.handleInputChange}
                         required
                       />

@@ -55,7 +55,7 @@ export default class Cuadricula extends Component {
             }
             <div className="col-lg-6 mb-4">
             <img
-              className="w-100"
+              className="w-50"
               src={"http://localhost:3001/"+doc.URL_Imagen}
               alt="uploaded pic"
               //initial={{opacity: 0}}
