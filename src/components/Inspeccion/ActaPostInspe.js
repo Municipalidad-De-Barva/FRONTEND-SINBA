@@ -7,27 +7,19 @@ import SignaturePad from "react-signature-canvas";
 import "./sigCanvas.css";
 
 import "@fortawesome/fontawesome-free";
-//falta firma, aún no he logrado que no borre todo
-const sigCanvas = React.createRef();
-const limpiar = () => sigCanvas.current.clear();
-const firmar = () =>
-  console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
 
+const sigCanvas = React.createRef();
 const sigCanvas2 = React.createRef();
-const limpiar2 = () => sigCanvas2.current.clear();
+const sigCanvas3 = React.createRef();
+const sigCanvas4 = React.createRef();
+/*const firmar = () =>
+  console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
 const firmar2 = () =>
   console.log(sigCanvas2.current.getTrimmedCanvas().toDataURL("image/png"));
-
-const sigCanvas3 = React.createRef();
-const limpiar3 = () => sigCanvas3.current.clear();
 const firmar3 = () =>
   console.log(sigCanvas3.current.getTrimmedCanvas().toDataURL("image/png"));
-
-const sigCanvas4 = React.createRef();
-const limpiar4 = () => sigCanvas4.current.clear();
 const firmar4 = () =>
-  console.log(sigCanvas4.current.getTrimmedCanvas().toDataURL("image/png"));
-
+  console.log(sigCanvas4.current.getTrimmedCanvas().toDataURL("image/png"));*/
 export default class ActaPostInspe extends Component {
   constructor(props) {
     super();
@@ -94,6 +86,18 @@ export default class ActaPostInspe extends Component {
   }
 
   handleInputChange = (e) => {
+    /*this.state.Firma_Inspector1 = () =>
+      console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+
+    this.state.Firma_Inspector2 = () =>
+      console.log(sigCanvas2.current.getTrimmedCanvas().toDataURL("image/png"));
+
+    this.state.Firma_Testigo1 = () =>
+      console.log(sigCanvas3.current.getTrimmedCanvas().toDataURL("image/png"));
+
+    this.state.Firma_Testigo2 = () =>
+      console.log(sigCanvas4.current.getTrimmedCanvas().toDataURL("image/png"));
+    console.log(this.state);*/
     const {value, name} = e.target;
     console.log(value, name);
 
@@ -112,22 +116,25 @@ export default class ActaPostInspe extends Component {
     this.setState({
       [name]: value,
     });
-
-    /*if (name === "Firma_Inspector1") {
-      sigCanvas.setState(value.Firma_Inspector1);
-    }
-    if (name === "Firma_Inspector2") {
-      sigCanvas.setState(value.Firma_Inspector2);
-    }
-    if (name === "Firma_Testigo1") {
-      sigCanvas.setState(value.Firma_Testigo1);
-    }
-    if (name === "Firma_Testigo2") {
-      sigCanvas.setState(value.Firma_Testigo2);
-    }*/
   };
 
   handleClick() {
+    this.state.Firma_Inspector1 = sigCanvas.current
+      .getTrimmedCanvas()
+      .toDataURL("image/png");
+    this.state.Firma_Inspector2 = sigCanvas2.current
+      .getTrimmedCanvas()
+      .toDataURL("image/png");
+    this.state.Firma_Testigo1 = sigCanvas3.current
+      .getTrimmedCanvas()
+      .toDataURL("image/png");
+    this.state.Firma_Testigo2 = sigCanvas4.current
+      .getTrimmedCanvas()
+      .toDataURL("image/png");
+    console.log(
+      "Preparando datos para enviar al servidor, mostrar datos:",
+      this.state.Firma_Inspector1.length
+    );
     console.log(
       "Preparando datos para enviar al servidor, mostrar datos:",
       this.state
@@ -259,7 +266,7 @@ export default class ActaPostInspe extends Component {
                                 className="form-control"
                                 type="text"
                                 value={Fecha}
-                                placeholder="DD/MM/AAAA hh-mm"
+                                placeholder="AAAA-MM-DD"
                                 maxLength="13"
                                 onChange={this.handleInputChange}
                                 name="Fecha"
@@ -423,28 +430,9 @@ export default class ActaPostInspe extends Component {
                                   ref={sigCanvas}
                                   canvasProps={{
                                     className: "signatureCanvas",
+                                    value: Firma_Inspector1,
                                   }}
                                 />
-                                <div className="form-row">
-                                  <div className="form-group col-md-4">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={limpiar}
-                                      onChange={this.handleInputChange}
-                                    >
-                                      Limpiar
-                                    </button>
-                                  </div>
-                                  <div className="form-group col-md-6">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={firmar}
-                                      onChange={this.handleInputChange}
-                                    >
-                                      Guardar
-                                    </button>
-                                  </div>
-                                </div>
                               </>
                             </div>
                             <div className="form-group col-md-5">
@@ -456,26 +444,10 @@ export default class ActaPostInspe extends Component {
                                   ref={sigCanvas2}
                                   canvasProps={{
                                     className: "signatureCanvas",
+                                    value: Firma_Inspector2,
+                                    onChange: this.handleInputChange,
                                   }}
                                 />
-                                <div className="form-row">
-                                  <div className="form-group col-md-4">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={limpiar2}
-                                    >
-                                      Limpiar
-                                    </button>
-                                  </div>
-                                  <div className="form-group col-md-6">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={firmar2}
-                                    >
-                                      Guardar
-                                    </button>
-                                  </div>
-                                </div>
                               </>
                             </div>
                             <div className="form-group col-md-5">
@@ -487,26 +459,10 @@ export default class ActaPostInspe extends Component {
                                   ref={sigCanvas3}
                                   canvasProps={{
                                     className: "signatureCanvas",
+                                    value: Firma_Testigo1,
+                                    onChange: this.handleInputChange,
                                   }}
                                 />
-                                <div className="form-row">
-                                  <div className="form-group col-md-4">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={limpiar3}
-                                    >
-                                      Limpiar
-                                    </button>
-                                  </div>
-                                  <div className="form-group col-md-6">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={firmar3}
-                                    >
-                                      Guardar
-                                    </button>
-                                  </div>
-                                </div>
                               </>
                             </div>
                             <div className="form-group col-md-5">
@@ -518,26 +474,10 @@ export default class ActaPostInspe extends Component {
                                   ref={sigCanvas4}
                                   canvasProps={{
                                     className: "signatureCanvas",
+                                    value: Firma_Testigo2,
+                                    onChange: this.handleInputChange,
                                   }}
                                 />
-                                <div className="form-row">
-                                  <div className="form-group col-md-4">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={limpiar4}
-                                    >
-                                      Limpiar
-                                    </button>
-                                  </div>
-                                  <div className="form-group col-md-6">
-                                    <button
-                                      className="btn btn-primary text-center"
-                                      onClick={firmar4}
-                                    >
-                                      Guardar
-                                    </button>
-                                  </div>
-                                </div>
                               </>
                             </div>
                           </div>
