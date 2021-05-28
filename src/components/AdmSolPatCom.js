@@ -97,7 +97,24 @@ class Body extends Component {
                       />
                       <div className="card-body">
                         <p className="card-title text-muted text-uppercase font-small mt-1 mb-3">
-                          Recuperación de contrseña
+                          Recuperación de contraseña
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
+                  <div className="card hoverable">
+                    <a href="./PatenteR">
+                      <img
+                        className="card-img-top"
+                        src="https://images.pexels.com/photos/163142/glasses-notebook-wooden-business-163142.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                        alt=""
+                      />
+                      <div className="card-body">
+                        <p className="card-title text-muted text-uppercase font-small mt-1 mb-3">
+                          Certificados de patentes
                         </p>
                       </div>
                     </a>
