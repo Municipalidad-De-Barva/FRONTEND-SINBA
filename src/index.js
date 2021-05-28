@@ -26,6 +26,7 @@ import PatInspecR from "./components/Inspeccion/PatInspecR";
 import FormAproInspe from "./components/Inspeccion/FormAproInspe";
 import PageContactUser from "./components/Users/PageContactUser";
 import PageRecupCont from "./components/Users/PageRecupCont";
+import Patente from "./components/Inspeccion/Patente";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -132,6 +133,12 @@ ReactDOM.render(
         path="/PageRecupCont"
         render={() => {
           return <PageRecupCont />;
+        }}
+      ></Route>
+      <Route
+        path="/Patente"
+        render={() => {
+          return <Patente />;
         }}
       ></Route>
     </Router>
