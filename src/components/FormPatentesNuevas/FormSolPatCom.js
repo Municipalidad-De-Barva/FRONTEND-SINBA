@@ -54,34 +54,30 @@ export default class FormSolPatCom extends Component {
 
     if (name === "nomSolicitante") {
       this.validarTexto(value, name);
-    }
-
-    if (name === "represLegalSolicitante") {
+    } else if (name === "represLegalSolicitante") {
       this.validarTexto(value, name);
-    }
-
-    if (name === "actividad") {
+    } else if (name === "actividad") {
       this.validarTexto(value, name);
-    }
-    if (name === "nomPropietario") {
+    } else if (name === "nomPropietario") {
       this.validarTexto(value, name);
-    }
-    if (name === "nomAutorizado") {
+    } else if (name === "nomAutorizado") {
       this.validarTexto(value, name);
-    }
-    if (name === "cedAutorizado") {
+    } else if (name === "cedAutorizado") {
       this.validarCedula(value, name);
+    } else if (name === "cedulaSolicitante") {
+      this.validarCedula(value, name);
+    } else if (name === "cedulaJuriSolicitante") {
+      this.validarCedulaJuridica(value, name);
+    } else if (name === "cedulaJuriPropietario") {
+      this.validarCedulaJuridica(value, name);
+    } else if (name === "correoEleSolicitante") {
+      this.validarCorreo(value, name);
+    } else if (name === "telSolicitante") {
+      this.validarTelefono(value, name);
+    } else if (name === "faxSolicitante") {
+      this.validarTelefono(value, name);
     }
 
-    if (name === "cedulaSolicitante") {
-      this.validarCedula(value, name);
-    }
-    if (name === "cedulaJuriSolicitante") {
-      this.validarCedulaJuridica(value, name);
-    }
-    if (name === "cedulaJuriPropietario") {
-      this.validarCedulaJuridica(value, name);
-    }
     this.setState({
       [name]: value,
     });
@@ -104,8 +100,38 @@ export default class FormSolPatCom extends Component {
     console.log(name, ck.value);
   };
 
+  validarTelefono(valor, a) {
+    let telefono = /^\d{8}$/;
+    let regex = new RegExp(telefono);
+    let doc = document.getElementById(a);
+
+    if (regex.test(valor)) {
+      console.log(" telefono valido", a);
+      doc.style.borderColor = "";
+    } else {
+      console.log(" telefono invalido");
+      doc.style.borderColor = "red";
+    }
+  }
+
+  validarCorreo(valor, a) {
+    let correo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    let regex = new RegExp(correo);
+    let doc = document.getElementById(a);
+
+    if (regex.test(valor)) {
+      console.log(" correo valido", a);
+      doc.style.borderColor = "";
+    } else {
+      console.log(" correo invalido");
+      doc.style.borderColor = "red";
+    }
+  }
+
   validarTexto(valor, a) {
-    let regex = new RegExp("^[a-zA-Z]+$");
+    let texto = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
+    // "^[a-zA-Z/s]+$";
+    let regex = new RegExp(texto);
     let doc = document.getElementById(a);
 
     if (regex.test(valor)) {
@@ -515,7 +541,19 @@ export default class FormSolPatCom extends Component {
                             <h2>Declaración jurada Solicitud nueva</h2>
                             <hr />
 
-                            <div className="form-row">
+                            <div className="alert alert-warning" role="alert">
+                              <p className="mb-0 text-center">
+                                Declaro bajo juramento que: Nosotros, los abajo
+                                firmantes de calidades antes mencionadas,
+                                apercibimos de las penas que se castiga los
+                                delitos de falso testimonio y perjurio
+                                declaramos bajo fe de juramento que la
+                                información anotada anteriormente en lo que
+                                corresponde a cada uno, es verdadera
+                              </p>
+                            </div>
+
+                            <div className="form-row ">
                               <div className="form-group col-md-1">
                                 <input
                                   type="radio"
@@ -537,18 +575,6 @@ export default class FormSolPatCom extends Component {
                                 <label> No </label>
                               </div>
                               <p>utilizare repertorio musical (ACAM)</p>
-                            </div>
-
-                            <div className="alert alert-warning" role="alert">
-                              <p className="mb-0 text-center">
-                                Declaro bajo juramento que: Nosotros, los abajo
-                                firmantes de calidades antes mencionadas,
-                                apercibimos de las penas que se castiga los
-                                delitos de falso testimonio y perjurio
-                                declaramos bajo fe de juramento que la
-                                información anotada anteriormente en lo que
-                                corresponde a cada uno, es verdadera
-                              </p>
                             </div>
                           </div>
                           {/*Fin Declaración jurada Solicitud*/}
