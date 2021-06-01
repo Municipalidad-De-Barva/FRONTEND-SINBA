@@ -53,11 +53,34 @@ export default class FormSolPatCom extends Component {
     console.log(value, name);
 
     if (name === "nomSolicitante") {
-      this.validarTexto(value);
+      this.validarTexto(value, name);
+    }
+
+    if (name === "represLegalSolicitante") {
+      this.validarTexto(value, name);
+    }
+
+    if (name === "actividad") {
+      this.validarTexto(value, name);
+    }
+    if (name === "nomPropietario") {
+      this.validarTexto(value, name);
+    }
+    if (name === "nomAutorizado") {
+      this.validarTexto(value, name);
+    }
+    if (name === "cedAutorizado") {
+      this.validarCedula(value, name);
     }
 
     if (name === "cedulaSolicitante") {
-      this.validarCedula(value);
+      this.validarCedula(value, name);
+    }
+    if (name === "cedulaJuriSolicitante") {
+      this.validarCedulaJuridica(value, name);
+    }
+    if (name === "cedulaJuriPropietario") {
+      this.validarCedulaJuridica(value, name);
     }
     this.setState({
       [name]: value,
@@ -81,24 +104,42 @@ export default class FormSolPatCom extends Component {
     console.log(name, ck.value);
   };
 
-  validarTexto(valor) {
+  validarTexto(valor, a) {
     let regex = new RegExp("^[a-zA-Z]+$");
+    let doc = document.getElementById(a);
 
     if (regex.test(valor)) {
-      console.log(" texto valido");
+      console.log(" texto valido", a);
+      doc.style.borderColor = "";
     } else {
       console.log(" texto invalido");
+      doc.style.borderColor = "red";
     }
   }
 
-  validarCedula(valor) {
+  validarCedula(valor, a) {
     var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
     let regex = new RegExp(expresion);
-
+    let doc = document.getElementById(a);
     if (regex.test(valor)) {
       console.log(" cedula valido");
+      doc.style.borderColor = "";
     } else {
       console.log(" cedula invalido");
+      doc.style.borderColor = "red";
+    }
+  }
+
+  validarCedulaJuridica(valor, a) {
+    var expresion = /^[0-9]-?\d{3}-?\d{6}$/;
+    let regex = new RegExp(expresion);
+    let doc = document.getElementById(a);
+    if (regex.test(valor)) {
+      console.log(" cedula valido");
+      doc.style.borderColor = "";
+    } else {
+      console.log(" cedula invalido");
+      doc.style.borderColor = "red";
     }
   }
   handleClick() {
@@ -232,6 +273,7 @@ export default class FormSolPatCom extends Component {
                                   required
                                 />
                               </div>
+
                               {/*----------------Cédula--------------------- */}
                               <div className="form-group col-md-4">
                                 <label htmlFor="cedulaSolicitante">
