@@ -24,7 +24,7 @@ class Body extends Component {
       Patente_Comercial: "",
       Distrito: "",
       Direccion: "",
-      Fecha: "",
+      Fecha_Limite: "",
       Ced_Jur_Fis: "",
       Solicitante: "",
       Actividad: "",
@@ -116,7 +116,7 @@ class Body extends Component {
       Patente_Comercial,
       Distrito,
       Direccion,
-      Fecha,
+      Fecha_Limite,
       Ced_Jur_Fis,
       Solicitante,
       Actividad,
@@ -167,13 +167,13 @@ class Body extends Component {
                       </h6>
                       <h6>
                         <div className="form-group col-md-4">
-                          <label htmlFor="Fecha">Fecha:</label>
+                          <label htmlFor="Fecha_Limite">Fecha límite:</label>
                           <input
                             className="form-control"
                             type="date"
-                            value={Fecha}
-                            name="Fecha"
-                            id="Fecha"
+                            value={Fecha_Limite}
+                            name="Fecha_Limite"
+                            id="Fecha_Limite"
                             onChange={this.handleInputChange}
                             validators={["required"]}
                             errormessages={["El campo es requerido"]}

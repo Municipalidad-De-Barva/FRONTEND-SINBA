@@ -13,6 +13,7 @@ export default class PatenteRevision extends Component {
       Distrito: "",
       Direccion: "",
       Fecha: "",
+      Fecha_Limite: "",
       Ced_Jur_Fis: "",
       Solicitante: "",
       Actividad: "",
@@ -54,8 +55,13 @@ export default class PatenteRevision extends Component {
     this.setState({
       Distrito: datos.Distrito,
     });
+    var d = new Date(datos.Fecha);
     this.setState({
-      Fecha: datos.Fecha,
+      Fecha: d.getDate()+" de "+(d.getMonth()+1)+" del "+d.getFullYear(),
+    });
+    d = new Date(datos.Fecha_Limite);
+    this.setState({
+      Fecha_Limite: d.getDate()+" de "+(d.getMonth()+1)+" del "+d.getFullYear(),
     });
     this.setState({
       Ced_Jur_Fis: datos.Cedula_Juridica,
@@ -83,6 +89,7 @@ export default class PatenteRevision extends Component {
       Distrito,
       Direccion,
       Fecha,
+      Fecha_Limite,
       Ced_Jur_Fis,
       Solicitante,
       Actividad,
@@ -139,6 +146,19 @@ export default class PatenteRevision extends Component {
                             value={Fecha}
                             name="Fecha"
                             id="Fecha"
+                            disabled
+                          />
+                        </div>
+                      </h6>
+                      <h6>
+                        <div className="form-group col-md-4">
+                          <label htmlFor="Fecha_Limite">Fecha Límite:</label>
+                          <input
+                            className="form-control"
+                            type="text"
+                            value={Fecha_Limite}
+                            name="Fecha_Limite"
+                            id="Fecha_Limite"
                             disabled
                           />
                         </div>

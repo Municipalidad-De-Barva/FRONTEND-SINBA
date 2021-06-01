@@ -28,7 +28,7 @@ export default class ActaPostInspe extends Component {
       //PK_Codigo_Inspeccion: "",
       FK_Inspeccion_Patente_Nueva: localStorage.getItem("ocular"),
       Lugar: "",
-      Fecha: "",
+      //Fecha: "",
       Diligencia: "",
       Resultado: "",
       FK_Testigo1: "",
@@ -162,7 +162,7 @@ export default class ActaPostInspe extends Component {
     const {
       //PK_Codigo_Inspeccion,
       FK_Inspeccion_Patente_Nueva,
-      Fecha,
+      //Fecha,
       Diligencia,
       Resultado,
       FK_Testigo1,
@@ -260,6 +260,7 @@ export default class ActaPostInspe extends Component {
                               />
                             </div>
                             {/*----------------Fecha--------------------- */}
+                            {/*
                             <div className="form-group col-md-4">
                               <label htmlFor="Fecha">Fecha</label>
                               <input
@@ -274,6 +275,7 @@ export default class ActaPostInspe extends Component {
                                 required
                               />
                             </div>
+                            */}
                             <br />
                           </div>
                           <div className="form-row">

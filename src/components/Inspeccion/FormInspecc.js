@@ -14,7 +14,7 @@ export default class FormInspecc extends Component {
       FK_Inspector_Administrativo: localStorage.getItem("tipoUser"),
       FK_Solicitud_Patente: "",
       Descripcion: "",
-      Fecha: "",
+      //Fecha: "",
       Local: "",
       Direccion: "",
       Requisito_Local_Acorde_Actividad: "0",
@@ -165,7 +165,7 @@ export default class FormInspecc extends Component {
       FK_Inspector_Administrativo,
       FK_Solicitud_Patente,
       Descripcion,
-      Fecha,
+      //Fecha,
       Local,
       Direccion,
       Requisito_Local_Acorde_Actividad,
@@ -225,6 +225,7 @@ export default class FormInspecc extends Component {
               <br />
             </div>
             <div className="form-group">
+              {/*
               <div className="form-group col-md-4">
                 <label htmlFor="Fecha">Fecha de la inspeccion: </label>
                 <input
@@ -240,7 +241,7 @@ export default class FormInspecc extends Component {
                   onChange={this.handleInputChange2}
                   required
                 />
-              </div>
+              </div>*/}
               <div className="form-group col-md-4">
                 <label htmlFor="FK_Inspector_Administrativo">
                   Cedula del inspector:

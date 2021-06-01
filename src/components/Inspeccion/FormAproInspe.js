@@ -90,9 +90,10 @@ export default class FormAproInspe extends Component {
       //inp.Descripcion
       Descripcion: datos.FK_Inspeccion_Patente_Nueva[0].Descripcion,
     });
+    var d = new Date(datos.FK_Inspeccion_Patente_Nueva[0].Fecha);
     this.setState({
       //inp.Fecha
-      Fecha: datos.FK_Inspeccion_Patente_Nueva[0].Fecha,
+      Fecha: d.getDate()+" de "+(d.getMonth()+1)+" del "+d.getFullYear(),
     });
     this.setState({
       //inp.Local
