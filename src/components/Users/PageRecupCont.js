@@ -63,7 +63,10 @@ class PageList extends Component {
           console.log("Entro al error Datos erroneos");
           alert("Datos erroneos");
         }
-        if(data && !data.error){alert("Cambio con éxito"); window.location.href = "./AdmSolPatCom";}
+        if (data && !data.error) {
+          alert("Cambio con éxito");
+          window.location.href = "./AdmSolPatCom";
+        }
       });
   }
 
@@ -84,7 +87,6 @@ class PageList extends Component {
                   className="text-center border border-light p-5"
                   action="#!"
                 >
-
                   <input
                     type="text"
                     id="user"

@@ -57,11 +57,13 @@ export default class PatenteRevision extends Component {
     });
     var d = new Date(datos.Fecha);
     this.setState({
-      Fecha: d.getDate()+" de "+(d.getMonth()+1)+" del "+d.getFullYear(),
+      Fecha:
+        d.getDate() + " de " + (d.getMonth() + 1) + " del " + d.getFullYear(),
     });
     d = new Date(datos.Fecha_Limite);
     this.setState({
-      Fecha_Limite: d.getDate()+" de "+(d.getMonth()+1)+" del "+d.getFullYear(),
+      Fecha_Limite:
+        d.getDate() + " de " + (d.getMonth() + 1) + " del " + d.getFullYear(),
     });
     this.setState({
       Ced_Jur_Fis: datos.Cedula_Juridica,

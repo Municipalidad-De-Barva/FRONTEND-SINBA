@@ -80,7 +80,10 @@ export default class FormAproInspe extends Component {
       FK_Inspector_Administrativo:
         datos.FK_Inspeccion_Patente_Nueva[0].FK_Inspector_Administrativo,
     });
-    localStorage.setItem("SolPatC", datos.FK_Inspeccion_Patente_Nueva[0].FK_Solicitud_Patente);
+    localStorage.setItem(
+      "SolPatC",
+      datos.FK_Inspeccion_Patente_Nueva[0].FK_Solicitud_Patente
+    );
     this.setState({
       //inp.FK_Solicitud_Patente
       FK_Solicitud_Patente:
@@ -93,7 +96,8 @@ export default class FormAproInspe extends Component {
     var d = new Date(datos.FK_Inspeccion_Patente_Nueva[0].Fecha);
     this.setState({
       //inp.Fecha
-      Fecha: d.getDate()+" de "+(d.getMonth()+1)+" del "+d.getFullYear(),
+      Fecha:
+        d.getDate() + " de " + (d.getMonth() + 1) + " del " + d.getFullYear(),
     });
     this.setState({
       //inp.Local

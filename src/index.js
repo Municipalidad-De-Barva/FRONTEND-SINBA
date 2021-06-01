@@ -156,7 +156,6 @@ ReactDOM.render(
         }}
       ></Route>
     </Router>
-    
   </React.StrictMode>,
   document.getElementById("root")
 );
