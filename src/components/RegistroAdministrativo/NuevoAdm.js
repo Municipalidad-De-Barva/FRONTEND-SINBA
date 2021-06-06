@@ -3,7 +3,8 @@ import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import ModalRegistrar from "./ModalRegistrar";
-
+import validaciones from "../../util/validaciones";
+const validacion = new validaciones();
 export default class NuevoAdm extends Component {
   render() {
     return (
@@ -37,6 +38,15 @@ class PagNAdmin extends Component {
     const {value, name} = e.target;
     console.log(value, name);
 
+    if (name === "user") {
+      validacion.validarCedula(value, name);
+    } else if (name === "name") {
+      validacion.validarTexto(value, name);
+    } else if (name === "pass") {
+    } else if (name === "rol") {
+    } else if (name === "email") {
+      validacion.validarCorreo(value, name);
+    }
     this.setState({
       [name]: value,
     });
@@ -70,7 +80,7 @@ class PagNAdmin extends Component {
         errors[0] = "Nombre no debe tener números";
       } else {
         if (this.state.name.trim().length < 6) {
-          errors[0] = "Eso no es un nombre completo";
+          errors[0] = "No es un nombre completo";
         }
       }
 
@@ -103,7 +113,6 @@ class PagNAdmin extends Component {
     let regex = new RegExp(expresion);
     return regex.test(valor);
   }
-
   handleClick(e) {
     e.preventDefault();
     console.log(

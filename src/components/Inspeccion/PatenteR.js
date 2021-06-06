@@ -30,7 +30,6 @@ class PageList extends Component {
 
   pedirFormularios() {
     fetch("http://localhost:3001/api/patentes/listarPatentes", {
-      //ruta de BRYAN que carga patentes
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -43,7 +42,6 @@ class PageList extends Component {
         console.log(data[0]);
         this.setState({todos: data});
       });
-    //console.log("respuesta del servidor: ", this.state.todos);
   }
   status(response) {
     if (response && response.status >= 200 && response.status < 300) {

@@ -4,7 +4,8 @@ import Footer from "../Footer/footer";
 import PDF from "../PDFgenerator";
 import ModalDatosAdjunto from "./ModalDatosAdjunto";
 import "@fortawesome/fontawesome-free";
-
+import validaciones from "../../util/validaciones";
+const validacion = new validaciones();
 export default class FormSolPatCom extends Component {
   constructor(props) {
     super();
@@ -53,29 +54,30 @@ export default class FormSolPatCom extends Component {
     console.log(value, name);
 
     if (name === "nomSolicitante") {
-      this.validarTexto(value, name);
+      // this.validarTexto(value, name);
+      validacion.validarTexto(value, name);
     } else if (name === "represLegalSolicitante") {
-      this.validarTexto(value, name);
+      validacion.validarTexto(value, name);
     } else if (name === "actividad") {
-      this.validarTexto(value, name);
+      validacion.validarTexto(value, name);
     } else if (name === "nomPropietario") {
-      this.validarTexto(value, name);
+      validacion.validarTexto(value, name);
     } else if (name === "nomAutorizado") {
-      this.validarTexto(value, name);
+      validacion.validarTexto(value, name);
     } else if (name === "cedAutorizado") {
-      this.validarCedula(value, name);
+      validacion.validarCedula(value, name);
     } else if (name === "cedulaSolicitante") {
-      this.validarCedula(value, name);
+      validacion.validarCedula(value, name);
     } else if (name === "cedulaJuriSolicitante") {
-      this.validarCedulaJuridica(value, name);
+      validacion.validarCedulaJuridica(value, name);
     } else if (name === "cedulaJuriPropietario") {
-      this.validarCedulaJuridica(value, name);
+      validacion.validarCedulaJuridica(value, name);
     } else if (name === "correoEleSolicitante") {
-      this.validarCorreo(value, name);
+      validacion.validarCorreo(value, name);
     } else if (name === "telSolicitante") {
-      this.validarTelefono(value, name);
+      validacion.validarTelefono(value, name);
     } else if (name === "faxSolicitante") {
-      this.validarTelefono(value, name);
+      validacion.validarTelefono(value, name);
     }
 
     this.setState({
@@ -100,74 +102,6 @@ export default class FormSolPatCom extends Component {
     console.log(name, ck.value);
   };
 
-  validarTelefono(valor, a) {
-    let telefono = /^\d{8}$/;
-    let regex = new RegExp(telefono);
-    let doc = document.getElementById(a);
-
-    if (regex.test(valor)) {
-      console.log(" telefono valido", a);
-      doc.style.borderColor = "";
-    } else {
-      console.log(" telefono invalido");
-      doc.style.borderColor = "red";
-    }
-  }
-
-  validarCorreo(valor, a) {
-    let correo = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-    let regex = new RegExp(correo);
-    let doc = document.getElementById(a);
-
-    if (regex.test(valor)) {
-      console.log(" correo valido", a);
-      doc.style.borderColor = "";
-    } else {
-      console.log(" correo invalido");
-      doc.style.borderColor = "red";
-    }
-  }
-
-  validarTexto(valor, a) {
-    let texto = /^[a-zA-ZÀ-ÿ\s]{1,40}$/;
-    // "^[a-zA-Z/s]+$";
-    let regex = new RegExp(texto);
-    let doc = document.getElementById(a);
-
-    if (regex.test(valor)) {
-      console.log(" texto valido", a);
-      doc.style.borderColor = "";
-    } else {
-      console.log(" texto invalido");
-      doc.style.borderColor = "red";
-    }
-  }
-
-  validarCedula(valor, a) {
-    var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
-    let regex = new RegExp(expresion);
-    let doc = document.getElementById(a);
-    if (regex.test(valor)) {
-      console.log(" cedula valido");
-      doc.style.borderColor = "";
-    } else {
-      console.log(" cedula invalido");
-      doc.style.borderColor = "red";
-    }
-  }
-
-  validarCedulaJuridica(valor, a) {
-    var expresion = /^[0-9]-?\d{3}-?\d{6}$/;
-    let regex = new RegExp(expresion);
-    let doc = document.getElementById(a);
-    if (regex.test(valor)) {
-      console.log(" cedula valido");
-      doc.style.borderColor = "";
-    } else {
-      console.log(" cedula invalido");
-      doc.style.borderColor = "red";
-    }
-  }
   handleClick() {
     console.log(
       "Preparando datos para enviar al servidor, mostrar datos:",

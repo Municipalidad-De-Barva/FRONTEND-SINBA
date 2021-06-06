@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
-//import "./BodyIndex.css";
 
 export default class PatenteRevision extends Component {
   constructor(props) {

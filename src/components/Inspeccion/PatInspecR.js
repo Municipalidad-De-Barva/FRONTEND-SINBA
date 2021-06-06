@@ -30,7 +30,6 @@ class PageList extends Component {
 
   pedirFormularios() {
     fetch("http://localhost:3001/api/inspOcular/listarInspeccionesOculares", {
-      //ruta de BRYAN que carga oculares
       method: "GET",
       headers: {
         Accept: "application/json",

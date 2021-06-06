@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
-
+import validaciones from "../../util/validaciones";
+const validacion = new validaciones();
 export default class PageRecupCont extends Component {
   render() {
     return (
@@ -30,8 +31,12 @@ class PageList extends Component {
   }
   handleInputChange(e) {
     const {value, name} = e.target;
+
     console.log(value, name);
 
+    if (name === "user") {
+      validacion.validarCedula(value, name);
+    }
     this.setState({
       [name]: value,
     });

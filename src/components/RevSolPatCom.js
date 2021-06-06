@@ -503,9 +503,6 @@ export default class RevSolPatCom extends Component {
                   <div className="form-group">
                     <h2>Declaración jurada Solicitud nueva</h2>
                     <hr />
-                    <div className="form-row">
-                      {mostrarDeclaracionJurada(declaraJura)}
-                    </div>
 
                     <div className="alert alert-warning" role="alert">
                       <p className="mb-0 text-center">
@@ -516,6 +513,9 @@ export default class RevSolPatCom extends Component {
                         información anotada anteriormente en lo que corresponde
                         a cada uno, es verdadera.
                       </p>
+                    </div>
+                    <div className="form-row">
+                      {mostrarDeclaracionJurada(declaraJura)}
                     </div>
                   </div>
                   {/*Fin Declaración jurada Solicitud*/}
