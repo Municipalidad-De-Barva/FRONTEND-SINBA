@@ -54,7 +54,6 @@ export default class FormSolPatCom extends Component {
     console.log(value, name);
 
     if (name === "nomSolicitante") {
-      // this.validarTexto(value, name);
       validacion.validarTexto(value, name);
     } else if (name === "represLegalSolicitante") {
       validacion.validarTexto(value, name);

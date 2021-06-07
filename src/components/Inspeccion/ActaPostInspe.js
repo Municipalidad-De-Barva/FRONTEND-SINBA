@@ -5,21 +5,14 @@ import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import SignaturePad from "react-signature-canvas";
 import "./sigCanvas.css";
-
 import "@fortawesome/fontawesome-free";
+import va from "../../util/validaciones";
+const validaciones = new va();
 
 const sigCanvas = React.createRef();
 const sigCanvas2 = React.createRef();
 const sigCanvas3 = React.createRef();
 const sigCanvas4 = React.createRef();
-/*const firmar = () =>
-  console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
-const firmar2 = () =>
-  console.log(sigCanvas2.current.getTrimmedCanvas().toDataURL("image/png"));
-const firmar3 = () =>
-  console.log(sigCanvas3.current.getTrimmedCanvas().toDataURL("image/png"));
-const firmar4 = () =>
-  console.log(sigCanvas4.current.getTrimmedCanvas().toDataURL("image/png"));*/
 export default class ActaPostInspe extends Component {
   constructor(props) {
     super();
@@ -54,64 +47,27 @@ export default class ActaPostInspe extends Component {
     });
   };
 
-  validarCedula(valor) {
-    var expresion = /^[0-9,A]-?\d{4}-?\d{4}$/;
-    let regex = new RegExp(expresion);
-
-    if (regex.test(valor)) {
-      console.log(" cedula valido");
-    } else {
-      console.log(" cedula invalido");
-    }
-  }
-
-  validarTexto(valor) {
-    let regex = new RegExp("^[a-zA-Z]+$");
-
-    if (regex.test(valor)) {
-      console.log(" texto valido");
-    } else {
-      console.log(" texto invalido");
-    }
-  }
-
-  validarNumeros(valor) {
-    let regex = new RegExp("^[0-9]");
-
-    if (regex.test(valor)) {
-      console.log(" texto valido");
-    } else {
-      console.log(" texto invalido");
-    }
-  }
-
   handleInputChange = (e) => {
-    /*this.state.Firma_Inspector1 = () =>
-      console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
-
-    this.state.Firma_Inspector2 = () =>
-      console.log(sigCanvas2.current.getTrimmedCanvas().toDataURL("image/png"));
-
-    this.state.Firma_Testigo1 = () =>
-      console.log(sigCanvas3.current.getTrimmedCanvas().toDataURL("image/png"));
-
-    this.state.Firma_Testigo2 = () =>
-      console.log(sigCanvas4.current.getTrimmedCanvas().toDataURL("image/png"));
-    console.log(this.state);*/
     const {value, name} = e.target;
     console.log(value, name);
 
     if (name === "FK_Testigo1") {
-      this.validarCedula(value);
+      validaciones.validarCedula(value, name);
     }
     if (name === "FK_Testigo2") {
-      this.validarCedula(value);
+      validaciones.validarCedula(value, name);
     }
     if (name === "Tel_Testigo1") {
-      this.validarNumeros(value);
+      validaciones.validarTelefono(value, name);
     }
     if (name === "Tel_Testigo2") {
-      this.validarNumeros(value);
+      validaciones.validarTelefono(value, name);
+    }
+    if (name === "Correo_Testigo1") {
+      validaciones.validarCorreo(value, name);
+    }
+    if (name === "Correo_Testigo2") {
+      validaciones.validarCorreo(value, name);
     }
     this.setState({
       [name]: value,
@@ -145,10 +101,6 @@ export default class ActaPostInspe extends Component {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        /*'Access-Control-Allow-Headers': '*',
-				"Access-Control-Allow-Origin": "*",
-      			"Access-Control-Allow-Credentials": "true",
-      			"Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"*/
       },
       body: JSON.stringify(this.state),
     })
@@ -226,7 +178,9 @@ export default class ActaPostInspe extends Component {
 
                           <div className="form-group col-md-10">
                             <h5>
-                              <strong>Número de trámite:</strong>
+                              <strong>
+                                Número de trámite: {FK_Inspeccion_Patente_Nueva}
+                              </strong>
                             </h5>
                             <hr />
                           </div>
@@ -247,7 +201,7 @@ export default class ActaPostInspe extends Component {
                                 errormessages={["El campo es requerido"]}
                                 required
                               />
-                              <input
+                              {/* <input
                                 className="form-control"
                                 type="text"
                                 value={FK_Inspeccion_Patente_Nueva}
@@ -257,7 +211,7 @@ export default class ActaPostInspe extends Component {
                                 validators={["required"]}
                                 errormessages={["El campo es requerido"]}
                                 required
-                              />
+                            />*/}
                             </div>
                             {/*----------------Fecha--------------------- */}
                             {/*

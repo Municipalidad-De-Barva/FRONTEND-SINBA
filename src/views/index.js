@@ -25,7 +25,7 @@ class Body extends Component {
           <h3 className="font-weight-bold mb-5">Pagina principal Patentes</h3>
 
           <div className="row">
-            <div className="col-lg-4 col-md-12 mb-lg-0 mb-4">
+            <div className="col-lg-4 col-md-6 mb-lg-0 mb-4">
               <div className="card hoverable">
                 <a href="./FormSolPatCom">
                   <img

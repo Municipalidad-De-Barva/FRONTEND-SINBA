@@ -30,7 +30,6 @@ class PagNAdmin extends Component {
     };
 
     this.onClick = this.handleClick.bind(this);
-    //this.onClick = this.contactSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
