@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "./Header/header";
 import Footer from "./Footer/footer";
+import inspecOcular from "../api/inspeccionOcular.api";
 
 export default class Login extends Component {
   render() {
@@ -40,7 +41,7 @@ class PaginaLogin extends Component {
   handleClick(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/api/auth/signin", {
+    fetch(inspecOcular.RUTA_BASE+"auth/signin", {
       method: "POST",
       headers: {
         Accept: "application/json",

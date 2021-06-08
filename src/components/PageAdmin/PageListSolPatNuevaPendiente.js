@@ -4,6 +4,7 @@ import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import RevSolPatCom from "../RevSolPatCom";
 import Dashboard from "./DashboardPat";
+import inspecOcular from "../../api/inspeccionOcular.api";
 export default class PageListSolPatNuevaPendiente extends Component {
   render() {
     return (
@@ -30,7 +31,7 @@ class PageList extends Component {
   }
 
   pedirFormularioNuevos() {
-    fetch("http://localhost:3001/api/allNForms/pendientes", {
+    fetch(inspecOcular.RUTA_BASE+"allNForms/pendientes", {
       method: "GET",
       headers: {
         Accept: "application/json",

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import inspecOcular from "../api/inspeccionOcular.api";
 const ref = React.createRef();
 
 function mostrarDeclaracionJurada(declaraJura) {
@@ -82,7 +83,7 @@ export default class RevSolPatCom extends Component {
     sta.impuMunic = this.state.impuMunic;
 
     console.log("estado :", sta);
-    fetch("http://localhost:3001/api/revision", {
+    fetch(inspecOcular.RUTA_BASE+"revision", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -106,7 +107,7 @@ export default class RevSolPatCom extends Component {
   }
 
   solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/EspForm/selected", {
+    fetch(inspecOcular.RUTA_BASE+"EspForm/selected", {
       method: "POST",
       headers: {
         Accept: "application/json",

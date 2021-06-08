@@ -4,6 +4,7 @@ import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import ModalRegistrar from "./ModalRegistrar";
 import validaciones from "../../util/validaciones";
+import inspecOcular from "../../api/inspeccionOcular.api";
 const validacion = new validaciones();
 export default class NuevoAdm extends Component {
   render() {
@@ -119,7 +120,7 @@ class PagNAdmin extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/empleado/crearEmpleado", {
+    fetch(inspecOcular.RUTA_BASE+"empleado/crearEmpleado", {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import validaciones from "../../util/validaciones";
+import inspecOcular from "../../api/inspeccionOcular.api";
 const validacion = new validaciones();
 export default class PageRecupCont extends Component {
   render() {
@@ -45,7 +46,7 @@ class PageList extends Component {
   handleClick(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/api/empleado/recuperarCuenta", {
+    fetch(inspecOcular.RUTA_BASE+"empleado/recuperarCuenta", {
       //ruta cambio contra
       method: "PUT",
       headers: {

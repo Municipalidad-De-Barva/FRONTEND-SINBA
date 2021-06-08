@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+import inspecOcular from "../../api/inspeccionOcular.api";
 export default class PageContactUser extends Component {
   render() {
     return (
@@ -33,7 +34,7 @@ class PageList extends Component {
     this.solicitarDatosporCodigo(localStorage.getItem("codd"));
   }
   solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/inspOcular/obtenerContribuyenteOcular", {
+    fetch(inspecOcular.RUTA_BASE+"inspOcular/obtenerContribuyenteOcular", {
       method: "POST",
       headers: {
         Accept: "application/json",

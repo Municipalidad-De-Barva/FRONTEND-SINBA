@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import inspecOcular from "../../api/inspeccionOcular.api";
 
 import Contenedor from "./Contenedor";
 const ref = React.createRef();
@@ -50,7 +51,7 @@ export default class FormAproInspe extends Component {
 
   solicitarDatosporCodigo(cod) {
     console.log("mi codigo" + cod);
-    fetch("http://localhost:3001/api/inspOcular/obtenerInspeccionOcularId", {
+    fetch(inspecOcular.RUTA_BASE+"inspOcular/obtenerInspeccionOcularId", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -234,7 +235,7 @@ export default class FormAproInspe extends Component {
   handleClick() {
     localStorage.setItem("codd", this.state.PK_Codigo_Inspeccion);
     //localStorage.getItem("tipoUser")
-    fetch("http://localhost:3001/api/inspOcular/cambiarEstado", {
+    fetch(inspecOcular.RUTA_BASE+"inspOcular/cambiarEstado", {
       method: "PUT",
       headers: {
         Accept: "application/json",

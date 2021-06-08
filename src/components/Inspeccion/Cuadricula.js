@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import inspecOcular from "../../api/inspeccionOcular.api";
 
 export default class Cuadricula extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class Cuadricula extends Component {
 
   componentDidMount() {
     console.log(JSON.stringify({Codigo: localStorage.getItem("SolPatC")}));
-    fetch("http://localhost:3001/api/inspector/obtenerImagenes", {
+    fetch(inspecOcular.RUTA_BASE+"inspector/obtenerImagenes", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -57,7 +58,7 @@ export default class Cuadricula extends Component {
               <div className="col-lg-6 mb-4">
                 <img
                   className="w-50"
-                  src={"http://localhost:3001/" + doc.URL_Imagen}
+                  src={inspecOcular.RUTA_IMG + doc.URL_Imagen}
                   alt="uploaded pic"
                   //initial={{opacity: 0}}
                   //animate={{opacity: 1}}
@@ -73,61 +74,3 @@ export default class Cuadricula extends Component {
     );
   }
 }
-
-//-------------------------------------------------------------------------
-/*
-import React from "react";
-//import { motion } from 'framer-motion';
-
-const Cuadricula = ({selectedImg}) => {
-  const {docs} = fetch("http://localhost:3001/api/inspector/obtenerImagenes", {
-    method: "POST",
-    headers: {
-      //  mode: 'no-cors',
-      //"Content-Type": "application/json",
-    },
-    body:JSON.stringify({Codigo: 23})
-  })
-    .then(status)
-    .then((data) => data.json())
-    .then((data) => this.setState({docs: data}, () => console.log(data)));
-
-  function status(response) {
-    if (response && response.status >= 200 && response.status < 300) {
-      return Promise.resolve(response);
-    } else {
-      return Promise.reject(console.log("Error al conectar al servidor"));
-    }
-  }
-
-  return (
-    <div className="img-grid">
-      {docs &&
-        docs.map((doc) => (
-          //<motion.div className="img-wrap" key={doc.id}
-          <div
-            className="img-wrap"
-            key={doc.id}
-            layout
-            whileHover={{opacity: 1}}
-            s
-            onClick={() => (selectedImg = doc.url)}
-          >
-            {//<motion.img src={doc.url} alt="uploaded pic"
-            }
-            <img
-              src={doc.url}
-              alt="uploaded pic"
-              initial={{opacity: 0}}
-              animate={{opacity: 1}}
-              transition={{delay: 1}}
-            />
-            {//</motion.div>
-            }
-          </div>
-        ))}
-    </div>
-  );
-};*/
-
-//export default Cuadricula;

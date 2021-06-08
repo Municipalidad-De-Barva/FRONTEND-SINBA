@@ -2,6 +2,7 @@ import React, {Component} from "react";
 //import Header from "../Header/header";
 //import Footer from "../Footer/footer";
 import UploadForm from "./UploadForm";
+import inspecOcular from "../../api/inspeccionOcular.api";
 
 import "@fortawesome/fontawesome-free";
 const ref = React.createRef();
@@ -43,7 +44,7 @@ export default class FormInspecc extends Component {
   }
 
   solicitarDatosporCodigo(cod) {
-    fetch("http://localhost:3001/api/EspForm/selected", {
+    fetch(inspecOcular.RUTA_BASE+"EspForm/selected", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -130,7 +131,7 @@ export default class FormInspecc extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/inspector/agregar", {
+    fetch(inspecOcular.RUTA_BASE+"inspector/agregar", {
       method: "POST",
       headers: {
         Accept: "application/json",

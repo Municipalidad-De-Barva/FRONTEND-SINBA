@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+import inspecOcular from "../../api/inspeccionOcular.api";
 
 export default class PatenteRevision extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class PatenteRevision extends Component {
   }
   solicitarDatosporCodigo(cod) {
     console.log("mi codigo" + cod);
-    fetch("http://localhost:3001/api/patentes/obtenerPatentes", {
+    fetch(inspecOcular.RUTA_BASE+"patentes/obtenerPatentes", {
       method: "POST",
       headers: {
         Accept: "application/json",

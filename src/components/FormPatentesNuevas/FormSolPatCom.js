@@ -5,6 +5,7 @@ import PDF from "../PDFgenerator";
 import ModalDatosAdjunto from "./ModalDatosAdjunto";
 import "@fortawesome/fontawesome-free";
 import validaciones from "../../util/validaciones";
+import inspecOcular from "../../api/inspeccionOcular.api";
 const validacion = new validaciones();
 export default class FormSolPatCom extends Component {
   constructor(props) {
@@ -107,7 +108,7 @@ export default class FormSolPatCom extends Component {
       this.state
     );
 
-    fetch("http://localhost:3001/api/nuevoForm", {
+    fetch(inspecOcular.RUTA_BASE+"nuevoForm", {
       method: "POST",
       headers: {
         Accept: "application/json",

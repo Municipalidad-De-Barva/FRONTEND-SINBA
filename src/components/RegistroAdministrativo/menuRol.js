@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import inspecOcular from "../../api/inspeccionOcular.api";
 
 export default class Rol extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class Rol extends Component {
     this.listarRole();
   }
   listarRole() {
-    fetch("http://localhost:3001/api/role/list", {
+    fetch(inspecOcular.RUTA_BASE+"role/list", {
       method: "GET",
     })
       .then((res) => res.json())

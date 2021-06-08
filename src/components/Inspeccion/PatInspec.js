@@ -3,6 +3,7 @@ import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import FormInspecc from "./FormInspecc";
+import inspecOcular from "../../api/inspeccionOcular.api";
 export default class PatInspec extends Component {
   render() {
     return (
@@ -29,7 +30,7 @@ class PageList extends Component {
   }
 
   pedirFormularios() {
-    fetch("http://localhost:3001/api/allNForms/terminados", {
+    fetch(inspecOcular.RUTA_BASE+"allNForms/terminados", {
       method: "GET",
       headers: {
         Accept: "application/json",

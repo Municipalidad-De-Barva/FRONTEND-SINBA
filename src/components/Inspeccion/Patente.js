@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "@fortawesome/fontawesome-free";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+import inspecOcular from "../../api/inspeccionOcular.api";
 //import "./BodyIndex.css";
 export default class Patente extends Component {
   render() {
@@ -43,7 +44,7 @@ class Body extends Component {
     });
   };
   handleClick() {
-    fetch("http://localhost:3001/api/patentes/insertarPatentes", {
+    fetch(inspecOcular.RUTA_BASE+"patentes/insertarPatentes", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -68,7 +69,7 @@ class Body extends Component {
   }
   solicitarDatosporCodigo(cod) {
     console.log("mi codigo" + cod);
-    fetch("http://localhost:3001/api/certificado/patenteNueva", {
+    fetch(inspecOcular.RUTA_BASE+"certificado/patenteNueva", {
       method: "POST",
       headers: {
         Accept: "application/json",

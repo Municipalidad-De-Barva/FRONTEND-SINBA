@@ -4,6 +4,7 @@ import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import RevSolPatCom from "../RevSolPatCom";
 import Dashboard from "./DashboardPat";
+import inspecOcular from "../../api/inspeccionOcular.api";
 export default class PageListSolPatNuevaAprobadas extends Component {
   render() {
     return (
@@ -30,7 +31,7 @@ class PageList extends Component {
   }
 
   pedirFormularioNuevos() {
-    fetch("http://localhost:3001/api/allNForms/terminados", {
+    fetch(inspecOcular.RUTA_BASE+"allNForms/terminados", {
       method: "GET",
       headers: {
         Accept: "application/json",
