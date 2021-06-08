@@ -508,7 +508,6 @@ export default class FormSolPatCom extends Component {
                                 />
                                 <label> No </label>
                               </div>
-                              <p>utilizare repertorio musical (ACAM)</p>
                             </div>
                           </div>
                           {/*Fin Declaración jurada Solicitud*/}
